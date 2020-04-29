@@ -1,0 +1,21 @@
+@import "generic/layout/colors";
+
+.select__control,
+.select__control:hover,
+.select__control:focus {
+  border-color: $color-box-border !important;
+  box-shadow: none !important;
+}
+.select__menu {
+  z-index: 10000;
+  .select__option--is-selected {
+    background-color: $color-sidebar-hover !important;
+  }
+}
+.select__placeholder {
+  font-size: 12px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

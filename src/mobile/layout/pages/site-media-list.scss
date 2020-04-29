@@ -1,0 +1,22 @@
+@import "generic/layout/colors";
+
+.container-site-media-list {
+  margin-top: 50px;
+  .site-media-search {
+    .input-group {
+      height: 44px;
+      .input-group-text {
+        background-color: $color-white;
+        border-radius: 0px;
+        border: none;
+      }
+      input {
+        border: none;
+        height: 100%;
+      }
+    }
+  }
+  // .site-media-list {
+
+  // }
+}

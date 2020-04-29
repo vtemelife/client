@@ -1,0 +1,66 @@
+@import "generic/layout/colors";
+
+.user-container {
+  .sidebar {
+    margin-top: 10px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 90px;
+    width: 180px;
+    .nav-link {
+      color: $color-sidebar;
+      &:hover {
+        color: $color-sidebar-hover;
+      }
+      &.active {
+        background-color: transparent;
+        border-color: transparent;
+        color: $color-sidebar;
+      }
+    }
+  }
+
+  .under-sidebar {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 450px;
+    .nav-link {
+      font-size: 11px;
+    }
+  }
+
+  .contact {
+    margin: 5px;
+    float: left;
+  }
+
+  .contact h6 {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+
+  .user-photo {
+    margin: 5px;
+  }
+}
+
+.moderator-container {
+  .moderator-sidebar {
+    margin-top: 10px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 90px;
+    width: 180px;
+    .nav-link {
+      color: $color-sidebar;
+      &:hover {
+        color: $color-sidebar-hover;
+      }
+      &.active {
+        background-color: transparent;
+        border-color: transparent;
+        color: $color-sidebar;
+      }
+    }
+  }
+}

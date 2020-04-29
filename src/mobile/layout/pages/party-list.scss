@@ -1,0 +1,104 @@
+@import "generic/layout/colors";
+
+.container-parties {
+  margin-top: 50px;
+  .parties-search {
+    .input-group {
+      height: 44px;
+      .input-group-text {
+        background-color: $color-white;
+        border-radius: 0px;
+        border: none;
+      }
+      input {
+        border: none;
+        height: 100%;
+      }
+    }
+  }
+  .parties-list {
+    .parties-item:first-child {
+      margin-top: 10px;
+    }
+    .parties-item {
+      padding: 10px;
+      display: flex;
+      flex-flow: column;
+
+      .parties-header {
+        display: flex;
+        min-height: 60px;
+
+        .parties-avatar {
+          position: absolute;
+        }
+
+        .parties-title {
+          width: 90%;
+          display: flex;
+          flex-flow: column;
+          padding-top: 4px;
+          padding-left: 60px;
+          padding-right: 12px;
+
+          .parties-title-name {
+            overflow: hidden;
+            font-size: 15px;
+            line-height: 18px;
+            font-weight: 500;
+            color: $color-black;
+          }
+          .parties-title-geo {
+            text-align: left;
+
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            font-size: 12px;
+            color: $color-gray-hard;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            margin-top: 5px;
+          }
+        }
+        .parties-actions {
+          width: 10%;
+          text-align: right;
+          padding-right: 5px;
+        }
+      }
+      .parties-body {
+        .list-group-item {
+          padding: 10px 0px;
+          span.item-title {
+            color: $color-gray-hard;
+            margin-right: 5px;
+          }
+          &.actions {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            .btn {
+              min-width: 160px;
+            }
+            .dropdown {
+              a {
+                margin-top: 15px;
+                margin-bottom: 15px;
+              }
+            }
+          }
+        }
+        .parties-footer {
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+  .right-btns {
+    margin: auto;
+  }
+}

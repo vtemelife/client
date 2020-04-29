@@ -1,0 +1,31 @@
+.modal-comments {
+  height: 100%;
+  background-color: white;
+  .modal-header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: white;
+    height: 60px;
+    z-index: 1000;
+  }
+  .modal-dialog {
+    padding-top: 60px;
+    height: 100%;
+    border: none;
+    .modal-content {
+      border: none;
+      height: 100%;
+    }
+  }
+  .comments-form-message {
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-left: -15px;
+    margin-bottom: -15px;
+  }
+}

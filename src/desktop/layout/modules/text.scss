@@ -1,0 +1,28 @@
+@import "generic/layout/colors";
+
+.form-error {
+  border: 1px $color-error solid;
+}
+
+.text-error {
+  color: $color-error;
+}
+
+.text-waiting {
+  color: $color-waiting;
+}
+
+.text-break {
+  display: block;
+  word-wrap: break-word;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text-link {
+  color: $color-link;
+}

@@ -1,0 +1,21 @@
+@import "generic/layout/colors";
+
+.container-site-map {
+  margin-top: 50px;
+  .site-map-search {
+    .input-group {
+      height: 44px;
+      .input-group-text {
+        background-color: $color-white;
+        border-radius: 0px;
+        border: none;
+      }
+      input {
+        border: none;
+        height: 100%;
+      }
+    }
+  }
+  // .map-list {
+  // }
+}

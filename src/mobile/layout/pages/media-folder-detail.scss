@@ -1,0 +1,19 @@
+@import "generic/layout/colors";
+
+.container-media-folders-detail {
+  margin-top: 50px;
+  .media-folders-search {
+    .input-group {
+      height: 44px;
+      .input-group-text {
+        background-color: $color-white;
+        border-radius: 0px;
+        border: none;
+      }
+      input {
+        border: none;
+        height: 100%;
+      }
+    }
+  }
+}

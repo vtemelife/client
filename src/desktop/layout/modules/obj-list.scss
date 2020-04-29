@@ -1,0 +1,44 @@
+.object-list-container {
+  .object-header {
+    padding-top: 10px;
+
+    .object-title {
+      float: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: -8px;
+      margin-left: 3px;
+    }
+
+    .object-add {
+      float: right;
+      margin-right: 10px;
+    }
+
+    .object-search {
+      float: right;
+      max-width: 300px;
+      margin-top: -10px;
+    }
+  }
+
+  .object-list-element {
+    margin-right: 15px; // scroll
+  }
+
+  .card-footer {
+    padding: 0;
+    border-top: none;
+    border-radius: none;
+
+    .comments-form-message {
+      margin: 0;
+      .btn-sm {
+        margin-right: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

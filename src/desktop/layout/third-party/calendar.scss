@@ -1,0 +1,27 @@
+@import "generic/layout/colors";
+
+.event-calendar-container {
+  .rbc-calendar {
+    min-height: 500px;
+  }
+  .rbc-event,
+  .rbc-event-dot {
+    background-color: $color-btn-background !important;
+    border-color: $color-btn-border !important;
+    color: $color-btn !important;
+  }
+
+  button {
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+
+    background-image: none !important;
+  }
+  .rbc-current-time-indicator {
+    background-color: $color-btn-border !important;
+  }
+}

@@ -1,0 +1,121 @@
+@import "generic/layout/colors";
+
+.newspreview-container {
+  margin-top: 10px;
+
+  img {
+    cursor: pointer;
+  }
+
+  .title {
+    font-weight: bold;
+    color: $color-link;
+    margin-top: 10px;
+  }
+
+  .info {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .actions {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    margin-top: 5px;
+  }
+}
+
+.news-container {
+  .title-news {
+    margin-top: 15px;
+  }
+
+  .news {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+}
+
+.news-container {
+  .news-detail-block {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    .btn {
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .actions {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.preview-news-container {
+  margin-top: 10px;
+
+  img {
+    cursor: pointer;
+  }
+
+  .title {
+    font-weight: bold;
+    cursor: pointer;
+    color: $color-link;
+  }
+
+  .description {
+    margin-top: 5px;
+  }
+}
+
+.news-item-container {
+  .news-item-info {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+  .description-item-info {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+
+.news-container {
+  .news-detail-block {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    .btn {
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .actions {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}

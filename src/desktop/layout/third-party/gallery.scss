@@ -1,0 +1,29 @@
+.ReactGridGallery_tile:last-child {
+  margin-bottom: 50px !important;
+}
+
+#lightboxBackdrop {
+  z-index: 1200;
+  .gallery-control {
+    margin-top: 5px;
+    i {
+      color: $color-white;
+    }
+    span {
+      color: $color-white;
+    }
+    background-color: transparent;
+    border: 0px;
+  }
+}
+
+.modal-media-menu {
+  .list-group-item {
+    min-height: unset;
+  }
+  z-index: 1201;
+}
+
+.modal-comments {
+  z-index: 1201;
+}

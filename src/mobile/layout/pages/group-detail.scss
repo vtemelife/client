@@ -1,0 +1,202 @@
+.container-group {
+  margin-bottom: 50px;
+  margin-top: 40px;
+  .group-data {
+    .group-avatar {
+      padding-bottom: 20px;
+      img {
+        width: 100%;
+      }
+      h1 {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 24px;
+        padding: 10px;
+      }
+      .group-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .actions {
+          padding: 15px;
+        }
+      }
+      .info-line {
+        display: flex;
+        flex-direction: row;
+        padding: 7px 10px;
+        .info-icon i {
+          margin-right: 10px;
+          margin-top: 3px;
+        }
+
+        &.participants {
+          justify-content: space-between;
+          .about-icon {
+            width: 20px;
+          }
+          .participants-count {
+            width: 100px;
+          }
+          .participants-list {
+            width: calc(100% - 120px);
+            img {
+              width: 30px;
+              height: 30px;
+              float: right;
+              margin-left: -10px;
+            }
+          }
+        }
+        &.about {
+          .about-icon {
+            width: 20px;
+          }
+          .about-text {
+            width: calc(100% - 20px);
+          }
+        }
+        &.actions {
+          margin-top: 20px;
+          justify-content: space-between;
+          i {
+            margin-right: 5px;
+          }
+          .btn {
+            min-width: 160px;
+          }
+        }
+      }
+    }
+
+    .group-info {
+      h2 {
+        padding-top: 15px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+      }
+      .list-group-item {
+        padding: 10px 10px;
+        span.item-title {
+          color: $color-gray-hard;
+          margin-right: 5px;
+        }
+        .btn {
+          float: right;
+          min-width: 160px;
+        }
+        .social-link {
+          display: block;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .group-media {
+      padding-bottom: 10px;
+      h2 {
+        padding-top: 15px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+      }
+      .btn {
+        margin-left: 10px;
+      }
+      .empty-value {
+        padding: 10px;
+      }
+      .media-folder-items {
+        padding: 7px;
+        .ReactGridGallery_tile:last-child {
+          margin-bottom: unset !important;
+        }
+      }
+    }
+    .group-posts {
+      padding-bottom: 20px;
+      h2 {
+        padding-top: 15px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+      }
+      .btn {
+        margin-left: 10px;
+      }
+      .empty-value {
+        padding: 10px;
+      }
+      .post-items {
+        .site-post-item {
+          border-bottom: 1px solid $color-gray;
+          padding: 20px 10px;
+          display: flex;
+          flex-flow: column;
+
+          .site-post-header {
+            display: flex;
+            min-height: 60px;
+
+            .site-post-avatar {
+              position: absolute;
+            }
+
+            .site-post-title {
+              width: 90%;
+              display: flex;
+              flex-flow: column;
+              padding-top: 4px;
+              padding-left: 60px;
+              padding-right: 12px;
+
+              .site-post-title-name {
+                overflow: hidden;
+                font-size: 15px;
+                line-height: 18px;
+                font-weight: 500;
+                color: $color-black;
+              }
+              .site-post-title-geo {
+                text-align: left;
+
+                overflow: hidden;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                font-size: 12px;
+                color: $color-gray-hard;
+                -webkit-flex-shrink: 0;
+                -ms-flex-negative: 0;
+                flex-shrink: 0;
+                margin-top: 5px;
+              }
+            }
+            .site-post-actions {
+              width: 10%;
+              text-align: right;
+              padding-right: 5px;
+            }
+          }
+          .site-post-body {
+            .list-group-item {
+              padding: 0px;
+              span.item-title {
+                color: $color-gray-hard;
+                margin-right: 5px;
+              }
+            }
+            .site-post-footer {
+              padding-top: 15px;
+            }
+          }
+        }
+        .show-more {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

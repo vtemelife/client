@@ -1,0 +1,13 @@
+.participants-container {
+  max-height: 250px;
+  overflow-y: auto;
+
+  .participant {
+    margin: 5px;
+
+    .slug {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+}

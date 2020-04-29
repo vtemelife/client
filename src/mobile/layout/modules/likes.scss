@@ -1,0 +1,35 @@
+@import "generic/layout/colors";
+
+.likes-container {
+  margin-top: 5px;
+  .likes-info {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 5px;
+    .likes-info-box {
+      margin-left: 5px;
+      &:first-child {
+        margin-left: 0px;
+      }
+      i {
+        font-size: 15px;
+        padding-right: 2px;
+      }
+    }
+  }
+  .likes-actions {
+    margin: 0px;
+    padding: 0px;
+    padding-right: 5px;
+    .likes-info-box {
+      margin-right: 5px;
+    }
+    i {
+      font-size: 15px;
+      cursor: pointer;
+    }
+    span {
+      padding-left: 2px;
+    }
+  }
+}

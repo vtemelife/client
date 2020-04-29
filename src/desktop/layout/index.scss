@@ -1,0 +1,47 @@
+body.body-desktop {
+  @import "desktop/layout/body.scss";
+
+  @import "desktop/layout/third-party/bootstrap.scss";
+  @import "desktop/layout/third-party/calendar.scss";
+  @import "desktop/layout/third-party/ckeditor.scss";
+  @import "desktop/layout/third-party/confirm.scss";
+  @import "desktop/layout/third-party/datepicker.scss";
+  @import "desktop/layout/third-party/select.scss";
+  @import "desktop/layout/third-party/toastify.scss";
+  @import "desktop/layout/third-party/gallery.scss";
+
+  @import "desktop/layout/modules/obj-list.scss";
+  @import "desktop/layout/modules/header.scss";
+  @import "desktop/layout/modules/comments.scss";
+  @import "desktop/layout/modules/html-text.scss";
+  @import "desktop/layout/modules/likes.scss";
+  @import "desktop/layout/modules/loading.scss";
+  @import "desktop/layout/modules/participants.scss";
+  @import "desktop/layout/modules/requests.scss";
+  @import "desktop/layout/modules/sidebars.scss";
+  @import "desktop/layout/modules/text.scss";
+  @import "desktop/layout/modules/upload.scss";
+  @import "desktop/layout/modules/users.scss";
+  @import "desktop/layout/modules/video-gallery.scss";
+
+  @import "desktop/layout/pages/chat.scss";
+  @import "desktop/layout/pages/chat-detail.scss";
+  @import "desktop/layout/pages/clubs.scss";
+  @import "desktop/layout/pages/friends.scss";
+  @import "desktop/layout/pages/games.scss";
+  @import "desktop/layout/pages/groups.scss";
+  @import "desktop/layout/pages/media.scss";
+  @import "desktop/layout/pages/news.scss";
+  @import "desktop/layout/pages/parties.scss";
+  @import "desktop/layout/pages/posts.scss";
+  @import "desktop/layout/pages/profile.scss";
+  @import "desktop/layout/pages/search.scss";
+  @import "desktop/layout/pages/settings.scss";
+  @import "desktop/layout/pages/sign-in.scss";
+
+  @media screen and (max-width: 992px) {
+    & {
+      display: none;
+    }
+  }
+}

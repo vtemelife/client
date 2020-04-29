@@ -1,0 +1,59 @@
+@import "generic/layout/colors";
+
+& {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Segoe WP,
+    Helvetica Neue, Lucida Grande, Verdana, Tahoma, Arial, sans-serif !important;
+  -moz-osx-font-smoothing: grayscale;
+  background: $color-body-background;
+  font-size: 14px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a:not(.btn) {
+  color: $color-link;
+  cursor: pointer;
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+img,
+a,
+.select {
+  border: none;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}

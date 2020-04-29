@@ -1,0 +1,65 @@
+.games-fanty-card-container {
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .nav-item {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+    .nav-item:first-child {
+      margin-left: 0px;
+    }
+  }
+
+  .card-level {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .card-level-1,
+  &.active {
+    color: white !important;
+    background-color: yellowgreen !important;
+  }
+  .card-level-2,
+  &.active {
+    color: white !important;
+    background-color: darksalmon !important;
+  }
+  .card-level-3,
+  &.active {
+    color: white !important;
+    background-color: darkorange !important;
+  }
+  .card-level-4,
+  &.active {
+    color: white !important;
+    background-color: red !important;
+  }
+
+  .card-body {
+    min-height: 450px;
+
+    .card-image {
+      margin: 10px 20%;
+    }
+
+    .card-text {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card-btn {
+      font-size: 18px;
+    }
+  }
+}

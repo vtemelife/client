@@ -1,0 +1,16 @@
+.signin-container {
+  .sign-in-carousel {
+    display: none;
+  }
+}
+
+.signin-container,
+.signup-container,
+.signup-finish-container,
+.reset-password-container,
+.reset-password-finish-container {
+  margin-top: 80px;
+  .alert {
+    margin-bottom: 20px;
+  }
+}

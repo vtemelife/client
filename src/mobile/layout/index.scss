@@ -1,0 +1,179 @@
+body.body-mobile {
+  @import "mobile/layout/body.scss";
+  @import "mobile/layout/typography.scss";
+
+  @import "mobile/layout/third-party/bootstrap.scss";
+  @import "mobile/layout/third-party/select.scss";
+  @import "mobile/layout/third-party/ckeditor.scss";
+  @import "mobile/layout/third-party/emoji.scss";
+  @import "mobile/layout/third-party/toastify.scss";
+  @import "mobile/layout/third-party/confirm.scss";
+  @import "mobile/layout/third-party/datepicker.scss";
+  @import "mobile/layout/third-party/gallery.scss";
+
+  @import "desktop/layout/modules/obj-list.scss";
+  @import "desktop/layout/modules/comments.scss";
+  @import "desktop/layout/modules/html-text.scss";
+  @import "desktop/layout/modules/participants.scss";
+  @import "desktop/layout/modules/requests.scss";
+  @import "desktop/layout/modules/text.scss";
+  @import "desktop/layout/modules/users.scss";
+
+  @import "desktop/layout/pages/clubs.scss";
+  @import "desktop/layout/pages/games.scss";
+  @import "desktop/layout/pages/groups.scss";
+  @import "desktop/layout/pages/news.scss";
+  @import "desktop/layout/pages/parties.scss";
+  @import "desktop/layout/pages/posts.scss";
+  @import "desktop/layout/pages/profile.scss";
+  @import "desktop/layout/pages/sign-in.scss";
+
+  @import "mobile/layout/modules/header.scss";
+  @import "mobile/layout/modules/footer.scss";
+  @import "mobile/layout/modules/upload.scss";
+  @import "mobile/layout/modules/loading.scss";
+  @import "mobile/layout/modules/likes.scss";
+  @import "mobile/layout/modules/comments.scss";
+  @import "mobile/layout/modules/video-gallery.scss";
+
+  @import "mobile/layout/pages/auth.scss";
+  @import "mobile/layout/pages/menu.scss";
+  @import "mobile/layout/pages/profile.scss";
+  @import "mobile/layout/pages/news.scss";
+  @import "mobile/layout/pages/search.scss";
+  @import "mobile/layout/pages/notifications.scss";
+  @import "mobile/layout/pages/settings.scss";
+  @import "mobile/layout/pages/chat-list.scss";
+  @import "mobile/layout/pages/chat-detail.scss";
+  @import "mobile/layout/pages/chat-create.scss";
+  @import "mobile/layout/pages/chat-update.scss";
+  @import "mobile/layout/pages/conversation-create.scss";
+  @import "mobile/layout/pages/friends.scss";
+  @import "mobile/layout/pages/participants.scss";
+  @import "mobile/layout/pages/blacklist.scss";
+  @import "mobile/layout/pages/club-list.scss";
+  @import "mobile/layout/pages/club-create.scss";
+  @import "mobile/layout/pages/club-update.scss";
+  @import "mobile/layout/pages/club-detail.scss";
+  @import "mobile/layout/pages/group-list.scss";
+  @import "mobile/layout/pages/group-create.scss";
+  @import "mobile/layout/pages/group-update.scss";
+  @import "mobile/layout/pages/group-detail.scss";
+  @import "mobile/layout/pages/media-folder-list.scss";
+  @import "mobile/layout/pages/media-folder-create.scss";
+  @import "mobile/layout/pages/media-folder-update.scss";
+  @import "mobile/layout/pages/media-folder-detail.scss";
+  @import "mobile/layout/pages/media-create.scss";
+  @import "mobile/layout/pages/media-update.scss";
+  @import "mobile/layout/pages/party-list.scss";
+  @import "mobile/layout/pages/party-create.scss";
+  @import "mobile/layout/pages/party-update.scss";
+  @import "mobile/layout/pages/party-detail.scss";
+  @import "mobile/layout/pages/game-list.scss";
+  @import "mobile/layout/pages/game-update.scss";
+  @import "mobile/layout/pages/post-create.scss";
+  @import "mobile/layout/pages/post-update.scss";
+  @import "mobile/layout/pages/site-post-list.scss";
+  @import "mobile/layout/pages/site-media-list.scss";
+  @import "mobile/layout/pages/site-map.scss";
+  @import "mobile/layout/pages/requests.scss";
+
+  @media screen and (min-width: 992px) {
+    & {
+      display: none;
+    }
+  }
+
+  // backward compatibility
+  .row {
+    margin: 0px !important;
+  }
+
+  .col,
+  .col-lg,
+  .col-lg-1,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-auto {
+    padding: 0px !important;
+  }
+  .object-list-container,
+  .object-create-container,
+  .object-update-container,
+  .group-container,
+  .club-container,
+  .profile-container,
+  .party-container,
+  .game-container,
+  .media-detail-container,
+  .signin-container,
+  .signup-container,
+  .signup-finish-container,
+  .reset-password-container,
+  .reset-password-finish-container {
+    .card {
+      margin-bottom: 10px;
+      border-radius: 0px;
+      .object-search {
+        display: none;
+      }
+    }
+
+    .form-msg-area-container {
+      margin-bottom: 0px;
+    }
+
+    .media {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .btn {
+      font-size: 14px;
+    }
+  }
+  .comment-container {
+    &.depth-1 {
+      padding-left: unset !important;
+      margin-left: 30px !important;
+    }
+    &.depth-2 {
+      padding-left: unset !important;
+      margin-left: 60px !important;
+    }
+  }
+  .popover-comment {
+    width: 90%;
+    max-width: 100%;
+  }
+  .post-item-container {
+    .post-item-info {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .info {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+
+  .post-container {
+    .description {
+      .image-style-side {
+        float: unset;
+        width: 100%;
+      }
+    }
+  }
+}

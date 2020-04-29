@@ -1,0 +1,81 @@
+@import "generic/layout/colors";
+
+.btn,
+.btn:hover,
+.btn:focus,
+.btn.active {
+  color: $color-white;
+  border-radius: 0px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.active {
+  background-color: $color-green !important;
+  border-color: $color-green !important;
+}
+
+.btn-link {
+  color: $color-black;
+}
+
+.badge-primary {
+  background-color: $color-green;
+  border-color: $color-green;
+  color: $color-white;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.nav-link.active {
+  background-color: $color-white;
+}
+
+.nav-item.active {
+  background-color: $color-green;
+  border-color: $color-green;
+  color: $color-white;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+.modal {
+  z-index: 5000;
+  .modal-dialog {
+    margin: 0;
+    .modal-content {
+      border-radius: 0px;
+    }
+  }
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+.popover {
+  border-radius: 0px;
+}
+
+.list-group-item {
+  min-height: unset;
+}
+
+.modal-content {
+  .list-group-item {
+    a {
+      color: $color-black;
+    }
+  }
+}
+
+.alert {
+  border-radius: 0px;
+  padding: 10px;
+  margin-bottom: 0px;
+}

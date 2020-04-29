@@ -1,0 +1,43 @@
+.games-item-container {
+  .games-item-mobile-avatar {
+    margin-top: 5px;
+  }
+
+  .games-item-data {
+    .games-item-players {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    .games-item-description {
+      margin-top: 7px;
+      font-size: 13px;
+    }
+
+    .games-item-actions {
+      .btn {
+        margin-top: 10px;
+        margin-left: 10px;
+        float: right;
+      }
+    }
+  }
+}
+
+.game-container {
+  .game-action {
+    .btn {
+      margin-left: 5px;
+    }
+  }
+
+  .game-content {
+    padding-top: 20px;
+  }
+
+  .game-media {
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}

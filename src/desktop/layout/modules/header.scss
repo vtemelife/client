@@ -1,0 +1,90 @@
+@import "generic/layout/colors";
+
+.header-container {
+  margin-bottom: 70px;
+
+  .sidebar-toggler {
+    float: left;
+    margin-right: 10px;
+  }
+
+  .menu-toggler {
+    float: right;
+    margin-left: 10px;
+  }
+
+  .sidebar-toggler,
+  .menu-toggler {
+    width: 60px;
+    i {
+      font-size: 18px;
+    }
+  }
+
+  &.navbar {
+    height: 70px;
+    padding: 10px;
+    background-color: $color-navbar-background !important;
+
+    .navbar-brand,
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+      color: $color-navbar;
+      font-weight: bold;
+      font-size: 25px;
+      margin-right: 50px;
+    }
+
+    .nav-link {
+      color: $color-navbar;
+      &.active,
+      &:hover,
+      &:focus {
+        color: $color-navbar-hover;
+      }
+    }
+
+    .nav-icon {
+      color: $color-navbar;
+      padding-top: 5px;
+      margin-right: 10px;
+      height: 5px;
+      cursor: pointer;
+    }
+
+    .left-dropdown {
+      .dropdown-menu {
+        right: 0;
+        left: unset;
+      }
+    }
+
+    .dropdown-locale {
+      .dropdown-menu {
+        min-width: 70px;
+        width: 70px;
+      }
+    }
+
+    .dropdown {
+      &.dropdown-icon {
+        margin: 0px;
+      }
+
+      .dropdown-menu {
+        background-color: $color-navbar-background;
+        border-color: $color-navbar-background;
+
+        .dropdown-item {
+          background-color: $color-navbar-background;
+          color: $color-navbar;
+
+          &:hover {
+            background-color: $color-navbar-hover;
+            color: $color-navbar-background;
+          }
+        }
+      }
+    }
+  }
+}

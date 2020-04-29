@@ -1,0 +1,18 @@
+@import "generic/layout/colors";
+
+.select__control,
+.select__control:hover,
+.select__control:focus {
+  border-color: $color-box-border !important;
+  border-radius: 0px;
+  box-shadow: none !important;
+}
+.select__placeholder {
+  font-size: 14px;
+}
+.select__menu {
+  z-index: 10000;
+  .select__option--is-selected {
+    background-color: $color-sidebar-hover !important;
+  }
+}

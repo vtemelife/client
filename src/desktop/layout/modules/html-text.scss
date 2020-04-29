@@ -1,0 +1,28 @@
+@import "generic/layout/colors";
+
+.html-text-show-link {
+  margin-top: 5px;
+  color: $color-link;
+  display: block;
+  cursor: pointer;
+}
+
+.html-text {
+  line-height: 25px;
+}
+
+.html-text {
+  img {
+    width: 100%;
+  }
+}
+
+.html-text-cut {
+  display: block;
+  overflow: hidden;
+
+  word-wrap: break-word;
+  line-height: 25px;
+  max-height: 50px;
+  max-width: 100%;
+}

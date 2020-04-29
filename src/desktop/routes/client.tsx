@@ -1,0 +1,90 @@
+import { Url } from "routes/utils";
+
+export const CLIENT_URLS = {
+  INDEX: new Url("/"),
+  USER: {
+    INDEX: new Url("/"),
+    PROFILE: new Url("/:userSlug"),
+    POST_CREATE: new Url("/posts/create/"),
+    POST_UPDATE: new Url("/posts/update/:postSlug/"),
+    NEWS_LIST: new Url("/news/"),
+    NEWS_DETAIL: new Url("/news/:newsPk/"),
+    FRIEND_LIST: new Url("/friends/"),
+    FRIEND_REQUESTS: new Url("/friends/requests/"),
+    BLACKLIST_LIST: new Url("/blacklist/"),
+    CHAT_LIST: new Url("/chats/"),
+    CHAT_DETAIL: new Url("/chat/:chatPk/"),
+    CHAT_CREATE: new Url("/chats/create/"),
+    CHAT_UPDATE: new Url("/chats/update/:chatPk/"),
+    CHAT_CONVERSATION_CREATE: new Url("/chats/conversation/:recipientSlug/"),
+    CHAT_WITH_MODERATORS_CREATE: new Url("/chats/support/"),
+    GROUP_LIST: new Url("/groups/"),
+    GROUP_DETAIL: new Url("/group/:groupSlug/"),
+    GROUP_CREATE: new Url("/groups/create/"),
+    GROUP_UPDATE: new Url("/groups/update/:groupSlug/"),
+    GROUP_REQUESTS: new Url("/groups/requests/"),
+    GROUP_DETAIL_REQUESTS: new Url("/groups/requests/:groupSlug/"),
+    CLUB_LIST: new Url("/clubs/"),
+    CLUB_DETAIL: new Url("/club/:clubSlug/"),
+    CLUB_CREATE: new Url("/clubs/create/"),
+    CLUB_UPDATE: new Url("/clubs/update/:clubSlug/"),
+    CLUB_REQUESTS: new Url("/clubs/requests/"),
+    CLUB_DETAIL_REQUESTS: new Url("/clubs/requests/:clubSlug/"),
+    PARTY_LIST: new Url("/parties/"),
+    PARTY_DETAIL: new Url("/party/:partySlug/"),
+    PARTY_CREATE: new Url("/parties/create/"),
+    PARTY_UPDATE: new Url("/parties/update/:partySlug/"),
+    MEDIA_FOLDER_LIST: new Url("/media_folders/"),
+    MEDIA_FOLDER_DETAIL: new Url("/media_folder/:mediaFolderPk/"),
+    MEDIA_FOLDER_CREATE: new Url("/media_folders/create/"),
+    MEDIA_FOLDER_UPDATE: new Url("/media_folders/update/:mediaFolderPk/"),
+    MEDIA_FOLDER_DETAIL_MEDIA_DETAIL: new Url(
+      "/media_folders/detail/:mediaPk/"
+    ),
+    MEDIA_FOLDER_DETAIL_MEDIA_CREATE: new Url("/media_folders/media/create/"),
+    MEDIA_FOLDER_DETAIL_MEDIA_UPDATE: new Url(
+      "/media_folders/media/update/:mediaPk/"
+    ),
+    GAME_LIST: new Url("/games/"),
+    GAME_DETAIL: new Url("/games/detail/:gameSlug/"),
+    GAME_UPDATE: new Url("/games/update/:gameSlug/"),
+    GAME_PLAY: new Url("/game/:gameSlug/"),
+    SETTINGS: new Url("/settings/"),
+    SETTINGS_PROFILE: new Url("/settings/"),
+    SETTINGS_PASSWORD: new Url("/settings/passwords/"),
+    SETTINGS_REMOVE: new Url("/settings/remove/")
+  },
+  MODERATOR: {
+    INDEX: new Url("/moderator/"),
+    CHAT_LIST: new Url("/moderator/chats/"),
+    USER_LIST: new Url("/moderator/users/"),
+    CLUB_LIST: new Url("/moderator/clubs/"),
+    PARTY_LIST: new Url("/moderator/parties/"),
+    POST_LIST: new Url("/moderator/posts/"),
+    MEDIA_LIST: new Url("/moderator/media/"),
+    NEWS_LIST: new Url("/moderator/news/"),
+    NEWS_DETAIL: new Url("/moderator/news/:newsPk/"),
+    NEWS_CREATE: new Url("/moderator/news/create/"),
+    NEWS_UPDATE: new Url("/moderator/news/update/:newsPk/")
+  },
+  SEARCH: new Url("/search/"),
+  WHISPER: new Url("/whisper/"),
+  POSTS: new Url("/posts/"),
+  POSTS_DETAIL: new Url("/post/:postSlug/"),
+  MEDIA: new Url("/media/"),
+  MEDIA_DETAIL: new Url("/media/detail/:mediaPk/"),
+  MAP: new Url("/map/"),
+  AUTH: {
+    INDEX: new Url("/auth/"),
+    SIGN_IN: new Url("/auth/sign-in/"),
+    SIGN_UP: new Url("/auth/sign-up/:userPk/"),
+    SIGN_UP_FINISH: new Url("/auth/sign-up/finish/:userPk/"),
+    RESET_PASSWORD: new Url("/auth/reset-password/"),
+    RESET_PASSWORD_FINISH: new Url("/auth/reset-password/finish/:userPk/")
+  },
+  SITE_POLICY: new Url("/policy/"),
+  HTTP_PAGES: {
+    PAGE_403: new Url("/403/"),
+    PAGE_404: new Url("/404/")
+  }
+};

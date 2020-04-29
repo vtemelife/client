@@ -1,0 +1,95 @@
+@import "generic/layout/colors";
+
+.container-groups {
+  margin-top: 50px;
+  .groups-search {
+    .input-group {
+      height: 44px;
+      .input-group-text {
+        background-color: $color-white;
+        border-radius: 0px;
+        border: none;
+      }
+      input {
+        border: none;
+        height: 100%;
+      }
+    }
+  }
+  .groups-list {
+    .groups-item:first-child {
+      margin-top: 10px;
+    }
+    .groups-item {
+      padding: 10px;
+      display: flex;
+      flex-flow: column;
+
+      .groups-header {
+        display: flex;
+        min-height: 60px;
+
+        .groups-avatar {
+          position: absolute;
+        }
+
+        .groups-title {
+          width: 90%;
+          display: flex;
+          flex-flow: column;
+          padding-top: 4px;
+          padding-left: 60px;
+          padding-right: 12px;
+
+          .groups-title-name {
+            overflow: hidden;
+            font-size: 15px;
+            line-height: 18px;
+            font-weight: 500;
+            color: $color-black;
+          }
+          .groups-title-geo {
+            text-align: left;
+
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            font-size: 12px;
+            color: $color-gray-hard;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            margin-top: 5px;
+          }
+        }
+        .groups-actions {
+          width: 10%;
+          text-align: right;
+          padding-right: 5px;
+        }
+      }
+      .groups-body {
+        .list-group-item {
+          padding: 10px 0px;
+          span.item-title {
+            color: $color-gray-hard;
+            margin-right: 5px;
+          }
+          &.actions {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            .btn {
+              min-width: 160px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-btns {
+    margin: auto;
+  }
+}

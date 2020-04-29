@@ -1,0 +1,128 @@
+@import "generic/layout/colors";
+
+.container {
+  margin-top: 75px;
+}
+.card {
+  margin-top: 15px;
+}
+
+.nav-pills .nav-link.active {
+  background-color: $color-btn-background;
+}
+
+.nav-item .active {
+  background-color: $color-btn-background !important;
+  border-color: $color-btn-border !important;
+  color: $color-btn !important;
+}
+
+.nav-link,
+.dropdown-item,
+.card-title {
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.dropdown-item {
+  height: 35px;
+  padding-top: 10px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.active,
+.badge-primary {
+  background-color: $color-btn-background !important;
+  border-color: $color-btn-border !important;
+  color: $color-btn !important;
+}
+
+.btn-group-vertical {
+  .btn {
+    margin-top: 5px !important;
+  }
+}
+
+.card {
+  // background-color: $color-box-background;
+  border-color: $color-box-border;
+  transition: background 250ms linear;
+  color: $color-box;
+
+  .text-muted {
+    color: $color-box !important;
+  }
+
+  .card-title {
+    font-size: 14px;
+
+    &.object-search {
+      margin-bottom: 0px;
+    }
+
+    &.object-title {
+      padding-top: 6px;
+    }
+
+    a {
+      margin-top: -6px;
+    }
+
+    .object-title {
+      padding-top: 10px;
+      padding-left: 10px;
+    }
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-header {
+    padding: 5px;
+    margin: 0px;
+    height: 50px;
+    .row {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+}
+
+.media-body {
+  width: 0px;
+}
+
+.carousel {
+  .carousel-indicators li {
+    background-color: $color-link;
+  }
+
+  .carousel-caption {
+    color: $color-box;
+    font-weight: bold;
+  }
+
+  .carousel-control-prev-icon {
+    background-image: none;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid $color-link;
+  }
+
+  .carousel-control-next-icon {
+    background-image: none;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid $color-link;
+  }
+}

@@ -1,0 +1,31 @@
+@import "generic/layout/colors";
+
+.profile-container {
+  &.profile-left {
+    .edit-btn {
+      margin-top: 5px;
+    }
+  }
+
+  &.profile {
+    .title {
+      font-weight: bold;
+    }
+    .slug {
+      font-weight: bolder;
+      color: $color-sidebar;
+    }
+  }
+
+  .profile-container-actions {
+    .btn {
+      margin-top: 5px;
+    }
+  }
+
+  .title-last-seen {
+    float: right;
+    font-size: 10px;
+    text-transform: none;
+  }
+}

@@ -1,0 +1,11 @@
+env
+.env
+.git
+*.egg
+*.egg-info
+
+celerybeat.pid
+celerybeat-schedule
+
+*.py[cod]
+__pycache__

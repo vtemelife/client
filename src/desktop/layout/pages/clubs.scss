@@ -1,0 +1,35 @@
+.moderator-club-item-container {
+  .club-item-info {
+    font-size: 12px;
+    float: left;
+  }
+  .club-item-actions {
+    .btn {
+      margin-top: 10px;
+      margin-left: 10px;
+      float: right;
+    }
+  }
+}
+
+.club-item-container {
+  .club-item-info {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 5px;
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .club-item-description {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+}
+
+.club-container {
+  .club-content {
+    padding-top: 20px;
+  }
+}

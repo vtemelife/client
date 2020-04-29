@@ -1,0 +1,13 @@
+@import "generic/layout/colors";
+
+.Toastify {
+  .Toastify__toast--success {
+    background-color: $color-green !important;
+  }
+  .Toastify__toast--error {
+    background-color: $color-red !important;
+  }
+  .Toastify__toast {
+    border-radius: 3px;
+  }
+}

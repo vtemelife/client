@@ -1,0 +1,30 @@
+.likes-container {
+  margin-top: 5px;
+  .likes-info {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 15px;
+    .likes-info-box {
+      margin-left: 5px;
+      i {
+        font-size: 15px;
+        padding-right: 2px;
+      }
+    }
+  }
+  .likes-actions {
+    margin: 0px;
+    padding: 0px;
+    padding-right: 20px;
+    .likes-info-box {
+      margin-right: 5px;
+    }
+    i {
+      font-size: 15px;
+      cursor: pointer;
+    }
+    span {
+      padding-left: 2px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import "generic/layout/colors";
+
+.container-header {
+  .navbar {
+    background-color: $color-black;
+    height: 48px;
+    .nav-item {
+      color: $color-green;
+      font-size: 18px;
+      &.header-title {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      &.header-back {
+        margin-right: 25px;
+      }
+      &.header-menu {
+        cursor: pointer;
+        flex-grow: 1;
+        text-align: right;
+        display: flex;
+        flex-flow: row-reverse;
+        justify-content: right;
+        div {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}

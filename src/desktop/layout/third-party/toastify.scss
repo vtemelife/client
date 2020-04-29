@@ -1,0 +1,16 @@
+@import "generic/layout/colors";
+
+.Toastify {
+  .Toastify__toast-container {
+    margin-top: 50px !important;
+  }
+  .Toastify__toast--success {
+    background-color: $color-navbar-hover !important;
+  }
+  .Toastify__toast--error {
+    background-color: $color-error !important;
+  }
+  .Toastify__toast {
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,39 @@
+.moderator-party-item-container {
+  .party-item-info {
+    font-size: 12px;
+    float: left;
+  }
+  .party-item-actions {
+    .btn {
+      margin-top: 10px;
+      margin-left: 10px;
+      float: right;
+    }
+  }
+}
+
+.party-item-container {
+  .party-item-info {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 5px;
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .party-item-description {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  .solution {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+.party-container {
+  .party-content {
+    padding-top: 20px;
+  }
+}

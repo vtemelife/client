@@ -1,0 +1,21 @@
+@import "generic/layout/colors";
+
+.ck-editor {
+  width: 100%;
+  .ck-editor__top {
+    .ck-toolbar {
+      .ck.ck-list__item .ck-button.ck-on {
+        background-color: $color-green;
+      }
+      .ck-button {
+        position: static;
+      }
+    }
+  }
+  .ck-editor__editable_inline {
+    min-height: 200px;
+  }
+  .ck-sticky-panel__content_sticky {
+    margin-top: 50px;
+  }
+}

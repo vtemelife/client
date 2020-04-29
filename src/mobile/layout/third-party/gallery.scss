@@ -1,0 +1,17 @@
+.ReactGridGallery_tile:last-child {
+  margin-bottom: 50px !important;
+}
+
+#lightboxBackdrop {
+  .gallery-control {
+    margin-top: 5px;
+    i {
+      color: $color-white;
+    }
+    span {
+      color: $color-white;
+    }
+    background-color: transparent;
+    border: 0px;
+  }
+}

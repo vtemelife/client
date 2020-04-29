@@ -1,0 +1,11 @@
+.container-video-gallery {
+  .block {
+    padding-top: 5px;
+    padding-bottom: 15px;
+    .video-item-header {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+    }
+  }
+}

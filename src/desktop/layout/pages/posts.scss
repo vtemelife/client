@@ -1,0 +1,83 @@
+.post-item-container {
+  .post-item-info {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 5px;
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .post-item-description {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .likes {
+    margin-top: 5px;
+    margin-left: 10px;
+    float: left;
+    i {
+      font-size: 17px;
+    }
+    span {
+      padding-left: 5px;
+      font-size: 17px;
+    }
+  }
+}
+
+.post-item-container {
+  .post-item-info {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .info {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+.post-container {
+  .post-detail-block {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    .btn {
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .actions {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    img {
+      width: 100%;
+    }
+    .image {
+      width: 100%;
+    }
+    .image-style-side {
+      float: right;
+      width: 50%;
+    }
+  }
+
+  hr {
+    clear: both;
+  }
+
+  .object-list-container {
+    padding: 0;
+  }
+}

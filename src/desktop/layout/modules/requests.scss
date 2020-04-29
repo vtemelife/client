@@ -1,0 +1,15 @@
+.request-item-container {
+  .request-item-info {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 5px;
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .request-item-description {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+}

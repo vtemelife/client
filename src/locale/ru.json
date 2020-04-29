@@ -1,0 +1,4767 @@
+{
+  "A password reset code has been sent to your email. Enter it here.": {
+    "files": ["./src/desktop/containers/ResetPasswordFinish/index.tsx"],
+    "translate": "Код для сброса пароля бы выслан вам на почту. Введите его здесь.",
+    "fuzzy": false
+  },
+  "A password reset code will be sent to this email.": {
+    "files": ["./src/desktop/containers/ResetPassword/index.tsx"],
+    "translate": "Код для сброса пароль выслан вам на почту.",
+    "fuzzy": false
+  },
+  "A registration code has been sent to your email. Enter it here.": {
+    "files": ["./src/desktop/containers/SignUp/index.tsx"],
+    "translate": "Код регистрации был выслан вам на почту. Введите его здесь.",
+    "fuzzy": false
+  },
+  "About": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Обо мне",
+    "fuzzy": false
+  },
+  "About me": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Обо мне",
+    "fuzzy": false
+  },
+  "Access": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderUpdate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderCreate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderCreate/index.tsx"
+    ],
+    "translate": "Доступ",
+    "fuzzy": false
+  },
+  "Access denied.": {
+    "files": ["./src/utils.tsx"],
+    "translate": "Доступ запрещен.",
+    "fuzzy": false
+  },
+  "Actions": {
+    "files": [
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx"
+    ],
+    "translate": "Действия",
+    "fuzzy": false
+  },
+  "Add a link": {
+    "files": ["./src/generic/components/Form/FormInputArray/index.tsx"],
+    "translate": "Добавить ссылку",
+    "fuzzy": false
+  },
+  "Add a media folder": {
+    "files": ["./src/mobile/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Добавить медиа альбом",
+    "fuzzy": false
+  },
+  "Add to black list": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Добавить в черный список",
+    "fuzzy": false
+  },
+  "Add to friends": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Добавить в СВои",
+    "fuzzy": false
+  },
+  "Address": {
+    "files": [
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Адрес",
+    "fuzzy": false
+  },
+  "Address *": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Адрес ;",
+    "fuzzy": false
+  },
+  "Adult social network": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Социальная сеть для взрослых",
+    "fuzzy": false
+  },
+  "Age": {
+    "files": [
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Возраст",
+    "fuzzy": false
+  },
+  "Age limit 18+": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Ограничение возраста 18+",
+    "fuzzy": false
+  },
+  "All": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupMedia/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileMedia/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubMedia/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/PartyMedia/index.tsx",
+      "./src/generic/constants.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Все",
+    "fuzzy": false
+  },
+  "All News": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Все новости",
+    "fuzzy": false
+  },
+  "All chats have been read.": {
+    "files": ["./src/desktop/containers/User/ChatList/index.tsx"],
+    "translate": "Все чаты были прочитаны",
+    "fuzzy": false
+  },
+  "All folders": {
+    "files": ["./src/desktop/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Все папки",
+    "fuzzy": false
+  },
+  "All users": {
+    "files": [
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Все пользователи",
+    "fuzzy": false
+  },
+  "All users can see a folder": {
+    "files": ["./src/mobile/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Все пользователи видят альбом",
+    "fuzzy": false
+  },
+  "Apply": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx"
+    ],
+    "translate": "Применить",
+    "fuzzy": false
+  },
+  "Approve": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/mobile/components/RequestActions/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Одобрить",
+    "fuzzy": false
+  },
+  "Approve a real status": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Одобрить статус реальности",
+    "fuzzy": false
+  },
+  "Approve real?": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "Одобрить реал?",
+    "fuzzy": false
+  },
+  "Approved": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Одобрено",
+    "fuzzy": false
+  },
+  "Are you sure that you want to delete the media?": {
+    "files": [
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить медиа?",
+    "fuzzy": false
+  },
+  "Are you sure that you want to publish your photo in VTEME CONTENT menu for all users on site?": {
+    "files": [
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите опубликовать ваше фото в меню VTeme для всех пользователей на сайте?",
+    "fuzzy": false
+  },
+  "Are you sure that you want to publish your video in VTEME CONTENT menu for all users on site?": {
+    "files": [
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите опубликовать ваше видео в меню VTeme для всех пользователей на сайте?",
+    "fuzzy": false
+  },
+  "Are you sure want to publish the article in <Article> header section.": {
+    "files": ["./src/desktop/containers/PostDetail/index.tsx"],
+    "translate": "Вы уверены что хотите опубликовать статью в меню <Статьи> на сайте.",
+    "fuzzy": false
+  },
+  "Are you sure want to publish the article in <Whisper> header section.": {
+    "files": ["./src/desktop/containers/PostDetail/index.tsx"],
+    "translate": "Вы уверены что хотите опубликовать статью в меню <Шопот> на сайте.",
+    "fuzzy": false
+  },
+  "Are you sure want to publish the photo/video in the Media header section?": {
+    "files": ["./src/desktop/containers/MediaDetail/index.tsx"],
+    "translate": "Вы уверены, что хотите опубликовать фото/видео в разделе Медиа?",
+    "fuzzy": true
+  },
+  "Are you sure you want to add the user to friends?": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Вы уверены, что хотите добавить пользователя в СВои?",
+    "fuzzy": false
+  },
+  "Are you sure you want to approve the club?": {
+    "files": ["./src/desktop/containers/Moderator/ClubList/index.tsx"],
+    "translate": "Вы уверены, что вы хотите одобрить клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to approve the media?": {
+    "files": ["./src/desktop/containers/Moderator/MediaList/index.tsx"],
+    "translate": "Вы уверены, что хотите одобрить медиа?",
+    "fuzzy": false
+  },
+  "Are you sure you want to approve the party?": {
+    "files": ["./src/desktop/containers/Moderator/PartyList/index.tsx"],
+    "translate": "Вы уверены что хотите одобрить вечеринку?",
+    "fuzzy": false
+  },
+  "Are you sure you want to approve the post?": {
+    "files": ["./src/desktop/containers/Moderator/PostList/PostItem/index.tsx"],
+    "translate": "Вы уверены, что хотите одобрить статью?",
+    "fuzzy": false
+  },
+  "Are you sure you want to ban the club?": {
+    "files": ["./src/desktop/containers/Moderator/ClubList/index.tsx"],
+    "translate": "Вы уверены, что хотите забанить клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to ban the media?": {
+    "files": [
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите забанить медиа?",
+    "fuzzy": false
+  },
+  "Are you sure you want to ban the party?": {
+    "files": ["./src/desktop/containers/Moderator/PartyList/index.tsx"],
+    "translate": "Вы уверены что хотите забанить вечеринку?",
+    "fuzzy": false
+  },
+  "Are you sure you want to ban the post?": {
+    "files": ["./src/desktop/containers/Moderator/PostList/PostItem/index.tsx"],
+    "translate": "Вы уверен что хотите забаннить статью?",
+    "fuzzy": false
+  },
+  "Are you sure you want to ban the user?": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "Вы уверены, что хотите забаннить пользователя?",
+    "fuzzy": false
+  },
+  "Are you sure you want to decline the club?": {
+    "files": ["./src/desktop/containers/Moderator/ClubList/index.tsx"],
+    "translate": "Вы уверены, что хотите отклонить клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to decline the media?": {
+    "files": ["./src/desktop/containers/Moderator/MediaList/index.tsx"],
+    "translate": "Вы уверены, что хотите отклонить медиа?",
+    "fuzzy": false
+  },
+  "Are you sure you want to decline the party?": {
+    "files": ["./src/desktop/containers/Moderator/PartyList/index.tsx"],
+    "translate": "Вы уверены что хотите отклонить вечеринку?",
+    "fuzzy": false
+  },
+  "Are you sure you want to decline the post?": {
+    "files": ["./src/desktop/containers/Moderator/PostList/PostItem/index.tsx"],
+    "translate": "Вы уверен что хотите отклонить статью?",
+    "fuzzy": false
+  },
+  "Are you sure you want to decline?": {
+    "files": ["./src/desktop/containers/Moderator/HotDaitingList/index.tsx"],
+    "translate": "Вы уверены, что хотите отклонить?",
+    "fuzzy": true
+  },
+  "Are you sure you want to delete the article?": {
+    "files": ["./src/desktop/containers/PostDetail/index.tsx"],
+    "translate": "Вы уверены, что хотите удалить статью?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the chat?": {
+    "files": [
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить чат?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the club?": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the game?": {
+    "files": [
+      "./src/desktop/containers/User/GameDetail/index.tsx",
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить игру?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the group?": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить группу?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the media folder?": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить медиа альбом?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the media?": {
+    "files": ["./src/desktop/containers/MediaDetail/index.tsx"],
+    "translate": "Вы уверены, что хотите удалить медиа?",
+    "fuzzy": true
+  },
+  "Are you sure you want to delete the news?": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsDetail/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить новость?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the party?": {
+    "files": [
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить вечеринку?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the post?": {
+    "files": [
+      "./src/desktop/components/BlockPosts/PostPreview/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить пост?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the profile?": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/RemoveProfile/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить свой профайл?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the request to join the club?": {
+    "files": ["./src/mobile/containers/User/ClubDetail/index.tsx"],
+    "translate": "Вы уверена вы хотите удалить запрос на вступление в клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the request to join the group?": {
+    "files": [
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Вы уверены вы хотите удалить запросы на добавление в группу?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the request to join this club?": {
+    "files": ["./src/mobile/containers/User/ClubList/index.tsx"],
+    "translate": "Вы уверены что хотите удалить запрос на вступление в клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the request?": {
+    "files": [
+      "./src/desktop/components/BlockRequests/RequestObjectPreview/index.tsx",
+      "./src/mobile/components/RequestActions/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить запрос?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the user from black list?": {
+    "files": ["./src/desktop/containers/User/BlackList/index.tsx"],
+    "translate": "Вы уверены, что хотите удалить пользователя из черного списка?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the user from friends?": {
+    "files": [
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите удалить пользователя из СВоих?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the user from the blacklist?": {
+    "files": ["./src/mobile/containers/User/BlackList/index.tsx"],
+    "translate": "Вы уверены, что хотите удалить пользователя из черного списка?",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete your profile?": {
+    "files": ["./src/mobile/containers/User/Settings/index.tsx"],
+    "translate": "Вы уверены что хотите удалить свой профайл?",
+    "fuzzy": false
+  },
+  "Are you sure you want to drop the user from friends?": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "Вы уверены, что хотите удалить пользователя из СВоих?",
+    "fuzzy": false
+  },
+  "Are you sure you want to give the user 'Member' status?": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "Вы уверены, что хотите выдать статус участник пользователю?",
+    "fuzzy": false
+  },
+  "Are you sure you want to leave the chat?": {
+    "files": [
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите покинуть чат?",
+    "fuzzy": false
+  },
+  "Are you sure you want to leave the club?": {
+    "files": [
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите покинуть клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to leave the group?": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите покинуть группу?",
+    "fuzzy": false
+  },
+  "Are you sure you want to read all chats?": {
+    "files": [
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите прочитать непрочитанные чаты?",
+    "fuzzy": false
+  },
+  "Are you sure you want to unban the club?": {
+    "files": ["./src/desktop/containers/Moderator/ClubList/index.tsx"],
+    "translate": "Вы уверены, что хотите разбанить клуб?",
+    "fuzzy": false
+  },
+  "Are you sure you want to unban the media?": {
+    "files": [
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx"
+    ],
+    "translate": "Вы уверены, что хотите разбанить медиа?",
+    "fuzzy": false
+  },
+  "Are you sure you want to unban the party?": {
+    "files": ["./src/desktop/containers/Moderator/PartyList/index.tsx"],
+    "translate": "Вы уверены что хотите разбанить вечеринку?",
+    "fuzzy": false
+  },
+  "Are you sure you want to unban the post?": {
+    "files": ["./src/desktop/containers/Moderator/PostList/PostItem/index.tsx"],
+    "translate": "Вы уверен что хотите разбаннить статью?",
+    "fuzzy": false
+  },
+  "Are you sure you want to unban the user?": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "Вы уверены, что хотите разбаннить пользователя?",
+    "fuzzy": false
+  },
+  "Are you sure?": {
+    "files": [
+      "./src/desktop/containers/Generics/Delete/index.tsx",
+      "./src/desktop/containers/PostDetail/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/NewsDetail/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx",
+      "./src/desktop/containers/User/GameDetail/index.tsx",
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/components/DeleteItem/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Вы уверены?",
+    "fuzzy": false
+  },
+  "Articles": {
+    "files": [
+      "./src/desktop/containers/Posts/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx"
+    ],
+    "translate": "Статьи",
+    "fuzzy": false
+  },
+  "Articles (banned)": {
+    "files": ["./src/desktop/containers/Moderator/PostList/index.tsx"],
+    "translate": "Статьи (забанненые)",
+    "fuzzy": false
+  },
+  "Attach images": {
+    "files": ["./src/generic/components/Form/FormMsgArea/MsgArea/index.tsx"],
+    "translate": "Прикрепить картинки",
+    "fuzzy": false
+  },
+  "Avatar": {
+    "files": [
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Аватар",
+    "fuzzy": false
+  },
+  "BDSM": {
+    "files": ["./src/generic/constants.tsx", "./src/generic/constants.tsx"],
+    "translate": "BDSM",
+    "fuzzy": false
+  },
+  "BDSM articles": {
+    "files": [
+      "./src/desktop/containers/Posts/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx"
+    ],
+    "translate": "BDSM статьи",
+    "fuzzy": true
+  },
+  "BDSM bottom": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "BDSM нижний",
+    "fuzzy": false
+  },
+  "BDSM histories": {
+    "files": [
+      "./src/desktop/containers/Posts/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "BDSM истории",
+    "fuzzy": false
+  },
+  "BDSM switch": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "BDSM свитч",
+    "fuzzy": false
+  },
+  "BDSM top": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "BDSM верхний",
+    "fuzzy": false
+  },
+  "Banned": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Забанненые",
+    "fuzzy": false
+  },
+  "Birthday": {
+    "files": [
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Год рождения",
+    "fuzzy": false
+  },
+  "Birthday *": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Год рождения *",
+    "fuzzy": false
+  },
+  "Birthday 1980": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Год рождения 1980",
+    "fuzzy": false
+  },
+  "Birthday M": {
+    "files": [
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Год рождения М",
+    "fuzzy": false
+  },
+  "Birthday M *": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Год рождения М *",
+    "fuzzy": false
+  },
+  "Birthday W": {
+    "files": [
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Год рождения Ж",
+    "fuzzy": false
+  },
+  "Birthday W *": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Год рождения Ж *",
+    "fuzzy": false
+  },
+  "Black List": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "Черный список",
+    "fuzzy": false
+  },
+  "Black list": {
+    "files": [
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/mobile/containers/User/BlackList/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx"
+    ],
+    "translate": "Черный список",
+    "fuzzy": false
+  },
+  "Cancel": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Отклонить",
+    "fuzzy": false
+  },
+  "Category": {
+    "files": [
+      "./src/desktop/components/BlockNews/NewsPreview/index.tsx",
+      "./src/desktop/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Категории",
+    "fuzzy": false
+  },
+  "Change password": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Изменить пароль",
+    "fuzzy": false
+  },
+  "Change profile": {
+    "files": [
+      "./src/desktop/components/ResponseErrors/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/components/GuestAlert/index.tsx"
+    ],
+    "translate": "Изменить профайл",
+    "fuzzy": false
+  },
+  "Chat": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx"
+    ],
+    "translate": "Чат",
+    "fuzzy": false
+  },
+  "Chat with support": {
+    "files": [
+      "./src/desktop/components/ResponseErrors/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/GameDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Чат с поддержкой",
+    "fuzzy": false
+  },
+  "Chats": {
+    "files": [
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx"
+    ],
+    "translate": "Чаты",
+    "fuzzy": false
+  },
+  "Choose a radius": {
+    "files": ["./src/desktop/components/BlockMap/index.tsx"],
+    "translate": "Выберите радиус",
+    "fuzzy": true
+  },
+  "Choose a theme.": {
+    "files": ["./src/desktop/containers/Moderator/PostList/PostItem/index.tsx"],
+    "translate": "Выберите тему.",
+    "fuzzy": false
+  },
+  "Choose an area": {
+    "files": [
+      "./src/desktop/components/BlockMap/index.tsx",
+      "./src/desktop/components/BlockMap/index.tsx"
+    ],
+    "translate": "Выберите зону",
+    "fuzzy": true
+  },
+  "City": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Город",
+    "fuzzy": false
+  },
+  "Click here and choose an avatar": {
+    "files": ["./src/mobile/containers/User/Settings/index.tsx"],
+    "translate": "Нажмите здесь чтобы выбрать аватар",
+    "fuzzy": false
+  },
+  "Click here to choose your files": {
+    "files": ["./src/generic/components/Form/FormFilesUpload/index.tsx"],
+    "translate": "Нажмите здесь чтобы выбрать файлы",
+    "fuzzy": false
+  },
+  "Click here to choose your image": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Нажмите здесь чтобы выбрать картинку",
+    "fuzzy": false
+  },
+  "Click here to choose your images": {
+    "files": ["./src/generic/components/Form/FormMsgArea/MsgArea/index.tsx"],
+    "translate": "Нажмите здесь чтобы выбрать картинки",
+    "fuzzy": false
+  },
+  "Click to see details": {
+    "files": [
+      "./src/desktop/components/BlockSiteMap/index.tsx",
+      "./src/mobile/components/MapArea/index.tsx",
+      "./src/generic/components/MapArea/index.tsx"
+    ],
+    "translate": "Нажмите чтобы увидеть детали",
+    "fuzzy": false
+  },
+  "Close": {
+    "files": [
+      "./src/mobile/containers/User/ChatDetail/index.tsx",
+      "./src/generic/constants.tsx",
+      "./src/mobile/containers/User/Profile/ProfileMobile/index.tsx"
+    ],
+    "translate": "Закрыть",
+    "fuzzy": false
+  },
+  "Close swing": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Закрытый свинг",
+    "fuzzy": false
+  },
+  "Club": {
+    "files": [
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Клуб",
+    "fuzzy": false
+  },
+  "Club info": {
+    "files": ["./src/mobile/containers/User/ClubDetail/index.tsx"],
+    "translate": "Детали клуба",
+    "fuzzy": false
+  },
+  "Clubs": {
+    "files": [
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/User/SiteMap/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Клубы",
+    "fuzzy": false
+  },
+  "Clubs (ban)": {
+    "files": ["./src/desktop/containers/Moderator/ClubList/index.tsx"],
+    "translate": "Клубы (забанненые)",
+    "fuzzy": false
+  },
+  "Clubs: New articles": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Клубы: Новые статьи",
+    "fuzzy": false
+  },
+  "Clubs: New media": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Клубы: Новые медиа",
+    "fuzzy": false
+  },
+  "Clubs: New parties": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Клубы: Новые вечеринки",
+    "fuzzy": false
+  },
+  "Code": {
+    "files": ["./src/desktop/containers/SignUp/index.tsx"],
+    "translate": "Код",
+    "fuzzy": false
+  },
+  "Comments": {
+    "files": [
+      "./src/desktop/components/BlockComments/index.tsx",
+      "./src/mobile/components/ModalComments/index.tsx",
+      "./src/generic/components/ModalComments/index.tsx"
+    ],
+    "translate": "Комментарии",
+    "fuzzy": false
+  },
+  "Complete your profile and get 'Member' role. Provide the avatar and 'About me' information.": {
+    "files": [
+      "./src/desktop/components/ResponseErrors/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/components/GuestAlert/index.tsx"
+    ],
+    "translate": "Заполните свой профиль и получите роль 'Участник'. Заполните поля 'Аватар' и 'Обо мне'.",
+    "fuzzy": false
+  },
+  "Confirm": {
+    "files": ["./src/desktop/containers/SignUp/index.tsx"],
+    "translate": "Подтверждение",
+    "fuzzy": false
+  },
+  "Confirm registration": {
+    "files": ["./src/desktop/containers/SignUp/index.tsx"],
+    "translate": "Подтверждение регистрации",
+    "fuzzy": false
+  },
+  "Contacts": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "Контакты",
+    "fuzzy": false
+  },
+  "Continue registration": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Продолжение регистрации",
+    "fuzzy": false
+  },
+  "Copy and paste video code here": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx"
+    ],
+    "translate": "Скопируйте видео код сюда",
+    "fuzzy": true
+  },
+  "Copy and paste video embed code here": {
+    "files": [
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx"
+    ],
+    "translate": "Скопируйте видео код сюда",
+    "fuzzy": false
+  },
+  "Copy and paste video url or embed code here": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaUpdate/index.tsx"
+    ],
+    "translate": "Скопируйте url видео или embed код сюда",
+    "fuzzy": false
+  },
+  "Cost": {
+    "files": ["./src/desktop/containers/User/PartyDetail/index.tsx"],
+    "translate": "Цена",
+    "fuzzy": false
+  },
+  "Costs": {
+    "files": ["./src/mobile/containers/User/PartyDetail/index.tsx"],
+    "translate": "Стоимость",
+    "fuzzy": false
+  },
+  "Count of participants": {
+    "files": ["./src/mobile/containers/User/PartyDetail/index.tsx"],
+    "translate": "Кол-во участников",
+    "fuzzy": false
+  },
+  "Country": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Страна",
+    "fuzzy": false
+  },
+  "Couple MM": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Пара ММ",
+    "fuzzy": false
+  },
+  "Couple MW": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Пара МЖ",
+    "fuzzy": false
+  },
+  "Couple WW": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Пара ЖЖ",
+    "fuzzy": false
+  },
+  "Couples": {
+    "files": [
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Пара",
+    "fuzzy": false
+  },
+  "Create": {
+    "files": [
+      "./src/desktop/containers/Generics/Create/index.tsx",
+      "./src/desktop/containers/Generics/List/index.tsx"
+    ],
+    "translate": "Создать",
+    "fuzzy": false
+  },
+  "Create a chat": {
+    "files": [
+      "./src/desktop/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx"
+    ],
+    "translate": "Создать чат",
+    "fuzzy": false
+  },
+  "Create a club": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Создать клуб",
+    "fuzzy": false
+  },
+  "Create a dialog": {
+    "files": [
+      "./src/mobile/containers/User/ChatConversationCreate/index.tsx",
+      "./src/mobile/containers/User/ChatConversationCreate/index.tsx"
+    ],
+    "translate": "Создать диалог",
+    "fuzzy": false
+  },
+  "Create a group": {
+    "files": [
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx"
+    ],
+    "translate": "Создать группу",
+    "fuzzy": false
+  },
+  "Create a media": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupMedia/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubMedia/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/PartyMedia/index.tsx",
+      "./src/mobile/containers/User/MediaCreate/index.tsx"
+    ],
+    "translate": "Создать медиа",
+    "fuzzy": false
+  },
+  "Create a media folder": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderList/index.tsx",
+      "./src/desktop/containers/User/MediaFolderCreate/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileMedia/index.tsx",
+      "./src/mobile/containers/User/MediaFolderCreate/index.tsx"
+    ],
+    "translate": "Создать медиа альбом",
+    "fuzzy": false
+  },
+  "Create a party": {
+    "files": [
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Создать вечеринку",
+    "fuzzy": false
+  },
+  "Create a post": {
+    "files": [
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx"
+    ],
+    "translate": "Создать пост",
+    "fuzzy": false
+  },
+  "Create news": {
+    "files": ["./src/desktop/containers/Moderator/NewsCreate/index.tsx"],
+    "translate": "Создать новость",
+    "fuzzy": false
+  },
+  "Create the club": {
+    "files": ["./src/mobile/containers/User/ClubCreate/index.tsx"],
+    "translate": "Создать клуб",
+    "fuzzy": false
+  },
+  "Created successfully.": {
+    "files": [
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Создано успешно",
+    "fuzzy": false
+  },
+  "Cuckold": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Куколд",
+    "fuzzy": false
+  },
+  "Cuckqueen": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Куквин",
+    "fuzzy": false
+  },
+  "Date of publication": {
+    "files": [
+      "./src/desktop/components/BlockNews/NewsPreview/index.tsx",
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx"
+    ],
+    "translate": "Дата публикации",
+    "fuzzy": false
+  },
+  "Decline": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/mobile/components/RequestActions/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Отклонить",
+    "fuzzy": false
+  },
+  "Declined": {
+    "files": [
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Отклонить",
+    "fuzzy": false
+  },
+  "Delete": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/generic/components/Form/FormFilesUpload/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/Message/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/Message/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/desktop/components/BlockComments/Comment/index.tsx"
+    ],
+    "translate": "Удалить",
+    "fuzzy": false
+  },
+  "Delete error": {
+    "files": ["./src/generic/components/Form/FormFilesUpload/index.tsx"],
+    "translate": "Ошибка удаления",
+    "fuzzy": false
+  },
+  "Delete the chat": {
+    "files": ["./src/mobile/containers/User/ChatDetail/index.tsx"],
+    "translate": "Удалить чат",
+    "fuzzy": false
+  },
+  "Delete the club": {
+    "files": ["./src/mobile/containers/User/ClubDetail/index.tsx"],
+    "translate": "Удалить клуб",
+    "fuzzy": false
+  },
+  "Delete the group": {
+    "files": ["./src/mobile/containers/User/GroupDetail/index.tsx"],
+    "translate": "Удалить группу",
+    "fuzzy": false
+  },
+  "Delete the media folder": {
+    "files": ["./src/mobile/containers/User/MediaFolderDetail/index.tsx"],
+    "translate": "Удалить медиа альбом",
+    "fuzzy": false
+  },
+  "Delete the party": {
+    "files": ["./src/mobile/containers/User/PartyDetail/index.tsx"],
+    "translate": "Удалить вечеринку",
+    "fuzzy": false
+  },
+  "Delete you profile": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/RemoveProfile/index.tsx"
+    ],
+    "translate": "Удалить свой профайл",
+    "fuzzy": false
+  },
+  "Delete your profile": {
+    "files": ["./src/mobile/containers/User/Settings/index.tsx"],
+    "translate": "Удалить свой профайл",
+    "fuzzy": false
+  },
+  "Deleted successfully.": {
+    "files": [
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Удалено",
+    "fuzzy": false
+  },
+  "Description": {
+    "files": [
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Описание",
+    "fuzzy": false
+  },
+  "Details": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Детали",
+    "fuzzy": false
+  },
+  "Dialogs": {
+    "files": ["./src/desktop/containers/User/ChatList/index.tsx"],
+    "translate": "Диалоги",
+    "fuzzy": false
+  },
+  "Drag and drop the marker on the map": {
+    "files": [
+      "./src/desktop/components/BlockMap/index.tsx",
+      "./src/desktop/components/BlockMap/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Передвигайте маркер на карте",
+    "fuzzy": false
+  },
+  "Drop from friends": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Удалить из СВоих",
+    "fuzzy": false
+  },
+  "Drop your request": {
+    "files": [
+      "./src/mobile/components/RequestActions/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Удалить ваш запрос",
+    "fuzzy": false
+  },
+  "Email": {
+    "files": [
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Почта",
+    "fuzzy": false
+  },
+  "Email or slug": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Почта или идентификатор",
+    "fuzzy": true
+  },
+  "End Date": {
+    "files": [
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Дата окончания",
+    "fuzzy": false
+  },
+  "End date": {
+    "files": [
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx"
+    ],
+    "translate": "Дата окончания",
+    "fuzzy": false
+  },
+  "End date *": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Дата окончания *",
+    "fuzzy": false
+  },
+  "End of publication": {
+    "files": ["./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx"],
+    "translate": "окончание публикации",
+    "fuzzy": false
+  },
+  "Enter your nickname": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Введите ваш никнейм",
+    "fuzzy": true
+  },
+  "Everyone has an access": {
+    "files": ["./src/desktop/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Для всех",
+    "fuzzy": false
+  },
+  "Family MW": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Семья МЖ",
+    "fuzzy": false
+  },
+  "Feedback": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Отзывы",
+    "fuzzy": true
+  },
+  "Filters": {
+    "files": [
+      "./src/desktop/components/BlockRequests/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/index.tsx",
+      "./src/desktop/containers/SiteMap/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/MediaFolderList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupDetailRequests/index.tsx",
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubDetailRequests/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Media/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx"
+    ],
+    "translate": "Фильтры",
+    "fuzzy": false
+  },
+  "Finish registration": {
+    "files": ["./src/desktop/containers/SignUpFinish/index.tsx"],
+    "translate": "Окончание регистрации",
+    "fuzzy": false
+  },
+  "For Couple:": {
+    "files": ["./src/desktop/containers/User/PartyDetail/index.tsx"],
+    "translate": "Для пары",
+    "fuzzy": false
+  },
+  "For M:": {
+    "files": ["./src/desktop/containers/User/PartyDetail/index.tsx"],
+    "translate": "Для М",
+    "fuzzy": false
+  },
+  "For W:": {
+    "files": ["./src/desktop/containers/User/PartyDetail/index.tsx"],
+    "translate": "Для Ж",
+    "fuzzy": false
+  },
+  "Forgot your password?": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Забыли ваш пароль?",
+    "fuzzy": false
+  },
+  "Format": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Формат",
+    "fuzzy": false
+  },
+  "Formats": {
+    "files": [
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Форматы",
+    "fuzzy": false
+  },
+  "Friends": {
+    "files": [
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/Friends/index.tsx",
+      "./src/mobile/containers/User/Friends/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx"
+    ],
+    "translate": "СВои",
+    "fuzzy": false
+  },
+  "Friends online": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "СВои онлайн",
+    "fuzzy": false
+  },
+  "Friends: Change profile": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "СВои: Изменение профайла",
+    "fuzzy": false
+  },
+  "Friends: New articles": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "СВои: Новые статьи",
+    "fuzzy": false
+  },
+  "Friends: New media": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "СВои: Новые медиа",
+    "fuzzy": false
+  },
+  "Games": {
+    "files": [
+      "./src/desktop/containers/User/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx"
+    ],
+    "translate": "Игры",
+    "fuzzy": false
+  },
+  "Gang Bang": {
+    "files": ["./src/generic/constants.tsx", "./src/generic/constants.tsx"],
+    "translate": "Ганг банг",
+    "fuzzy": false
+  },
+  "Gender": {
+    "files": [
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Пол",
+    "fuzzy": false
+  },
+  "Geo": {
+    "files": [
+      "./src/desktop/components/BlockRequests/RequestUserPreview/index.tsx",
+      "./src/desktop/components/BlockRequests/RequestObjectPreview/index.tsx",
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Местоположение",
+    "fuzzy": false
+  },
+  "Get a real status": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "Получить статус реальности",
+    "fuzzy": false
+  },
+  "Give a real status": {
+    "files": [
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "Выдать статус реальности",
+    "fuzzy": false
+  },
+  "Give real from administrator?": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "Дать реал от админитсратора",
+    "fuzzy": false
+  },
+  "Go back": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/GroupDetailRequests/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubDetailRequests/index.tsx"
+    ],
+    "translate": "Назад",
+    "fuzzy": false
+  },
+  "Go to": {
+    "files": ["./src/generic/components/MapArea/index.tsx"],
+    "translate": "Перейти",
+    "fuzzy": false
+  },
+  "Go to media section": {
+    "files": ["./src/desktop/containers/User/NewsList/index.tsx"],
+    "translate": "Перейти в медиаы",
+    "fuzzy": true
+  },
+  "Go to media section of menu and click (a button bottom picture) add to hot dating": {
+    "files": ["./src/desktop/containers/User/NewsList/index.tsx"],
+    "translate": "Перейдите в медиа и нажмите кнопку под картинкой - добавить в горячие знакомства",
+    "fuzzy": true
+  },
+  "Go to profile": {
+    "files": [
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Перейти в профайл",
+    "fuzzy": false
+  },
+  "Group": {
+    "files": ["./src/desktop/containers/User/GroupDetail/index.tsx"],
+    "translate": "Группа",
+    "fuzzy": false
+  },
+  "Group info": {
+    "files": ["./src/mobile/containers/User/GroupDetail/index.tsx"],
+    "translate": "Детали группы",
+    "fuzzy": false
+  },
+  "Groups": {
+    "files": [
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx"
+    ],
+    "translate": "Группы",
+    "fuzzy": false
+  },
+  "Groups: New articles": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Группы: Новые статьи",
+    "fuzzy": false
+  },
+  "Groups: New media": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Группы: Новые медиа",
+    "fuzzy": false
+  },
+  "Guest": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Гость",
+    "fuzzy": false
+  },
+  "Guests": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Гости",
+    "fuzzy": false
+  },
+  "Hash tags": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Хеш теги",
+    "fuzzy": false
+  },
+  "Hide pictures": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Скрыть картинки",
+    "fuzzy": false
+  },
+  "Hot dating": {
+    "files": [
+      "./src/desktop/components/BlockHotDaiting/index.tsx",
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx"
+    ],
+    "translate": "Горячие знакомства",
+    "fuzzy": true
+  },
+  "Hot news": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Горячие новости",
+    "fuzzy": false
+  },
+  "Hotwife": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Хот вайф",
+    "fuzzy": false
+  },
+  "I agree with": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Я согласен",
+    "fuzzy": false
+  },
+  "I don't participate": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Я не участвую",
+    "fuzzy": false
+  },
+  "I don't want to communicate with the user": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Я не хочу общаться с пользователем",
+    "fuzzy": false
+  },
+  "I participate": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Я участвую",
+    "fuzzy": false
+  },
+  "I want be here": {
+    "files": ["./src/desktop/containers/User/NewsList/index.tsx"],
+    "translate": "Я хочу быть здесь",
+    "fuzzy": true
+  },
+  "I'm not sure": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Не уверен",
+    "fuzzy": false
+  },
+  "If you cannot sign in and you do not remember your password. Please use the password reset link.": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "If you cannot sign in and you do not remember your password. Please use the password reset link.",
+    "fuzzy": true
+  },
+  "Image": {
+    "files": [
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx"
+    ],
+    "translate": "Картинка",
+    "fuzzy": false
+  },
+  "Image on list view": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Картинка в списке",
+    "fuzzy": false
+  },
+  "In black list": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "В черном списке",
+    "fuzzy": false
+  },
+  "Input a link": {
+    "files": ["./src/generic/components/Form/FormInputArray/index.tsx"],
+    "translate": "Введите ссылку",
+    "fuzzy": false
+  },
+  "Join": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx"
+    ],
+    "translate": "Вступить",
+    "fuzzy": false
+  },
+  "Join the party": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Участвовать",
+    "fuzzy": false
+  },
+  "Join to this club": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx"
+    ],
+    "translate": "Вступить в клуб",
+    "fuzzy": false
+  },
+  "Join to this group": {
+    "files": [
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Вступить в группу",
+    "fuzzy": false
+  },
+  "Just so": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Просто так",
+    "fuzzy": false
+  },
+  "LGBT": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "LGBT",
+    "fuzzy": false
+  },
+  "LGBT active": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "LGBT актив",
+    "fuzzy": false
+  },
+  "LGBT histories": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "LGBT истории",
+    "fuzzy": false
+  },
+  "LGBT passive": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "LGBT пассив",
+    "fuzzy": false
+  },
+  "LGBT switch": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "LGBT свитч",
+    "fuzzy": false
+  },
+  "Last games": {
+    "files": [
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/desktop/containers/User/GameList/index.tsx"
+    ],
+    "translate": "Последние игры",
+    "fuzzy": false
+  },
+  "Leave the chat": {
+    "files": [
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx"
+    ],
+    "translate": "Покинуть чат",
+    "fuzzy": false
+  },
+  "Leave the club": {
+    "files": [
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx"
+    ],
+    "translate": "Покинуть клуб",
+    "fuzzy": false
+  },
+  "Leave the group": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx"
+    ],
+    "translate": "Покинуть группу",
+    "fuzzy": false
+  },
+  "M": {
+    "files": [
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "М",
+    "fuzzy": false
+  },
+  "MWM": {
+    "files": ["./src/generic/constants.tsx", "./src/generic/constants.tsx"],
+    "translate": "МЖМ",
+    "fuzzy": false
+  },
+  "Man": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Мужчина",
+    "fuzzy": false
+  },
+  "Manager": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Менеджер",
+    "fuzzy": false
+  },
+  "Map": {
+    "files": [
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/SiteMap/index.tsx"
+    ],
+    "translate": "Карта",
+    "fuzzy": false
+  },
+  "Map (clubs)": {
+    "files": ["./src/mobile/containers/User/SiteMap/index.tsx"],
+    "translate": "Карта (клубы)",
+    "fuzzy": false
+  },
+  "Map (parties and clubs)": {
+    "files": [
+      "./src/desktop/containers/SiteMap/index.tsx",
+      "./src/mobile/containers/User/SiteMap/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx"
+    ],
+    "translate": "Карта (вечеринки и клубы)",
+    "fuzzy": false
+  },
+  "Map (parties)": {
+    "files": ["./src/mobile/containers/User/SiteMap/index.tsx"],
+    "translate": "Карта (вечеринки)",
+    "fuzzy": false
+  },
+  "Media": {
+    "files": [
+      "./src/desktop/components/BlockMedia/index.tsx",
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupMedia/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubMedia/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/PartyMedia/index.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Медиа",
+    "fuzzy": false
+  },
+  "Media (banned)": {
+    "files": ["./src/desktop/containers/Moderator/MediaList/index.tsx"],
+    "translate": "Медиа (забанненые)",
+    "fuzzy": false
+  },
+  "Media (photos and videos)": {
+    "files": ["./src/mobile/containers/User/Menu/index.tsx"],
+    "translate": "Медиа (фото и видео)",
+    "fuzzy": false
+  },
+  "Media VTeme": {
+    "files": ["./src/desktop/containers/Media/index.tsx"],
+    "translate": "Меди ВТеме",
+    "fuzzy": true
+  },
+  "Media folders": {
+    "files": [
+      "./src/desktop/components/BlockMediaFolders/index.tsx",
+      "./src/desktop/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileMedia/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx"
+    ],
+    "translate": "Медиа альбомы",
+    "fuzzy": false
+  },
+  "Media type": {
+    "files": ["./src/mobile/containers/User/MediaCreate/index.tsx"],
+    "translate": "Тип медиа",
+    "fuzzy": false
+  },
+  "Menu": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupDetailRequests/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubDetailRequests/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Participants/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx",
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/SiteMap/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/Friends/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Меню",
+    "fuzzy": false
+  },
+  "Message": {
+    "files": [
+      "./src/desktop/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Сообщение",
+    "fuzzy": false
+  },
+  "Minutes": {
+    "files": ["./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx"],
+    "translate": "Минуты",
+    "fuzzy": false
+  },
+  "Moderation": {
+    "files": ["./src/desktop/containers/Header/index.tsx"],
+    "translate": "Модерация",
+    "fuzzy": false
+  },
+  "Moderator": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Модератор",
+    "fuzzy": false
+  },
+  "Moderator menu": {
+    "files": [
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx"
+    ],
+    "translate": "Меню модератора",
+    "fuzzy": false
+  },
+  "Moderators": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx"
+    ],
+    "translate": "Модераторы",
+    "fuzzy": false
+  },
+  "My Profile": {
+    "files": ["./src/desktop/containers/User/index.tsx"],
+    "translate": "Мой профайл",
+    "fuzzy": false
+  },
+  "My clubs": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx"
+    ],
+    "translate": "Мои клубы",
+    "fuzzy": false
+  },
+  "My friend requests": {
+    "files": ["./src/mobile/containers/User/Friends/index.tsx"],
+    "translate": "Мои запросы на добавление в СВои",
+    "fuzzy": false
+  },
+  "My groups": {
+    "files": [
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Мои группы",
+    "fuzzy": false
+  },
+  "My parties": {
+    "files": [
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx"
+    ],
+    "translate": "Мои вечеринки",
+    "fuzzy": false
+  },
+  "My profile": {
+    "files": ["./src/desktop/containers/Moderator/index.tsx"],
+    "translate": "Мой профиль",
+    "fuzzy": false
+  },
+  "My reason": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Моя причина",
+    "fuzzy": false
+  },
+  "My requests": {
+    "files": [
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx"
+    ],
+    "translate": "Мои запросы",
+    "fuzzy": false
+  },
+  "My requests to join clubs": {
+    "files": ["./src/mobile/containers/User/ClubList/index.tsx"],
+    "translate": "Мои запросы на вступление в клубы",
+    "fuzzy": false
+  },
+  "My requests to join groups": {
+    "files": ["./src/mobile/containers/User/GroupList/index.tsx"],
+    "translate": "Мои запросы на вступление в группы",
+    "fuzzy": false
+  },
+  "My requests to users": {
+    "files": [
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Мои запросы к пользователям",
+    "fuzzy": false
+  },
+  "Name": {
+    "files": [
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderUpdate/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderUpdate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Название",
+    "fuzzy": false
+  },
+  "New media in the club": {
+    "files": [
+      "./src/desktop/components/BlockNews/NewsPreview/index.tsx",
+      "./src/desktop/components/BlockNews/NewsPreview/index.tsx"
+    ],
+    "translate": "Новое медиа в клубе",
+    "fuzzy": false
+  },
+  "New media in the group": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "Новое медиа в группе",
+    "fuzzy": false
+  },
+  "New party in the club": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "Новая вечеринка в клубе",
+    "fuzzy": false
+  },
+  "New password": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/ResetPasswordFinish/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Password/index.tsx"
+    ],
+    "translate": "Новый пароль",
+    "fuzzy": false
+  },
+  "New post in the club": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "Новый пост в клубе",
+    "fuzzy": false
+  },
+  "New post in the group": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "Новый пост в группе",
+    "fuzzy": false
+  },
+  "News": {
+    "files": [
+      "./src/desktop/components/BlockNews/index.tsx",
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx",
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx"
+    ],
+    "translate": "Новости",
+    "fuzzy": false
+  },
+  "News (not published)": {
+    "files": ["./src/desktop/containers/Moderator/NewsList/index.tsx"],
+    "translate": "Новости (не опубликованные)",
+    "fuzzy": false
+  },
+  "News (published)": {
+    "files": ["./src/desktop/containers/Moderator/NewsList/index.tsx"],
+    "translate": "Новости (опубликованные)",
+    "fuzzy": false
+  },
+  "News type": {
+    "files": ["./src/desktop/containers/User/NewsList/index.tsx"],
+    "translate": "Тип новости",
+    "fuzzy": false
+  },
+  "Nick": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Никнейм",
+    "fuzzy": false
+  },
+  "Nickname": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Никнейм",
+    "fuzzy": true
+  },
+  "No": {
+    "files": [
+      "./src/desktop/containers/Generics/Delete/index.tsx",
+      "./src/desktop/containers/PostDetail/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx",
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/components/DeleteItem/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Нет",
+    "fuzzy": false
+  },
+  "No articles.": {
+    "files": [
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx"
+    ],
+    "translate": "Не статей.",
+    "fuzzy": false
+  },
+  "No chats.": {
+    "files": ["./src/mobile/containers/User/ChatList/index.tsx"],
+    "translate": "Нет чатов",
+    "fuzzy": false
+  },
+  "No clubs.": {
+    "files": ["./src/mobile/containers/User/ClubList/index.tsx"],
+    "translate": "Нет клубов.",
+    "fuzzy": false
+  },
+  "No friends.": {
+    "files": ["./src/mobile/containers/User/Friends/index.tsx"],
+    "translate": "Нет СВоих.",
+    "fuzzy": false
+  },
+  "No games.": {
+    "files": ["./src/mobile/containers/User/GameList/index.tsx"],
+    "translate": "Нет игр.",
+    "fuzzy": false
+  },
+  "No groups.": {
+    "files": ["./src/mobile/containers/User/GroupList/index.tsx"],
+    "translate": "Групп нет.",
+    "fuzzy": false
+  },
+  "No links": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "Нет ссылок",
+    "fuzzy": false
+  },
+  "No media folders.": {
+    "files": ["./src/mobile/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Нет медиа альбомов.",
+    "fuzzy": false
+  },
+  "No media.": {
+    "files": [
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx"
+    ],
+    "translate": "Нет медиа.",
+    "fuzzy": false
+  },
+  "No news.": {
+    "files": ["./src/mobile/containers/User/NewsList/index.tsx"],
+    "translate": "Нет новостей.",
+    "fuzzy": false
+  },
+  "No notifications": {
+    "files": ["./src/desktop/containers/Header/index.tsx"],
+    "translate": "Нет уведомлений",
+    "fuzzy": false
+  },
+  "No notifications.": {
+    "files": ["./src/mobile/containers/User/Notifications/index.tsx"],
+    "translate": "Нет уведомлений.",
+    "fuzzy": false
+  },
+  "No one has an access": {
+    "files": ["./src/desktop/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Только для себя",
+    "fuzzy": false
+  },
+  "No participants.": {
+    "files": ["./src/mobile/containers/User/Participants/index.tsx"],
+    "translate": "Нет участников.",
+    "fuzzy": false
+  },
+  "No parties.": {
+    "files": ["./src/mobile/containers/User/PartyList/index.tsx"],
+    "translate": "Нет вечеринок.",
+    "fuzzy": false
+  },
+  "No real status": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Нет статуса реальности",
+    "fuzzy": false
+  },
+  "No requests.": {
+    "files": [
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Нет запросов.",
+    "fuzzy": false
+  },
+  "No users can see a folder": {
+    "files": ["./src/mobile/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Никто не видит альбом",
+    "fuzzy": false
+  },
+  "No users in black list.": {
+    "files": ["./src/mobile/containers/User/BlackList/index.tsx"],
+    "translate": "Нет пользователей в черном списке.",
+    "fuzzy": false
+  },
+  "Nobody": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Никто",
+    "fuzzy": false
+  },
+  "Not published": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsList/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx"
+    ],
+    "translate": "Не опубликовано",
+    "fuzzy": false
+  },
+  "Not read": {
+    "files": [
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "Не прочитанные",
+    "fuzzy": false
+  },
+  "Notifications": {
+    "files": [
+      "./src/mobile/containers/User/Notifications/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx"
+    ],
+    "translate": "Уведомления",
+    "fuzzy": false
+  },
+  "Online": {
+    "files": [
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx"
+    ],
+    "translate": "Онлайн",
+    "fuzzy": false
+  },
+  "Online friends": {
+    "files": [
+      "./src/mobile/containers/User/Friends/index.tsx",
+      "./src/mobile/containers/User/Friends/index.tsx"
+    ],
+    "translate": "СВои онлайн",
+    "fuzzy": false
+  },
+  "Only dialogs": {
+    "files": [
+      "./src/mobile/containers/User/ChatList/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx"
+    ],
+    "translate": "Только диалоги",
+    "fuzzy": false
+  },
+  "Only for friends": {
+    "files": ["./src/desktop/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Только друзья",
+    "fuzzy": false
+  },
+  "Only friends": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Только друзья",
+    "fuzzy": false
+  },
+  "Only friends can see a folder": {
+    "files": ["./src/mobile/containers/User/MediaFolderList/index.tsx"],
+    "translate": "Только друзья видят альбом",
+    "fuzzy": false
+  },
+  "Only friends will see your phone.": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Только друзья будут видеть ваш телефон.",
+    "fuzzy": false
+  },
+  "Only friends will see your skype.": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Только друзья будут видеть ваш скайп.",
+    "fuzzy": false
+  },
+  "Open": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Открытый",
+    "fuzzy": false
+  },
+  "Open swing": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Открытый свинг",
+    "fuzzy": false
+  },
+  "Other": {
+    "files": [
+      "./src/generic/constants.tsx",
+      "./src/generic/constants.tsx",
+      "./src/generic/constants.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Другое",
+    "fuzzy": false
+  },
+  "Participant": {
+    "files": ["./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx"],
+    "translate": "Участники",
+    "fuzzy": false
+  },
+  "Participants": {
+    "files": [
+      "./src/desktop/components/Participants/index.tsx",
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/ChatCreate/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Участники",
+    "fuzzy": false
+  },
+  "Parties": {
+    "files": [
+      "./src/desktop/components/BlockParties/index.tsx",
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/SiteMap/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/Notifications/index.tsx",
+      "./src/generic/constants.tsx",
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx"
+    ],
+    "translate": "Вечеринки",
+    "fuzzy": false
+  },
+  "Parties (ban)": {
+    "files": ["./src/desktop/containers/Moderator/PartyList/index.tsx"],
+    "translate": "Вечеринки (бан)",
+    "fuzzy": false
+  },
+  "Parties and clubs": {
+    "files": ["./src/mobile/containers/User/SiteMap/index.tsx"],
+    "translate": "Вечеринки и клубы",
+    "fuzzy": false
+  },
+  "Party chat": {
+    "files": [
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Чат вечеринки",
+    "fuzzy": true
+  },
+  "Party info": {
+    "files": ["./src/mobile/containers/User/PartyDetail/index.tsx"],
+    "translate": "Детали вечеринки",
+    "fuzzy": false
+  },
+  "Password": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Пароль",
+    "fuzzy": false
+  },
+  "Past parties": {
+    "files": [
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx"
+    ],
+    "translate": "Прошедшие вечеринки",
+    "fuzzy": false
+  },
+  "Pending": {
+    "files": [
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "В ожидании",
+    "fuzzy": false
+  },
+  "Phone": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Телефон",
+    "fuzzy": false
+  },
+  "Photo": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/generic/constants.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Фото",
+    "fuzzy": false
+  },
+  "Photo VTeme": {
+    "files": ["./src/desktop/containers/Media/index.tsx"],
+    "translate": "Фото ВТеме",
+    "fuzzy": true
+  },
+  "Photos": {
+    "files": [
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Фото",
+    "fuzzy": false
+  },
+  "Play": {
+    "files": [
+      "./src/desktop/containers/User/GameDetail/index.tsx",
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx"
+    ],
+    "translate": "Играть",
+    "fuzzy": false
+  },
+  "Poliamoria": {
+    "files": [
+      "./src/generic/constants.tsx",
+      "./src/generic/constants.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Полиамория",
+    "fuzzy": false
+  },
+  "Post": {
+    "files": [
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Пост",
+    "fuzzy": false
+  },
+  "Posts": {
+    "files": [
+      "./src/desktop/components/BlockPosts/index.tsx",
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/desktop/containers/Posts/index.tsx"
+    ],
+    "translate": "Посты",
+    "fuzzy": false
+  },
+  "Price Couple": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Цена Пара",
+    "fuzzy": false
+  },
+  "Price M": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Цена М",
+    "fuzzy": false
+  },
+  "Price W": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Цена Ж",
+    "fuzzy": false
+  },
+  "Privacy policy": {
+    "files": [
+      "./src/generic/containers/SitePolicyModal/index.tsx",
+      "./src/generic/containers/SitePolicy/index.tsx"
+    ],
+    "translate": "Политика конфиденциальности персональных данных",
+    "fuzzy": false
+  },
+  "Profile": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx"
+    ],
+    "translate": "Профайл",
+    "fuzzy": false
+  },
+  "Profile info": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "Детали профайла",
+    "fuzzy": false
+  },
+  "Publication end date": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx"
+    ],
+    "translate": "Дата окончания публикации",
+    "fuzzy": false
+  },
+  "Publish your photo for all users": {
+    "files": [
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Опубликовать ваше фото для всех пользователей",
+    "fuzzy": false
+  },
+  "Publish your video for all users": {
+    "files": [
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx"
+    ],
+    "translate": "Опубликовать ваше видео для всех пользователей",
+    "fuzzy": false
+  },
+  "Published": {
+    "files": ["./src/desktop/containers/Moderator/NewsList/index.tsx"],
+    "translate": "Опубликовано",
+    "fuzzy": false
+  },
+  "Published successfully.": {
+    "files": [
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Опубликовано.",
+    "fuzzy": true
+  },
+  "Read all": {
+    "files": [
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx"
+    ],
+    "translate": "Прочитать все",
+    "fuzzy": false
+  },
+  "Real status": {
+    "files": [
+      "./src/desktop/components/BlockRequests/RequestUserPreview/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Статус реальности",
+    "fuzzy": false
+  },
+  "Reason": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Причина",
+    "fuzzy": false
+  },
+  "Region/State": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Регион/Штат",
+    "fuzzy": false
+  },
+  "Registration is complete. The password has been sent to email with the code for registration. Now you can sign in using your email and password.": {
+    "files": ["./src/desktop/containers/SignUpFinish/index.tsx"],
+    "translate": "Регистрация завершена. Пароль был отправлен вам на почту вместе с кодом для регистрации. Сейчас вы можете войти используя почту и пароль.",
+    "fuzzy": false
+  },
+  "Repeat new password": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/ResetPasswordFinish/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Password/index.tsx"
+    ],
+    "translate": "Повтор нового пароля",
+    "fuzzy": false
+  },
+  "Repeat password": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx"
+    ],
+    "translate": "Повторите пароль",
+    "fuzzy": false
+  },
+  "Request status": {
+    "files": [
+      "./src/desktop/components/BlockRequests/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupDetailRequests/index.tsx",
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubDetailRequests/index.tsx"
+    ],
+    "translate": "Статус запроса",
+    "fuzzy": false
+  },
+  "Requests": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Запросы",
+    "fuzzy": false
+  },
+  "Requests to join the club": {
+    "files": [
+      "./src/desktop/containers/User/ClubDetail/ClubDetailRequests/index.tsx"
+    ],
+    "translate": "Запросы на вступление в клуб",
+    "fuzzy": false
+  },
+  "Reset": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx"
+    ],
+    "translate": "Сбросить",
+    "fuzzy": false
+  },
+  "Reset your password": {
+    "files": [
+      "./src/desktop/containers/ResetPasswordFinish/index.tsx",
+      "./src/desktop/containers/ResetPasswordFinish/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/ResetPassword/index.tsx"
+    ],
+    "translate": "Сбросить пароль",
+    "fuzzy": false
+  },
+  "Role": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Роль",
+    "fuzzy": false
+  },
+  "Rules": {
+    "files": [
+      "./src/desktop/containers/User/index.tsx",
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/desktop/containers/User/GameDetail/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx"
+    ],
+    "translate": "Правила",
+    "fuzzy": false
+  },
+  "SWING": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Свинг",
+    "fuzzy": false
+  },
+  "SWING articles": {
+    "files": [
+      "./src/desktop/containers/Posts/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx"
+    ],
+    "translate": "SWING статьи",
+    "fuzzy": true
+  },
+  "SWING histories": {
+    "files": [
+      "./src/desktop/containers/Posts/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "SWING истории",
+    "fuzzy": false
+  },
+  "Search": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/GroupRequests/index.tsx",
+      "./src/desktop/containers/User/ClubRequests/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/desktop/containers/Search/index.tsx"
+    ],
+    "translate": "Поиск",
+    "fuzzy": false
+  },
+  "Search a club": {
+    "files": ["./src/mobile/containers/User/ClubList/index.tsx"],
+    "translate": "Поис клуба",
+    "fuzzy": false
+  },
+  "Search a friend": {
+    "files": [
+      "./src/mobile/containers/User/Participants/index.tsx",
+      "./src/mobile/containers/User/Friends/index.tsx"
+    ],
+    "translate": "Поиск СВоих",
+    "fuzzy": false
+  },
+  "Search a game": {
+    "files": [
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx"
+    ],
+    "translate": "Поиск игры",
+    "fuzzy": false
+  },
+  "Search a group": {
+    "files": [
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Поиск группы",
+    "fuzzy": false
+  },
+  "Search a party": {
+    "files": [
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx"
+    ],
+    "translate": "Поиск вечеринки",
+    "fuzzy": false
+  },
+  "Search clubs": {
+    "files": [
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx"
+    ],
+    "translate": "Поиск клубов",
+    "fuzzy": false
+  },
+  "Search friends": {
+    "files": [
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Header/index.tsx"
+    ],
+    "translate": "Поиск СВоих",
+    "fuzzy": false
+  },
+  "Input smth and click Enter": {
+    "files": [
+      "./src/desktop/containers/Generics/List/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Введите и нажмите Enter",
+    "fuzzy": false
+  },
+  "Send a code": {
+    "files": ["./src/desktop/containers/ResetPassword/index.tsx"],
+    "translate": "Отослать код",
+    "fuzzy": false
+  },
+  "Send a message": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Послать сообщение",
+    "fuzzy": false
+  },
+  "Server error. Please contact to administrator.": {
+    "files": ["./src/utils.tsx"],
+    "translate": "Ошибка сервера. Свяжитесь с администратором сайта.",
+    "fuzzy": false
+  },
+  "Service unavailable. Check your network connection.": {
+    "files": ["./src/utils.tsx"],
+    "translate": "Сервис не доступен. Проверьте соединение с интернетом.",
+    "fuzzy": false
+  },
+  "Settings": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx"
+    ],
+    "translate": "Настройки",
+    "fuzzy": false
+  },
+  "Sex": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Секс",
+    "fuzzy": false
+  },
+  "Sex histories": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Секс истории",
+    "fuzzy": false
+  },
+  "Sexwife": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Секс вайф",
+    "fuzzy": false
+  },
+  "Short description": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx"
+    ],
+    "translate": "Краткое описание",
+    "fuzzy": false
+  },
+  "Short description (in list)": {
+    "files": [
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Короткое описание (в списке)",
+    "fuzzy": false
+  },
+  "Short description on list view": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Краткое описание на списке",
+    "fuzzy": false
+  },
+  "Show less": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/desktop/components/BlockPosts/PostPreview/index.tsx",
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx"
+    ],
+    "translate": "Скрыть подробности",
+    "fuzzy": false
+  },
+  "Show map": {
+    "files": [
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Показать карту",
+    "fuzzy": false
+  },
+  "Show more": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/desktop/components/BlockPosts/PostPreview/index.tsx",
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx"
+    ],
+    "translate": "Показать больше",
+    "fuzzy": false
+  },
+  "Show pictures": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Показать картинки",
+    "fuzzy": false
+  },
+  "Sign In": {
+    "files": [
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx"
+    ],
+    "translate": "Войти",
+    "fuzzy": false
+  },
+  "Sign Out": {
+    "files": ["./src/mobile/containers/User/Menu/index.tsx"],
+    "translate": "Выйти",
+    "fuzzy": false
+  },
+  "Sign Up": {
+    "files": [
+      "./src/desktop/containers/SignUp/index.tsx",
+      "./src/desktop/containers/SignUp/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx"
+    ],
+    "translate": "Регистрация",
+    "fuzzy": false
+  },
+  "Sign out": {
+    "files": ["./src/desktop/containers/Header/index.tsx"],
+    "translate": "Выйти",
+    "fuzzy": false
+  },
+  "Skype": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Скайп",
+    "fuzzy": false
+  },
+  "Slug": {
+    "files": [
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Уникальный путь доступа",
+    "fuzzy": false
+  },
+  "Soft swing": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Мягкий свинг",
+    "fuzzy": false
+  },
+  "Start Date": {
+    "files": [
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "дата начала",
+    "fuzzy": false
+  },
+  "Start date": {
+    "files": [
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx"
+    ],
+    "translate": "Дата начала",
+    "fuzzy": false
+  },
+  "Start date *": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Дата начала *",
+    "fuzzy": false
+  },
+  "Start typing...": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/ChatCreate/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ChatCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Начните печатать...",
+    "fuzzy": false
+  },
+  "Status": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Статус",
+    "fuzzy": false
+  },
+  "Successfully": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Успешно",
+    "fuzzy": false
+  },
+  "Support": {
+    "files": ["./src/desktop/containers/User/index.tsx"],
+    "translate": "Служба поддержки",
+    "fuzzy": false
+  },
+  "Swing": {
+    "files": ["./src/generic/constants.tsx", "./src/generic/constants.tsx"],
+    "translate": "Свинг",
+    "fuzzy": false
+  },
+  "The club is on moderation. It is only visible to you and is not visible in the search results. Waiting for moderation.": {
+    "files": ["./src/desktop/containers/User/ClubDetail/index.tsx"],
+    "translate": "Клуб находится на модерации. Он виден только вам и не отображается в результатах поиска. Ждем модерации.",
+    "fuzzy": false
+  },
+  "The club is on moderation. Users cannot see the club in search until moderators approve it.": {
+    "files": ["./src/mobile/containers/User/ClubDetail/index.tsx"],
+    "translate": "Клуб находится на модерации. Пользователи не смогут увидеть клуб в поиске, пока модераторы не утвердят его.",
+    "fuzzy": false
+  },
+  "The friend request has been successfully sent": {
+    "files": ["./src/desktop/containers/Search/SearchItem/index.tsx"],
+    "translate": "Запрос на добавление в СВои был успешно отправлен",
+    "fuzzy": false
+  },
+  "The game is on moderation. It is only visible to you and is not visible in the search results. Waiting for moderation.": {
+    "files": ["./src/desktop/containers/User/GameDetail/index.tsx"],
+    "translate": "Игра на модерации. Игра видна только вам и не отображается в результатах поиска. Ждем модерации.",
+    "fuzzy": false
+  },
+  "The party is on moderation. It is only visible to you and is not visible in the search results. Waiting for moderation.": {
+    "files": ["./src/desktop/containers/User/PartyDetail/index.tsx"],
+    "translate": "Вечеринка на модерации. Она видна только вам и не видна в поиске. Ожидание модерации.",
+    "fuzzy": false
+  },
+  "The request has been sent. Expect moderation.": {
+    "files": [
+      "./src/desktop/containers/PostDetail/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx"
+    ],
+    "translate": "Запрос отправлен. Ожидайте модерации.",
+    "fuzzy": false
+  },
+  "The user has been removed from your black list.": {
+    "files": ["./src/desktop/containers/User/BlackList/index.tsx"],
+    "translate": "Пользователь был удален из черного списка.",
+    "fuzzy": false
+  },
+  "Theme": {
+    "files": [
+      "./src/desktop/components/BlockParties/PartyPreview/index.tsx",
+      "./src/desktop/containers/Posts/index.tsx",
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/PartyList/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/desktop/containers/Search/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/components/BlockPosts/PostPreview/index.tsx",
+      "./src/desktop/containers/Whisper/index.tsx",
+      "./src/desktop/containers/PostsWhisper/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Тема",
+    "fuzzy": false
+  },
+  "Themes": {
+    "files": [
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/Search/SearchItem/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Темы",
+    "fuzzy": false
+  },
+  "This user is in your black list": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx"
+    ],
+    "translate": "Пользователь в вашем черном списке",
+    "fuzzy": false
+  },
+  "Tip": {
+    "files": [
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "Подсказка",
+    "fuzzy": false
+  },
+  "Title": {
+    "files": [
+      "./src/desktop/containers/Moderator/NewsCreate/index.tsx",
+      "./src/desktop/containers/Moderator/NewsUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/PostCreate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaCreate/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/MediaUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/PostCreate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Заголовок",
+    "fuzzy": false
+  },
+  "Trans": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Транс",
+    "fuzzy": false
+  },
+  "Type": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx",
+      "./src/desktop/containers/SiteMap/index.tsx",
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/desktop/containers/User/ClubList/index.tsx",
+      "./src/desktop/containers/User/ClubList/ClubItem/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/GroupCreate/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/User/GroupList/index.tsx",
+      "./src/desktop/containers/User/GroupList/GroupItem/index.tsx",
+      "./src/desktop/containers/User/PartyCreate/index.tsx",
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupCreate/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GroupMyRequests/index.tsx",
+      "./src/mobile/containers/User/ClubMyRequests/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "Тип",
+    "fuzzy": false
+  },
+  "Unban": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "разбанить",
+    "fuzzy": false
+  },
+  "Unread chats": {
+    "files": [
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx"
+    ],
+    "translate": "Непрочитанные чаты",
+    "fuzzy": false
+  },
+  "Update": {
+    "files": [
+      "./src/desktop/containers/Generics/Update/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/NewsItem/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/GroupPosts/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfilePosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubPosts/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/ClubParties/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Обновить",
+    "fuzzy": false
+  },
+  "Update the chat": {
+    "files": [
+      "./src/desktop/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx"
+    ],
+    "translate": "Обновить чат",
+    "fuzzy": false
+  },
+  "Update the club": {
+    "files": [
+      "./src/desktop/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/ClubUpdate/index.tsx"
+    ],
+    "translate": "Обновить клуб",
+    "fuzzy": false
+  },
+  "Update the game": {
+    "files": [
+      "./src/desktop/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx"
+    ],
+    "translate": "Обновить игру",
+    "fuzzy": false
+  },
+  "Update the group": {
+    "files": [
+      "./src/desktop/containers/User/GroupUpdate/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx"
+    ],
+    "translate": "Обновить группу",
+    "fuzzy": false
+  },
+  "Update the media": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/MediaUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx"
+    ],
+    "translate": "Обновить медиа",
+    "fuzzy": false
+  },
+  "Update the media folder": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/MediaFolderUpdate/index.tsx"
+    ],
+    "translate": "Обновить медиа альбом",
+    "fuzzy": false
+  },
+  "Update the news": {
+    "files": ["./src/desktop/containers/Moderator/NewsUpdate/index.tsx"],
+    "translate": "Обновить новость",
+    "fuzzy": false
+  },
+  "Update the party": {
+    "files": [
+      "./src/desktop/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx"
+    ],
+    "translate": "Обновить вечеринку",
+    "fuzzy": false
+  },
+  "Update the post": {
+    "files": [
+      "./src/desktop/containers/User/PostUpdate/index.tsx",
+      "./src/mobile/containers/User/PostUpdate/index.tsx"
+    ],
+    "translate": "Обновить пост",
+    "fuzzy": false
+  },
+  "Updated successfully.": {
+    "files": [
+      "./src/mobile/containers/User/ClubUpdate/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/PartyUpdate/index.tsx",
+      "./src/mobile/containers/User/MediaFolderUpdate/index.tsx",
+      "./src/mobile/containers/User/ChatUpdate/index.tsx",
+      "./src/mobile/containers/User/GameUpdate/index.tsx",
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/GroupUpdate/index.tsx"
+    ],
+    "translate": "Обновлено",
+    "fuzzy": false
+  },
+  "User": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/generic/constants.tsx"
+    ],
+    "translate": "Пользователь",
+    "fuzzy": false
+  },
+  "User ": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "Пользователь ",
+    "fuzzy": false
+  },
+  "User friends": {
+    "files": [
+      "./src/mobile/containers/User/Participants/index.tsx",
+      "./src/mobile/containers/User/Participants/index.tsx"
+    ],
+    "translate": "СВои пользователя",
+    "fuzzy": false
+  },
+  "User friends (online)": {
+    "files": [
+      "./src/mobile/containers/User/Participants/index.tsx",
+      "./src/mobile/containers/User/Participants/index.tsx"
+    ],
+    "translate": "СВои пользователя (онлайн)",
+    "fuzzy": false
+  },
+  "User menu": {
+    "files": [
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx"
+    ],
+    "translate": "Меню пользователя",
+    "fuzzy": false
+  },
+  "Users": {
+    "files": [
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Moderator/Menu/index.tsx"
+    ],
+    "translate": "Пользователи",
+    "fuzzy": false
+  },
+  "Users (Banned)": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Пользователи (Забанненые)",
+    "fuzzy": false
+  },
+  "Users (Guests)": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Пользователи (Гости)",
+    "fuzzy": false
+  },
+  "Users (In black list)": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Пользователи (В черном списке)",
+    "fuzzy": false
+  },
+  "Users (Waiting real)": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Пользователи (Ожидающие реал)",
+    "fuzzy": false
+  },
+  "Users (Without real)": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Пользователи (Без реал)",
+    "fuzzy": false
+  },
+  "Users can find me here (social links)": {
+    "files": [
+      "./src/desktop/containers/SignUpFinish/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Пользователи могут найти меня здесь",
+    "fuzzy": false
+  },
+  "Users requests": {
+    "files": [
+      "./src/desktop/containers/User/FriendRequests/index.tsx",
+      "./src/desktop/containers/User/FriendList/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx"
+    ],
+    "translate": "Запросы от пользователей",
+    "fuzzy": false
+  },
+  "Users requests to me": {
+    "files": [
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx"
+    ],
+    "translate": "Запросы пользователей ко мне",
+    "fuzzy": false
+  },
+  "Users will not see your email.": {
+    "files": [
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/User/Settings/index.tsx",
+      "./src/mobile/containers/User/Settings/index.tsx",
+      "./src/desktop/containers/User/Settings/Profile/index.tsx"
+    ],
+    "translate": "Пользователи не будут видеть ваш email.",
+    "fuzzy": false
+  },
+  "VTeme": {
+    "files": [
+      "./src/desktop/containers/SignIn/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/mobile/containers/Header/index.tsx"
+    ],
+    "translate": "ВТеме",
+    "fuzzy": false
+  },
+  "VTeme content": {
+    "files": ["./src/mobile/containers/User/Menu/index.tsx"],
+    "translate": "ВТеме контент",
+    "fuzzy": false
+  },
+  "VTeme: New articles": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "ВТеме: Новые статьи",
+    "fuzzy": false
+  },
+  "VTeme: New media": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "ВТеме: Новые медиа",
+    "fuzzy": false
+  },
+  "VTeme: New whisper articles": {
+    "files": [
+      "./src/desktop/containers/User/NewsList/index.tsx",
+      "./src/mobile/containers/User/NewsList/index.tsx"
+    ],
+    "translate": "ВТеме: Новые шопот статьи",
+    "fuzzy": false
+  },
+  "Video": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/generic/constants.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Видео",
+    "fuzzy": false
+  },
+  "Video VTeme": {
+    "files": ["./src/desktop/containers/Media/index.tsx"],
+    "translate": "Видео ВТеме",
+    "fuzzy": true
+  },
+  "Video embed code": {
+    "files": [
+      "./src/mobile/containers/User/MediaCreate/index.tsx",
+      "./src/mobile/containers/User/MediaUpdate/index.tsx"
+    ],
+    "translate": "Видео код",
+    "fuzzy": false
+  },
+  "Video url or embed code": {
+    "files": [
+      "./src/desktop/containers/User/MediaFolderDetail/MediaUpdate/index.tsx"
+    ],
+    "translate": "Url видео или embed код",
+    "fuzzy": false
+  },
+  "Videos": {
+    "files": [
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Видео",
+    "fuzzy": false
+  },
+  "Virt": {
+    "files": ["./src/generic/constants.tsx", "./src/generic/constants.tsx"],
+    "translate": "Вирт",
+    "fuzzy": false
+  },
+  "W": {
+    "files": [
+      "./src/desktop/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx",
+      "./src/mobile/containers/User/PartyDetail/index.tsx"
+    ],
+    "translate": "Ж",
+    "fuzzy": false
+  },
+  "WMW": {
+    "files": ["./src/generic/constants.tsx", "./src/generic/constants.tsx"],
+    "translate": "ЖМЖ",
+    "fuzzy": false
+  },
+  "Waiting real": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Ожидающие реал",
+    "fuzzy": false
+  },
+  "Wanker": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Дрочер",
+    "fuzzy": false
+  },
+  "Whisper": {
+    "files": [
+      "./src/desktop/containers/Header/index.tsx",
+      "./src/desktop/containers/Whisper/index.tsx",
+      "./src/desktop/containers/PostsWhisper/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/mobile/containers/User/Menu/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/index.tsx"
+    ],
+    "translate": "Шепот",
+    "fuzzy": false
+  },
+  "Who approved real status": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "Кто одобрил статус реал",
+    "fuzzy": false
+  },
+  "Without real": {
+    "files": ["./src/desktop/containers/Moderator/UserList/index.tsx"],
+    "translate": "Без реал",
+    "fuzzy": false
+  },
+  "Woman": {
+    "files": ["./src/generic/constants.tsx"],
+    "translate": "Женщина",
+    "fuzzy": false
+  },
+  "Write to": {
+    "files": [
+      "./src/desktop/containers/User/ChatConversationCreate/index.tsx",
+      "./src/desktop/containers/User/ChatConversationCreate/index.tsx",
+      "./src/desktop/containers/User/ChatConversationCreate/index.tsx"
+    ],
+    "translate": "Написать",
+    "fuzzy": false
+  },
+  "Write to support": {
+    "files": [
+      "./src/desktop/containers/User/ChatWithModeratorsCreate/index.tsx",
+      "./src/desktop/containers/User/ChatWithModeratorsCreate/index.tsx",
+      "./src/desktop/containers/User/ChatWithModeratorsCreate/index.tsx",
+      "./src/mobile/components/GuestAlert/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "Написать в поддержку",
+    "fuzzy": false
+  },
+  "Write to support or ask a friend with real status to click on this button on your profile and approve.": {
+    "files": [
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "Напишите в службу поддержки или попросите друга со статусом реальности нажать на эту кнопку в вашем профиле и одобрить.",
+    "fuzzy": false
+  },
+  "Yes": {
+    "files": [
+      "./src/desktop/containers/Generics/Delete/index.tsx",
+      "./src/desktop/containers/PostDetail/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/ChatList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/MediaDetail/index.tsx",
+      "./src/desktop/containers/User/ChatList/index.tsx",
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/desktop/containers/User/BlackList/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx",
+      "./src/mobile/components/VideoGallery/VideoItem/index.tsx",
+      "./src/mobile/components/DeleteItem/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/components/ImageGallery/ImageMenu/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/FriendsMyRequests/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx",
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Да",
+    "fuzzy": false
+  },
+  "You approved the real status for the user. Waiting for moderation.": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Вы одобрили реал статус пользователя. Ожидание модерации.",
+    "fuzzy": false
+  },
+  "You are not a participant of any club. You can create your own club or join an existing one.": {
+    "files": ["./src/desktop/containers/User/ClubList/index.tsx"],
+    "translate": "Вы не участник какого либо клуба. Вы можете создать свой клуб или вступить в существующий.",
+    "fuzzy": false
+  },
+  "You are not a participant of any group. You can create your own group or join an existing one": {
+    "files": ["./src/desktop/containers/User/GroupList/index.tsx"],
+    "translate": "Вы не являетесь участником какой-либо группы. Вы можете создать свою собственную группу или присоединиться к существующей",
+    "fuzzy": false
+  },
+  "You don't have an access": {
+    "files": ["./src/desktop/components/ResponseErrors/utils.tsx"],
+    "translate": "У вас нет доступа",
+    "fuzzy": false
+  },
+  "You don't have any media in the folder.": {
+    "files": ["./src/desktop/containers/User/MediaFolderDetail/index.tsx"],
+    "translate": "У вас нет медиа альбомов.",
+    "fuzzy": true
+  },
+  "You don't have media folders.": {
+    "files": ["./src/desktop/containers/User/MediaFolderList/index.tsx"],
+    "translate": "У вас нет медиа альбомов.",
+    "fuzzy": false
+  },
+  "You don't have parties. The search displays open parties of all clubs and closed parties in the clubs where you are a participant.": {
+    "files": ["./src/desktop/containers/User/PartyList/index.tsx"],
+    "translate": "У вас нет вечеринок. В поиске отображаются открытые вечеринки всех клубов и закрытые вечеринки в клубах, участником которых вы являетесь.",
+    "fuzzy": false
+  },
+  "You has left the club.": {
+    "files": ["./src/mobile/containers/User/ClubDetail/index.tsx"],
+    "translate": "Вы покинули клуб.",
+    "fuzzy": false
+  },
+  "You has left the group.": {
+    "files": ["./src/mobile/containers/User/GroupDetail/index.tsx"],
+    "translate": "Вы покинули группу.",
+    "fuzzy": false
+  },
+  "You have 'Guest' role on the site. You can not see list of groups, clubs, parties.": {
+    "files": [
+      "./src/desktop/components/ResponseErrors/index.tsx",
+      "./src/desktop/containers/User/Profile/index.tsx",
+      "./src/mobile/components/GuestAlert/index.tsx"
+    ],
+    "translate": "У вас роль 'гость' на сайте. Вы не можете видеть список групп, клубов, вечеринок.",
+    "fuzzy": false
+  },
+  "You have added the user to the blacklist. You can view your blacklist in Friends menu.": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Вы добавили пользователя в черный список. Посмотреть Ваш черный список можно в меню СВОИ.",
+    "fuzzy": false
+  },
+  "You have read all chats.": {
+    "files": ["./src/desktop/containers/Moderator/ChatList/index.tsx"],
+    "translate": "Вы прочитали все непрочитанные чаты.",
+    "fuzzy": false
+  },
+  "You have sent a request to join the club. Waiting for moderation.": {
+    "files": ["./src/desktop/containers/User/ClubList/ClubItem/index.tsx"],
+    "translate": "Вы отправили запрос на вступление в клуб. Ожидание модерации.",
+    "fuzzy": false
+  },
+  "You have sent a request to the moderators of the club. Waiting for moderation. You can see all requests in the menu Clubs -> Requests.": {
+    "files": [
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx",
+      "./src/desktop/containers/User/ClubDetail/ClubActions/index.tsx"
+    ],
+    "translate": "Вы отправили запрос модераторам клуба. Ждем модерации. Вы можете увидеть все запросы в меню Клубы -> Запросы.",
+    "fuzzy": false
+  },
+  "You have sent a request to the user. Waiting for approval. You can see all requests in the menu Friends -> Requests.": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Вы отправили запрос пользователю. Ожидайте когда пользователь одобрит запрос. Все заявки можно посмотреть в меню СВОИ -> Ваши заявки.",
+    "fuzzy": false
+  },
+  "You have submitted a request to join the group. Waiting for approval.": {
+    "files": ["./src/desktop/containers/User/GroupList/GroupItem/index.tsx"],
+    "translate": "Вы отправили заявку на вступление в группу. Ожидайте одобрения.",
+    "fuzzy": false
+  },
+  "You removed the user from friends.": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Вы удалили пользователя из СВоих.",
+    "fuzzy": false
+  },
+  "You sent a request to the moderators of the group. Waiting for moderation. You can see all requests in the menu Groups -> Requests.": {
+    "files": [
+      "./src/desktop/containers/User/GroupDetail/GroupActions/index.tsx"
+    ],
+    "translate": "Вы отправили запрос модераторам группы. Ждем модерации. Вы можете увидеть все запросы в меню Группы -> Запросы.",
+    "fuzzy": false
+  },
+  "Your request has been sent successfully.": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/GroupDetail/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/Profile/index.tsx",
+      "./src/mobile/containers/User/ClubDetail/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx"
+    ],
+    "translate": "Ваш запрос был отправлен",
+    "fuzzy": false
+  },
+  "Your request has been sent to moderation.": {
+    "files": [
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "Ваш запрос был отправлен на модерацию.",
+    "fuzzy": false
+  },
+  "Your request has been sent to moderators. Waiting moderators for approving.": {
+    "files": [
+      "./src/mobile/containers/User/ClubCreate/index.tsx",
+      "./src/mobile/containers/User/PartyCreate/index.tsx"
+    ],
+    "translate": "Ваш запрос был отослан модераторам сайта. Ожидание модерации.",
+    "fuzzy": false
+  },
+  "already playing": {
+    "files": [
+      "./src/desktop/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx"
+    ],
+    "translate": "уже играют",
+    "fuzzy": false
+  },
+  "approved your real status. Waiting for moderation.": {
+    "files": ["./src/mobile/containers/User/Profile/index.tsx"],
+    "translate": "одобрил ваш статус реальности. Ожидание модерации.",
+    "fuzzy": false
+  },
+  "ban": {
+    "files": [
+      "./src/desktop/containers/Moderator/ClubList/index.tsx",
+      "./src/desktop/containers/Moderator/MediaList/index.tsx",
+      "./src/desktop/containers/Moderator/HotDaitingList/index.tsx",
+      "./src/desktop/containers/Moderator/UserList/UserItem/index.tsx",
+      "./src/desktop/containers/Moderator/PostList/PostItem/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx",
+      "./src/desktop/containers/User/ChatDetail/BanUsers/index.tsx",
+      "./src/desktop/containers/Moderator/PartyList/index.tsx"
+    ],
+    "translate": "забанить",
+    "fuzzy": false
+  },
+  "by user": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "пользователем",
+    "fuzzy": false
+  },
+  "give real": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "дать реал",
+    "fuzzy": false
+  },
+  "give your a real status. Waiting for moderation.": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "одобрил вам статус реальности. Ожидание модерации.",
+    "fuzzy": false
+  },
+  "has changed own profile": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "изменил свой профайл",
+    "fuzzy": false
+  },
+  "has published a media": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "опубликовал медиа",
+    "fuzzy": false
+  },
+  "has published a media in Media header section": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "опубликовал медиа в разделе Медиа на сайте",
+    "fuzzy": false
+  },
+  "has published a post": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "опубликовал пост",
+    "fuzzy": false
+  },
+  "has published an article in Articles header section": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "опубликовал статью в разделе Статьи на сайте",
+    "fuzzy": false
+  },
+  "has published an article in Whisper header section": {
+    "files": ["./src/desktop/components/BlockNews/NewsPreview/index.tsx"],
+    "translate": "опубликовал статью в разделе Шопот на сайте",
+    "fuzzy": false
+  },
+  "is typing ...": {
+    "files": [
+      "./src/mobile/containers/User/ChatDetail/Typing/index.tsx",
+      "./src/generic/components/Typing/index.tsx"
+    ],
+    "translate": "пишет ...",
+    "fuzzy": false
+  },
+  "member": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "участник",
+    "fuzzy": false
+  },
+  "news": {
+    "files": [
+      "./src/desktop/containers/Moderator/index.tsx",
+      "./src/desktop/containers/Moderator/NewsList/index.tsx"
+    ],
+    "translate": "новости",
+    "fuzzy": false
+  },
+  "real": {
+    "files": ["./src/desktop/containers/Moderator/UserList/UserItem/index.tsx"],
+    "translate": "реал",
+    "fuzzy": false
+  },
+  "received by user": {
+    "files": [
+      "./src/mobile/containers/User/Profile/ProfileRealStatus/index.tsx"
+    ],
+    "translate": "одобрен пользователем",
+    "fuzzy": false
+  },
+  "site private policy": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "с политикой конфиденциальности сайта",
+    "fuzzy": false
+  },
+  "theme": {
+    "files": ["./src/desktop/containers/Moderator/PostList/PostItem/index.tsx"],
+    "translate": "тема",
+    "fuzzy": false
+  },
+  "to <Articles> header section": {
+    "files": ["./src/desktop/containers/PostDetail/index.tsx"],
+    "translate": "в меню <Статьи> на сайте",
+    "fuzzy": false
+  },
+  "to <Whisper> header section": {
+    "files": ["./src/desktop/containers/PostDetail/index.tsx"],
+    "translate": "в меню <Шопот> на сайте",
+    "fuzzy": false
+  },
+  "to friends": {
+    "files": ["./src/desktop/containers/Search/SearchItem/index.tsx"],
+    "translate": "в СВои",
+    "fuzzy": false
+  },
+  "to the header Media header section": {
+    "files": ["./src/desktop/containers/MediaDetail/index.tsx"],
+    "translate": "опубликовать в разделе Медиа",
+    "fuzzy": true
+  },
+  "Specify here how the link to your profile should look like, if registration does not pass it means that such a link already exists": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Укажите здесь как должна выглядеть ссылка на ваш профиль, если регистрация не проходит это значит что такая ссылка уже есть",
+    "fuzzy": true
+  },
+  "Enter your nickname on the site here": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Укажите ваш ник на сайте здесь",
+    "fuzzy": false
+  },
+  "Email or link to your profile": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Почта или ссылка на ваш профиль",
+    "fuzzy": false
+  },
+  "send a message": {
+    "files": ["./src/desktop/containers/Search/SearchItem/index.tsx"],
+    "translate": "написать",
+    "fuzzy": false
+  },
+  "Change message": {
+    "files": [
+      "./src/desktop/containers/User/ChatDetail/Message/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/Message/index.tsx"
+    ],
+    "translate": "Изменить сообщение",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the message?": {
+    "files": [
+      "./src/desktop/containers/User/ChatDetail/Message/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/Message/index.tsx"
+    ],
+    "translate": "Вы уверены что хотите удалить это сообщение?",
+    "fuzzy": false
+  },
+  "Deleted message": {
+    "files": [
+      "./src/desktop/containers/User/ChatDetail/Message/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/Message/index.tsx"
+    ],
+    "translate": "Удаленное сообщение",
+    "fuzzy": false
+  },
+  "Sent to moderation. Waiting moderation...": {
+    "files": [
+      "./src/generic/components/VideoGallery/VideoItem/index.tsx",
+      "./src/generic/components/ImageGallery/ImageMenu/index.tsx"
+    ],
+    "translate": "Отправлено на модерацию. Ожидание модерации...",
+    "fuzzy": false
+  },
+  "No results.": {
+    "files": ["./src/mobile/containers/User/Search/index.tsx"],
+    "translate": "Нет результатов.",
+    "fuzzy": false
+  },
+  "Download mobile": {
+    "files": ["./src/mobile/containers/User/Profile/ProfileMobile/index.tsx"],
+    "translate": "Загрузить мобильную версию",
+    "fuzzy": false
+  },
+  "Android": {
+    "files": ["./src/mobile/containers/User/Profile/ProfileMobile/index.tsx"],
+    "translate": "Андройд",
+    "fuzzy": false
+  },
+  "Readme": {
+    "files": ["./src/mobile/containers/User/Profile/ProfileMobile/index.tsx"],
+    "translate": "Справка",
+    "fuzzy": false
+  },
+  "How to install APK on Android": {
+    "files": ["./src/mobile/containers/User/Profile/ProfileMobile/index.tsx"],
+    "translate": "Как установить APK файл на Андройд",
+    "fuzzy": false
+  },
+  "Create a link to your profile": {
+    "files": ["./src/desktop/containers/SignIn/index.tsx"],
+    "translate": "Придумай ссылку на свой профиль",
+    "fuzzy": false
+  },
+  "Start input here": {
+    "files": [
+      "./src/mobile/containers/User/ClubList/index.tsx",
+      "./src/mobile/containers/User/Participants/index.tsx",
+      "./src/mobile/containers/User/ChatList/index.tsx",
+      "./src/mobile/containers/User/SiteMediaList/index.tsx",
+      "./src/mobile/containers/User/SitePostWhisperList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderList/index.tsx",
+      "./src/mobile/containers/User/SiteMap/index.tsx",
+      "./src/mobile/containers/User/Search/index.tsx",
+      "./src/mobile/containers/User/SitePostList/index.tsx",
+      "./src/mobile/containers/User/BlackList/index.tsx",
+      "./src/mobile/containers/User/PartyList/index.tsx",
+      "./src/mobile/containers/User/MediaFolderDetail/index.tsx",
+      "./src/mobile/containers/User/Friends/index.tsx",
+      "./src/mobile/containers/User/GameList/index.tsx",
+      "./src/mobile/containers/User/GroupList/index.tsx",
+      "./src/desktop/containers/User/MediaFolderDetail/index.tsx",
+      "./src/desktop/containers/Media/index.tsx"
+    ],
+    "translate": "Начните вводить текст",
+    "fuzzy": false
+  },
+  "Change comment": {
+    "files": ["./src/desktop/components/BlockComments/Comment/index.tsx"],
+    "translate": "Изменить комментарий",
+    "fuzzy": false
+  },
+  "Are you sure you want to delete the comment?": {
+    "files": ["./src/desktop/components/BlockComments/Comment/index.tsx"],
+    "translate": "Вы уверены что хотите удалить комментарий?",
+    "fuzzy": false
+  },
+  "Deleted comment": {
+    "files": ["./src/desktop/components/BlockComments/Comment/index.tsx"],
+    "translate": "Удаленный комментарий",
+    "fuzzy": false
+  },
+  "edit comment": {
+    "files": ["./src/desktop/components/BlockComments/Comment/index.tsx"],
+    "translate": "редактировать",
+    "fuzzy": false
+  },
+  "Answer comment": {
+    "files": ["./src/desktop/components/BlockComments/Comment/index.tsx"],
+    "translate": "Ответить на комментарий",
+    "fuzzy": false
+  },
+  "answer": {
+    "files": ["./src/desktop/components/BlockComments/Comment/index.tsx"],
+    "translate": "ответить",
+    "fuzzy": false
+  },
+  "edit message": {
+    "files": [
+      "./src/desktop/containers/User/ChatDetail/Message/index.tsx",
+      "./src/mobile/containers/User/ChatDetail/Message/index.tsx"
+    ],
+    "translate": "редактировать",
+    "fuzzy": false
+  },
+  "Search freinds": {
+    "files": ["./src/desktop/containers/User/FriendList/index.tsx"],
+    "translate": "Найти СВОИХ",
+    "fuzzy": false
+  },
+  "Click here to download .apk app": {
+    "files": ["./src/mobile/containers/User/Profile/ProfileMobile/index.tsx"],
+    "translate": "Нажмите здесь чтобы скачать .apk файл",
+    "fuzzy": false
+  },
+  "Remove profile": {
+    "files": ["./src/desktop/containers/User/Settings/index.tsx"],
+    "translate": "Удаление профайла",
+    "fuzzy": false
+  },
+  "Change your password": {
+    "files": ["./src/desktop/containers/User/Settings/Password/index.tsx"],
+    "translate": "Изменить пароль",
+    "fuzzy": false
+  },
+  "Change your profile": {
+    "files": ["./src/desktop/containers/User/Settings/Profile/index.tsx"],
+    "translate": "Изменить профайл",
+    "fuzzy": false
+  },
+  "Remove your profile": {
+    "files": ["./src/desktop/containers/User/Settings/RemoveProfile/index.tsx"],
+    "translate": "Удалить профайл",
+    "fuzzy": false
+  },
+  "The user has deleted own profile": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Пользователь удалил свой профайл",
+    "fuzzy": false
+  },
+  "You cannot view the user's profile and communicate with the user cause you are in blacklist for the user": {
+    "files": ["./src/desktop/containers/User/Profile/index.tsx"],
+    "translate": "Вы не можете видеть профайл пользователя и общаться с ним потому что пользователь добавил вас в черный список",
+    "fuzzy": false
+  }
+}

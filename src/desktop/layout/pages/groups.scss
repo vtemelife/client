@@ -1,0 +1,21 @@
+.group-item-container {
+  .group-item-info {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 5px;
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .group-item-description {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+}
+
+.group-container {
+  .group-content {
+    padding-top: 20px;
+  }
+}

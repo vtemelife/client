@@ -1,0 +1,122 @@
+@import "generic/layout/colors";
+
+.container-search {
+  margin-top: 55px;
+  .search {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+    background-color: $color-black;
+    padding: 10px;
+    padding-bottom: 12px;
+
+    .input-group {
+      height: 34px;
+      .input-group-text {
+        background-color: $color-green;
+        border-radius: 0px;
+        border: none;
+      }
+      input {
+        border: none;
+        height: 36px;
+        background-color: $color-green;
+        color: black;
+        &::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: black;
+          opacity: 1; /* Firefox */
+        }
+      }
+    }
+    #search {
+      color: black;
+    }
+    #filter {
+      color: black;
+      cursor: pointer;
+      i {
+        margin-left: 5px;
+      }
+    }
+  }
+  .search-list {
+    .search-item {
+      padding: 10px;
+      display: flex;
+      flex-flow: column;
+      min-height: 80px;
+
+      .search-header {
+        display: flex;
+
+        .search-avatar {
+          position: absolute;
+        }
+
+        .search-title {
+          width: 90%;
+          display: flex;
+          flex-flow: column;
+          padding-top: 4px;
+          padding-left: 60px;
+          padding-right: 12px;
+
+          .search-title-name {
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 15px;
+            line-height: 18px;
+            font-weight: 500;
+            color: $color-black;
+          }
+          .search-title-geo {
+            text-align: left;
+
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            font-size: 12px;
+            color: $color-gray-hard;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            margin-top: 5px;
+          }
+        }
+        .search-actions {
+          width: 10%;
+          text-align: right;
+          padding-right: 5px;
+        }
+      }
+      .search-body {
+        margin-top: 20px;
+        .list-group-item {
+          padding: 10px 0px;
+          span.item-title {
+            color: $color-gray-hard;
+            margin-right: 5px;
+          }
+          &.actions {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            .btn {
+              min-width: 160px;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-btns {
+    margin: auto;
+  }
+}

@@ -1,0 +1,15 @@
+@import "generic/layout/colors";
+
+.signin-container {
+  .policy {
+    color: $color-green;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .policy-checkbox {
+    margin-left: -10px;
+    .form-check-label {
+      font-size: 12px;
+    }
+  }
+}
