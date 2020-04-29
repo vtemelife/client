@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { InputGroup, Form, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useGet } from "restful-react";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { InputGroup, Form, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useGet } from 'restful-react';
 
-import Image from "generic/components/Image";
-import userSVG from "generic/layout/images/user.svg";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "mobile/routes/client";
-import Header from "mobile/containers/Header";
-import PaginateList from "generic/components/PaginateList";
+import Image from 'generic/components/Image';
+import userSVG from 'generic/layout/images/user.svg';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import Header from 'mobile/containers/Header';
+import PaginateList from 'generic/components/PaginateList';
 
-import { _ } from "trans";
-import DeleteItem from "mobile/components/DeleteItem";
+import { _ } from 'trans';
+import DeleteItem from 'mobile/components/DeleteItem';
 
 interface IProps {
   authUser: any;
@@ -20,21 +20,21 @@ interface IProps {
 }
 
 const BlackList: React.SFC<IProps> = () => {
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
 
-  const getParams = {
-    search
+  const queryParams = {
+    search,
   };
   const { data: blacklistData, loading, refetch } = useGet({
-    path: SERVER_URLS.BLACKLIST_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.BLACKLIST_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const blacklistItems = (blacklistData || {}).results || [];
   const blacklistCount = (blacklistData || {}).count || 0;
 
-  const title = _("Black list");
+  const title = _('Black list');
   return (
     <div className="container-blacklist">
       <Helmet>
@@ -42,7 +42,7 @@ const BlackList: React.SFC<IProps> = () => {
         <meta name="description" content={title} />
       </Helmet>
       <Header
-        name={`${title} ${blacklistCount > 0 ? `(${blacklistCount})` : ""}`}
+        name={`${title} ${blacklistCount > 0 ? `(${blacklistCount})` : ''}`}
         fixed={true}
       />
       <div className="blacklist-search">
@@ -54,7 +54,7 @@ const BlackList: React.SFC<IProps> = () => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -64,7 +64,7 @@ const BlackList: React.SFC<IProps> = () => {
       <div className="blacklist-list">
         {!loading && blacklistItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No users in black list.")}</div>
+            <div>{_('No users in black list.')}</div>
           </Alert>
         )}
         <PaginateList
@@ -73,16 +73,14 @@ const BlackList: React.SFC<IProps> = () => {
           count={blacklistCount}
           objs={blacklistItems}
           loading={loading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => (
             <div className="blacklist-item" key={item.pk}>
               <div className="blacklist-avatar">
                 <Link
-                  to={CLIENT_URLS.USER.PROFILE.toPath({
-                    urlParams: {
-                      userSlug: item.user.slug
-                    }
+                  to={CLIENT_URLS.USER.PROFILE.buildPath({
+                    userSlug: item.user.slug,
                   })}
                 >
                   <Image
@@ -100,10 +98,8 @@ const BlackList: React.SFC<IProps> = () => {
               <div className="blacklist-body">
                 <div className="blacklist-title">
                   <Link
-                    to={CLIENT_URLS.USER.PROFILE.toPath({
-                      urlParams: {
-                        userSlug: item.user.slug
-                      }
+                    to={CLIENT_URLS.USER.PROFILE.buildPath({
+                      userSlug: item.user.slug,
                     })}
                   >
                     <div className="blacklist-title-name">{item.user.name}</div>
@@ -111,13 +107,11 @@ const BlackList: React.SFC<IProps> = () => {
                   <div className="blacklist-title-time">
                     <DeleteItem
                       description={_(
-                        "Are you sure you want to delete the user from the blacklist?"
+                        'Are you sure you want to delete the user from the blacklist?',
                       )}
                       onSuccess={() => refetch()}
-                      path={SERVER_URLS.BLACKLIST_DELETE.toPath({
-                        urlParams: {
-                          blacklistPk: item.pk
-                        }
+                      path={SERVER_URLS.BLACKLIST_DELETE.buildPath({
+                        blacklistPk: item.pk,
                       })}
                     >
                       <i className="fa fa-trash" />

@@ -1,37 +1,37 @@
-import React, { useState, useRef } from "react";
-import { Modal } from "react-bootstrap";
+import React, { useState, useRef } from 'react';
+import { Modal } from 'react-bootstrap';
 
-import { _ } from "trans";
-import { useGet } from "restful-react";
-import { SERVER_URLS } from "routes/server";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import { handleErrors } from "utils";
-import PaginateList from "generic/components/PaginateList";
-import Comment from "desktop/components/BlockComments/Comment";
+import { _ } from 'trans';
+import { useGet } from 'restful-react';
+import { SERVER_URLS } from 'routes/server';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import { handleErrors } from 'utils';
+import PaginateList from 'generic/components/PaginateList';
+import Comment from 'desktop/components/BlockComments/Comment';
 
 const ModalComments: React.SFC<any> = ({
   toggleShowComments,
   objectId,
   contentType,
   sendComment,
-  onSuccess
+  onSuccess,
 }) => {
   const messagesEndRef = useRef(null);
   const [newComments, changeNewComments] = useState([] as any);
   const [offset, changeOffset] = useState(0);
   const [formData, changeFormData] = useState({
-    comment: ""
+    comment: '',
   } as any);
   const [formErrors, changeFormErrors] = useState({} as any);
 
-  const getParams = {
+  const queryParams = {
     object_id: objectId,
-    content_type: contentType
+    content_type: contentType,
   };
   const { data: commentsData, loading } = useGet({
-    path: SERVER_URLS.COMMENT_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.COMMENT_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
 
   const comments = (commentsData || {}).results || [];
@@ -47,7 +47,7 @@ const ModalComments: React.SFC<any> = ({
       >
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-comments" /> {_("Comments")}
+            <i className="fa fa-comments" /> {_('Comments')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -59,7 +59,7 @@ const ModalComments: React.SFC<any> = ({
               reverse={true}
               objs={comments}
               loading={loading}
-              getParamsHash={JSON.stringify(getParams)}
+              queryParamsHash={JSON.stringify(queryParams)}
             >
               {(comment: any) => (
                 <Comment
@@ -90,7 +90,7 @@ const ModalComments: React.SFC<any> = ({
               onChange={(target: any) =>
                 changeFormData({
                   ...formData,
-                  comment: target.value
+                  comment: target.value,
                 })
               }
               errors={formErrors.comment}
@@ -98,18 +98,21 @@ const ModalComments: React.SFC<any> = ({
                 sendComment({
                   object_id: objectId,
                   content_type: contentType,
-                  comment: formData.comment.replace(/(?:\r\n|\r|\n)/g, "<br />")
+                  comment: formData.comment.replace(
+                    /(?:\r\n|\r|\n)/g,
+                    '<br />',
+                  ),
                 })
                   .then((data: any) => {
                     const comment = data;
                     changeNewComments([...newComments, ...[comment]]);
                     changeFormData({
-                      comment: ""
+                      comment: '',
                     } as any);
                     onSuccess();
                     if (messagesEndRef) {
                       const m = messagesEndRef as any;
-                      m.current.scrollIntoView({ behavior: "smooth" });
+                      m.current.scrollIntoView({ behavior: 'smooth' });
                     }
                   })
                   .catch((errors: any) => {
@@ -124,7 +127,7 @@ const ModalComments: React.SFC<any> = ({
   );
 };
 
-const ModalCommentsWrapper: React.SFC<any> = props => {
+const ModalCommentsWrapper: React.SFC<any> = (props) => {
   if (!props.showComments) {
     return null;
   }

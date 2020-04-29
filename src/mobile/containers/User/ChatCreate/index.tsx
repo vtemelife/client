@@ -1,49 +1,49 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate } from "restful-react";
-import { useHistory } from "react-router";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate } from 'restful-react';
+import { useHistory } from 'react-router';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import FormAsyncSelect from "generic/components/Form/FormAsyncSelect";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import FormFilesUpload from "generic/components/Form/FormFilesUpload";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import FormAsyncSelect from 'generic/components/Form/FormAsyncSelect';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import FormFilesUpload from 'generic/components/Form/FormFilesUpload';
 
 const ChatCreate: React.SFC<any> = () => {
   const history = useHistory();
 
   const defaultFormData = {
     users: [],
-    message: "",
-    name: "",
+    message: '',
+    name: '',
     avatar: [],
-    moderators: []
+    moderators: [],
   } as any;
   const [formData, changeFormData] = useState(defaultFormData);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.CHAT_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.CHAT_CREATE.buildPath(),
   });
 
   return (
     <div className="container-chats-create">
       <Helmet>
-        <title>{_("Create a chat")}</title>
-        <meta name="description" content={_("Create a chat")} />
+        <title>{_('Create a chat')}</title>
+        <meta name="description" content={_('Create a chat')} />
       </Helmet>
-      <Header name={_("Create a chat")} fixed={true} />
+      <Header name={_('Create a chat')} fixed={true} />
       <div className="chats-create">
         {loading && <Loading />}
         <FormAsyncSelect
-          label={`${_("Participants")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('Participants')}*:`}
+          placeholder={_('Start typing...')}
           name="users"
           required={true}
           isMulti={true}
@@ -52,26 +52,26 @@ const ChatCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              users: target.value
+              users: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.CHAT_USERS.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.CHAT_USERS.buildPath()}
         />
         <FormMsgArea
-          label={`${_("Message")}*:`}
+          label={`${_('Message')}*:`}
           name="message"
           errors={formErrors.message}
           value={formData.message}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              message: target.value
+              message: target.value,
             });
           }}
         />
         <hr />
         <FormInput
-          label={`${_("Name")}:`}
+          label={`${_('Name')}:`}
           type="text-break"
           name="name"
           required={true}
@@ -80,27 +80,27 @@ const ChatCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              name: target.target.value
+              name: target.target.value,
             });
           }}
         />
         <FormFilesUpload
-          label={`${_("Avatar")}:`}
+          label={`${_('Avatar')}:`}
           multiple={false}
           name="avatar"
-          description={_("Click here to choose your image")}
+          description={_('Click here to choose your image')}
           errors={formErrors.avatar}
           value={formData.avatar}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              avatar: target.value
+              avatar: target.value,
             })
           }
         />
         <FormAsyncSelect
-          label={`${_("Moderators")}:`}
-          placeholder={_("Start typing...")}
+          label={`${_('Moderators')}:`}
+          placeholder={_('Start typing...')}
           name="moderators"
           required={true}
           isMulti={true}
@@ -109,10 +109,10 @@ const ChatCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              moderators: target.value
+              moderators: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.CHAT_USERS.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.CHAT_USERS.buildPath()}
         />
         <Button
           className="form-button"
@@ -125,10 +125,10 @@ const ChatCreate: React.SFC<any> = () => {
                 formData.avatar && formData.avatar.length > 0
                   ? formData.avatar[0].pk
                   : undefined,
-              moderators: formData.moderators.map((u: any) => u.pk)
+              moderators: formData.moderators.map((u: any) => u.pk),
             })
               .then((data: any) => {
-                handleSuccess(_("Created successfully."));
+                handleSuccess(_('Created successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

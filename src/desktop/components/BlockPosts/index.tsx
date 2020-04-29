@@ -1,12 +1,12 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-import List from "desktop/containers/Generics/List";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
+import List from 'desktop/containers/Generics/List';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import PostPreview from "./PostPreview";
-import { _ } from "trans";
+import PostPreview from './PostPreview';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   objectId?: string;
@@ -14,18 +14,18 @@ interface IProps extends RouteComponentProps {
   isReadonly?: boolean;
   renderTitle?: any;
   renderFilters?: any;
-  defaultGetParams?: any;
+  defaultqueryParams?: any;
   size?: number;
 }
 
 class BlockPosts extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     return this.props.renderTitle
-      ? this.props.renderTitle(getParams)
-      : _("Posts");
+      ? this.props.renderTitle(queryParams)
+      : _('Posts');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     return <PostPreview item={item} />;
   };
 
@@ -35,11 +35,11 @@ class BlockPosts extends React.PureComponent<IProps> {
         listClientPath={this.props.location.pathname}
         createClientPath={
           !this.props.isReadonly
-            ? CLIENT_URLS.USER.POST_CREATE.toPath({
-                getParams: {
+            ? CLIENT_URLS.USER.POST_CREATE.buildPath({
+                queryParams: {
                   object_id: this.props.objectId,
-                  content_type: this.props.contentType
-                }
+                  content_type: this.props.contentType,
+                },
               })
             : undefined
         }
@@ -51,7 +51,7 @@ class BlockPosts extends React.PureComponent<IProps> {
         renderFilters={this.props.renderFilters}
         searchLabel="search_posts"
         size={this.props.size}
-        defaultGetParams={this.props.defaultGetParams}
+        defaultqueryParams={this.props.defaultqueryParams}
       />
     );
   }

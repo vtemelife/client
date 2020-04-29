@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router";
-import queryString from "query-string";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
+import queryString from 'query-string';
 import {
   InputGroup,
   Form,
@@ -11,36 +11,36 @@ import {
   OverlayTrigger,
   Popover,
   ListGroup,
-  Alert
-} from "react-bootstrap";
-import { useGet } from "restful-react";
-import ShowMore from "react-show-more";
-import Moment from "react-moment";
+  Alert,
+} from 'react-bootstrap';
+import { useGet } from 'restful-react';
+import ShowMore from 'react-show-more';
+import Moment from 'react-moment';
 
-import Image from "generic/components/Image";
-import defaultSVG from "generic/layout/images/picture.svg";
+import Image from 'generic/components/Image';
+import defaultSVG from 'generic/layout/images/picture.svg';
 
-import { ROLE_MODERATOR } from "generic/constants";
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "mobile/routes/client";
-import PaginateList from "generic/components/PaginateList";
-import { getGeo } from "desktop/containers/User/Profile/utils";
-import { renderHtml, getLocale } from "utils";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import FormAsyncSelect from "generic/components/Form/FormAsyncSelect";
-import FormSelect from "generic/components/Form/FormSelect";
-import { COMMUNITY_THEMES, COMMUNITY_TYPES } from "generic/constants";
-import Header from "mobile/containers/Header";
-import DeleteItem from "mobile/components/DeleteItem";
-import { withGuestAlert } from "mobile/components/GuestAlert";
+import { ROLE_MODERATOR } from 'generic/constants';
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import PaginateList from 'generic/components/PaginateList';
+import { getGeo } from 'desktop/containers/User/Profile/utils';
+import { renderHtml, getLocale } from 'utils';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import FormAsyncSelect from 'generic/components/Form/FormAsyncSelect';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { COMMUNITY_THEMES, COMMUNITY_TYPES } from 'generic/constants';
+import Header from 'mobile/containers/Header';
+import DeleteItem from 'mobile/components/DeleteItem';
+import { withGuestAlert } from 'mobile/components/GuestAlert';
 
-import Likes from "desktop/components/Likes";
-import PartyActions from "../../../../generic/components/PartyActions";
+import Likes from 'desktop/components/Likes';
+import PartyActions from '../../../../generic/components/PartyActions';
 
-const MENU_PAGE_SEARCH = "search";
-const MENU_PAGE_MY = "my";
-const MENU_PAGE_PAST = "past";
+const MENU_PAGE_SEARCH = 'search';
+const MENU_PAGE_MY = 'my';
+const MENU_PAGE_PAST = 'past';
 
 const PartyList: React.SFC<any> = () => {
   const location = useLocation();
@@ -49,7 +49,7 @@ const PartyList: React.SFC<any> = () => {
   const [showMenu, toggleShowMenu] = useState(false);
   const [showFilters, toggleShowFilters] = useState(false);
 
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
 
   const [menuPage, changeMenuPage] = useState(MENU_PAGE_SEARCH);
@@ -58,8 +58,8 @@ const PartyList: React.SFC<any> = () => {
   const user = userAuth.headerUser || {
     city: {
       country: {},
-      region: {}
-    }
+      region: {},
+    },
   };
 
   const defaultFilters = {
@@ -67,26 +67,26 @@ const PartyList: React.SFC<any> = () => {
       user.city && user.city.country
         ? {
             pk: user.city.country.pk,
-            name: user.city.country.name
+            name: user.city.country.name,
           }
         : null,
     region:
       user.city && user.city.region
         ? {
             pk: user.city.region.pk,
-            name: user.city.region.name
+            name: user.city.region.name,
           }
         : null,
     city: null,
     theme: null,
-    party_type: null
+    party_type: null,
   } as any;
   const [filters, changeFilters] = useState(defaultFilters);
   const [applyFilters, changeApplyFilters] = useState(null);
 
   const serverFilters = applyFilters || defaultFilters;
 
-  const getParams = {
+  const queryParams = {
     search,
     city__country:
       serverFilters.country !== null ? serverFilters.country.pk : undefined,
@@ -101,24 +101,24 @@ const PartyList: React.SFC<any> = () => {
     is_participant: menuPage === MENU_PAGE_MY ? true : undefined,
     is_past: menuPage === MENU_PAGE_PAST ? true : false,
     object_id: objectId,
-    content_type: contentType
+    content_type: contentType,
   };
   const { data: partiesData, loading, refetch } = useGet({
-    path: SERVER_URLS.PARTY_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.PARTY_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const partiesItems = (partiesData || {}).results || [];
   const partiesCount = (partiesData || {}).count || 0;
 
   let title =
-    contentType === "clubs:club" ? _("Club parties") : _("My parties");
+    contentType === 'clubs:club' ? _('Club parties') : _('My parties');
   switch (menuPage) {
     case MENU_PAGE_SEARCH:
-      title = _("Search a party");
+      title = _('Search a party');
       break;
     case MENU_PAGE_PAST:
-      title = _("Past parties");
+      title = _('Past parties');
       break;
     case MENU_PAGE_MY:
     default:
@@ -138,7 +138,7 @@ const PartyList: React.SFC<any> = () => {
         <meta name="description" content={title} />
       </Helmet>
       <Header
-        name={`${title} ${partiesCount > 0 ? `(${partiesCount})` : ""}`}
+        name={`${title} ${partiesCount > 0 ? `(${partiesCount})` : ''}`}
         fixed={true}
       >
         <div onClick={() => toggleShowMenu(true)}>
@@ -147,17 +147,17 @@ const PartyList: React.SFC<any> = () => {
         <div onClick={() => toggleShowFilters(true)}>
           <i
             className={`fa fa-filter ${
-              applyFilters ? "text-notification" : ""
+              applyFilters ? 'text-notification' : ''
             }`}
           />
         </div>
         <div>
           <Link
-            to={CLIENT_URLS.USER.PARTY_CREATE.toPath({
-              getParams: {
+            to={CLIENT_URLS.USER.PARTY_CREATE.buildPath({
+              queryParams: {
                 objectId,
-                contentType
-              }
+                contentType,
+              },
             })}
           >
             <i className="fa fa-plus" />
@@ -173,7 +173,7 @@ const PartyList: React.SFC<any> = () => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -183,7 +183,7 @@ const PartyList: React.SFC<any> = () => {
       <div className="parties-list">
         {!loading && partiesItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No parties.")}</div>
+            <div>{_('No parties.')}</div>
             <hr />
             <div className="d-flex">
               <Button
@@ -193,7 +193,7 @@ const PartyList: React.SFC<any> = () => {
                   changeMenuPage(MENU_PAGE_SEARCH);
                 }}
               >
-                <i className="fa fa-search" /> {_("Search a party")}
+                <i className="fa fa-search" /> {_('Search a party')}
               </Button>
             </div>
           </Alert>
@@ -204,7 +204,7 @@ const PartyList: React.SFC<any> = () => {
           count={partiesCount}
           objs={partiesItems}
           loading={loading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => (
             <div className="parties-item block" key={item.pk}>
@@ -212,7 +212,7 @@ const PartyList: React.SFC<any> = () => {
                 <div className="parties-avatar">
                   <Link
                     to={CLIENT_URLS.USER.PARTY_DETAIL.buildPath({
-                      partySlug: item.slug
+                      partySlug: item.slug,
                     })}
                   >
                     <Image
@@ -230,7 +230,7 @@ const PartyList: React.SFC<any> = () => {
                   <div className="parties-title-name">
                     <Link
                       to={CLIENT_URLS.USER.PARTY_DETAIL.buildPath({
-                        partySlug: item.slug
+                        partySlug: item.slug,
                       })}
                     >
                       <>{item.name}</>
@@ -250,28 +250,24 @@ const PartyList: React.SFC<any> = () => {
                             <ListGroup variant="flush">
                               <ListGroup.Item>
                                 <Link
-                                  to={CLIENT_URLS.USER.PARTY_UPDATE.toPath({
-                                    urlParams: {
-                                      partySlug: item.slug
-                                    }
+                                  to={CLIENT_URLS.USER.PARTY_UPDATE.buildPath({
+                                    partySlug: item.slug,
                                   })}
                                 >
-                                  <i className="fa fa-pencil" /> {_("Update")}
+                                  <i className="fa fa-pencil" /> {_('Update')}
                                 </Link>
                               </ListGroup.Item>
                               <ListGroup.Item>
                                 <DeleteItem
                                   description={_(
-                                    "Are you sure you want to delete the party?"
+                                    'Are you sure you want to delete the party?',
                                   )}
                                   onSuccess={() => refetch()}
-                                  path={SERVER_URLS.PARTY_DELETE.toPath({
-                                    urlParams: {
-                                      partySlug: item.slug
-                                    }
+                                  path={SERVER_URLS.PARTY_DELETE.buildPath({
+                                    partySlug: item.slug,
                                   })}
                                 >
-                                  <i className="fa fa-trash" /> {_("Delete")}
+                                  <i className="fa fa-trash" /> {_('Delete')}
                                 </DeleteItem>
                               </ListGroup.Item>
                             </ListGroup>
@@ -288,47 +284,45 @@ const PartyList: React.SFC<any> = () => {
                 <div className="parties-text">
                   <ListGroup variant="flush">
                     <ListGroup.Item>
-                      <span className="item-title">{_("Club")}:</span>
+                      <span className="item-title">{_('Club')}:</span>
                       <Link
-                        to={CLIENT_URLS.USER.CLUB_DETAIL.toPath({
-                          urlParams: {
-                            clubSlug: item.club.slug
-                          }
+                        to={CLIENT_URLS.USER.CLUB_DETAIL.buildPath({
+                          clubSlug: item.club.slug,
                         })}
                       >
                         {item.club.name}
                       </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Type")}:</span>
+                      <span className="item-title">{_('Type')}:</span>
                       {item.party_type.display}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Theme")}:</span>
+                      <span className="item-title">{_('Theme')}:</span>
                       {item.theme.display}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Start date")}:</span>
+                      <span className="item-title">{_('Start date')}:</span>
                       <Moment locale={getLocale()} format="DD.MM.YYYY HH:mm">
                         {item.start_date}
                       </Moment>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("End date")}:</span>
+                      <span className="item-title">{_('End date')}:</span>
                       <Moment locale={getLocale()} format="DD.MM.YYYY HH:mm">
                         {item.end_date}
                       </Moment>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Participants")}:</span>
+                      <span className="item-title">{_('Participants')}:</span>
                       {item.users.length}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("About")}:</span>
+                      <span className="item-title">{_('About')}:</span>
                       <ShowMore
                         lines={3}
-                        more={_("Show more")}
-                        less={_("Show less")}
+                        more={_('Show more')}
+                        less={_('Show less')}
                         anchorClass=""
                       >
                         {renderHtml(item.description)}
@@ -342,7 +336,7 @@ const PartyList: React.SFC<any> = () => {
                 <div className="parties-footer">
                   <Likes
                     likePath={SERVER_URLS.PARTY_LIKE.buildPath({
-                      partySlug: item.slug
+                      partySlug: item.slug,
                     })}
                     item={item}
                   />
@@ -359,35 +353,35 @@ const PartyList: React.SFC<any> = () => {
       >
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormAsyncSelect
-            label={_("Country")}
-            placeholder={_("Start typing...")}
+            label={_('Country')}
+            placeholder={_('Start typing...')}
             name="city__country"
             value={filters.country}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                country: target.value
+                country: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.COUNTRY.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.COUNTRY.buildPath()}
           />
           <FormAsyncSelect
-            label={_("Region/State")}
-            placeholder={_("Start typing...")}
+            label={_('Region/State')}
+            placeholder={_('Start typing...')}
             name="city__region"
             value={filters.region}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                region: target.value
+                region: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.REGION.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.REGION.buildPath()}
             filterURL={`country=${
               filters.country && filters.country.pk
                 ? filters.country.pk
@@ -395,17 +389,17 @@ const PartyList: React.SFC<any> = () => {
             }`}
           />
           <FormAsyncSelect
-            label={_("City")}
-            placeholder={_("Start typing...")}
+            label={_('City')}
+            placeholder={_('Start typing...')}
             name="city"
             value={filters.city}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                city: target.value
+                city: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.CITY.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.CITY.buildPath()}
             filterURL={`region=${
               filters.region && filters.region.pk
                 ? filters.region.pk
@@ -414,8 +408,8 @@ const PartyList: React.SFC<any> = () => {
           />
           <hr />
           <FormSelect
-            label={_("Theme")}
-            placeholder={_("Start typing...")}
+            label={_('Theme')}
+            placeholder={_('Start typing...')}
             name="relationship_theme"
             isClearable={true}
             options={COMMUNITY_THEMES}
@@ -423,13 +417,13 @@ const PartyList: React.SFC<any> = () => {
             onChange={(target: any) =>
               changeFilters({
                 ...filters,
-                theme: target.value
+                theme: target.value,
               })
             }
           />
           <FormSelect
-            label={_("Type")}
-            placeholder={_("Start typing...")}
+            label={_('Type')}
+            placeholder={_('Start typing...')}
             name="party_type"
             isClearable={true}
             options={COMMUNITY_TYPES}
@@ -437,7 +431,7 @@ const PartyList: React.SFC<any> = () => {
             onChange={(target: any) =>
               changeFilters({
                 ...filters,
-                party_type: target.value
+                party_type: target.value,
               })
             }
           />
@@ -452,7 +446,7 @@ const PartyList: React.SFC<any> = () => {
             }}
             variant="danger"
           >
-            {_("Reset")}
+            {_('Reset')}
           </Button>
           <Button
             variant="primary"
@@ -462,14 +456,14 @@ const PartyList: React.SFC<any> = () => {
               toggleShowFilters(false);
             }}
           >
-            {_("Apply")}
+            {_('Apply')}
           </Button>
         </Modal.Footer>
       </Modal>
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -481,7 +475,7 @@ const PartyList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-search" /> {_("Search a party")}
+              <i className="fa fa-search" /> {_('Search a party')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -490,7 +484,7 @@ const PartyList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-calendar" /> {_("My parties")}
+              <i className="fa fa-calendar" /> {_('My parties')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -499,7 +493,7 @@ const PartyList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-step-backward" /> {_("Past parties")}
+              <i className="fa fa-step-backward" /> {_('Past parties')}
             </ListGroup.Item>
           </ListGroup>
         </Modal.Body>

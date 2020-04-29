@@ -1,19 +1,19 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import compose from "lodash/flowRight";
-import { Card } from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import compose from 'lodash/flowRight';
+import { Card } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
 
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import List from "desktop/containers/Generics/List";
-import { _ } from "trans";
-import { withAuthUser } from "generic/containers/Decorators";
-import FormSelect from "generic/components/Form/FormSelect";
-import { MAP_TYPES } from "generic/constants";
-import { getDisplayValue } from "utils";
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import List from 'desktop/containers/Generics/List';
+import { _ } from 'trans';
+import { withAuthUser } from 'generic/containers/Decorators';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { MAP_TYPES } from 'generic/constants';
+import { getDisplayValue } from 'utils';
 
-import Items from "./Items";
+import Items from './Items';
 
 interface IProps extends RouteComponentProps {
   match: any;
@@ -21,41 +21,41 @@ interface IProps extends RouteComponentProps {
 }
 
 class SiteMap extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
-    return _("Map (parties and clubs)");
+  public renderTitle = (queryParams: any) => {
+    return _('Map (parties and clubs)');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     return <>{item}</>;
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     return (
       <Card>
         <Helmet>
-          <title>{_("Map")}</title>
-          <meta name="description" content={_("Map")} />
+          <title>{_('Map')}</title>
+          <meta name="description" content={_('Map')} />
         </Helmet>
         <Card.Body>
           <Card.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Card.Title>
           <FormSelect
-            label={_("Type")}
+            label={_('Type')}
             name="type"
             isClearable={true}
             options={MAP_TYPES}
             value={
-              getParams.type
+              queryParams.type
                 ? {
-                    value: getParams.type,
-                    display: getDisplayValue(getParams.type, MAP_TYPES)
+                    value: queryParams.type,
+                    display: getDisplayValue(queryParams.type, MAP_TYPES),
                   }
                 : null
             }
             onChange={(target: any) =>
-              onChangeGetParams({
-                type: target.value ? target.value.value : undefined
+              onChangequeryParams({
+                type: target.value ? target.value.value : undefined,
               })
             }
           />
@@ -80,7 +80,7 @@ class SiteMap extends React.PureComponent<IProps> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 export default compose(withAuth)(SiteMap);

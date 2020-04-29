@@ -1,27 +1,27 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate } from "restful-react";
-import { useHistory } from "react-router";
-import slugify from "slugify";
-import { useLocation } from "react-router";
-import queryString from "query-string";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate } from 'restful-react';
+import { useHistory } from 'react-router';
+import slugify from 'slugify';
+import { useLocation } from 'react-router';
+import queryString from 'query-string';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import FormAsyncSelect from "generic/components/Form/FormAsyncSelect";
-import FormSelect from "generic/components/Form/FormSelect";
-import { COMMUNITY_THEMES, COMMUNITY_TYPES } from "generic/constants";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import FormRichEditor from "generic/components/Form/FormRichEditor";
-import FormFilesUpload from "generic/components/Form/FormFilesUpload";
-import FormMap from "generic/components/Form/FormMap";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormSlug from "generic/components/Form/FormSlug";
-import FormDatePicker from "generic/components/Form/FormDatePicker";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import FormAsyncSelect from 'generic/components/Form/FormAsyncSelect';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { COMMUNITY_THEMES, COMMUNITY_TYPES } from 'generic/constants';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import FormRichEditor from 'generic/components/Form/FormRichEditor';
+import FormFilesUpload from 'generic/components/Form/FormFilesUpload';
+import FormMap from 'generic/components/Form/FormMap';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormSlug from 'generic/components/Form/FormSlug';
+import FormDatePicker from 'generic/components/Form/FormDatePicker';
 
 const PartyCreate: React.SFC<any> = () => {
   const location = useLocation();
@@ -32,15 +32,15 @@ const PartyCreate: React.SFC<any> = () => {
   const user = userAuth.headerUser || {
     city: {
       country: {},
-      region: {}
-    }
+      region: {},
+    },
   };
 
   const defaultFormData = {
-    name: "",
-    slug: "",
-    description: "",
-    short_description: "",
+    name: '',
+    slug: '',
+    description: '',
+    short_description: '',
     image: [],
     man_cost: 0,
     woman_cost: 0,
@@ -52,62 +52,62 @@ const PartyCreate: React.SFC<any> = () => {
       user.city && user.city.country
         ? {
             pk: user.city.country.pk,
-            name: user.city.country.name
+            name: user.city.country.name,
           }
         : null,
     region:
       user.city && user.city.region
         ? {
             pk: user.city.region.pk,
-            name: user.city.region.name
+            name: user.city.region.name,
           }
         : null,
     city: user.city
       ? {
           pk: user.city.pk,
-          name: user.city.name
+          name: user.city.name,
         }
       : null,
     relationship_theme: null,
     party_type: null,
-    address: "",
-    geo: null
+    address: '',
+    geo: null,
   } as any;
   const [formData, changeFormData] = useState(defaultFormData);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.PARTY_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.PARTY_CREATE.buildPath(),
   });
 
   return (
     <div className="container-parties-create">
       <Helmet>
-        <title>{_("Create a party")}</title>
-        <meta name="description" content={_("Create a party")} />
+        <title>{_('Create a party')}</title>
+        <meta name="description" content={_('Create a party')} />
       </Helmet>
-      <Header name={_("Create a party")} fixed={true} />
+      <Header name={_('Create a party')} fixed={true} />
       <div className="parties-create">
         {loading && <Loading />}
         {!club && (
           <FormAsyncSelect
-            label={`${_("Club")}*:`}
-            placeholder={_("Start typing...")}
+            label={`${_('Club')}*:`}
+            placeholder={_('Start typing...')}
             name="object_id"
             errors={formErrors.club}
             value={formData.club}
             onChange={(target: any) => {
               changeFormData({
                 ...formData,
-                club: target.value
+                club: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.CLUBS.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.CLUBS.buildPath()}
           />
         )}
         <FormInput
-          label={`${_("Name")}*:`}
+          label={`${_('Name')}*:`}
           type="text-break"
           name="name"
           required={true}
@@ -117,12 +117,12 @@ const PartyCreate: React.SFC<any> = () => {
             changeFormData({
               ...formData,
               name: target.target.value,
-              slug: slugify(target.target.value)
+              slug: slugify(target.target.value),
             });
           }}
         />
         <FormSlug
-          label={`${_("Slug")}*:`}
+          label={`${_('Slug')}*:`}
           type="text-break"
           name="slug"
           required={true}
@@ -131,12 +131,12 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              slug: target.value
+              slug: target.value,
             });
           }}
         />
         <FormRichEditor
-          label={`${_("Short description (in list)")}*:`}
+          label={`${_('Short description (in list)')}*:`}
           name="short_description"
           required={true}
           value={formData.short_description}
@@ -144,39 +144,39 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              short_description: target.value
+              short_description: target.value,
             })
           }
         />
         <FormRichEditor
-          label={`${_("Description")}*:`}
+          label={`${_('Description')}*:`}
           name="description"
           value={formData.description}
           errors={formErrors.description}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              description: target.value
+              description: target.value,
             })
           }
         />
         <FormFilesUpload
-          label={`${_("Image")}:`}
+          label={`${_('Image')}:`}
           multiple={false}
           name="image"
-          description={_("Click here to choose your image")}
+          description={_('Click here to choose your image')}
           errors={formErrors.image}
           value={formData.image}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              image: target.value
+              image: target.value,
             })
           }
         />
         <hr />
         <FormSelect
-          label={`${_("Theme")}*:`}
+          label={`${_('Theme')}*:`}
           name="relationship_theme"
           isClearable={true}
           options={COMMUNITY_THEMES}
@@ -185,12 +185,12 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              relationship_theme: target.value
+              relationship_theme: target.value,
             })
           }
         />
         <FormSelect
-          label={`${_("Type")}*:`}
+          label={`${_('Type')}*:`}
           name="party_type"
           isClearable={true}
           options={COMMUNITY_TYPES}
@@ -199,13 +199,13 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              party_type: target.value
+              party_type: target.value,
             })
           }
         />
         <hr />
         <FormInput
-          label={`${_("Price M")}:`}
+          label={`${_('Price M')}:`}
           type="number"
           name="man_cost"
           errors={formErrors.man_cost}
@@ -213,12 +213,12 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              man_cost: target.target.value
+              man_cost: target.target.value,
             })
           }
         />
         <FormInput
-          label={`${_("Price W")}:`}
+          label={`${_('Price W')}:`}
           type="number"
           name="woman_cost"
           errors={formErrors.woman_cost}
@@ -226,12 +226,12 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              woman_cost: target.target.value
+              woman_cost: target.target.value,
             })
           }
         />
         <FormInput
-          label={`${_("Price Couple")}:`}
+          label={`${_('Price Couple')}:`}
           type="number"
           name="pair_cost"
           errors={formErrors.pair_cost}
@@ -239,7 +239,7 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              pair_cost: target.target.value
+              pair_cost: target.target.value,
             })
           }
         />
@@ -247,59 +247,59 @@ const PartyCreate: React.SFC<any> = () => {
         <FormDatePicker
           showTimeSelect={true}
           dateFormat="Pp"
-          label={`${_("Start Date")}*:`}
+          label={`${_('Start Date')}*:`}
           name="start_date"
           errors={formErrors.start_date}
           value={formData.start_date}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              start_date: target
+              start_date: target,
             })
           }
         />
         <FormDatePicker
           showTimeSelect={true}
           dateFormat="Pp"
-          label={`${_("End Date")}*:`}
+          label={`${_('End Date')}*:`}
           name="end_date"
           errors={formErrors.end_date}
           value={formData.end_date}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              end_date: target
+              end_date: target,
             })
           }
         />
         <hr />
         <FormAsyncSelect
-          label={`${_("Country")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('Country')}*:`}
+          placeholder={_('Start typing...')}
           name="city__country"
           errors={formErrors.city}
           value={formData.country}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              country: target.value
+              country: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.COUNTRY.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.COUNTRY.buildPath()}
         />
         <FormAsyncSelect
-          label={`${_("Region/State")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('Region/State')}*:`}
+          placeholder={_('Start typing...')}
           name="city__region"
           errors={formErrors.city}
           value={formData.region}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              region: target.value
+              region: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.REGION.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.REGION.buildPath()}
           filterURL={`country=${
             formData.country && formData.country.pk
               ? formData.country.pk
@@ -307,18 +307,18 @@ const PartyCreate: React.SFC<any> = () => {
           }`}
         />
         <FormAsyncSelect
-          label={`${_("City")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('City')}*:`}
+          placeholder={_('Start typing...')}
           name="city"
           errors={formErrors.city}
           value={formData.city}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              city: target.value
+              city: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.CITY.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.CITY.buildPath()}
           filterURL={`region=${
             formData.region && formData.region.pk
               ? formData.region.pk
@@ -327,19 +327,19 @@ const PartyCreate: React.SFC<any> = () => {
         />
         <hr />
         <FormRichEditor
-          label={`${_("Address")}*:`}
+          label={`${_('Address')}*:`}
           name="address"
           value={formData.address}
           errors={formErrors.address}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              address: target.value
+              address: target.value,
             })
           }
         />
         <FormMap
-          label={`${_("Drag and drop the marker on the map")}:`}
+          label={`${_('Drag and drop the marker on the map')}:`}
           name="geo"
           center={
             user.city && user.city.latitude && user.city.longitude
@@ -351,7 +351,7 @@ const PartyCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              geo: target.value
+              geo: target.value,
             })
           }
         />
@@ -381,13 +381,13 @@ const PartyCreate: React.SFC<any> = () => {
                 ? formData.party_type.value
                 : undefined,
               address: formData.address,
-              geo: formData.geo
+              geo: formData.geo,
             })
               .then((data: any) => {
                 handleSuccess(
                   _(
-                    "Your request has been sent to moderators. Waiting moderators for approving."
-                  )
+                    'Your request has been sent to moderators. Waiting moderators for approving.',
+                  ),
                 );
                 history.goBack();
               })

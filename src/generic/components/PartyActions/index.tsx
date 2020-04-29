@@ -1,50 +1,48 @@
-import React from "react";
-import { Dropdown } from "react-bootstrap";
-import { useMutate } from "restful-react";
-import { SERVER_URLS } from "routes/server";
+import React from 'react';
+import { Dropdown } from 'react-bootstrap';
+import { useMutate } from 'restful-react';
+import { SERVER_URLS } from 'routes/server';
 
 import {
   PARTY_STATUS_YES,
   PARTY_STATUS_PROBABLY,
   PARTY_STATUS_NO,
   PARTY_STATUS_UNKNOWN,
-  PARTY_STATUSES
-} from "generic/constants";
-import { getDisplayValue, handleErrors } from "utils";
-import Loading from "generic/components/Loading";
+  PARTY_STATUSES,
+} from 'generic/constants';
+import { getDisplayValue, handleErrors } from 'utils';
+import Loading from 'generic/components/Loading';
 
 const PartyActions: React.SFC<any> = ({
   item,
   refetch,
   user,
-  disableLoading
+  disableLoading,
 }) => {
   const { mutate, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.PARTY_APPLY.toPath({
-      urlParams: {
-        partySlug: item.slug
-      }
-    })
+    verb: 'POST',
+    path: SERVER_URLS.PARTY_APPLY.buildPath({
+      partySlug: item.slug,
+    }),
   });
 
   const getStatusVariant = (status: string) => {
     switch (status) {
       case PARTY_STATUS_YES:
-        return "primary";
+        return 'primary';
       case PARTY_STATUS_PROBABLY:
-        return "warning";
+        return 'warning';
       case PARTY_STATUS_NO:
       case PARTY_STATUS_UNKNOWN:
       default:
-        return "danger";
+        return 'danger';
     }
   };
 
   const changeStatus = (status: string) => {
     mutate({
       user: user.pk,
-      status
+      status,
     })
       .then((result: any) => {
         refetch();
@@ -65,7 +63,7 @@ const PartyActions: React.SFC<any> = ({
         >
           {getDisplayValue(
             item.user_status || PARTY_STATUS_UNKNOWN,
-            PARTY_STATUSES
+            PARTY_STATUSES,
           )}
         </Dropdown.Toggle>
         <Dropdown.Menu>

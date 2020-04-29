@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate, useGet } from "restful-react";
-import { useHistory, useParams } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate, useGet } from 'restful-react';
+import { useHistory, useParams } from 'react-router';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormSelect from "generic/components/Form/FormSelect";
-import { PERMISSIONS } from "generic/constants";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { PERMISSIONS } from 'generic/constants';
 
 const MediaFolderUpdate: React.SFC<any> = () => {
   const history = useHistory();
@@ -21,20 +21,16 @@ const MediaFolderUpdate: React.SFC<any> = () => {
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MEDIA_FOLDER_UPDATE.toPath({
-      urlParams: {
-        mediaFolderPk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MEDIA_FOLDER_UPDATE.buildPath({
+      mediaFolderPk,
+    }),
   });
 
   const { data: mediaFolderData, loading: mediaFolderLoading } = useGet({
-    path: SERVER_URLS.MEDIA_FOLDER_DETAIL.toPath({
-      urlParams: {
-        mediaFolderPk
-      }
-    })
+    path: SERVER_URLS.MEDIA_FOLDER_DETAIL.buildPath({
+      mediaFolderPk,
+    }),
   });
 
   useEffect(() => {
@@ -42,8 +38,8 @@ const MediaFolderUpdate: React.SFC<any> = () => {
       return;
     }
     const defaultFormData = {
-      name: mediaFolderData.name || "",
-      show_media: mediaFolderData.show_media || null
+      name: mediaFolderData.name || '',
+      show_media: mediaFolderData.show_media || null,
     } as any;
     changeFormData(defaultFormData);
   }, [mediaFolderData, changeFormData]);
@@ -55,14 +51,14 @@ const MediaFolderUpdate: React.SFC<any> = () => {
   return (
     <div className="container-media-folders-update">
       <Helmet>
-        <title>{_("Update the media folder")}</title>
-        <meta name="description" content={_("Update the media folder")} />
+        <title>{_('Update the media folder')}</title>
+        <meta name="description" content={_('Update the media folder')} />
       </Helmet>
-      <Header name={_("Update the media folder")} fixed={true} />
+      <Header name={_('Update the media folder')} fixed={true} />
       <div className="media-folders-update">
         {(mediaFolderLoading || loading) && <Loading />}
         <FormInput
-          label={`${_("Name")}:`}
+          label={`${_('Name')}:`}
           type="text-break"
           name="name"
           required={true}
@@ -71,12 +67,12 @@ const MediaFolderUpdate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              name: target.target.value
+              name: target.target.value,
             });
           }}
         />
         <FormSelect
-          label={`${_("Access")}*:`}
+          label={`${_('Access')}*:`}
           required={true}
           name="show_media"
           options={PERMISSIONS}
@@ -85,7 +81,7 @@ const MediaFolderUpdate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              show_media: target.value
+              show_media: target.value,
             });
           }}
         />
@@ -96,10 +92,10 @@ const MediaFolderUpdate: React.SFC<any> = () => {
               name: formData.name,
               show_media: formData.show_media
                 ? formData.show_media.value
-                : undefined
+                : undefined,
             })
               .then((data: any) => {
-                handleSuccess(_("Updated successfully."));
+                handleSuccess(_('Updated successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

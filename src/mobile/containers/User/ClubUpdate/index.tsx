@@ -1,25 +1,25 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import { useGet, useMutate } from "restful-react";
-import { useHistory, useParams } from "react-router";
-import slugify from "slugify";
+import React, { useState, useContext, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useGet, useMutate } from 'restful-react';
+import { useHistory, useParams } from 'react-router';
+import slugify from 'slugify';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "mobile/routes/client";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import FormAsyncSelect from "generic/components/Form/FormAsyncSelect";
-import FormSelect from "generic/components/Form/FormSelect";
-import { COMMUNITY_THEMES, COMMUNITY_TYPES } from "generic/constants";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import FormRichEditor from "generic/components/Form/FormRichEditor";
-import FormFilesUpload from "generic/components/Form/FormFilesUpload";
-import FormMap from "generic/components/Form/FormMap";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import FormSlug from "generic/components/Form/FormSlug";
-import { handleSuccess, handleErrors } from "utils";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import FormAsyncSelect from 'generic/components/Form/FormAsyncSelect';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { COMMUNITY_THEMES, COMMUNITY_TYPES } from 'generic/constants';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import FormRichEditor from 'generic/components/Form/FormRichEditor';
+import FormFilesUpload from 'generic/components/Form/FormFilesUpload';
+import FormMap from 'generic/components/Form/FormMap';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import FormSlug from 'generic/components/Form/FormSlug';
+import { handleSuccess, handleErrors } from 'utils';
 
 const ClubUpdate: React.SFC<any> = () => {
   const { clubSlug } = useParams();
@@ -28,16 +28,14 @@ const ClubUpdate: React.SFC<any> = () => {
   const user = userAuth.headerUser || {
     city: {
       country: {},
-      region: {}
-    }
+      region: {},
+    },
   };
 
   const { data: clubData, loading: clubLoading } = useGet({
-    path: SERVER_URLS.CLUB_DETAIL.toPath({
-      urlParams: {
-        clubSlug
-      }
-    })
+    path: SERVER_URLS.CLUB_DETAIL.buildPath({
+      clubSlug,
+    }),
   });
 
   const [formData, changeFormData] = useState({} as any);
@@ -48,45 +46,43 @@ const ClubUpdate: React.SFC<any> = () => {
       return;
     }
     const defaultFormData = {
-      name: clubData.name || "",
-      slug: clubData.slug || "",
-      description: clubData.description || "",
+      name: clubData.name || '',
+      slug: clubData.slug || '',
+      description: clubData.description || '',
       image: clubData.image && clubData.image.pk ? [clubData.image] : [],
       country:
         clubData.city && clubData.city.country
           ? {
               pk: clubData.city.country.pk,
-              name: clubData.city.country.name
+              name: clubData.city.country.name,
             }
           : null,
       region:
         clubData.city && clubData.city.region
           ? {
               pk: clubData.city.region.pk,
-              name: clubData.city.region.name
+              name: clubData.city.region.name,
             }
           : null,
       city: clubData.city
         ? {
             pk: clubData.city.pk,
-            name: clubData.city.name
+            name: clubData.city.name,
           }
         : null,
       relationship_theme: clubData.relationship_theme || null,
       club_type: clubData.club_type || null,
-      address: clubData.address || "",
-      geo: clubData.geo || null
+      address: clubData.address || '',
+      geo: clubData.geo || null,
     } as any;
     changeFormData(defaultFormData);
   }, [clubData, changeFormData]);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.CLUB_UPDATE.toPath({
-      urlParams: {
-        clubSlug
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.CLUB_UPDATE.buildPath({
+      clubSlug,
+    }),
   });
 
   if (Object.keys(formData).length === 0) {
@@ -96,14 +92,14 @@ const ClubUpdate: React.SFC<any> = () => {
   return (
     <div className="container-clubs-update">
       <Helmet>
-        <title>{_("Update the club")}</title>
-        <meta name="description" content={_("Update the club")} />
+        <title>{_('Update the club')}</title>
+        <meta name="description" content={_('Update the club')} />
       </Helmet>
-      <Header name={_("Update the club")} fixed={true} />
+      <Header name={_('Update the club')} fixed={true} />
       <div className="clubs-update">
         {(clubLoading || loading) && <Loading />}
         <FormInput
-          label={`${_("Name")}*:`}
+          label={`${_('Name')}*:`}
           type="text-break"
           name="name"
           required={true}
@@ -113,12 +109,12 @@ const ClubUpdate: React.SFC<any> = () => {
             changeFormData({
               ...formData,
               name: target.target.value,
-              slug: slugify(target.target.value)
+              slug: slugify(target.target.value),
             });
           }}
         />
         <FormSlug
-          label={`${_("Slug")}*:`}
+          label={`${_('Slug')}*:`}
           type="text-break"
           name="slug"
           required={true}
@@ -127,39 +123,39 @@ const ClubUpdate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              slug: target.value
+              slug: target.value,
             });
           }}
         />
         <FormRichEditor
-          label={`${_("Description")}*:`}
+          label={`${_('Description')}*:`}
           name="description"
           value={formData.description}
           errors={formErrors.description}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              description: target.value
+              description: target.value,
             })
           }
         />
         <FormFilesUpload
-          label={`${_("Image")}:`}
+          label={`${_('Image')}:`}
           multiple={false}
           name="image"
-          description={_("Click here to choose your image")}
+          description={_('Click here to choose your image')}
           errors={formErrors.image}
           value={formData.image}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              image: target.value
+              image: target.value,
             })
           }
         />
         <hr />
         <FormSelect
-          label={`${_("Theme")}*:`}
+          label={`${_('Theme')}*:`}
           name="relationship_theme"
           isClearable={true}
           options={COMMUNITY_THEMES}
@@ -168,12 +164,12 @@ const ClubUpdate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              relationship_theme: target.value
+              relationship_theme: target.value,
             })
           }
         />
         <FormSelect
-          label={`${_("Type")}*:`}
+          label={`${_('Type')}*:`}
           name="club_type"
           isClearable={true}
           options={COMMUNITY_TYPES}
@@ -182,38 +178,38 @@ const ClubUpdate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              club_type: target.value
+              club_type: target.value,
             })
           }
         />
         <hr />
         <FormAsyncSelect
-          label={`${_("Country")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('Country')}*:`}
+          placeholder={_('Start typing...')}
           name="city__country"
           errors={formErrors.city}
           value={formData.country}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              country: target.value
+              country: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.COUNTRY.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.COUNTRY.buildPath()}
         />
         <FormAsyncSelect
-          label={`${_("Region/State")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('Region/State')}*:`}
+          placeholder={_('Start typing...')}
           name="city__region"
           errors={formErrors.city}
           value={formData.region}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              region: target.value
+              region: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.REGION.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.REGION.buildPath()}
           filterURL={`country=${
             formData.country && formData.country.pk
               ? formData.country.pk
@@ -221,18 +217,18 @@ const ClubUpdate: React.SFC<any> = () => {
           }`}
         />
         <FormAsyncSelect
-          label={`${_("City")}*:`}
-          placeholder={_("Start typing...")}
+          label={`${_('City')}*:`}
+          placeholder={_('Start typing...')}
           name="city"
           errors={formErrors.city}
           value={formData.city}
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              city: target.value
+              city: target.value,
             });
           }}
-          fetchURL={SERVER_URLS.SELECTS.CITY.toPath()}
+          fetchURL={SERVER_URLS.SELECTS.CITY.buildPath()}
           filterURL={`region=${
             formData.region && formData.region.pk
               ? formData.region.pk
@@ -241,19 +237,19 @@ const ClubUpdate: React.SFC<any> = () => {
         />
         <hr />
         <FormRichEditor
-          label={`${_("Address")}:`}
+          label={`${_('Address')}:`}
           name="address"
           value={formData.address}
           errors={formErrors.address}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              address: target.value
+              address: target.value,
             })
           }
         />
         <FormMap
-          label={`${_("Drag and drop the marker on the map")}:`}
+          label={`${_('Drag and drop the marker on the map')}:`}
           name="geo"
           center={
             user.city && user.city.latitude && user.city.longitude
@@ -265,7 +261,7 @@ const ClubUpdate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              geo: target.value
+              geo: target.value,
             })
           }
         />
@@ -288,14 +284,14 @@ const ClubUpdate: React.SFC<any> = () => {
                 ? formData.club_type.value
                 : undefined,
               address: formData.address,
-              geo: formData.geo
+              geo: formData.geo,
             })
               .then((data: any) => {
-                handleSuccess(_("Updated successfully."));
+                handleSuccess(_('Updated successfully.'));
                 history.push({
                   pathname: CLIENT_URLS.USER.CLUB_DETAIL.buildPath({
-                    clubSlug: data.slug
-                  })
+                    clubSlug: data.slug,
+                  }),
                 });
               })
               .catch((errors: any) => {

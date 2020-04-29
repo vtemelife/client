@@ -1,17 +1,17 @@
-import React from "react";
-import compose from "lodash/flowRight";
-import { Card, Nav, Badge } from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
-import { LinkContainer } from "react-router-bootstrap";
+import React from 'react';
+import compose from 'lodash/flowRight';
+import { Card, Nav, Badge } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import { CLIENT_URLS } from "desktop/routes/client";
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import { getDisplayValue } from "utils";
-import { REQUESTS } from "generic/constants";
-import FormSelect from "generic/components/Form/FormSelect";
-import BlockRequests from "desktop/components/BlockRequests";
-import { _ } from "trans";
-import { withAuthUser, withCounters } from "generic/containers/Decorators";
+import { getDisplayValue } from 'utils';
+import { REQUESTS } from 'generic/constants';
+import FormSelect from 'generic/components/Form/FormSelect';
+import BlockRequests from 'desktop/components/BlockRequests';
+import { _ } from 'trans';
+import { withAuthUser, withCounters } from 'generic/containers/Decorators';
 
 interface IProps extends RouteComponentProps {
   match: any;
@@ -20,14 +20,14 @@ interface IProps extends RouteComponentProps {
 }
 
 class FriendRequests extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
-    if (getParams.object_id) {
-      return _("Users requests");
+  public renderTitle = (queryParams: any) => {
+    if (queryParams.object_id) {
+      return _('Users requests');
     }
-    return _("My requests");
+    return _('My requests');
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     const user = this.props.authUser.user;
     const counters = this.props.counters.counters;
     return (
@@ -35,18 +35,18 @@ class FriendRequests extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-users" /> {_("Friends")}
+              <i className="fa fa-users" /> {_('Friends')}
             </Card.Title>
             <Nav className="flex-column">
               <LinkContainer to={CLIENT_URLS.USER.FRIEND_LIST.buildPath()}>
-                <Nav.Link>{_("Friends")}</Nav.Link>
+                <Nav.Link>{_('Friends')}</Nav.Link>
               </LinkContainer>
               <LinkContainer
-                to={CLIENT_URLS.USER.FRIEND_LIST.buildPath(undefined, {
-                  getParams: { is_online: "true" }
+                to={CLIENT_URLS.USER.FRIEND_LIST.buildPath({
+                  queryParams: { is_online: 'true' },
                 })}
               >
-                <Nav.Link>{_("Online")}</Nav.Link>
+                <Nav.Link>{_('Online')}</Nav.Link>
               </LinkContainer>
             </Nav>
           </Card.Body>
@@ -54,15 +54,15 @@ class FriendRequests extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-list" /> {_("Requests")}
+              <i className="fa fa-list" /> {_('Requests')}
             </Card.Title>
             <Nav className="flex-column">
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({ user: user.pk, object_id: undefined })
+                  onChangequeryParams({ user: user.pk, object_id: undefined })
                 }
               >
-                {this.renderTitle({ user: user.pk, object_id: undefined })}{" "}
+                {this.renderTitle({ user: user.pk, object_id: undefined })}{' '}
                 {counters.u_friends_requests_mine > 0 ? (
                   <Badge variant="primary">
                     {counters.u_friends_requests_mine}
@@ -71,10 +71,10 @@ class FriendRequests extends React.PureComponent<IProps> {
               </Nav.Link>
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({ user: undefined, object_id: user.pk })
+                  onChangequeryParams({ user: undefined, object_id: user.pk })
                 }
               >
-                {this.renderTitle({ user: undefined, object_id: user.pk })}{" "}
+                {this.renderTitle({ user: undefined, object_id: user.pk })}{' '}
                 {counters.u_friends_requests > 0 ? (
                   <Badge variant="primary">{counters.u_friends_requests}</Badge>
                 ) : null}
@@ -85,24 +85,24 @@ class FriendRequests extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-filter" /> {_("Filters")}
+              <i className="fa fa-filter" /> {_('Filters')}
             </Card.Title>
             <FormSelect
-              label={_("Request status")}
+              label={_('Request status')}
               name="status"
               isClearable={true}
               options={REQUESTS}
               value={
-                getParams.status
+                queryParams.status
                   ? {
-                      value: getParams.status,
-                      display: getDisplayValue(getParams.status, REQUESTS)
+                      value: queryParams.status,
+                      display: getDisplayValue(queryParams.status, REQUESTS),
                     }
                   : null
               }
               onChange={(target: any) =>
-                onChangeGetParams({
-                  status: target.value ? target.value.value : undefined
+                onChangequeryParams({
+                  status: target.value ? target.value.value : undefined,
                 })
               }
             />
@@ -113,7 +113,7 @@ class FriendRequests extends React.PureComponent<IProps> {
             <Nav className="flex-column">
               <LinkContainer to={CLIENT_URLS.USER.BLACKLIST_LIST.buildPath()}>
                 <Nav.Link>
-                  <i className="fa fa-deaf" /> {_("Black list")}
+                  <i className="fa fa-deaf" /> {_('Black list')}
                 </Nav.Link>
               </LinkContainer>
             </Nav>
@@ -136,11 +136,11 @@ class FriendRequests extends React.PureComponent<IProps> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 const withCountersData = withCounters({
-  propName: "counters"
+  propName: 'counters',
 });
 
 export default compose(withAuth, withCountersData)(FriendRequests);

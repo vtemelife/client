@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
-import ResponseErrors from "desktop/components/ResponseErrors";
-import Loading from "generic/components/Loading";
-import { animateScroll, Element, scrollSpy } from "react-scroll";
-import { Col } from "react-bootstrap";
+import ResponseErrors from 'desktop/components/ResponseErrors';
+import Loading from 'generic/components/Loading';
+import { animateScroll, Element, scrollSpy } from 'react-scroll';
+import { Col } from 'react-bootstrap';
 
 export interface IProps {
   response: any;
@@ -12,7 +12,7 @@ export interface IProps {
 
   renderItem: any;
   renderNoItems: any;
-  getParams: any;
+  queryParams: any;
 
   reverse?: boolean;
   disableLoading?: boolean;
@@ -39,9 +39,9 @@ class Items extends React.PureComponent<IProps> {
 
   public scrollToBottom = () => {
     animateScroll.scrollToBottom({
-      containerId: "containerElement",
+      containerId: 'containerElement',
       smooth: false,
-      duration: 0
+      duration: 0,
     });
   };
 
@@ -66,17 +66,17 @@ class Items extends React.PureComponent<IProps> {
     const results = this.props.response ? this.props.response.results : [];
     const height = this.props.maxHeight || SCROLL_HEIGHT;
     const noItems = this.props.renderNoItems
-      ? this.props.renderNoItems(this.props.getParams)
-      : "-";
+      ? this.props.renderNoItems(this.props.queryParams)
+      : '-';
     return (
       <Element
         name="element"
         className="element row"
         id="containerElement"
         style={{
-          position: "relative",
+          position: 'relative',
           maxHeight: `${height}px`,
-          overflow: "scroll"
+          overflow: 'scroll',
         }}
         onScroll={this.onScroll}
       >
@@ -90,8 +90,8 @@ class Items extends React.PureComponent<IProps> {
           <Fragment key={index}>
             {this.props.renderItem(
               item,
-              this.props.getParams,
-              this.props.refetch
+              this.props.queryParams,
+              this.props.refetch,
             )}
           </Fragment>
         ))}

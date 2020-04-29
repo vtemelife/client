@@ -1,30 +1,30 @@
-import React from "react";
-import compose from "lodash/flowRight";
-import { Card, Nav, Media, Badge, Button, Row, Col } from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
-import { LinkContainer } from "react-router-bootstrap";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
-import { confirmAlert } from "react-confirm-alert";
+import React from 'react';
+import compose from 'lodash/flowRight';
+import { Card, Nav, Media, Badge, Button, Row, Col } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+import { confirmAlert } from 'react-confirm-alert';
 
-import Image from "generic/components/Image";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import usersSVG from "generic/layout/images/users.svg";
+import Image from 'generic/components/Image';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import usersSVG from 'generic/layout/images/users.svg';
 
-import List from "desktop/containers/Generics/List";
-import Delete from "desktop/containers/Generics/Delete";
+import List from 'desktop/containers/Generics/List';
+import Delete from 'desktop/containers/Generics/Delete';
 
-import { TYPE_CONVERSATION, TYPE_CHAT } from "generic/constants";
-import { _ } from "trans";
-import { getLocale } from "utils";
+import { TYPE_CONVERSATION, TYPE_CHAT } from 'generic/constants';
+import { _ } from 'trans';
+import { getLocale } from 'utils';
 import {
   withAuthUser,
   withCounters,
-  withRestMutate
-} from "generic/containers/Decorators";
-import handleErrors from "desktop/components/ResponseErrors/utils";
-import { toast } from "react-toastify";
+  withRestMutate,
+} from 'generic/containers/Decorators';
+import handleErrors from 'desktop/components/ResponseErrors/utils';
+import { toast } from 'react-toastify';
 
 interface IProps extends RouteComponentProps {
   match: any;
@@ -36,44 +36,44 @@ interface IProps extends RouteComponentProps {
 class ChatList extends React.PureComponent<IProps> {
   public readAll = () => {
     confirmAlert({
-      title: _("Are you sure?"),
-      message: _("Are you sure you want to read all chats?"),
+      title: _('Are you sure?'),
+      message: _('Are you sure you want to read all chats?'),
       buttons: [
         {
-          label: _("Yes"),
+          label: _('Yes'),
           onClick: () => {
             this.props.readAll
               .mutate({})
               .then(() => {
                 this.props.counters.refetch();
-                toast.success(_("All chats have been read."));
+                toast.success(_('All chats have been read.'));
               })
               .catch((errors: any) => {
                 handleErrors(errors);
               });
-          }
+          },
         },
         {
-          label: _("No"),
+          label: _('No'),
           onClick: () => {
             return;
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
   };
 
-  public renderTitle = (getParams: any) => {
-    if (getParams.is_unread) {
-      return _("Not read");
+  public renderTitle = (queryParams: any) => {
+    if (queryParams.is_unread) {
+      return _('Not read');
     }
-    if (getParams.chat_type === TYPE_CONVERSATION) {
-      return _("Dialogs");
+    if (queryParams.chat_type === TYPE_CONVERSATION) {
+      return _('Dialogs');
     }
-    return _("Chats");
+    return _('Chats');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     const user = this.props.authUser.user;
     const isModerator = item.moderators.indexOf(user.pk) !== -1;
     const isCreator = item.creator === user.pk;
@@ -107,7 +107,7 @@ class ChatList extends React.PureComponent<IProps> {
               <Col lg={6}>
                 <Link
                   to={CLIENT_URLS.USER.CHAT_DETAIL.buildPath({
-                    chatPk: item.pk
+                    chatPk: item.pk,
                   })}
                 >
                   <span className="text-break">
@@ -117,16 +117,16 @@ class ChatList extends React.PureComponent<IProps> {
                           {item.unread_messages_count}
                         </i>
                       </span>
-                    ) : null}{" "}
-                    {"  "}
+                    ) : null}{' '}
+                    {'  '}
                     {item.chat_type !== TYPE_CONVERSATION ? (
                       <i className="fa fa-users" />
-                    ) : null}{" "}
+                    ) : null}{' '}
                     {item.name}
                   </span>
                 </Link>
                 <div className="chat-item-info">
-                  <i className="fa fa-calendar" />{" "}
+                  <i className="fa fa-calendar" />{' '}
                   <Moment locale={locale} fromNow={true}>
                     {item.updated_date}
                   </Moment>
@@ -139,7 +139,7 @@ class ChatList extends React.PureComponent<IProps> {
                 {item.chat_type === TYPE_CHAT && isModerator && (
                   <LinkContainer
                     to={CLIENT_URLS.USER.CHAT_UPDATE.buildPath({
-                      chatPk: item.pk
+                      chatPk: item.pk,
                     })}
                   >
                     <Button size="sm">
@@ -149,10 +149,10 @@ class ChatList extends React.PureComponent<IProps> {
                 )}
                 {isCreator && (
                   <Delete
-                    description={_("Are you sure you want to delete the chat?")}
+                    description={_('Are you sure you want to delete the chat?')}
                     onSuccess={refetch}
                     destoryServerPath={SERVER_URLS.CHAT_DELETE.buildPath({
-                      chatPk: item.pk
+                      chatPk: item.pk,
                     })}
                   >
                     <Button size="sm" variant="danger">
@@ -169,7 +169,7 @@ class ChatList extends React.PureComponent<IProps> {
     );
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     const counters = this.props.counters.counters;
     return (
       <>
@@ -177,11 +177,11 @@ class ChatList extends React.PureComponent<IProps> {
           <Card>
             <Card.Body>
               <Card.Title>
-                <i className="fa fa-tasks" /> {_("Actions")}
+                <i className="fa fa-tasks" /> {_('Actions')}
               </Card.Title>
               <Nav className="flex-column">
                 <Nav.Link onClick={this.readAll} className="text-error">
-                  <i className="fa fa-eye" /> {_("Read all")} (
+                  <i className="fa fa-eye" /> {_('Read all')} (
                   {counters.chat_count})
                 </Nav.Link>
               </Nav>
@@ -191,35 +191,35 @@ class ChatList extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-users" /> {_("Type")}
+              <i className="fa fa-users" /> {_('Type')}
             </Card.Title>
             <Nav className="flex-column">
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({
+                  onChangequeryParams({
                     is_unread: undefined,
-                    chat_type: undefined
+                    chat_type: undefined,
                   })
                 }
               >
-                <i className="fa fa-users" />{" "}
+                <i className="fa fa-users" />{' '}
                 {this.renderTitle({
                   is_unread: undefined,
-                  chat_type: undefined
+                  chat_type: undefined,
                 })}
               </Nav.Link>
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({
+                  onChangequeryParams({
                     is_unread: undefined,
-                    chat_type: TYPE_CONVERSATION
+                    chat_type: TYPE_CONVERSATION,
                   })
                 }
               >
-                <i className="fa fa-comment" />{" "}
+                <i className="fa fa-comment" />{' '}
                 {this.renderTitle({
                   is_unread: undefined,
-                  chat_type: TYPE_CONVERSATION
+                  chat_type: TYPE_CONVERSATION,
                 })}
               </Nav.Link>
             </Nav>
@@ -228,16 +228,19 @@ class ChatList extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-filter" /> {_("Filters")}
+              <i className="fa fa-filter" /> {_('Filters')}
             </Card.Title>
             <Nav className="flex-column">
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({ is_unread: "true", chat_type: undefined })
+                  onChangequeryParams({
+                    is_unread: 'true',
+                    chat_type: undefined,
+                  })
                 }
               >
-                <i className="fa fa-eye-slash" />{" "}
-                {this.renderTitle({ is_unread: "true", chat_type: undefined })}{" "}
+                <i className="fa fa-eye-slash" />{' '}
+                {this.renderTitle({ is_unread: 'true', chat_type: undefined })}{' '}
                 {counters.chat_count > 0 && (
                   <Badge variant="primary">{counters.chat_count}</Badge>
                 )}
@@ -264,17 +267,17 @@ class ChatList extends React.PureComponent<IProps> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 const withCountersData = withCounters({
-  propName: "counters"
+  propName: 'counters',
 });
 
 const withReadAll = withRestMutate({
-  propName: "readAll",
-  verb: "POST",
-  path: () => SERVER_URLS.CHAT_READ_ALL.buildPath()
+  propName: 'readAll',
+  verb: 'POST',
+  path: () => SERVER_URLS.CHAT_READ_ALL.buildPath(),
 });
 
 export default compose(withAuth, withCountersData, withReadAll)(ChatList);

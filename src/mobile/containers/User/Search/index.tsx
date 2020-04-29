@@ -1,50 +1,50 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import {
   InputGroup,
   Form,
   Modal,
   Button,
   ListGroup,
-  Alert
-} from "react-bootstrap";
-import { useGet, useMutate } from "restful-react";
-import ShowMore from "react-show-more";
+  Alert,
+} from 'react-bootstrap';
+import { useGet, useMutate } from 'restful-react';
+import ShowMore from 'react-show-more';
 
-import Image from "generic/components/Image";
-import Loading from "generic/components/Loading";
-import userSVG from "generic/layout/images/user.svg";
+import Image from 'generic/components/Image';
+import Loading from 'generic/components/Loading';
+import userSVG from 'generic/layout/images/user.svg';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "mobile/routes/client";
-import PaginateList from "generic/components/PaginateList";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import PaginateList from 'generic/components/PaginateList';
 import {
   getGeo,
   getBirthday,
   getBirthdaySecond,
-  getUserFormats
-} from "desktop/containers/User/Profile/utils";
-import { renderHtml, handleSuccess, handleErrors } from "utils";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import FormAsyncSelect from "generic/components/Form/FormAsyncSelect";
-import FormCheckBoxes from "generic/components/Form/FormCheckBoxes";
-import { USER_THEMES, USER_GENDER } from "generic/constants";
-import DeleteItem from "mobile/components/DeleteItem";
-import { LinkContainer } from "react-router-bootstrap";
+  getUserFormats,
+} from 'desktop/containers/User/Profile/utils';
+import { renderHtml, handleSuccess, handleErrors } from 'utils';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import FormAsyncSelect from 'generic/components/Form/FormAsyncSelect';
+import FormCheckBoxes from 'generic/components/Form/FormCheckBoxes';
+import { USER_THEMES, USER_GENDER } from 'generic/constants';
+import DeleteItem from 'mobile/components/DeleteItem';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Search: React.SFC<any> = () => {
   const [showFilters, toggleShowFilters] = useState(false);
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
 
   const userAuth = useContext(AuthUserContext);
   const user = userAuth.headerUser || {
     city: {
       country: {},
-      region: {}
-    }
+      region: {},
+    },
   };
 
   const defaultFilters = {
@@ -52,14 +52,14 @@ const Search: React.SFC<any> = () => {
       user.city && user.city.country
         ? {
             pk: user.city.country.pk,
-            name: user.city.country.name
+            name: user.city.country.name,
           }
         : null,
     region:
       user.city && user.city.region
         ? {
             pk: user.city.region.pk,
-            name: user.city.region.name
+            name: user.city.region.name,
           }
         : null,
     city: null,
@@ -67,14 +67,14 @@ const Search: React.SFC<any> = () => {
     isReal: null,
     themes: [],
     formats: [],
-    gender: []
+    gender: [],
   } as any;
   const [filters, changeFilters] = useState(defaultFilters);
   const [applyFilters, changeApplyFilters] = useState(null);
 
   const serverFilters = applyFilters || defaultFilters;
 
-  const getParams = {
+  const queryParams = {
     search,
     city__country:
       serverFilters.country !== null ? serverFilters.country.pk : undefined,
@@ -86,28 +86,28 @@ const Search: React.SFC<any> = () => {
     is_real: serverFilters.isReal !== null ? serverFilters.isReal : undefined,
     gender:
       serverFilters.gender.length > 0
-        ? serverFilters.gender.join(",")
+        ? serverFilters.gender.join(',')
         : undefined,
     relationship_themes:
       serverFilters.themes.length > 0
-        ? serverFilters.themes.join(",")
+        ? serverFilters.themes.join(',')
         : undefined,
     relationship_formats:
       serverFilters.formats.length > 0
-        ? serverFilters.formats.join(",")
-        : undefined
+        ? serverFilters.formats.join(',')
+        : undefined,
   };
   const { data: searchData, loading, refetch } = useGet({
-    path: SERVER_URLS.FRIENDS_SEARCH.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.FRIENDS_SEARCH.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const searchItems = (searchData || {}).results || [];
   const searchCount = (searchData || {}).count || 0;
 
   const { mutate: addToFriends, loading: addToFriendsLoading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.MEMBERSHIP_REQUESTS_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.MEMBERSHIP_REQUESTS_CREATE.buildPath(),
   });
 
   const hasRequest = (item: any) => {
@@ -116,8 +116,8 @@ const Search: React.SFC<any> = () => {
   return (
     <div className="container-search">
       <Helmet>
-        <title>{_("Search")}</title>
-        <meta name="description" content={_("Search")} />
+        <title>{_('Search')}</title>
+        <meta name="description" content={_('Search')} />
       </Helmet>
       <div className="search">
         <InputGroup>
@@ -128,7 +128,7 @@ const Search: React.SFC<any> = () => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -136,10 +136,10 @@ const Search: React.SFC<any> = () => {
           <InputGroup.Append>
             <InputGroup.Text
               id="filter"
-              className={applyFilters ? "text-notification" : ""}
+              className={applyFilters ? 'text-notification' : ''}
               onClick={() => toggleShowFilters(true)}
             >
-              {_("Filters")} <i className="fa fa-filter" />
+              {_('Filters')} <i className="fa fa-filter" />
             </InputGroup.Text>
           </InputGroup.Append>
         </InputGroup>
@@ -148,7 +148,7 @@ const Search: React.SFC<any> = () => {
         {addToFriendsLoading && <Loading />}
         {!loading && searchItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No results.")}</div>
+            <div>{_('No results.')}</div>
           </Alert>
         )}
         <PaginateList
@@ -157,7 +157,7 @@ const Search: React.SFC<any> = () => {
           count={searchCount}
           objs={searchItems}
           loading={loading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => (
             <div className="search-item block" key={item.slug}>
@@ -165,7 +165,7 @@ const Search: React.SFC<any> = () => {
                 <div className="search-avatar">
                   <Link
                     to={CLIENT_URLS.USER.PROFILE.buildPath({
-                      userSlug: item.slug
+                      userSlug: item.slug,
                     })}
                   >
                     <Image
@@ -184,11 +184,11 @@ const Search: React.SFC<any> = () => {
                   <div className="search-title-name">
                     <Link
                       to={CLIENT_URLS.USER.PROFILE.buildPath({
-                        userSlug: item.slug
+                        userSlug: item.slug,
                       })}
                     >
                       <>
-                        {item.online ? <i className="fa fa-circle" /> : null}{" "}
+                        {item.online ? <i className="fa fa-circle" /> : null}{' '}
                         {item.name}
                       </>
                     </Link>
@@ -201,46 +201,46 @@ const Search: React.SFC<any> = () => {
                 <div className="search-text">
                   <ListGroup variant="flush">
                     <ListGroup.Item>
-                      <span className="item-title">{_("Real status")}:</span>{" "}
+                      <span className="item-title">{_('Real status')}:</span>{' '}
                       {item.is_real ? (
                         <>
-                          <i className="fa fa-check green-color" /> {_("Yes")}
+                          <i className="fa fa-check green-color" /> {_('Yes')}
                         </>
                       ) : (
                         <>
-                          <i className="fa fa-times-circle red-color" />{" "}
-                          {_("No")}
+                          <i className="fa fa-times-circle red-color" />{' '}
+                          {_('No')}
                         </>
                       )}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Gender")}:</span>
+                      <span className="item-title">{_('Gender')}:</span>
                       {item.gender.display}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Age")}:</span>
+                      <span className="item-title">{_('Age')}:</span>
                       {getBirthday(item)}
-                      {", "}
+                      {', '}
                       {getBirthdaySecond(item)}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Formats")}:</span>
+                      <span className="item-title">{_('Formats')}:</span>
                       {item.relationship_formats
                         .map((i: any) => i.display)
-                        .join(", ")}
+                        .join(', ')}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("Themes")}:</span>
+                      <span className="item-title">{_('Themes')}:</span>
                       {item.relationship_themes
                         .map((i: any) => i.display)
-                        .join(", ")}
+                        .join(', ')}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item-title">{_("About")}:</span>
+                      <span className="item-title">{_('About')}:</span>
                       <ShowMore
                         lines={3}
-                        more={_("Show more")}
-                        less={_("Show less")}
+                        more={_('Show more')}
+                        less={_('Show less')}
                         anchorClass=""
                       >
                         {renderHtml(item.about)}
@@ -250,22 +250,22 @@ const Search: React.SFC<any> = () => {
                       {hasRequest(item) && (
                         <DeleteItem
                           description={_(
-                            "Are you sure you want to delete the request?"
+                            'Are you sure you want to delete the request?',
                           )}
                           onSuccess={() => refetch()}
-                          path={SERVER_URLS.MEMBERSHIP_REQUESTS_DELETE.toPath({
-                            urlParams: {
-                              membershipPk: item.request
-                            }
-                          })}
+                          path={SERVER_URLS.MEMBERSHIP_REQUESTS_DELETE.buildPath(
+                            {
+                              membershipPk: item.request,
+                            },
+                          )}
                         >
                           <Button
                             size="sm"
                             className="float-right"
                             variant="danger"
                           >
-                            <i className="fa fa-trash" />{" "}
-                            {_("Drop your request")}
+                            <i className="fa fa-trash" />{' '}
+                            {_('Drop your request')}
                           </Button>
                         </DeleteItem>
                       )}
@@ -275,12 +275,12 @@ const Search: React.SFC<any> = () => {
                           className="float-right"
                           onClick={() => {
                             addToFriends({
-                              content_type: "users:user",
-                              object_id: item.pk
+                              content_type: 'users:user',
+                              object_id: item.pk,
                             })
                               .then((result: any) => {
                                 handleSuccess(
-                                  _("Your request has been sent successfully.")
+                                  _('Your request has been sent successfully.'),
                                 );
                                 refetch();
                               })
@@ -289,27 +289,25 @@ const Search: React.SFC<any> = () => {
                               });
                           }}
                         >
-                          <i className="fa fa-handshake-o" />{" "}
-                          {_("Add to friends")}
+                          <i className="fa fa-handshake-o" />{' '}
+                          {_('Add to friends')}
                         </Button>
                       )}
                       <LinkContainer
                         to={
                           item.chat
-                            ? CLIENT_URLS.USER.CHAT_DETAIL.toPath({
-                                urlParams: {
-                                  chatPk: item.chat
-                                }
+                            ? CLIENT_URLS.USER.CHAT_DETAIL.buildPath({
+                                chatPk: item.chat,
                               })
-                            : CLIENT_URLS.USER.CHAT_CONVERSATION_CREATE.toPath({
-                                urlParams: {
-                                  recipientSlug: item.slug
-                                }
-                              })
+                            : CLIENT_URLS.USER.CHAT_CONVERSATION_CREATE.buildPath(
+                                {
+                                  recipientSlug: item.slug,
+                                },
+                              )
                         }
                       >
                         <Button size="sm" className="float-right">
-                          <i className="fa fa-comment" /> {_("Send a message")}
+                          <i className="fa fa-comment" /> {_('Send a message')}
                         </Button>
                       </LinkContainer>
                     </ListGroup.Item>
@@ -327,35 +325,35 @@ const Search: React.SFC<any> = () => {
       >
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormAsyncSelect
-            label={_("Country")}
-            placeholder={_("Start typing...")}
+            label={_('Country')}
+            placeholder={_('Start typing...')}
             name="city__country"
             value={filters.country}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                country: target.value
+                country: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.COUNTRY.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.COUNTRY.buildPath()}
           />
           <FormAsyncSelect
-            label={_("Region/State")}
-            placeholder={_("Start typing...")}
+            label={_('Region/State')}
+            placeholder={_('Start typing...')}
             name="city__region"
             value={filters.region}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                region: target.value
+                region: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.REGION.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.REGION.buildPath()}
             filterURL={`country=${
               filters.country && filters.country.pk
                 ? filters.country.pk
@@ -363,17 +361,17 @@ const Search: React.SFC<any> = () => {
             }`}
           />
           <FormAsyncSelect
-            label={_("City")}
-            placeholder={_("Start typing...")}
+            label={_('City')}
+            placeholder={_('Start typing...')}
             name="city"
             value={filters.city}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                city: target.value
+                city: target.value,
               });
             }}
-            fetchURL={SERVER_URLS.SELECTS.CITY.toPath()}
+            fetchURL={SERVER_URLS.SELECTS.CITY.buildPath()}
             filterURL={`region=${
               filters.region && filters.region.pk
                 ? filters.region.pk
@@ -383,33 +381,33 @@ const Search: React.SFC<any> = () => {
           <FormCheckBoxes
             type="checkbox"
             name="is_online"
-            label={_("Online")}
-            checkboxes={[{ value: true, display: _("Online") }]}
+            label={_('Online')}
+            checkboxes={[{ value: true, display: _('Online') }]}
             value={filters.isOnline !== null ? [filters.isOnline] : []}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                isOnline: target.target.checked
+                isOnline: target.target.checked,
               });
             }}
           />
           <FormCheckBoxes
             type="checkbox"
             name="is_real"
-            label={_("Real status")}
-            checkboxes={[{ value: true, display: _("Real status") }]}
+            label={_('Real status')}
+            checkboxes={[{ value: true, display: _('Real status') }]}
             value={filters.isReal !== null ? [filters.isReal] : []}
             onChange={(target: any) => {
               changeFilters({
                 ...filters,
-                isReal: target.target.checked
+                isReal: target.target.checked,
               });
             }}
           />
           <FormCheckBoxes
             type="checkbox"
             name="gender"
-            label={_("Gender")}
+            label={_('Gender')}
             checkboxes={USER_GENDER}
             value={filters.gender}
             onChange={(target: any) => {
@@ -419,14 +417,14 @@ const Search: React.SFC<any> = () => {
                 : filters.gender.filter((i: string) => i !== el.id);
               changeFilters({
                 ...filters,
-                gender: newValues as any
+                gender: newValues as any,
               });
             }}
           />
           <FormCheckBoxes
             type="checkbox"
             name="relationship_themes"
-            label={_("Themes")}
+            label={_('Themes')}
             checkboxes={USER_THEMES}
             value={filters.themes}
             onChange={(target: any) => {
@@ -436,14 +434,14 @@ const Search: React.SFC<any> = () => {
                 : filters.themes.filter((i: string) => i !== el.id);
               changeFilters({
                 ...filters,
-                themes: newValues as any
+                themes: newValues as any,
               });
             }}
           />
           <FormCheckBoxes
             type="checkbox"
             name="relationship_formats"
-            label={_("Formats")}
+            label={_('Formats')}
             checkboxes={getUserFormats(filters.gender, filters.themes)}
             value={filters.formats}
             onChange={(target: any) => {
@@ -453,7 +451,7 @@ const Search: React.SFC<any> = () => {
                 : filters.formats.filter((i: string) => i !== el.id);
               changeFilters({
                 ...filters,
-                formats: newValues as any
+                formats: newValues as any,
               });
             }}
           />
@@ -468,7 +466,7 @@ const Search: React.SFC<any> = () => {
             }}
             variant="danger"
           >
-            {_("Reset")}
+            {_('Reset')}
           </Button>
           <Button
             variant="primary"
@@ -478,7 +476,7 @@ const Search: React.SFC<any> = () => {
               toggleShowFilters(false);
             }}
           >
-            {_("Apply")}
+            {_('Apply')}
           </Button>
         </Modal.Footer>
       </Modal>

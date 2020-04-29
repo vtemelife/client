@@ -1,44 +1,44 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate } from "restful-react";
-import { useHistory } from "react-router";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate } from 'restful-react';
+import { useHistory } from 'react-router';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormSelect from "generic/components/Form/FormSelect";
-import { PERMISSIONS } from "generic/constants";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { PERMISSIONS } from 'generic/constants';
 
 const MediaFolderCreate: React.SFC<any> = () => {
   const history = useHistory();
 
   const defaultFormData = {
-    name: "",
-    show_media: null
+    name: '',
+    show_media: null,
   } as any;
   const [formData, changeFormData] = useState(defaultFormData);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.MEDIA_FOLDER_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.MEDIA_FOLDER_CREATE.buildPath(),
   });
 
   return (
     <div className="container-media-folders-create">
       <Helmet>
-        <title>{_("Create a media folder")}</title>
-        <meta name="description" content={_("Create a media folder")} />
+        <title>{_('Create a media folder')}</title>
+        <meta name="description" content={_('Create a media folder')} />
       </Helmet>
-      <Header name={_("Create a media folder")} fixed={true} />
+      <Header name={_('Create a media folder')} fixed={true} />
       <div className="media-folders-create">
         {loading && <Loading />}
         <FormInput
-          label={`${_("Name")}*:`}
+          label={`${_('Name')}*:`}
           type="text-break"
           name="name"
           required={true}
@@ -47,12 +47,12 @@ const MediaFolderCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              name: target.target.value
+              name: target.target.value,
             });
           }}
         />
         <FormSelect
-          label={`${_("Access")}*:`}
+          label={`${_('Access')}*:`}
           required={true}
           name="show_media"
           options={PERMISSIONS}
@@ -61,7 +61,7 @@ const MediaFolderCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              show_media: target.value
+              show_media: target.value,
             });
           }}
         />
@@ -72,10 +72,10 @@ const MediaFolderCreate: React.SFC<any> = () => {
               name: formData.name,
               show_media: formData.show_media
                 ? formData.show_media.value
-                : undefined
+                : undefined,
             })
               .then((data: any) => {
-                handleSuccess(_("Created successfully."));
+                handleSuccess(_('Created successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

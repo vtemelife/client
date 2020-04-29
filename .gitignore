@@ -37,3 +37,4 @@ build/
 compose/ssl/*.key
 compose/ssl/*.crt
 node_modules/
+coverage/

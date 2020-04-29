@@ -1,52 +1,52 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate } from "restful-react";
-import { useHistory } from "react-router";
-import slugify from "slugify";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate } from 'restful-react';
+import { useHistory } from 'react-router';
+import slugify from 'slugify';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import FormSlug from "generic/components/Form/FormSlug";
-import FormSelect from "generic/components/Form/FormSelect";
-import { COMMUNITY_THEMES, COMMUNITY_TYPES } from "generic/constants";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import FormRichEditor from "generic/components/Form/FormRichEditor";
-import FormFilesUpload from "generic/components/Form/FormFilesUpload";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import FormSlug from 'generic/components/Form/FormSlug';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { COMMUNITY_THEMES, COMMUNITY_TYPES } from 'generic/constants';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import FormRichEditor from 'generic/components/Form/FormRichEditor';
+import FormFilesUpload from 'generic/components/Form/FormFilesUpload';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
 
 const GroupCreate: React.SFC<any> = () => {
   const history = useHistory();
 
   const defaultFormData = {
-    name: "",
-    slug: "",
-    description: "",
+    name: '',
+    slug: '',
+    description: '',
     image: [],
     relationship_theme: null,
-    group_type: null
+    group_type: null,
   } as any;
   const [formData, changeFormData] = useState(defaultFormData);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.GROUP_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.GROUP_CREATE.buildPath(),
   });
 
   return (
     <div className="container-groups-create">
       <Helmet>
-        <title>{_("Create a group")}</title>
-        <meta name="description" content={_("Create a group")} />
+        <title>{_('Create a group')}</title>
+        <meta name="description" content={_('Create a group')} />
       </Helmet>
-      <Header name={_("Create a group")} fixed={true} />
+      <Header name={_('Create a group')} fixed={true} />
       <div className="groups-create">
         {loading && <Loading />}
         <FormInput
-          label={`${_("Name")}*:`}
+          label={`${_('Name')}*:`}
           type="text-break"
           name="name"
           required={true}
@@ -56,12 +56,12 @@ const GroupCreate: React.SFC<any> = () => {
             changeFormData({
               ...formData,
               name: target.target.value,
-              slug: slugify(target.target.value)
+              slug: slugify(target.target.value),
             });
           }}
         />
         <FormSlug
-          label={`${_("Slug")}*:`}
+          label={`${_('Slug')}*:`}
           type="text-break"
           name="slug"
           required={true}
@@ -70,39 +70,39 @@ const GroupCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              slug: target.value
+              slug: target.value,
             });
           }}
         />
         <FormRichEditor
-          label={`${_("Description")}*:`}
+          label={`${_('Description')}*:`}
           name="description"
           value={formData.description}
           errors={formErrors.description}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              description: target.value
+              description: target.value,
             })
           }
         />
         <FormFilesUpload
-          label={`${_("Image")}:`}
+          label={`${_('Image')}:`}
           multiple={false}
           name="image"
-          description={_("Click here to choose your image")}
+          description={_('Click here to choose your image')}
           errors={formErrors.image}
           value={formData.image}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              image: target.value
+              image: target.value,
             })
           }
         />
         <hr />
         <FormSelect
-          label={`${_("Theme")}*:`}
+          label={`${_('Theme')}*:`}
           name="relationship_theme"
           isClearable={true}
           options={COMMUNITY_THEMES}
@@ -111,12 +111,12 @@ const GroupCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              relationship_theme: target.value
+              relationship_theme: target.value,
             })
           }
         />
         <FormSelect
-          label={`${_("Type")}*:`}
+          label={`${_('Type')}*:`}
           name="group_type"
           isClearable={true}
           options={COMMUNITY_TYPES}
@@ -125,7 +125,7 @@ const GroupCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              group_type: target.value
+              group_type: target.value,
             })
           }
         />
@@ -145,10 +145,10 @@ const GroupCreate: React.SFC<any> = () => {
                 : undefined,
               group_type: formData.group_type
                 ? formData.group_type.value
-                : undefined
+                : undefined,
             })
               .then((data: any) => {
-                handleSuccess(_("Created successfully."));
+                handleSuccess(_('Created successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

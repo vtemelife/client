@@ -1,24 +1,24 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { useParams, useHistory } from "react-router";
-import { InputGroup, Form, Modal, ListGroup, Alert } from "react-bootstrap";
-import { useGet } from "restful-react";
-import Loading from "generic/components/Loading";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useParams, useHistory } from 'react-router';
+import { InputGroup, Form, Modal, ListGroup, Alert } from 'react-bootstrap';
+import { useGet } from 'restful-react';
+import Loading from 'generic/components/Loading';
 
-import { _ } from "trans";
-import { ROLE_MODERATOR } from "generic/constants";
-import { SERVER_URLS } from "routes/server";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import Header from "mobile/containers/Header";
-import ImageGallery from "generic/components/ImageGallery";
-import VideoGallery from "generic/components/VideoGallery";
-import PaginateList from "generic/components/PaginateList";
-import { Link } from "react-router-dom";
-import { CLIENT_URLS } from "mobile/routes/client";
-import DeleteItem from "mobile/components/DeleteItem";
+import { _ } from 'trans';
+import { ROLE_MODERATOR } from 'generic/constants';
+import { SERVER_URLS } from 'routes/server';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import Header from 'mobile/containers/Header';
+import ImageGallery from 'generic/components/ImageGallery';
+import VideoGallery from 'generic/components/VideoGallery';
+import PaginateList from 'generic/components/PaginateList';
+import { Link } from 'react-router-dom';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import DeleteItem from 'mobile/components/DeleteItem';
 
-const MENU_PAGE_PHOTOS = "photo";
-const MENU_PAGE_VIDEOS = "video";
+const MENU_PAGE_PHOTOS = 'photo';
+const MENU_PAGE_VIDEOS = 'video';
 
 const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
   const { mediaFolderPk: urlFolderPk } = useParams();
@@ -27,7 +27,7 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
 
   const [showMenu, toggleShowMenu] = useState(false);
 
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
 
   const [menuPage, changeMenuPage] = useState(MENU_PAGE_PHOTOS);
@@ -36,37 +36,35 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
   const user = userAuth.headerUser || {
     city: {
       country: {},
-      region: {}
-    }
+      region: {},
+    },
   };
 
   const { data: mediaFolderData, loading: mediaFolderDataLoading } = useGet({
-    path: SERVER_URLS.MEDIA_FOLDER_DETAIL.toPath({
-      urlParams: {
-        mediaFolderPk
-      }
-    })
+    path: SERVER_URLS.MEDIA_FOLDER_DETAIL.buildPath({
+      mediaFolderPk,
+    }),
   });
   const mediaFolder = mediaFolderData || {};
 
-  const getParams = {
+  const queryParams = {
     search,
-    content_type: "media:mediafolder",
+    content_type: 'media:mediafolder',
     object_id: mediaFolderPk,
-    media_type: menuPage
+    media_type: menuPage,
   };
   const { data: mediaData, loading, refetch } = useGet({
-    path: SERVER_URLS.MEDIA.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.MEDIA.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const mediaItems = (mediaData || {}).results || [];
   const mediaCount = (mediaData || {}).count || 0;
 
-  let title = `${mediaFolder.name} (${_("Photos")})`;
+  let title = `${mediaFolder.name} (${_('Photos')})`;
   switch (menuPage) {
     case MENU_PAGE_VIDEOS:
-      title = `${mediaFolder.name} (${_("Videos")})`;
+      title = `${mediaFolder.name} (${_('Videos')})`;
       break;
     default:
       break;
@@ -82,7 +80,7 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
         <meta name="description" content={title} />
       </Helmet>
       <Header
-        name={`${title || ""} ${mediaCount > 0 ? `(${mediaCount})` : ""}`}
+        name={`${title || ''} ${mediaCount > 0 ? `(${mediaCount})` : ''}`}
         fixed={true}
       >
         <div onClick={() => toggleShowMenu(true)}>
@@ -90,11 +88,11 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
         </div>
         <div>
           <Link
-            to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_CREATE.toPath({
-              getParams: {
+            to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_CREATE.buildPath({
+              queryParams: {
                 objectId: mediaFolderPk,
-                contentType: "media:mediafolder"
-              }
+                contentType: 'media:mediafolder',
+              },
             })}
           >
             <i className="fa fa-plus" />
@@ -110,7 +108,7 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -121,7 +119,7 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
         {mediaFolderDataLoading && <Loading />}
         {!loading && mediaItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No media.")}</div>
+            <div>{_('No media.')}</div>
           </Alert>
         )}
         {menuPage === MENU_PAGE_PHOTOS && (
@@ -132,12 +130,12 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
             objs={mediaItems}
             ownRender={true}
             loading={loading}
-            getParamsHash={JSON.stringify(getParams)}
+            queryParamsHash={JSON.stringify(queryParams)}
           >
             {(items: any) => (
               <ImageGallery
                 mediaItems={items.filter(
-                  (media: any) => media.media_type === MENU_PAGE_PHOTOS
+                  (media: any) => media.media_type === MENU_PAGE_PHOTOS,
                 )}
                 refetch={refetch}
               />
@@ -152,12 +150,12 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
             objs={mediaItems}
             ownRender={true}
             loading={loading}
-            getParamsHash={JSON.stringify(getParams)}
+            queryParamsHash={JSON.stringify(queryParams)}
           >
             {(items: any) => (
               <VideoGallery
                 mediaItems={items.filter(
-                  (media: any) => media.media_type === MENU_PAGE_VIDEOS
+                  (media: any) => media.media_type === MENU_PAGE_VIDEOS,
                 )}
                 refetch={refetch}
               />
@@ -168,7 +166,7 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -180,7 +178,7 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-photo" /> {_("Photos")}
+              <i className="fa fa-photo" /> {_('Photos')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -189,20 +187,18 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-camera" /> {_("Videos")}
+              <i className="fa fa-camera" /> {_('Videos')}
             </ListGroup.Item>
             {isCreator(mediaFolder) && (
               <ListGroup.Item>
                 <Link
-                  to={CLIENT_URLS.USER.MEDIA_FOLDER_UPDATE.toPath({
-                    urlParams: {
-                      mediaFolderPk
-                    }
+                  to={CLIENT_URLS.USER.MEDIA_FOLDER_UPDATE.buildPath({
+                    mediaFolderPk,
                   })}
                 >
-                  <i className="fa fa-pencil fa-lg" />{" "}
+                  <i className="fa fa-pencil fa-lg" />{' '}
                   <span className="menu-item">
-                    {_("Update the media folder")}
+                    {_('Update the media folder')}
                   </span>
                 </Link>
               </ListGroup.Item>
@@ -211,20 +207,20 @@ const MediaFolderDetail: React.SFC<any> = ({ folderPk, mediaPk }) => {
               <ListGroup.Item>
                 <DeleteItem
                   description={_(
-                    "Are you sure you want to delete the media folder?"
+                    'Are you sure you want to delete the media folder?',
                   )}
                   onSuccess={() => {
-                    history.push(CLIENT_URLS.USER.MEDIA_FOLDER_LIST.toPath());
+                    history.push(
+                      CLIENT_URLS.USER.MEDIA_FOLDER_LIST.buildPath(),
+                    );
                   }}
-                  path={SERVER_URLS.MEDIA_FOLDER_DELETE.toPath({
-                    urlParams: {
-                      mediaFolderPk
-                    }
+                  path={SERVER_URLS.MEDIA_FOLDER_DELETE.buildPath({
+                    mediaFolderPk,
                   })}
                 >
-                  <i className="fa fa-trash fa-lg" />{" "}
+                  <i className="fa fa-trash fa-lg" />{' '}
                   <span className="menu-item">
-                    {_("Delete the media folder")}
+                    {_('Delete the media folder')}
                   </span>
                 </DeleteItem>
               </ListGroup.Item>

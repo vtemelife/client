@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 import {
   RouteComponentProps,
   withRouter,
   Switch,
-  Route
-} from "react-router-dom";
+  Route,
+} from 'react-router-dom';
 
-import { GAME_URLS } from "./routes";
-import "./index.scss";
-import Format from "./Format";
-import FantyCard from "./FantyCard";
-import { Col } from "react-bootstrap";
-import { Helmet } from "react-helmet-async";
+import { GAME_URLS } from './routes';
+import './index.scss';
+import Format from './Format';
+import FantyCard from './FantyCard';
+import { Col } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 
 interface IProps extends RouteComponentProps {
   user: any;
@@ -30,12 +30,12 @@ class Fanty extends React.PureComponent<IProps> {
         <Switch>
           <Route
             exact={true}
-            path={GAME_URLS.FORMAT.routePath()}
+            path={GAME_URLS.FORMAT.route}
             component={Format}
           />
           <Route
             exact={true}
-            path={GAME_URLS.CARD.routePath()}
+            path={GAME_URLS.CARD.route}
             component={FantyCard}
           />
         </Switch>

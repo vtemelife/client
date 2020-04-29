@@ -1,19 +1,19 @@
-import React, { useContext, useState } from "react";
-import { Button, OverlayTrigger, Popover } from "react-bootstrap";
-import { useMutate } from "restful-react";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
+import React, { useContext, useState } from 'react';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { useMutate } from 'restful-react';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import Image from "generic/components/Image";
-import userSVG from "generic/layout/images/user.svg";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import DeleteItem from "mobile/components/DeleteItem";
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import Image from 'generic/components/Image';
+import userSVG from 'generic/layout/images/user.svg';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import DeleteItem from 'mobile/components/DeleteItem';
 
-import { _ } from "trans";
-import { CLIENT_URLS } from "mobile/routes/client";
-import { SERVER_URLS } from "routes/server";
-import { getLocale, handleErrors, renderHtml } from "utils";
+import { _ } from 'trans';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import { SERVER_URLS } from 'routes/server';
+import { getLocale, handleErrors, renderHtml } from 'utils';
 
 const Message: React.SFC<any> = ({ item, refetchList }) => {
   const [messageForUpdate, changeMessageForUpdate] = useState(item);
@@ -21,12 +21,10 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
   const user = userAuth.headerUser || {};
 
   const { mutate: updateMessage } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MESSAGE_UPDATE.toPath({
-      urlParams: {
-        messagePk: item.pk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MESSAGE_UPDATE.buildPath({
+      messagePk: item.pk,
+    }),
   });
 
   return (
@@ -34,7 +32,7 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
       <div className="message-avatar">
         <Link
           to={CLIENT_URLS.USER.PROFILE.buildPath({
-            userSlug: item.creator.slug
+            userSlug: item.creator.slug,
           })}
         >
           <Image
@@ -54,7 +52,7 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
           <div className="message-title-name">
             <Link
               to={CLIENT_URLS.USER.PROFILE.buildPath({
-                userSlug: item.creator.slug
+                userSlug: item.creator.slug,
               })}
             >
               {item.creator.name}
@@ -76,32 +74,30 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
                   className="popover-message"
                 >
                   <Popover.Title as="h3">
-                    <i className="fa fa-bars" /> {_("Change message")}
+                    <i className="fa fa-bars" /> {_('Change message')}
                   </Popover.Title>
                   <Popover.Content>
                     <DeleteItem
                       description={_(
-                        "Are you sure you want to delete the message?"
+                        'Are you sure you want to delete the message?',
                       )}
                       onSuccess={() => {
                         changeMessageForUpdate({
                           ...messageForUpdate,
-                          message: _("Deleted message"),
-                          is_deleted: true
+                          message: _('Deleted message'),
+                          is_deleted: true,
                         });
                         document.body.click();
                       }}
-                      path={SERVER_URLS.MESSAGE_DELETE.toPath({
-                        urlParams: {
-                          messagePk: item.pk
-                        }
+                      path={SERVER_URLS.MESSAGE_DELETE.buildPath({
+                        messagePk: item.pk,
                       })}
                     >
                       <Button size="sm" variant="danger">
-                        {_("Delete")}
+                        {_('Delete')}
                       </Button>
                     </DeleteItem>
-                    <div style={{ marginTop: "10px" }} />
+                    <div style={{ marginTop: '10px' }} />
                     <FormMsgArea
                       name="message"
                       required={true}
@@ -109,7 +105,7 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
                       onChange={(target: any) => {
                         changeMessageForUpdate({
                           ...messageForUpdate,
-                          message: target.value
+                          message: target.value,
                         });
                       }}
                       onSend={() => {
@@ -126,7 +122,7 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
                 </Popover>
               }
             >
-              <span className="message-edit"> {_("edit message")}</span>
+              <span className="message-edit"> {_('edit message')}</span>
             </OverlayTrigger>
           )}
         </div>
@@ -134,7 +130,7 @@ const Message: React.SFC<any> = ({ item, refetchList }) => {
           {item.attachments_data.map(
             (attachment: any, indexAttachments: number) => (
               <Image key={indexAttachments} src={attachment.image} />
-            )
+            ),
           )}
         </div>
         <div className="message-text">

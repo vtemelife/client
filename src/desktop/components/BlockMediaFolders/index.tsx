@@ -1,12 +1,12 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-import List from "desktop/containers/Generics/List";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
+import List from 'desktop/containers/Generics/List';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import MediaFolderPreview from "./MediaFolderPreview";
-import { _ } from "trans";
+import MediaFolderPreview from './MediaFolderPreview';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   objectId?: string;
@@ -15,16 +15,16 @@ interface IProps extends RouteComponentProps {
   renderTitle?: any;
   renderFilters?: any;
   renderNoItems?: any;
-  defaultGetParams?: any;
+  defaultqueryParams?: any;
   size?: number;
   maxHeight?: number;
 }
 
 class BlockMedia extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     return this.props.renderTitle
-      ? this.props.renderTitle(getParams)
-      : _("Media folders");
+      ? this.props.renderTitle(queryParams)
+      : _('Media folders');
   };
 
   public renderItem = (item: any) => {
@@ -49,9 +49,9 @@ class BlockMedia extends React.PureComponent<IProps> {
         maxHeight={this.props.maxHeight}
         size={this.props.size}
         className="media-folder-block-container"
-        defaultGetParams={
-          this.props.defaultGetParams
-            ? { creator: this.props.objectId, ...this.props.defaultGetParams }
+        defaultqueryParams={
+          this.props.defaultqueryParams
+            ? { creator: this.props.objectId, ...this.props.defaultqueryParams }
             : { creator: this.props.objectId }
         }
       />

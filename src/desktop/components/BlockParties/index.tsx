@@ -1,12 +1,12 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-import List from "desktop/containers/Generics/List";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
+import List from 'desktop/containers/Generics/List';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import PartyPreview from "./PartyPreview";
-import { _ } from "trans";
+import PartyPreview from './PartyPreview';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   club?: string;
@@ -18,13 +18,13 @@ interface IProps extends RouteComponentProps {
 }
 
 class BlockParties extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     return this.props.renderTitle
-      ? this.props.renderTitle(getParams)
-      : _("Parties");
+      ? this.props.renderTitle(queryParams)
+      : _('Parties');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     return <PartyPreview item={item} refetch={refetch} />;
   };
 
@@ -34,10 +34,10 @@ class BlockParties extends React.PureComponent<IProps> {
         listClientPath={this.props.location.pathname}
         createClientPath={
           !this.props.isReadonly
-            ? CLIENT_URLS.USER.PARTY_CREATE.buildPath(undefined, {
-                getParams: {
-                  club: this.props.club
-                }
+            ? CLIENT_URLS.USER.PARTY_CREATE.buildPath({
+                queryParams: {
+                  club: this.props.club,
+                },
               })
             : undefined
         }
@@ -48,7 +48,7 @@ class BlockParties extends React.PureComponent<IProps> {
         renderNoItems={this.props.renderNoItems}
         searchLabel="search_parties"
         size={this.props.size}
-        defaultGetParams={{ club: this.props.club }}
+        defaultqueryParams={{ club: this.props.club }}
       />
     );
   }

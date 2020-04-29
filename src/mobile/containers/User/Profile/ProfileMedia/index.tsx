@@ -1,47 +1,47 @@
-import React from "react";
-import { useGet } from "restful-react";
-import { Button } from "react-bootstrap";
+import React from 'react';
+import { useGet } from 'restful-react';
+import { Button } from 'react-bootstrap';
 
-import { LinkContainer } from "react-router-bootstrap";
-import Image from "generic/components/Image";
-import pictureSVG from "generic/layout/images/picture.svg";
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Loading from "generic/components/Loading";
-import { Link } from "react-router-dom";
-import { CLIENT_URLS } from "desktop/routes/client";
+import { LinkContainer } from 'react-router-bootstrap';
+import Image from 'generic/components/Image';
+import pictureSVG from 'generic/layout/images/picture.svg';
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Loading from 'generic/components/Loading';
+import { Link } from 'react-router-dom';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
 const ProfileMedia: React.SFC<any> = ({ profile, user }) => {
   const { data: mediaFolderData, loading: mediaFolderLoading } = useGet({
-    path: SERVER_URLS.MEDIA_FOLDER.toPath({
-      getParams: {
+    path: SERVER_URLS.MEDIA_FOLDER.buildPath({
+      queryParams: {
         limit: 10,
         offset: 0,
-        creator: profile.pk
-      }
-    })
+        creator: profile.pk,
+      },
+    }),
   });
   const mediaFolderItems = (mediaFolderData || {}).results || [];
   return (
     <div className="profile-media block">
       <h2>
-        {_("Media folders")} (
+        {_('Media folders')} (
         <Link
-          to={CLIENT_URLS.USER.MEDIA_FOLDER_LIST.toPath({
-            getParams: {
-              parentPk: profile.pk
-            }
+          to={CLIENT_URLS.USER.MEDIA_FOLDER_LIST.buildPath({
+            queryParams: {
+              parentPk: profile.pk,
+            },
           })}
         >
-          {_("All")}
+          {_('All')}
         </Link>
         )
       </h2>
       {mediaFolderLoading && <Loading />}
       {profile.pk === user.pk && mediaFolderItems.length === 0 && (
-        <LinkContainer to={CLIENT_URLS.USER.MEDIA_FOLDER_CREATE.toPath()}>
+        <LinkContainer to={CLIENT_URLS.USER.MEDIA_FOLDER_CREATE.buildPath()}>
           <Button size="sm">
-            <i className="fa fa-plus" /> {_("Create a media folder")}
+            <i className="fa fa-plus" /> {_('Create a media folder')}
           </Button>
         </LinkContainer>
       )}
@@ -53,7 +53,7 @@ const ProfileMedia: React.SFC<any> = ({ profile, user }) => {
           <div className="media-folder-item" key={index}>
             <Link
               to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL.buildPath({
-                mediaFolderPk: item.pk
+                mediaFolderPk: item.pk,
               })}
               key={index}
             >

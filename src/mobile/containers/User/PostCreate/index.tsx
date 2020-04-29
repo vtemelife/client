@@ -1,21 +1,21 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate } from "restful-react";
-import { useHistory, useLocation } from "react-router";
-import slugify from "slugify";
-import queryString from "query-string";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate } from 'restful-react';
+import { useHistory, useLocation } from 'react-router';
+import slugify from 'slugify';
+import queryString from 'query-string';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import FormRichEditor from "generic/components/Form/FormRichEditor";
-import FormFilesUpload from "generic/components/Form/FormFilesUpload";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormSlug from "generic/components/Form/FormSlug";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import FormRichEditor from 'generic/components/Form/FormRichEditor';
+import FormFilesUpload from 'generic/components/Form/FormFilesUpload';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormSlug from 'generic/components/Form/FormSlug';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
 
 const PostCreate: React.SFC<any> = () => {
   const history = useHistory();
@@ -23,37 +23,37 @@ const PostCreate: React.SFC<any> = () => {
   const { objectId, contentType } = queryString.parse(location.search);
 
   const defaultFormData = {
-    title: "",
-    slug: "",
+    title: '',
+    slug: '',
     image: [],
-    description: "",
-    post: "",
-    hash_tags: ""
+    description: '',
+    post: '',
+    hash_tags: '',
   } as any;
   const [formData, changeFormData] = useState(defaultFormData);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.POSTS_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.POSTS_CREATE.buildPath(),
   });
 
   const userAuth = useContext(AuthUserContext);
   const user = userAuth.headerUser || {
-    pk: null
+    pk: null,
   };
 
   return (
     <div className="container-posts-create">
       <Helmet>
-        <title>{_("Create a post")}</title>
-        <meta name="description" content={_("Create a post")} />
+        <title>{_('Create a post')}</title>
+        <meta name="description" content={_('Create a post')} />
       </Helmet>
-      <Header name={_("Create a post")} fixed={true} />
+      <Header name={_('Create a post')} fixed={true} />
       <div className="posts-create">
         {loading && <Loading />}
         <FormInput
-          label={`${_("Title")}*:`}
+          label={`${_('Title')}*:`}
           type="text-break"
           name="title"
           required={true}
@@ -63,12 +63,12 @@ const PostCreate: React.SFC<any> = () => {
             changeFormData({
               ...formData,
               title: target.target.value,
-              slug: slugify(target.target.value)
+              slug: slugify(target.target.value),
             });
           }}
         />
         <FormSlug
-          label={`${_("Slug")}*:`}
+          label={`${_('Slug')}*:`}
           type="text-break"
           name="slug"
           required={true}
@@ -77,26 +77,26 @@ const PostCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              slug: target.value
+              slug: target.value,
             });
           }}
         />
         <FormFilesUpload
-          label={`${_("Image")}:`}
+          label={`${_('Image')}:`}
           multiple={false}
           name="image"
-          description={_("Click here to choose your image")}
+          description={_('Click here to choose your image')}
           errors={formErrors.image}
           value={formData.image}
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              image: target.value
+              image: target.value,
             })
           }
         />
         <FormRichEditor
-          label={`${_("Short description (in list)")}*:`}
+          label={`${_('Short description (in list)')}*:`}
           name="description"
           required={true}
           value={formData.description}
@@ -104,12 +104,12 @@ const PostCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              description: target.value
+              description: target.value,
             })
           }
         />
         <FormRichEditor
-          label={`${_("Post")}*:`}
+          label={`${_('Post')}*:`}
           name="post"
           richToolbar={true}
           required={true}
@@ -118,12 +118,12 @@ const PostCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              post: target.value
+              post: target.value,
             })
           }
         />
         <FormInput
-          label={`${_("Hash tags")}:`}
+          label={`${_('Hash tags')}:`}
           type="text-break"
           name="hash_tags"
           value={formData.hash_tags}
@@ -131,7 +131,7 @@ const PostCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              hash_tags: target.target.value
+              hash_tags: target.target.value,
             })
           }
         />
@@ -140,7 +140,7 @@ const PostCreate: React.SFC<any> = () => {
           onClick={() => {
             submitForm({
               object_id: objectId || user.pk,
-              content_type: contentType || "users:user",
+              content_type: contentType || 'users:user',
               title: formData.title,
               slug: formData.slug,
               image:
@@ -150,12 +150,12 @@ const PostCreate: React.SFC<any> = () => {
               description: formData.description,
               post: formData.post,
               hash_tags: formData.hash_tags
-                .split("#")
+                .split('#')
                 .map((el: string) => el.trim())
-                .filter((el: string) => el.length > 0)
+                .filter((el: string) => el.length > 0),
             })
               .then((data: any) => {
-                handleSuccess(_("Created successfully."));
+                handleSuccess(_('Created successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

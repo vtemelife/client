@@ -1,41 +1,41 @@
-import React from "react";
-import { Card, Nav } from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
-import { LinkContainer } from "react-router-bootstrap";
+import React from 'react';
+import { Card, Nav } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import { CLIENT_URLS } from "desktop/routes/client";
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import FormSelect from "generic/components/Form/FormSelect";
-import { getDisplayValue } from "utils";
-import { REQUESTS } from "generic/constants";
-import BlockRequests from "desktop/components/BlockRequests";
-import { _ } from "trans";
+import FormSelect from 'generic/components/Form/FormSelect';
+import { getDisplayValue } from 'utils';
+import { REQUESTS } from 'generic/constants';
+import BlockRequests from 'desktop/components/BlockRequests';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   match: any;
 }
 
 class ClubDetailRequests extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
-    return _("Requests to join the club");
+  public renderTitle = (queryParams: any) => {
+    return _('Requests to join the club');
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     return (
       <>
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-bars" /> {_("Menu")}
+              <i className="fa fa-bars" /> {_('Menu')}
             </Card.Title>
             <Nav className="flex-column">
               <LinkContainer
                 to={CLIENT_URLS.USER.CLUB_DETAIL.buildPath({
-                  clubSlug: this.props.match.params.clubSlug
+                  clubSlug: this.props.match.params.clubSlug,
                 })}
               >
                 <Nav.Link>
-                  <i className="fa fa-arrow-left" /> {_("Go back")}
+                  <i className="fa fa-arrow-left" /> {_('Go back')}
                 </Nav.Link>
               </LinkContainer>
             </Nav>
@@ -44,24 +44,24 @@ class ClubDetailRequests extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-filter" /> {_("Filters")}
+              <i className="fa fa-filter" /> {_('Filters')}
             </Card.Title>
             <FormSelect
-              label={_("Request status")}
+              label={_('Request status')}
               name="status"
               isClearable={true}
               options={REQUESTS}
               value={
-                getParams.status
+                queryParams.status
                   ? {
-                      value: getParams.status,
-                      display: getDisplayValue(getParams.status, REQUESTS)
+                      value: queryParams.status,
+                      display: getDisplayValue(queryParams.status, REQUESTS),
                     }
                   : null
               }
               onChange={(target: any) =>
-                onChangeGetParams({
-                  status: target.value ? target.value.value : undefined
+                onChangequeryParams({
+                  status: target.value ? target.value.value : undefined,
                 })
               }
             />

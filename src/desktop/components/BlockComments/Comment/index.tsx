@@ -1,18 +1,18 @@
-import React, { useState, useContext } from "react";
-import { Media, Col, OverlayTrigger, Popover, Button } from "react-bootstrap";
-import { useMutate } from "restful-react";
-import Moment from "react-moment";
+import React, { useState, useContext } from 'react';
+import { Media, Col, OverlayTrigger, Popover, Button } from 'react-bootstrap';
+import { useMutate } from 'restful-react';
+import Moment from 'react-moment';
 
-import Image from "generic/components/Image";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import { getLocale, handleErrors, renderHtml } from "utils";
-import userSVG from "generic/layout/images/user.svg";
-import Likes from "../../Likes";
-import { _ } from "trans";
-import DeleteItem from "mobile/components/DeleteItem";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
+import Image from 'generic/components/Image';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import { getLocale, handleErrors, renderHtml } from 'utils';
+import userSVG from 'generic/layout/images/user.svg';
+import Likes from '../../Likes';
+import { _ } from 'trans';
+import DeleteItem from 'mobile/components/DeleteItem';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
 
 interface IProps {
   item: any;
@@ -27,26 +27,24 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
   const [commentForUpdate, changeCommentForUpdate] = useState(item);
   const [commentForAnswer, changeCommentForAnswer] = useState({
     parent: item.pk,
-    comment: "",
+    comment: '',
     object_id: objectId,
-    content_type: contentType
+    content_type: contentType,
   });
   const [children, changeChildren] = useState(item.children || []);
   const userAuth = useContext(AuthUserContext);
   const user = userAuth.headerUser || {};
 
   const { mutate: updateComment } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.COMMENT_UPDATE.toPath({
-      urlParams: {
-        commentPk: item.pk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.COMMENT_UPDATE.buildPath({
+      commentPk: item.pk,
+    }),
   });
 
   const { mutate: createComment } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.COMMENT_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.COMMENT_CREATE.buildPath(),
   });
 
   return (
@@ -82,7 +80,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                 {item.creator.slug ? (
                   <a
                     href={CLIENT_URLS.USER.PROFILE.buildPath({
-                      userSlug: item.creator.slug
+                      userSlug: item.creator.slug,
                     })}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -106,32 +104,30 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                       className="popover-comment"
                     >
                       <Popover.Title as="h3">
-                        <i className="fa fa-bars" /> {_("Change comment")}
+                        <i className="fa fa-bars" /> {_('Change comment')}
                       </Popover.Title>
                       <Popover.Content>
                         <DeleteItem
                           description={_(
-                            "Are you sure you want to delete the comment?"
+                            'Are you sure you want to delete the comment?',
                           )}
                           onSuccess={() => {
                             changeCommentForUpdate({
                               ...commentForUpdate,
-                              comment: _("Deleted comment"),
-                              is_deleted: true
+                              comment: _('Deleted comment'),
+                              is_deleted: true,
                             });
                             document.body.click();
                           }}
-                          path={SERVER_URLS.COMMENT_DELETE.toPath({
-                            urlParams: {
-                              commentPk: item.pk
-                            }
+                          path={SERVER_URLS.COMMENT_DELETE.buildPath({
+                            commentPk: item.pk,
                           })}
                         >
                           <Button size="sm" variant="danger">
-                            {_("Delete")}
+                            {_('Delete')}
                           </Button>
                         </DeleteItem>
-                        <div style={{ marginTop: "10px" }} />
+                        <div style={{ marginTop: '10px' }} />
                         <FormMsgArea
                           name="comment"
                           required={true}
@@ -139,7 +135,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                           onChange={(target: any) => {
                             changeCommentForUpdate({
                               ...commentForUpdate,
-                              comment: target.value
+                              comment: target.value,
                             });
                           }}
                           onSend={() => {
@@ -157,8 +153,8 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                   }
                 >
                   <span className="comment-edit">
-                    {" "}
-                    {_("edit comment")} {depth < MAX_DEPTH ? "|" : undefined}{" "}
+                    {' '}
+                    {_('edit comment')} {depth < MAX_DEPTH ? '|' : undefined}{' '}
                   </span>
                 </OverlayTrigger>
               )}
@@ -173,7 +169,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                       className="popover-comment"
                     >
                       <Popover.Title as="h3">
-                        <i className="fa fa-comments" /> {_("Answer comment")}
+                        <i className="fa fa-comments" /> {_('Answer comment')}
                       </Popover.Title>
                       <Popover.Content>
                         <FormMsgArea
@@ -183,7 +179,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                           onChange={(target: any) => {
                             changeCommentForAnswer({
                               ...commentForAnswer,
-                              comment: target.value
+                              comment: target.value,
                             });
                           }}
                           onSend={() => {
@@ -192,7 +188,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                                 document.body.click();
                                 changeCommentForAnswer({
                                   ...commentForAnswer,
-                                  comment: ""
+                                  comment: '',
                                 });
                                 changeChildren([...children, ...[data]]);
                               })
@@ -205,7 +201,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
                     </Popover>
                   }
                 >
-                  <span className="comment-answer"> {_("answer")}</span>
+                  <span className="comment-answer"> {_('answer')}</span>
                 </OverlayTrigger>
               )}
             </div>
@@ -219,7 +215,7 @@ const Comment: React.SFC<IProps> = ({ item, objectId, contentType, depth }) => {
             </div>
             <Likes
               likePath={SERVER_URLS.COMMENT_LIKE.buildPath({
-                commentPk: item.pk
+                commentPk: item.pk,
               })}
               item={item}
             />

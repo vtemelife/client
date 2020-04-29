@@ -1,14 +1,14 @@
-import React from "react";
-import { useLocation } from "react-router";
-import { Route, Switch, Link } from "react-router-dom";
-import { Tab, Row, Col, Nav } from "react-bootstrap";
+import React from 'react';
+import { useLocation } from 'react-router';
+import { Route, Switch, Link } from 'react-router-dom';
+import { Tab, Row, Col, Nav } from 'react-bootstrap';
 
-import { CLIENT_URLS } from "desktop/routes/client";
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import { _ } from "trans";
-import Profile from "./Profile";
-import Password from "./Password";
-import RemoveProfile from "./RemoveProfile";
+import { _ } from 'trans';
+import Profile from './Profile';
+import Password from './Password';
+import RemoveProfile from './RemoveProfile';
 
 const Settings = () => {
   const location = useLocation();
@@ -20,17 +20,17 @@ const Settings = () => {
             <Switch>
               <Route
                 exact={true}
-                path={CLIENT_URLS.USER.SETTINGS_PROFILE.routePath()}
+                path={CLIENT_URLS.USER.SETTINGS_PROFILE.route}
                 component={Profile}
               />
               <Route
                 exact={true}
-                path={CLIENT_URLS.USER.SETTINGS_PASSWORD.routePath()}
+                path={CLIENT_URLS.USER.SETTINGS_PASSWORD.route}
                 component={Password}
               />
               <Route
                 exact={true}
-                path={CLIENT_URLS.USER.SETTINGS_REMOVE.routePath()}
+                path={CLIENT_URLS.USER.SETTINGS_REMOVE.route}
                 component={RemoveProfile}
               />
             </Switch>
@@ -41,37 +41,37 @@ const Settings = () => {
               <Nav.Item>
                 <Nav.Link
                   active={
-                    CLIENT_URLS.USER.SETTINGS_PROFILE.toPath() ===
+                    CLIENT_URLS.USER.SETTINGS_PROFILE.buildPath() ===
                     location.pathname
                   }
                   as={Link}
-                  to={CLIENT_URLS.USER.SETTINGS_PROFILE.toPath()}
+                  to={CLIENT_URLS.USER.SETTINGS_PROFILE.buildPath()}
                 >
-                  {_("Profile")}
+                  {_('Profile')}
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link
                   active={
-                    CLIENT_URLS.USER.SETTINGS_PASSWORD.toPath() ===
+                    CLIENT_URLS.USER.SETTINGS_PASSWORD.buildPath() ===
                     location.pathname
                   }
                   as={Link}
-                  to={CLIENT_URLS.USER.SETTINGS_PASSWORD.toPath()}
+                  to={CLIENT_URLS.USER.SETTINGS_PASSWORD.buildPath()}
                 >
-                  {_("Password")}
+                  {_('Password')}
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link
                   active={
-                    CLIENT_URLS.USER.SETTINGS_REMOVE.toPath() ===
+                    CLIENT_URLS.USER.SETTINGS_REMOVE.buildPath() ===
                     location.pathname
                   }
                   as={Link}
-                  to={CLIENT_URLS.USER.SETTINGS_REMOVE.toPath()}
+                  to={CLIENT_URLS.USER.SETTINGS_REMOVE.buildPath()}
                 >
-                  {_("Remove profile")}
+                  {_('Remove profile')}
                 </Nav.Link>
               </Nav.Item>
             </Nav>
