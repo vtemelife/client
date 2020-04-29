@@ -3,9 +3,10 @@ start:
 
 lint:
 	yarn run lint
+	yarn run pretty-quick --staged --branch develop --check
 
 test:
-	yarn run test
+	yarn run test --coverage --watchAll=false
 
 remove_cache:
 	rm -rf node_modules/.cache
@@ -13,9 +14,9 @@ remove_cache:
 clean:
 	rm -rf node_modules
 
-build-prod:
+build:
 	GENERATE_SOURCEMAP=false yarn run build
 
 fix:
 	yarn run lint --fix
-	yarn run pretty-quick --branch master
+	yarn run pretty-quick --branch develop
