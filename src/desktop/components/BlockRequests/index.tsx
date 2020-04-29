@@ -1,27 +1,27 @@
-import React from "react";
-import compose from "lodash/flowRight";
-import { RouteComponentProps, withRouter } from "react-router";
+import React from 'react';
+import compose from 'lodash/flowRight';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-import List from "desktop/containers/Generics/List";
-import { SERVER_URLS } from "routes/server";
+import List from 'desktop/containers/Generics/List';
+import { SERVER_URLS } from 'routes/server';
 
-import RequestUserPreview from "./RequestUserPreview";
-import RequestObjectPreview from "./RequestObjectPreview";
-import { Card } from "react-bootstrap";
-import FormSelect from "generic/components/Form/FormSelect";
-import { REQUESTS, REQUEST_WAITING } from "generic/constants";
-import { getDisplayValue } from "utils";
+import RequestUserPreview from './RequestUserPreview';
+import RequestObjectPreview from './RequestObjectPreview';
+import { Card } from 'react-bootstrap';
+import FormSelect from 'generic/components/Form/FormSelect';
+import { REQUESTS, REQUEST_WAITING } from 'generic/constants';
+import { getDisplayValue } from 'utils';
 import {
   SERVICE_NOTIFICATION,
-  MSG_TYPE_UPDATE_COUNTERS
-} from "generic/containers/ContextProviders/WebSocketService/constants";
-import { _ } from "trans";
+  MSG_TYPE_UPDATE_COUNTERS,
+} from 'generic/containers/ContextProviders/WebSocketService/constants';
+import { _ } from 'trans';
 
 import {
   withAuthUser,
   withCounters,
-  withWebSocket
-} from "generic/containers/Decorators";
+  withWebSocket,
+} from 'generic/containers/Decorators';
 
 interface IProps extends RouteComponentProps {
   objectId?: string;
@@ -29,7 +29,7 @@ interface IProps extends RouteComponentProps {
   isReadonly?: boolean;
   renderTitle?: any;
   renderFilters?: any;
-  defaultGetParams?: any;
+  defaultqueryParams?: any;
   size?: number;
 
   authUser: any;
@@ -45,7 +45,7 @@ class BlockRequests extends React.PureComponent<IProps> {
       sender: user.pk,
       recipients,
       message_type: MSG_TYPE_UPDATE_COUNTERS,
-      data: {}
+      data: {},
     });
     refetch();
     this.props.counters.refetch();
@@ -58,20 +58,20 @@ class BlockRequests extends React.PureComponent<IProps> {
       sender: user.pk,
       recipients,
       message_type: MSG_TYPE_UPDATE_COUNTERS,
-      data: {}
+      data: {},
     });
     refetch();
     this.props.counters.refetch();
   };
 
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     return this.props.renderTitle
-      ? this.props.renderTitle(getParams)
-      : "Запросы";
+      ? this.props.renderTitle(queryParams)
+      : 'Запросы';
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
-    const RequestPreview = getParams.user
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
+    const RequestPreview = queryParams.user
       ? RequestObjectPreview
       : RequestUserPreview;
     return (
@@ -88,32 +88,32 @@ class BlockRequests extends React.PureComponent<IProps> {
     );
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     return (
       <Card>
         <Card.Body>
           <Card.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Card.Title>
           <FormSelect
-            label={_("Request status")}
+            label={_('Request status')}
             name="status"
             isClearable={true}
             options={REQUESTS}
             value={
-              getParams.status
+              queryParams.status
                 ? {
-                    value: getParams.status,
-                    display: getDisplayValue(getParams.status, REQUESTS)
+                    value: queryParams.status,
+                    display: getDisplayValue(queryParams.status, REQUESTS),
                   }
                 : {
                     value: REQUEST_WAITING,
-                    display: getDisplayValue(REQUEST_WAITING, REQUESTS)
+                    display: getDisplayValue(REQUEST_WAITING, REQUESTS),
                   }
             }
             onChange={(target: any) =>
-              onChangeGetParams({
-                status: target.value ? target.value.value : undefined
+              onChangequeryParams({
+                status: target.value ? target.value.value : undefined,
               })
             }
           />
@@ -135,7 +135,7 @@ class BlockRequests extends React.PureComponent<IProps> {
         renderFilters={this.props.renderFilters}
         searchLabel="search_requests"
         size={this.props.size}
-        defaultGetParams={this.props.defaultGetParams}
+        defaultqueryParams={this.props.defaultqueryParams}
       />
     );
   }
@@ -146,20 +146,20 @@ class BlockRequests extends React.PureComponent<IProps> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 const withCountersData = withCounters({
-  propName: "counters"
+  propName: 'counters',
 });
 
 const withWebSocketData = withWebSocket({
-  propName: "websocket"
+  propName: 'websocket',
 });
 
 export default compose(
   withRouter,
   withAuth,
   withCountersData,
-  withWebSocketData
+  withWebSocketData,
 )(BlockRequests);

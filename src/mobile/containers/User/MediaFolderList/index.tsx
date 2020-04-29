@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router";
-import queryString from "query-string";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
+import queryString from 'query-string';
 import {
   InputGroup,
   Form,
@@ -11,57 +11,57 @@ import {
   Alert,
   Button,
   OverlayTrigger,
-  Popover
-} from "react-bootstrap";
-import { useGet } from "restful-react";
-import Image from "generic/components/Image";
-import pictureSVG from "generic/layout/images/picture.svg";
-import DeleteItem from "mobile/components/DeleteItem";
+  Popover,
+} from 'react-bootstrap';
+import { useGet } from 'restful-react';
+import Image from 'generic/components/Image';
+import pictureSVG from 'generic/layout/images/picture.svg';
+import DeleteItem from 'mobile/components/DeleteItem';
 
-import { _ } from "trans";
+import { _ } from 'trans';
 import {
   ROLE_MODERATOR,
   PERMISSION_NO_USERS,
   PERMISSION_ONLY_FRIENDS,
-  PERMISSION_ALL_USERS
-} from "generic/constants";
-import { SERVER_URLS } from "routes/server";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import Header from "mobile/containers/Header";
-import { CLIENT_URLS } from "mobile/routes/client";
-import PaginateList from "generic/components/PaginateList";
+  PERMISSION_ALL_USERS,
+} from 'generic/constants';
+import { SERVER_URLS } from 'routes/server';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import Header from 'mobile/containers/Header';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import PaginateList from 'generic/components/PaginateList';
 
 const MediaFolderList: React.SFC<any> = () => {
   const location = useLocation();
   const { parentPk } = queryString.parse(location.search);
   const [showMenu, toggleShowMenu] = useState(false);
 
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
 
-  const [menuPage, changeMenuPage] = useState("");
+  const [menuPage, changeMenuPage] = useState('');
 
   const userAuth = useContext(AuthUserContext);
   const user = userAuth.headerUser || {
-    pk: null
+    pk: null,
   };
 
   const creator = parentPk || user.pk;
 
-  const getParams = {
+  const queryParams = {
     search,
     creator,
-    show_media: menuPage !== "" ? menuPage : undefined
+    show_media: menuPage !== '' ? menuPage : undefined,
   };
   const { data: mediaFolderData, loading, refetch } = useGet({
-    path: SERVER_URLS.MEDIA_FOLDER.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.MEDIA_FOLDER.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const mediaFolderItems = (mediaFolderData || {}).results || [];
   const mediaFolderCount = (mediaFolderData || {}).count || 0;
 
-  const title = _("Media folders");
+  const title = _('Media folders');
   const isCreator = (item: any) => {
     return item.creator === user.pk || user.role === ROLE_MODERATOR;
   };
@@ -72,7 +72,7 @@ const MediaFolderList: React.SFC<any> = () => {
         <meta name="description" content={title} />
       </Helmet>
       <Header
-        name={`${title} ${mediaFolderCount > 0 ? `(${mediaFolderCount})` : ""}`}
+        name={`${title} ${mediaFolderCount > 0 ? `(${mediaFolderCount})` : ''}`}
         fixed={true}
       >
         <div onClick={() => toggleShowMenu(true)}>
@@ -80,7 +80,7 @@ const MediaFolderList: React.SFC<any> = () => {
         </div>
         {parentPk === user.pk && (
           <div>
-            <Link to={CLIENT_URLS.USER.MEDIA_FOLDER_CREATE.toPath()}>
+            <Link to={CLIENT_URLS.USER.MEDIA_FOLDER_CREATE.buildPath()}>
               <i className="fa fa-plus" />
             </Link>
           </div>
@@ -95,7 +95,7 @@ const MediaFolderList: React.SFC<any> = () => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -105,11 +105,11 @@ const MediaFolderList: React.SFC<any> = () => {
       <div className="media-folder-list">
         {!loading && mediaFolderItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No media folders.")}</div>
+            <div>{_('No media folders.')}</div>
             <hr />
             <div className="d-flex">
               <Button size="sm" variant="warning">
-                <i className="fa fa-search" /> {_("Add a media folder")}
+                <i className="fa fa-search" /> {_('Add a media folder')}
               </Button>
             </div>
           </Alert>
@@ -120,13 +120,13 @@ const MediaFolderList: React.SFC<any> = () => {
           count={mediaFolderCount}
           objs={mediaFolderItems}
           loading={loading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => (
             <div className="media-folder-item block" key={item.pk}>
               <Link
                 to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL.buildPath({
-                  mediaFolderPk: item.pk
+                  mediaFolderPk: item.pk,
                 })}
               >
                 <div className="media-folder-images">
@@ -152,7 +152,7 @@ const MediaFolderList: React.SFC<any> = () => {
                   )}
                   {item.show_media.value === PERMISSION_ALL_USERS && (
                     <i className="fa fa-eye" />
-                  )}{" "}
+                  )}{' '}
                   {item.name}
                 </div>
                 <div className="media-folder-actions">
@@ -167,30 +167,28 @@ const MediaFolderList: React.SFC<any> = () => {
                             <ListGroup variant="flush">
                               <ListGroup.Item>
                                 <Link
-                                  to={CLIENT_URLS.USER.MEDIA_FOLDER_UPDATE.toPath(
+                                  to={CLIENT_URLS.USER.MEDIA_FOLDER_UPDATE.buildPath(
                                     {
-                                      urlParams: {
-                                        mediaFolderPk: item.pk
-                                      }
-                                    }
+                                      mediaFolderPk: item.pk,
+                                    },
                                   )}
                                 >
-                                  <i className="fa fa-pencil" /> {_("Update")}
+                                  <i className="fa fa-pencil" /> {_('Update')}
                                 </Link>
                               </ListGroup.Item>
                               <ListGroup.Item>
                                 <DeleteItem
                                   description={_(
-                                    "Are you sure you want to delete the media folder?"
+                                    'Are you sure you want to delete the media folder?',
                                   )}
                                   onSuccess={() => refetch()}
-                                  path={SERVER_URLS.MEDIA_FOLDER_DELETE.toPath({
-                                    urlParams: {
-                                      mediaFolderPk: item.pk
-                                    }
-                                  })}
+                                  path={SERVER_URLS.MEDIA_FOLDER_DELETE.buildPath(
+                                    {
+                                      mediaFolderPk: item.pk,
+                                    },
+                                  )}
                                 >
-                                  <i className="fa fa-trash" /> {_("Delete")}
+                                  <i className="fa fa-trash" /> {_('Delete')}
                                 </DeleteItem>
                               </ListGroup.Item>
                             </ListGroup>
@@ -210,7 +208,7 @@ const MediaFolderList: React.SFC<any> = () => {
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -218,11 +216,11 @@ const MediaFolderList: React.SFC<any> = () => {
             <ListGroup.Item
               onClick={() => {
                 changeOffset(0);
-                changeMenuPage("");
+                changeMenuPage('');
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-photo" /> {_("All users")}
+              <i className="fa fa-photo" /> {_('All users')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -231,7 +229,7 @@ const MediaFolderList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-eye-slash" /> {_("No users can see a folder")}
+              <i className="fa fa-eye-slash" /> {_('No users can see a folder')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -240,7 +238,7 @@ const MediaFolderList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-users" /> {_("Only friends can see a folder")}
+              <i className="fa fa-users" /> {_('Only friends can see a folder')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -249,7 +247,7 @@ const MediaFolderList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-eye" /> {_("All users can see a folder")}
+              <i className="fa fa-eye" /> {_('All users can see a folder')}
             </ListGroup.Item>
           </ListGroup>
         </Modal.Body>

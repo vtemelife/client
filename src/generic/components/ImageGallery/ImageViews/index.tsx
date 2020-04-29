@@ -1,15 +1,13 @@
-import React from "react";
-import { useGet } from "restful-react";
+import React from 'react';
+import { useGet } from 'restful-react';
 
-import { SERVER_URLS } from "routes/server";
+import { SERVER_URLS } from 'routes/server';
 
 const ImageViews: React.SFC<any> = ({ currentImage }) => {
   useGet({
-    path: SERVER_URLS.MEDIA_DETAIL.toPath({
-      urlParams: {
-        mediaPk: currentImage.pk
-      }
-    })
+    path: SERVER_URLS.MEDIA_DETAIL.buildPath({
+      mediaPk: currentImage.pk,
+    }),
   });
   return (
     <button key="views" className="gallery-control">

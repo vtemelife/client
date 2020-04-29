@@ -1,44 +1,44 @@
-import React, { useState, useContext } from "react";
-import { useParams, useHistory } from "react-router";
-import { Helmet } from "react-helmet-async";
-import { Modal, Button, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useGet, useMutate } from "restful-react";
-import { debounce } from "throttle-debounce";
+import React, { useState, useContext } from 'react';
+import { useParams, useHistory } from 'react-router';
+import { Helmet } from 'react-helmet-async';
+import { Modal, Button, ListGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useGet, useMutate } from 'restful-react';
+import { debounce } from 'throttle-debounce';
 
-import Loading from "generic/components/Loading";
-import Image from "generic/components/Image";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import PaginateList from "generic/components/PaginateList";
-import { scrollToBottom } from "generic/components/PaginateList/utils";
-import Header from "mobile/containers/Header";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import { WebSocketContext } from "generic/containers/ContextProviders/WebSocketService";
+import Loading from 'generic/components/Loading';
+import Image from 'generic/components/Image';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import PaginateList from 'generic/components/PaginateList';
+import { scrollToBottom } from 'generic/components/PaginateList/utils';
+import Header from 'mobile/containers/Header';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import { WebSocketContext } from 'generic/containers/ContextProviders/WebSocketService';
 
-import { _ } from "trans";
-import { CLIENT_URLS } from "mobile/routes/client";
-import { SERVER_URLS } from "routes/server";
-import { handleErrors } from "utils";
+import { _ } from 'trans';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import { SERVER_URLS } from 'routes/server';
+import { handleErrors } from 'utils';
 import {
   SERVICE_CHAT,
   MSG_TYPE_TYPING,
   MSG_TYPE_NEW_MESSAGE,
   SERVICE_NOTIFICATION,
-  MSG_TYPE_UPDATE_COUNTERS
-} from "generic/containers/ContextProviders/WebSocketService/constants";
-import useSubscribeWebSocket from "mobile/hooks/SubscribeWebSocket";
-import Typing from "../../../../generic/components/Typing";
-import DeleteItem from "mobile/components/DeleteItem";
-import { ROLE_MODERATOR, TYPE_CHAT } from "generic/constants";
+  MSG_TYPE_UPDATE_COUNTERS,
+} from 'generic/containers/ContextProviders/WebSocketService/constants';
+import useSubscribeWebSocket from 'mobile/hooks/SubscribeWebSocket';
+import Typing from '../../../../generic/components/Typing';
+import DeleteItem from 'mobile/components/DeleteItem';
+import { ROLE_MODERATOR, TYPE_CHAT } from 'generic/constants';
 
-import Message from "./Message";
+import Message from './Message';
 
 const ChatDetail: React.SFC<any> = () => {
   const history = useHistory();
 
   const [formData, changeFormData] = useState({
-    message: "",
-    attachments: []
+    message: '',
+    attachments: [],
   } as any);
   const [formErrors, changeFormErrors] = useState({} as any);
 
@@ -53,7 +53,7 @@ const ChatDetail: React.SFC<any> = () => {
   const webSocket = useContext(WebSocketContext) || {
     sendMessage: () => {
       return;
-    }
+    },
   };
   useSubscribeWebSocket(
     webSocket,
@@ -72,31 +72,27 @@ const ChatDetail: React.SFC<any> = () => {
       const message = webSocketData.data;
       changeNewMessages([...newMessages, ...[message]]);
       scrollToBottom();
-    }
+    },
   );
 
   const { data: chatData, loading: chatLoading } = useGet({
-    path: SERVER_URLS.CHAT_DETAIL.toPath({
-      urlParams: {
-        chatPk
-      }
-    })
+    path: SERVER_URLS.CHAT_DETAIL.buildPath({
+      chatPk,
+    }),
   });
-  const getParams = {
-    chat: chatPk
+  const queryParams = {
+    chat: chatPk,
   };
   const { data: messagesData, loading: messagesLoading } = useGet({
-    path: SERVER_URLS.MESSAGE_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.MESSAGE_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const { mutate: sendMessage, loading: sendMessageLoading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.MESSAGE_CREATE.toPath({
-      urlParams: {
-        chatPk
-      }
-    })
+    verb: 'POST',
+    path: SERVER_URLS.MESSAGE_CREATE.buildPath({
+      chatPk,
+    }),
   });
 
   const chat = chatData || { moderators: [], users: [] };
@@ -112,11 +108,11 @@ const ChatDetail: React.SFC<any> = () => {
   return (
     <div className="container-chat-detail">
       <Helmet>
-        <title>{_("Chat")}</title>
-        <meta name="description" content={_("Chat")} />
+        <title>{_('Chat')}</title>
+        <meta name="description" content={_('Chat')} />
         <body className="body-mobile body-chat" />
       </Helmet>
-      <Header name={chat.name || "Chat"} fixed={true}>
+      <Header name={chat.name || 'Chat'} fixed={true}>
         <div onClick={() => toggleShowMenu(true)}>
           <i className="fa fa-bars" />
         </div>
@@ -130,7 +126,7 @@ const ChatDetail: React.SFC<any> = () => {
           reverse={true}
           objs={messagesServer}
           loading={messagesLoading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => <Message key={item.pk} item={item} />}
         </PaginateList>
@@ -159,8 +155,8 @@ const ChatDetail: React.SFC<any> = () => {
                   changeFormData({
                     ...formData,
                     attachments: formData.attachments.filter(
-                      (a: any) => a.pk !== attachment.pk
-                    )
+                      (a: any) => a.pk !== attachment.pk,
+                    ),
                   })
                 }
               >
@@ -185,27 +181,27 @@ const ChatDetail: React.SFC<any> = () => {
                   .filter((pk: string) => pk !== user.pk),
                 chat: chat.pk,
                 data: {
-                  user
-                }
+                  user,
+                },
               });
             })();
             changeFormData({
               ...formData,
-              message: target.value
+              message: target.value,
             });
           }}
           errors={formErrors.message}
           onChangeAttachments={(attachments: any) => {
             changeFormData({
               ...formData,
-              attachments
+              attachments,
             });
           }}
           onSend={() => {
             sendMessage({
               chat: chatPk,
-              message: formData.message.replace(/(?:\r\n|\r|\n)/g, "<br />"),
-              attachments: formData.attachments.map((a: any) => a.pk)
+              message: formData.message.replace(/(?:\r\n|\r|\n)/g, '<br />'),
+              attachments: formData.attachments.map((a: any) => a.pk),
             })
               .then((data: any) => {
                 const message = data;
@@ -217,7 +213,7 @@ const ChatDetail: React.SFC<any> = () => {
                     .map((u: any) => u.pk)
                     .filter((pk: string) => pk !== user.pk),
                   chat: chat.pk,
-                  data: message
+                  data: message,
                 });
                 webSocket.sendMessage({
                   service: SERVICE_NOTIFICATION,
@@ -226,12 +222,12 @@ const ChatDetail: React.SFC<any> = () => {
                   recipients: chat.users
                     .map((u: any) => u.pk)
                     .filter((pk: string) => pk !== user.pk),
-                  data: {}
+                  data: {},
                 });
                 changeNewMessages([...newMessages, ...[message]]);
                 changeFormData({
-                  message: "",
-                  attachments: []
+                  message: '',
+                  attachments: [],
                 } as any);
                 changeFormErrors({});
                 scrollToBottom();
@@ -245,55 +241,49 @@ const ChatDetail: React.SFC<any> = () => {
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <ListGroup variant="flush" className="chat-detail-menu">
             <ListGroup.Item>
               <DeleteItem
-                description={_("Are you sure you want to leave the chat?")}
+                description={_('Are you sure you want to leave the chat?')}
                 onSuccess={() => {
-                  history.push(CLIENT_URLS.USER.CHAT_LIST.toPath());
+                  history.push(CLIENT_URLS.USER.CHAT_LIST.buildPath());
                 }}
-                path={SERVER_URLS.CHAT_LEAVE.toPath({
-                  urlParams: {
-                    chatPk
-                  }
+                path={SERVER_URLS.CHAT_LEAVE.buildPath({
+                  chatPk,
                 })}
               >
                 <i className="fa fa-sign-out fa-lg" />
-                <span className="menu-item">{_("Leave the chat")}</span>
+                <span className="menu-item">{_('Leave the chat')}</span>
               </DeleteItem>
             </ListGroup.Item>
             {chat.chat_type === TYPE_CHAT && isModerator(chat) && (
               <>
                 <ListGroup.Item>
                   <Link
-                    to={CLIENT_URLS.USER.CHAT_UPDATE.toPath({
-                      urlParams: {
-                        chatPk
-                      }
+                    to={CLIENT_URLS.USER.CHAT_UPDATE.buildPath({
+                      chatPk,
                     })}
                   >
                     <i className="fa fa-pencil fa-lg" />
-                    <span className="menu-item">{_("Update the chat")}</span>
+                    <span className="menu-item">{_('Update the chat')}</span>
                   </Link>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <DeleteItem
-                    description={_("Are you sure you want to delete the chat?")}
+                    description={_('Are you sure you want to delete the chat?')}
                     onSuccess={() => {
-                      history.push(CLIENT_URLS.USER.CHAT_LIST.toPath());
+                      history.push(CLIENT_URLS.USER.CHAT_LIST.buildPath());
                     }}
-                    path={SERVER_URLS.CHAT_DELETE.toPath({
-                      urlParams: {
-                        chatPk
-                      }
+                    path={SERVER_URLS.CHAT_DELETE.buildPath({
+                      chatPk,
                     })}
                   >
                     <i className="fa fa-trash fa-lg" />
-                    <span className="menu-item">{_("Delete the chat")}</span>
+                    <span className="menu-item">{_('Delete the chat')}</span>
                   </DeleteItem>
                 </ListGroup.Item>
               </>
@@ -302,7 +292,7 @@ const ChatDetail: React.SFC<any> = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={() => toggleShowMenu(false)} variant="secondary">
-            {_("Close")}
+            {_('Close')}
           </Button>
         </Modal.Footer>
       </Modal>

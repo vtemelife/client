@@ -1,28 +1,28 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-import List from "desktop/containers/Generics/List";
-import { SERVER_URLS } from "routes/server";
+import List from 'desktop/containers/Generics/List';
+import { SERVER_URLS } from 'routes/server';
 
-import NewsPreview from "./NewsPreview";
-import { _ } from "trans";
+import NewsPreview from './NewsPreview';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   renderTitle?: any;
   renderHeader?: any;
   renderFilters?: any;
-  defaultGetParams?: any;
+  defaultqueryParams?: any;
   size?: number;
 }
 
 class BlockNews extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     return this.props.renderTitle
-      ? this.props.renderTitle(getParams)
-      : _("News");
+      ? this.props.renderTitle(queryParams)
+      : _('News');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     return <NewsPreview news={item} />;
   };
 
@@ -37,7 +37,7 @@ class BlockNews extends React.PureComponent<IProps> {
         renderFilters={this.props.renderFilters}
         searchLabel="search_news"
         size={this.props.size}
-        defaultGetParams={this.props.defaultGetParams}
+        defaultqueryParams={this.props.defaultqueryParams}
       />
     );
   }

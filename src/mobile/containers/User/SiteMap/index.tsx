@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { InputGroup, Form, Modal, ListGroup } from "react-bootstrap";
-import { useGet } from "restful-react";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { InputGroup, Form, Modal, ListGroup } from 'react-bootstrap';
+import { useGet } from 'restful-react';
 
-import Loading from "generic/components/Loading";
-import Header from "mobile/containers/Header";
+import Loading from 'generic/components/Loading';
+import Header from 'mobile/containers/Header';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import MapArea from "generic/components/MapArea";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import MapArea from 'generic/components/MapArea';
 
-const MENU_PAGE_ALL = "all";
-const MENU_PAGE_PARTIES = "party";
-const MENU_PAGE_CLUBS = "club";
+const MENU_PAGE_ALL = 'all';
+const MENU_PAGE_PARTIES = 'party';
+const MENU_PAGE_CLUBS = 'club';
 
 const SiteMap: React.SFC<any> = () => {
   const [showMenu, toggleShowMenu] = useState(false);
   const [menuPage, changeMenuPage] = useState(MENU_PAGE_ALL);
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const { data: mapData, loading } = useGet({
-    path: SERVER_URLS.MAP.toPath({
-      getParams: {
+    path: SERVER_URLS.MAP.buildPath({
+      queryParams: {
         search,
-        type: menuPage !== MENU_PAGE_ALL ? menuPage : undefined
-      }
-    })
+        type: menuPage !== MENU_PAGE_ALL ? menuPage : undefined,
+      },
+    }),
   });
-  let title = _("Map (parties and clubs)");
+  let title = _('Map (parties and clubs)');
   switch (menuPage) {
     case MENU_PAGE_PARTIES:
-      title = _("Map (parties)");
+      title = _('Map (parties)');
       break;
     case MENU_PAGE_CLUBS:
-      title = _("Map (clubs)");
+      title = _('Map (clubs)');
       break;
     case MENU_PAGE_ALL:
     default:
@@ -58,7 +58,7 @@ const SiteMap: React.SFC<any> = () => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -72,7 +72,7 @@ const SiteMap: React.SFC<any> = () => {
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -83,7 +83,7 @@ const SiteMap: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-map" /> {_("Parties and clubs")}
+              <i className="fa fa-map" /> {_('Parties and clubs')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -91,7 +91,7 @@ const SiteMap: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-calendar" /> {_("Parties")}
+              <i className="fa fa-calendar" /> {_('Parties')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -99,7 +99,7 @@ const SiteMap: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-venus-mars" /> {_("Clubs")}
+              <i className="fa fa-venus-mars" /> {_('Clubs')}
             </ListGroup.Item>
           </ListGroup>
         </Modal.Body>

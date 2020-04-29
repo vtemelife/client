@@ -1,13 +1,13 @@
-import React from "react";
-import { RouteComponentProps, withRouter } from "react-router";
-import { Mutate } from "restful-react";
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { Mutate } from 'restful-react';
 
-import Comment from "./Comment";
-import { SERVER_URLS } from "routes/server";
-import List from "desktop/containers/Generics/List";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import handleErrors from "../ResponseErrors/utils";
-import { _ } from "trans";
+import Comment from './Comment';
+import { SERVER_URLS } from 'routes/server';
+import List from 'desktop/containers/Generics/List';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import handleErrors from '../ResponseErrors/utils';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   objectId: string;
@@ -15,7 +15,7 @@ interface IProps extends RouteComponentProps {
   isReadonly?: boolean;
   renderTitle?: any;
   renderFilters?: any;
-  defaultGetParams?: any;
+  defaultqueryParams?: any;
   size?: number;
 }
 
@@ -26,14 +26,14 @@ interface IState {
 
 export class BlockComments extends React.PureComponent<IProps, IState> {
   public state = {
-    comment: "",
-    errors: undefined
+    comment: '',
+    errors: undefined,
   };
 
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     return this.props.renderTitle
-      ? this.props.renderTitle(getParams)
-      : _("Comments");
+      ? this.props.renderTitle(queryParams)
+      : _('Comments');
   };
 
   public renderItem = (item: any) => {
@@ -69,11 +69,11 @@ export class BlockComments extends React.PureComponent<IProps, IState> {
                   content_type: this.props.contentType,
                   comment: this.state.comment.replace(
                     /(?:\r\n|\r|\n)/g,
-                    "<br />"
-                  )
+                    '<br />',
+                  ),
                 })
                   .then((result: any) => {
-                    this.setState({ comment: "" });
+                    this.setState({ comment: '' });
                     refetch();
                   })
                   .catch((errors: any) => {
@@ -105,7 +105,7 @@ export class BlockComments extends React.PureComponent<IProps, IState> {
         searchLabel="search_comments"
         size={this.props.size}
         reverse={true}
-        defaultGetParams={this.props.defaultGetParams}
+        defaultqueryParams={this.props.defaultqueryParams}
       />
     );
   }

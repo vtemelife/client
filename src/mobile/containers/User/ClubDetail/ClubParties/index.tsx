@@ -1,31 +1,31 @@
-import React from "react";
-import { useGet } from "restful-react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Link } from "react-router-dom";
-import { OverlayTrigger, Popover, ListGroup, Button } from "react-bootstrap";
-import { getGeo } from "desktop/containers/User/Profile/utils";
+import React from 'react';
+import { useGet } from 'restful-react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+import { OverlayTrigger, Popover, ListGroup, Button } from 'react-bootstrap';
+import { getGeo } from 'desktop/containers/User/Profile/utils';
 
-import { ROLE_MODERATOR } from "generic/constants";
-import { _ } from "trans";
-import Image from "generic/components/Image";
-import { SERVER_URLS } from "routes/server";
-import Loading from "generic/components/Loading";
-import { CLIENT_URLS } from "desktop/routes/client";
-import DeleteItem from "mobile/components/DeleteItem";
-import ShowMore from "react-show-more";
-import { renderHtml } from "utils";
-import defaultSVG from "generic/layout/images/picture.svg";
-import Likes from "desktop/components/Likes";
+import { ROLE_MODERATOR } from 'generic/constants';
+import { _ } from 'trans';
+import Image from 'generic/components/Image';
+import { SERVER_URLS } from 'routes/server';
+import Loading from 'generic/components/Loading';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import DeleteItem from 'mobile/components/DeleteItem';
+import ShowMore from 'react-show-more';
+import { renderHtml } from 'utils';
+import defaultSVG from 'generic/layout/images/picture.svg';
+import Likes from 'desktop/components/Likes';
 
 const ClubParties: React.SFC<any> = ({ club, user }) => {
   const { data: partiesData, loading: partiesLoading, refetch } = useGet({
-    path: SERVER_URLS.PARTY_LIST.toPath({
-      getParams: {
+    path: SERVER_URLS.PARTY_LIST.buildPath({
+      queryParams: {
         limit: 10,
         offset: 0,
-        club: club.pk
-      }
-    })
+        club: club.pk,
+      },
+    }),
   });
   const partiesItems = (partiesData || {}).results || [];
 
@@ -39,29 +39,29 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
   return (
     <div className="club-parties block">
       <h2>
-        {_("Parties")} (
+        {_('Parties')} (
         <Link
-          to={CLIENT_URLS.USER.PARTY_LIST.toPath({
-            getParams: {
-              club: club.pk
-            }
+          to={CLIENT_URLS.USER.PARTY_LIST.buildPath({
+            queryParams: {
+              club: club.pk,
+            },
           })}
         >
-          {_("All")}
+          {_('All')}
         </Link>
         )
       </h2>
       {partiesLoading && <Loading />}
       {isModerator(club) && (
         <LinkContainer
-          to={CLIENT_URLS.USER.PARTY_CREATE.toPath({
-            getParams: {
-              club: club.pk
-            }
+          to={CLIENT_URLS.USER.PARTY_CREATE.buildPath({
+            queryParams: {
+              club: club.pk,
+            },
           })}
         >
           <Button size="sm">
-            <i className="fa fa-plus" /> {_("Create a party")}
+            <i className="fa fa-plus" /> {_('Create a party')}
           </Button>
         </LinkContainer>
       )}
@@ -75,7 +75,7 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
               <div className="site-party-avatar">
                 <Link
                   to={CLIENT_URLS.USER.PARTY_DETAIL.buildPath({
-                    partySlug: item.slug
+                    partySlug: item.slug,
                   })}
                 >
                   <Image
@@ -93,7 +93,7 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
                 <div className="site-party-title-name">
                   <Link
                     to={CLIENT_URLS.USER.PARTY_DETAIL.buildPath({
-                      partySlug: item.slug
+                      partySlug: item.slug,
                     })}
                   >
                     <>{item.name}</>
@@ -113,28 +113,24 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
                           <ListGroup variant="flush">
                             <ListGroup.Item>
                               <Link
-                                to={CLIENT_URLS.USER.PARTY_UPDATE.toPath({
-                                  urlParams: {
-                                    partySlug: item.slug
-                                  }
+                                to={CLIENT_URLS.USER.PARTY_UPDATE.buildPath({
+                                  partySlug: item.slug,
                                 })}
                               >
-                                <i className="fa fa-pencil" /> {_("Update")}
+                                <i className="fa fa-pencil" /> {_('Update')}
                               </Link>
                             </ListGroup.Item>
                             <ListGroup.Item>
                               <DeleteItem
                                 description={_(
-                                  "Are you sure you want to delete the party?"
+                                  'Are you sure you want to delete the party?',
                                 )}
                                 onSuccess={() => refetch()}
-                                path={SERVER_URLS.PARTY_DELETE.toPath({
-                                  urlParams: {
-                                    partySlug: item.slug
-                                  }
+                                path={SERVER_URLS.PARTY_DELETE.buildPath({
+                                  partySlug: item.slug,
                                 })}
                               >
-                                <i className="fa fa-trash" /> {_("Delete")}
+                                <i className="fa fa-trash" /> {_('Delete')}
                               </DeleteItem>
                             </ListGroup.Item>
                           </ListGroup>
@@ -153,8 +149,8 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
                   <ListGroup.Item>
                     <ShowMore
                       lines={10}
-                      more={_("Show more")}
-                      less={_("Show less")}
+                      more={_('Show more')}
+                      less={_('Show less')}
                       anchorClass=""
                     >
                       {renderHtml(item.description)}
@@ -165,7 +161,7 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
               <div className="site-party-footer">
                 <Likes
                   likePath={SERVER_URLS.PARTY_LIKE.buildPath({
-                    partySlug: item.slug
+                    partySlug: item.slug,
                   })}
                   item={item}
                 />
@@ -176,13 +172,13 @@ const ClubParties: React.SFC<any> = ({ club, user }) => {
         {partiesItems.length > 3 && (
           <div className="show-more">
             <Link
-              to={CLIENT_URLS.USER.PARTY_LIST.toPath({
-                getParams: {
-                  club: club.pk
-                }
+              to={CLIENT_URLS.USER.PARTY_LIST.buildPath({
+                queryParams: {
+                  club: club.pk,
+                },
               })}
             >
-              {_("Show more")}
+              {_('Show more')}
             </Link>
           </div>
         )}

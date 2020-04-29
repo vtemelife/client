@@ -1,46 +1,44 @@
-import React, { useState } from "react";
-import { useHistory, useParams } from "react-router";
-import { Helmet } from "react-helmet-async";
-import { Button } from "react-bootstrap";
-import { useMutate, useGet } from "restful-react";
+import React, { useState } from 'react';
+import { useHistory, useParams } from 'react-router';
+import { Helmet } from 'react-helmet-async';
+import { Button } from 'react-bootstrap';
+import { useMutate, useGet } from 'restful-react';
 
-import Loading from "generic/components/Loading";
-import Image from "generic/components/Image";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import Header from "mobile/containers/Header";
+import Loading from 'generic/components/Loading';
+import Image from 'generic/components/Image';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import Header from 'mobile/containers/Header';
 
-import { _ } from "trans";
-import { CLIENT_URLS } from "mobile/routes/client";
-import { SERVER_URLS } from "routes/server";
-import { handleErrors } from "utils";
+import { _ } from 'trans';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import { SERVER_URLS } from 'routes/server';
+import { handleErrors } from 'utils';
 
 const ChatConversationCreate: React.SFC<any> = () => {
   const history = useHistory();
   const { recipientSlug } = useParams();
 
   const [formData, changeFormData] = useState({
-    message: "",
-    attachments: []
+    message: '',
+    attachments: [],
   } as any);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const {
     mutate: createConversation,
-    loading: createConversationLoading
+    loading: createConversationLoading,
   } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.CHAT_CONVERSATION_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.CHAT_CONVERSATION_CREATE.buildPath(),
   });
 
   const { data: recipientData, loading: recipientLoading } = useGet({
-    path: SERVER_URLS.PROFILE.toPath({
-      urlParams: {
-        userSlug: recipientSlug
-      }
-    })
+    path: SERVER_URLS.PROFILE.buildPath({
+      userSlug: recipientSlug,
+    }),
   });
   const recipient = recipientData || {
-    name: ""
+    name: '',
   };
   if (recipientLoading) {
     return <Loading />;
@@ -49,11 +47,11 @@ const ChatConversationCreate: React.SFC<any> = () => {
   return (
     <div className="container-create-conversation">
       <Helmet>
-        <title>{_("Create a dialog")}</title>
-        <meta name="description" content={_("Create a dialog")} />
+        <title>{_('Create a dialog')}</title>
+        <meta name="description" content={_('Create a dialog')} />
         <body className="body-mobile body-chat" />
       </Helmet>
-      <Header name={recipient.name || " "} fixed={true} />
+      <Header name={recipient.name || ' '} fixed={true} />
       {(createConversationLoading || recipientLoading) && <Loading />}
       <div className="chat-send-message">
         <div className="chat-attachments">
@@ -73,8 +71,8 @@ const ChatConversationCreate: React.SFC<any> = () => {
                   changeFormData({
                     ...formData,
                     attachments: formData.attachments.filter(
-                      (a: any) => a.pk !== attachment.pk
-                    )
+                      (a: any) => a.pk !== attachment.pk,
+                    ),
                   })
                 }
               >
@@ -91,29 +89,27 @@ const ChatConversationCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              message: target.value
+              message: target.value,
             });
           }}
           errors={formErrors.message}
           onChangeAttachments={(attachments: any) => {
             changeFormData({
               ...formData,
-              attachments
+              attachments,
             });
           }}
           onSend={() => {
             createConversation({
               recipient: recipientSlug,
-              message: formData.message.replace(/(?:\r\n|\r|\n)/g, "<br />"),
-              attachments: formData.attachments.map((a: any) => a.pk)
+              message: formData.message.replace(/(?:\r\n|\r|\n)/g, '<br />'),
+              attachments: formData.attachments.map((a: any) => a.pk),
             })
               .then((data: any) => {
                 history.push(
-                  CLIENT_URLS.USER.CHAT_DETAIL.toPath({
-                    urlParams: {
-                      chatPk: data.pk
-                    }
-                  })
+                  CLIENT_URLS.USER.CHAT_DETAIL.buildPath({
+                    chatPk: data.pk,
+                  }),
                 );
               })
               .catch((errors: any) => {

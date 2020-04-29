@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import RenderPaginateItems from "./RenderPaginateItems";
-import PaginateItems from "./PaginateItems";
+import RenderPaginateItems from './RenderPaginateItems';
+import PaginateItems from './PaginateItems';
 
 interface IProps {
   objs: any;
@@ -15,7 +15,7 @@ interface IProps {
   ownRender?: boolean;
   children: any;
 
-  getParamsHash: string;
+  queryParamsHash: string;
 }
 
 const PaginateList: React.SFC<IProps> = ({
@@ -25,22 +25,22 @@ const PaginateList: React.SFC<IProps> = ({
   reverse,
   loading,
   children,
-  getParamsHash,
+  queryParamsHash,
   ...props
 }) => {
   const [items, changeItems] = useState([]);
-  const [prevHash, changePrevHash] = useState("");
+  const [prevHash, changePrevHash] = useState('');
 
   useEffect(() => {
     if (
       objs.length &&
-      prevHash !== getParamsHash &&
+      prevHash !== queryParamsHash &&
       JSON.stringify(items.map((i: any) => i.pk)) !==
         JSON.stringify(objs.map((i: any) => i.pk))
     ) {
-      changePrevHash(getParamsHash);
+      changePrevHash(queryParamsHash);
     }
-  }, [getParamsHash, prevHash, changePrevHash, objs, items]);
+  }, [queryParamsHash, prevHash, changePrevHash, objs, items]);
 
   if (offset > objs.count) {
     // case of start pagination but objs are empty - nothing to do
@@ -66,7 +66,7 @@ const PaginateList: React.SFC<IProps> = ({
       reverse={reverse}
       loading={loading}
       children={children}
-      isItemsReset={prevHash !== getParamsHash}
+      isItemsReset={prevHash !== queryParamsHash}
       {...props}
     />
   );

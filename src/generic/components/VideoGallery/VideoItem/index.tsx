@@ -1,35 +1,33 @@
-import React, { useState, useContext } from "react";
-import { useMutate } from "restful-react";
+import React, { useState, useContext } from 'react';
+import { useMutate } from 'restful-react';
 
-import { SERVER_URLS } from "routes/server";
-import Likes from "desktop/components/Likes";
-import { OverlayTrigger, Popover, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
+import { SERVER_URLS } from 'routes/server';
+import Likes from 'desktop/components/Likes';
+import { OverlayTrigger, Popover, ListGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
 
-import { ROLE_MODERATOR } from "generic/constants";
-import { CLIENT_URLS } from "desktop/routes/client";
-import { _ } from "trans";
-import DeleteItem from "mobile/components/DeleteItem";
-import Video from "generic/components/Video";
-import { confirmAlert } from "react-confirm-alert";
-import { handleSuccess, handleErrors } from "utils";
-import ModalComments from "generic/components/ModalComments";
+import { ROLE_MODERATOR } from 'generic/constants';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import { _ } from 'trans';
+import DeleteItem from 'mobile/components/DeleteItem';
+import Video from 'generic/components/Video';
+import { confirmAlert } from 'react-confirm-alert';
+import { handleSuccess, handleErrors } from 'utils';
+import ModalComments from 'generic/components/ModalComments';
 
 const VideoItem: React.SFC<any> = ({ video, refetch }) => {
   const [showComments, toggleShowComments] = useState(false);
   const [commentsCount, changeCommentsCount] = useState(video.comments_count);
   const { mutate: publicOnSite } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MEDIA_TO_MODERATE_MEDIA_SECTION.toPath({
-      urlParams: {
-        mediaPk: video.pk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MEDIA_TO_MODERATE_MEDIA_SECTION.buildPath({
+      mediaPk: video.pk,
+    }),
   });
   const { mutate: sendComment } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.COMMENT_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.COMMENT_CREATE.buildPath(),
   });
 
   const userAuth = useContext(AuthUserContext);
@@ -58,67 +56,63 @@ const VideoItem: React.SFC<any> = ({ video, refetch }) => {
                         <ListGroup.Item
                           onClick={() => {
                             confirmAlert({
-                              title: _("Are you sure?"),
+                              title: _('Are you sure?'),
                               message: _(
-                                "Are you sure that you want to publish your video in VTEME CONTENT menu for all users on site?"
+                                'Are you sure that you want to publish your video in VTEME CONTENT menu for all users on site?',
                               ),
                               buttons: [
                                 {
-                                  label: _("Yes"),
+                                  label: _('Yes'),
                                   onClick: () => {
                                     publicOnSite({})
                                       .then((data: any) => {
                                         handleSuccess(
                                           _(
-                                            "Sent to moderation. Waiting moderation..."
-                                          )
+                                            'Sent to moderation. Waiting moderation...',
+                                          ),
                                         );
                                       })
                                       .catch((errors: any) => {
                                         handleErrors(errors);
                                       });
-                                  }
+                                  },
                                 },
                                 {
-                                  label: _("No"),
+                                  label: _('No'),
                                   onClick: () => {
                                     return;
-                                  }
-                                }
-                              ]
+                                  },
+                                },
+                              ],
                             });
                           }}
                         >
-                          <i className="fa fa-eye" />{" "}
-                          {_("Publish your video for all users")}
+                          <i className="fa fa-eye" />{' '}
+                          {_('Publish your video for all users')}
                         </ListGroup.Item>
                       )}
                       <ListGroup.Item>
                         <Link
-                          to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_UPDATE.toPath(
+                          to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_UPDATE.buildPath(
                             {
-                              urlParams: {
-                                mediaPk: video.pk
-                              }
-                            }
+                              mediaPk: video.pk,
+                            },
                           )}
                         >
-                          <i className="fa fa-pencil" /> {_("Update")}
+                          <i className="fa fa-pencil" /> {_('Update')}
                         </Link>
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <DeleteItem
                           description={_(
-                            "Are you sure you want to delete the club?"
+                            'Are you sure you want to delete the club?',
                           )}
                           onSuccess={() => refetch()}
-                          path={SERVER_URLS.MEDIA_DELETE.toPath({
-                            urlParams: {
-                              mediaPk: video.pk
-                            }
+                          path={SERVER_URLS.MEDIA_DELETE.buildPath({
+                            mediaPk: video.pk,
                           })}
                         >
-                          <i className="fa fa-trash" /> {_("Delete")}
+                          <i className="fa fa-trash" /> {_('Delete')}
                         </DeleteItem>
                       </ListGroup.Item>
                     </ListGroup>
@@ -137,7 +131,7 @@ const VideoItem: React.SFC<any> = ({ video, refetch }) => {
       <div className="video-item-footer">
         <Likes
           likePath={SERVER_URLS.MEDIA_LIKE.buildPath({
-            mediaPk: video.pk
+            mediaPk: video.pk,
           })}
           item={{ ...video, comments_count: undefined }}
         />
@@ -145,7 +139,7 @@ const VideoItem: React.SFC<any> = ({ video, refetch }) => {
       <ModalComments
         showComments={showComments}
         toggleShowComments={toggleShowComments}
-        contentType={"media:media"}
+        contentType={'media:media'}
         objectId={video.pk}
         onSuccess={() => changeCommentsCount(commentsCount + 1)}
         sendComment={sendComment}

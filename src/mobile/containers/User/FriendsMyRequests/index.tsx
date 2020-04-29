@@ -1,34 +1,34 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { Modal, ListGroup, Alert, Badge } from "react-bootstrap";
-import { useGet } from "restful-react";
-import ShowMore from "react-show-more";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { Modal, ListGroup, Alert, Badge } from 'react-bootstrap';
+import { useGet } from 'restful-react';
+import ShowMore from 'react-show-more';
 
-import Image from "generic/components/Image";
-import defaultSVG from "generic/layout/images/picture.svg";
+import Image from 'generic/components/Image';
+import defaultSVG from 'generic/layout/images/picture.svg';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "mobile/routes/client";
-import PaginateList from "generic/components/PaginateList";
-import { renderHtml } from "utils";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import { CountersContext } from "generic/containers/ContextProviders/CountersService";
-import Header from "mobile/containers/Header";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import PaginateList from 'generic/components/PaginateList';
+import { renderHtml } from 'utils';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import { CountersContext } from 'generic/containers/ContextProviders/CountersService';
+import Header from 'mobile/containers/Header';
 import {
   getBirthday,
   getBirthdaySecond,
-  getGeo
-} from "desktop/containers/User/Profile/utils";
-import RequestActions from "mobile/components/RequestActions";
+  getGeo,
+} from 'desktop/containers/User/Profile/utils';
+import RequestActions from 'mobile/components/RequestActions';
 
-const FILTER_PAGE_WAITING = "waiting";
-const FILTER_PAGE_APPROVED = "approved";
-const FILTER_PAGE_DECLINED = "declined";
+const FILTER_PAGE_WAITING = 'waiting';
+const FILTER_PAGE_APPROVED = 'approved';
+const FILTER_PAGE_DECLINED = 'declined';
 
-const MENU_PAGE_FROM_USERS = "from-users";
-const MENU_PAGE_TO_USERS = "to-users";
+const MENU_PAGE_FROM_USERS = 'from-users';
+const MENU_PAGE_TO_USERS = 'to-users';
 
 const FriendMyRequests: React.SFC<any> = () => {
   const [showMenu, toggleShowMenu] = useState(false);
@@ -41,45 +41,45 @@ const FriendMyRequests: React.SFC<any> = () => {
 
   const userAuth = useContext(AuthUserContext);
   const user = userAuth.headerUser || {
-    pk: null
+    pk: null,
   };
   const countersData = useContext(CountersContext) || {
-    counters: {}
+    counters: {},
   };
   const counters = countersData.counters || { u_friends_requests: 0 };
 
-  const getParams = {
-    content_type: "users:user",
+  const queryParams = {
+    content_type: 'users:user',
     status: filterPage,
     user: menuPage !== MENU_PAGE_FROM_USERS ? user.pk : undefined,
-    object_id: menuPage === MENU_PAGE_FROM_USERS ? user.pk : undefined
+    object_id: menuPage === MENU_PAGE_FROM_USERS ? user.pk : undefined,
   };
   const { data: requestsData, loading, refetch } = useGet({
-    path: SERVER_URLS.MEMBERSHIP_REQUESTS_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.MEMBERSHIP_REQUESTS_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
 
   const requestsItems = (requestsData || {}).results || [];
   const requestsCount = (requestsData || {}).count || 0;
 
-  let faStatusIcon = "fa-clock-o";
+  let faStatusIcon = 'fa-clock-o';
   switch (filterPage) {
     case FILTER_PAGE_APPROVED:
-      faStatusIcon = "fa-check";
+      faStatusIcon = 'fa-check';
       break;
     case FILTER_PAGE_DECLINED:
-      faStatusIcon = "fa-ban";
+      faStatusIcon = 'fa-ban';
       break;
     case FILTER_PAGE_WAITING:
     default:
       break;
   }
 
-  let title = _("Users requests to me");
+  let title = _('Users requests to me');
   switch (menuPage) {
     case MENU_PAGE_TO_USERS:
-      title = _("My requests to users");
+      title = _('My requests to users');
       break;
     case MENU_PAGE_FROM_USERS:
     default:
@@ -92,11 +92,11 @@ const FriendMyRequests: React.SFC<any> = () => {
         <meta name="description" content={title} />
       </Helmet>
       <Header
-        name={`${title} ${requestsCount > 0 ? `(${requestsCount})` : ""}`}
+        name={`${title} ${requestsCount > 0 ? `(${requestsCount})` : ''}`}
         fixed={true}
       >
         <div onClick={() => toggleShowMenu(true)}>
-          <i className="fa fa-bars" />{" "}
+          <i className="fa fa-bars" />{' '}
           {counters.u_friends_requests > 0 ? counters.u_friends_requests : null}
         </div>
         <div onClick={() => toggleShowFilter(true)}>
@@ -106,7 +106,7 @@ const FriendMyRequests: React.SFC<any> = () => {
       <div className="requests-list">
         {!loading && requestsItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No requests.")}</div>
+            <div>{_('No requests.')}</div>
           </Alert>
         )}
         <PaginateList
@@ -115,7 +115,7 @@ const FriendMyRequests: React.SFC<any> = () => {
           count={requestsCount}
           objs={requestsItems}
           loading={loading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => {
             const itemUser =
@@ -128,7 +128,7 @@ const FriendMyRequests: React.SFC<any> = () => {
                   <div className="requests-avatar">
                     <Link
                       to={CLIENT_URLS.USER.PROFILE.buildPath({
-                        userSlug: itemUser.slug
+                        userSlug: itemUser.slug,
                       })}
                     >
                       <Image
@@ -144,10 +144,10 @@ const FriendMyRequests: React.SFC<any> = () => {
                   </div>
                   <div className="requests-title">
                     <div className="requests-title-name">
-                      <i className={`fa ${faStatusIcon}`} />{" "}
+                      <i className={`fa ${faStatusIcon}`} />{' '}
                       <Link
                         to={CLIENT_URLS.USER.PROFILE.buildPath({
-                          userSlug: itemUser.slug
+                          userSlug: itemUser.slug,
                         })}
                       >
                         {itemUser.name}
@@ -167,46 +167,46 @@ const FriendMyRequests: React.SFC<any> = () => {
                   <div className="requests-text">
                     <ListGroup variant="flush">
                       <ListGroup.Item>
-                        <span className="item-title">{_("Real status")}:</span>{" "}
+                        <span className="item-title">{_('Real status')}:</span>{' '}
                         {itemUser.is_real ? (
                           <>
-                            <i className="fa fa-check green-color" /> {_("Yes")}
+                            <i className="fa fa-check green-color" /> {_('Yes')}
                           </>
                         ) : (
                           <>
-                            <i className="fa fa-times-circle red-color" />{" "}
-                            {_("No")}
+                            <i className="fa fa-times-circle red-color" />{' '}
+                            {_('No')}
                           </>
                         )}
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <span className="item-title">{_("Gender")}:</span>
+                        <span className="item-title">{_('Gender')}:</span>
                         {itemUser.gender.display}
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <span className="item-title">{_("Age")}:</span>
+                        <span className="item-title">{_('Age')}:</span>
                         {getBirthday(itemUser)}
-                        {", "}
+                        {', '}
                         {getBirthdaySecond(itemUser)}
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <span className="item-title">{_("Formats")}:</span>
+                        <span className="item-title">{_('Formats')}:</span>
                         {itemUser.relationship_formats
                           .map((i: any) => i.display)
-                          .join(", ")}
+                          .join(', ')}
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <span className="item-title">{_("Themes")}:</span>
+                        <span className="item-title">{_('Themes')}:</span>
                         {itemUser.relationship_themes
                           .map((i: any) => i.display)
-                          .join(", ")}
+                          .join(', ')}
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <span className="item-title">{_("About")}:</span>
+                        <span className="item-title">{_('About')}:</span>
                         <ShowMore
                           lines={3}
-                          more={_("Show more")}
-                          less={_("Show less")}
+                          more={_('Show more')}
+                          less={_('Show less')}
                           anchorClass=""
                         >
                           {renderHtml(itemUser.about)}
@@ -223,7 +223,7 @@ const FriendMyRequests: React.SFC<any> = () => {
       <Modal size="lg" show={showFilter} onHide={() => toggleShowFilter(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -235,7 +235,7 @@ const FriendMyRequests: React.SFC<any> = () => {
                 toggleShowFilter(false);
               }}
             >
-              <i className="fa fa-clock-o" /> {_("Pending")}
+              <i className="fa fa-clock-o" /> {_('Pending')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -244,7 +244,7 @@ const FriendMyRequests: React.SFC<any> = () => {
                 toggleShowFilter(false);
               }}
             >
-              <i className="fa fa-check" /> {_("Approved")}
+              <i className="fa fa-check" /> {_('Approved')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -253,7 +253,7 @@ const FriendMyRequests: React.SFC<any> = () => {
                 toggleShowFilter(false);
               }}
             >
-              <i className="fa fa-ban" /> {_("Declined")}
+              <i className="fa fa-ban" /> {_('Declined')}
             </ListGroup.Item>
           </ListGroup>
         </Modal.Body>
@@ -261,7 +261,7 @@ const FriendMyRequests: React.SFC<any> = () => {
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -273,7 +273,7 @@ const FriendMyRequests: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-user" /> {_("My requests to users")}
+              <i className="fa fa-user" /> {_('My requests to users')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -282,7 +282,7 @@ const FriendMyRequests: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-users" /> {_("Users requests to me")}{" "}
+              <i className="fa fa-users" /> {_('Users requests to me')}{' '}
               {counters.u_friends_requests > 0 && (
                 <Badge variant="primary">{counters.u_friends_requests}</Badge>
               )}

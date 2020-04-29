@@ -1,14 +1,14 @@
-import React from "react";
-import { Card, Nav } from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
+import React from 'react';
+import { Card, Nav } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
 
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
-import List from "desktop/containers/Generics/List";
+import List from 'desktop/containers/Generics/List';
 
-import NewsItem from "./NewsItem";
-import { _ } from "trans";
+import NewsItem from './NewsItem';
+import { _ } from 'trans';
 
 interface IPropsWrapper extends RouteComponentProps {
   match: any;
@@ -19,50 +19,50 @@ interface IProps extends IPropsWrapper {
 }
 
 class NewsList extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
-    if (getParams.is_publish === "false") {
-      return _("News (not published)");
+  public renderTitle = (queryParams: any) => {
+    if (queryParams.is_publish === 'false') {
+      return _('News (not published)');
     }
-    if (getParams.is_publish === "true") {
-      return _("News (published)");
+    if (queryParams.is_publish === 'true') {
+      return _('News (published)');
     }
-    return _("news");
+    return _('news');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     return (
       <NewsItem item={item} refetch={refetch} history={this.props.history} />
     );
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     return (
       <>
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-filter" /> {_("Filters")}
+              <i className="fa fa-filter" /> {_('Filters')}
             </Card.Title>
             <Nav className="flex-column">
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({
+                  onChangequeryParams({
                     is_draft: undefined,
-                    is_publish: undefined
+                    is_publish: undefined,
                   })
                 }
               >
-                <i className="fa fa-newspaper-o" /> {_("All")}
+                <i className="fa fa-newspaper-o" /> {_('All')}
               </Nav.Link>
               <Nav.Link
-                onClick={() => onChangeGetParams({ is_publish: "false" })}
+                onClick={() => onChangequeryParams({ is_publish: 'false' })}
               >
-                <i className="fa fa-eye-slash" /> {_("Not published")}
+                <i className="fa fa-eye-slash" /> {_('Not published')}
               </Nav.Link>
               <Nav.Link
-                onClick={() => onChangeGetParams({ is_publish: "true" })}
+                onClick={() => onChangequeryParams({ is_publish: 'true' })}
               >
-                <i className="fa fa-eye" /> {_("Published")}
+                <i className="fa fa-eye" /> {_('Published')}
               </Nav.Link>
             </Nav>
           </Card.Body>

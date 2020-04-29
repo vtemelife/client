@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import {
   InputGroup,
   Form,
@@ -9,34 +9,34 @@ import {
   OverlayTrigger,
   Popover,
   ListGroup,
-  Alert
-} from "react-bootstrap";
-import { useGet } from "restful-react";
-import ShowMore from "react-show-more";
-import { LinkContainer } from "react-router-bootstrap";
+  Alert,
+} from 'react-bootstrap';
+import { useGet } from 'restful-react';
+import ShowMore from 'react-show-more';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import Image from "generic/components/Image";
-import defaultSVG from "generic/layout/images/picture.svg";
+import Image from 'generic/components/Image';
+import defaultSVG from 'generic/layout/images/picture.svg';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "mobile/routes/client";
-import PaginateList from "generic/components/PaginateList";
-import { renderHtml } from "utils";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import Header from "mobile/containers/Header";
-import DeleteItem from "mobile/components/DeleteItem";
-import { ROLE_MODERATOR } from "generic/constants";
-import { withGuestAlert } from "mobile/components/GuestAlert";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import PaginateList from 'generic/components/PaginateList';
+import { renderHtml } from 'utils';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import Header from 'mobile/containers/Header';
+import DeleteItem from 'mobile/components/DeleteItem';
+import { ROLE_MODERATOR } from 'generic/constants';
+import { withGuestAlert } from 'mobile/components/GuestAlert';
 
-const MENU_PAGE_MY = "my";
-const MENU_PAGE_SEARCH = "search";
+const MENU_PAGE_MY = 'my';
+const MENU_PAGE_SEARCH = 'search';
 
 const GameList: React.SFC<any> = () => {
   const [showMenu, toggleShowMenu] = useState(false);
   const [showFilters, toggleShowFilters] = useState(false);
 
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
 
   const [menuPage, changeMenuPage] = useState(MENU_PAGE_MY);
@@ -45,20 +45,20 @@ const GameList: React.SFC<any> = () => {
   const user = userAuth.headerUser || {
     city: {
       country: {},
-      region: {}
-    }
+      region: {},
+    },
   };
 
   const defaultFilters = {
     relationship_theme: null,
-    game_type: null
+    game_type: null,
   } as any;
   const [filters, changeFilters] = useState(defaultFilters);
   const [applyFilters, changeApplyFilters] = useState(null);
 
   const serverFilters = applyFilters || defaultFilters;
 
-  const getParams = {
+  const queryParams = {
     search,
     relationship_theme:
       serverFilters.relationship_theme !== null
@@ -68,20 +68,20 @@ const GameList: React.SFC<any> = () => {
       serverFilters.game_type !== null
         ? serverFilters.game_type.value
         : undefined,
-    is_participant: menuPage === MENU_PAGE_MY ? true : undefined
+    is_participant: menuPage === MENU_PAGE_MY ? true : undefined,
   };
   const { data: gamesData, loading, refetch } = useGet({
-    path: SERVER_URLS.GAME_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.GAME_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const gamesItems = (gamesData || {}).results || [];
   const gamesCount = (gamesData || {}).count || 0;
 
-  let title = _("Games");
+  let title = _('Games');
   switch (menuPage) {
     case MENU_PAGE_SEARCH:
-      title = _("Search a game");
+      title = _('Search a game');
       break;
     case MENU_PAGE_MY:
     default:
@@ -98,7 +98,7 @@ const GameList: React.SFC<any> = () => {
         <meta name="description" content={title} />
       </Helmet>
       <Header
-        name={`${title} ${gamesCount > 0 ? `(${gamesCount})` : ""}`}
+        name={`${title} ${gamesCount > 0 ? `(${gamesCount})` : ''}`}
         fixed={true}
       >
         <div onClick={() => toggleShowMenu(true)}>
@@ -114,7 +114,7 @@ const GameList: React.SFC<any> = () => {
           </InputGroup.Prepend>
           <Form.Control
             type="text-break"
-            placeholder={_("Start input here")}
+            placeholder={_('Start input here')}
             aria-describedby="search"
             value={search}
             onChange={(event: any) => changeSearch(event.target.value)}
@@ -124,7 +124,7 @@ const GameList: React.SFC<any> = () => {
       <div className="games-list">
         {!loading && gamesItems.length === 0 && (
           <Alert variant="warning">
-            <div>{_("No games.")}</div>
+            <div>{_('No games.')}</div>
             <hr />
             <div className="d-flex">
               <Button
@@ -134,7 +134,7 @@ const GameList: React.SFC<any> = () => {
                   changeMenuPage(MENU_PAGE_SEARCH);
                 }}
               >
-                <i className="fa fa-search" /> {_("Search a game")}
+                <i className="fa fa-search" /> {_('Search a game')}
               </Button>
             </div>
           </Alert>
@@ -145,7 +145,7 @@ const GameList: React.SFC<any> = () => {
           count={gamesCount}
           objs={gamesItems}
           loading={loading}
-          getParamsHash={JSON.stringify(getParams)}
+          queryParamsHash={JSON.stringify(queryParams)}
         >
           {(item: any) => (
             <div className="games-item block" key={item.slug}>
@@ -153,7 +153,7 @@ const GameList: React.SFC<any> = () => {
                 <div className="games-avatar">
                   <Link
                     to={CLIENT_URLS.USER.GAME_DETAIL.buildPath({
-                      gameSlug: item.slug
+                      gameSlug: item.slug,
                     })}
                   >
                     <Image
@@ -171,15 +171,15 @@ const GameList: React.SFC<any> = () => {
                   <div className="games-title-name">
                     <Link
                       to={CLIENT_URLS.USER.GAME_DETAIL.buildPath({
-                        gameSlug: item.slug
+                        gameSlug: item.slug,
                       })}
                     >
                       <>{item.name}</>
                     </Link>
                   </div>
                   <div className="games-title-geo">
-                    <i className="fa fa-users" /> {item.players_count}{" "}
-                    {_("already playing")}
+                    <i className="fa fa-users" /> {item.players_count}{' '}
+                    {_('already playing')}
                   </div>
                 </div>
                 <div className="games-actions">
@@ -194,28 +194,24 @@ const GameList: React.SFC<any> = () => {
                             <ListGroup variant="flush">
                               <ListGroup.Item>
                                 <Link
-                                  to={CLIENT_URLS.USER.GAME_UPDATE.toPath({
-                                    urlParams: {
-                                      gameSlug: item.slug
-                                    }
+                                  to={CLIENT_URLS.USER.GAME_UPDATE.buildPath({
+                                    gameSlug: item.slug,
                                   })}
                                 >
-                                  <i className="fa fa-pencil" /> {_("Update")}
+                                  <i className="fa fa-pencil" /> {_('Update')}
                                 </Link>
                               </ListGroup.Item>
                               <ListGroup.Item>
                                 <DeleteItem
                                   description={_(
-                                    "Are you sure you want to delete the game?"
+                                    'Are you sure you want to delete the game?',
                                   )}
                                   onSuccess={() => refetch()}
-                                  path={SERVER_URLS.GAME_DELETE.toPath({
-                                    urlParams: {
-                                      gameSlug: item.slug
-                                    }
+                                  path={SERVER_URLS.GAME_DELETE.buildPath({
+                                    gameSlug: item.slug,
                                   })}
                                 >
-                                  <i className="fa fa-trash" /> {_("Delete")}
+                                  <i className="fa fa-trash" /> {_('Delete')}
                                 </DeleteItem>
                               </ListGroup.Item>
                             </ListGroup>
@@ -232,11 +228,11 @@ const GameList: React.SFC<any> = () => {
                 <div className="games-text">
                   <ListGroup variant="flush">
                     <ListGroup.Item>
-                      <span className="item-title">{_("About")}:</span>
+                      <span className="item-title">{_('About')}:</span>
                       <ShowMore
                         lines={10}
-                        more={_("Show more")}
-                        less={_("Show less")}
+                        more={_('Show more')}
+                        less={_('Show less')}
                         anchorClass=""
                       >
                         {renderHtml(item.description)}
@@ -245,11 +241,11 @@ const GameList: React.SFC<any> = () => {
                     <ListGroup.Item>
                       <LinkContainer
                         to={CLIENT_URLS.USER.GAME_PLAY.buildPath({
-                          gameSlug: item.slug
+                          gameSlug: item.slug,
                         })}
                       >
                         <Button size="sm" className="float-right">
-                          <i className="fa fa-play" /> {_("Play")}
+                          <i className="fa fa-play" /> {_('Play')}
                         </Button>
                       </LinkContainer>
                     </ListGroup.Item>
@@ -267,7 +263,7 @@ const GameList: React.SFC<any> = () => {
       >
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body />
@@ -281,7 +277,7 @@ const GameList: React.SFC<any> = () => {
             }}
             variant="danger"
           >
-            {_("Reset")}
+            {_('Reset')}
           </Button>
           <Button
             variant="primary"
@@ -291,14 +287,14 @@ const GameList: React.SFC<any> = () => {
               toggleShowFilters(false);
             }}
           >
-            {_("Apply")}
+            {_('Apply')}
           </Button>
         </Modal.Footer>
       </Modal>
       <Modal size="lg" show={showMenu} onHide={() => toggleShowMenu(false)}>
         <Modal.Header closeButton={true}>
           <Modal.Title>
-            <i className="fa fa-bars" /> {_("Menu")}
+            <i className="fa fa-bars" /> {_('Menu')}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -310,7 +306,7 @@ const GameList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-copy" /> {_("Games")}
+              <i className="fa fa-copy" /> {_('Games')}
             </ListGroup.Item>
             <ListGroup.Item
               onClick={() => {
@@ -319,7 +315,7 @@ const GameList: React.SFC<any> = () => {
                 toggleShowMenu(false);
               }}
             >
-              <i className="fa fa-search" /> {_("Search a game")}
+              <i className="fa fa-search" /> {_('Search a game')}
             </ListGroup.Item>
           </ListGroup>
         </Modal.Body>

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate, useGet } from "restful-react";
-import { useHistory, useParams } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate, useGet } from 'restful-react';
+import { useHistory, useParams } from 'react-router';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormRichEditor from "generic/components/Form/FormRichEditor";
-import { MEDIA_TYPE_VIDEO } from "generic/constants";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormRichEditor from 'generic/components/Form/FormRichEditor';
+import { MEDIA_TYPE_VIDEO } from 'generic/constants';
 
 const MediaUpdate: React.SFC<any> = () => {
   const history = useHistory();
@@ -21,20 +21,16 @@ const MediaUpdate: React.SFC<any> = () => {
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MEDIA_UPDATE.toPath({
-      urlParams: {
-        mediaPk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MEDIA_UPDATE.buildPath({
+      mediaPk,
+    }),
   });
 
   const { data: mediaData, loading: mediaLoading } = useGet({
-    path: SERVER_URLS.MEDIA_DETAIL.toPath({
-      urlParams: {
-        mediaPk
-      }
-    })
+    path: SERVER_URLS.MEDIA_DETAIL.buildPath({
+      mediaPk,
+    }),
   });
 
   useEffect(() => {
@@ -43,10 +39,12 @@ const MediaUpdate: React.SFC<any> = () => {
     }
     const defaultFormData = {
       media_type: mediaData.media_type || null,
-      video_code: mediaData.video_code || "",
-      title: mediaData.title || "",
-      description: mediaData.description || "",
-      hash_tags: mediaData.hash_tags.map((item: string) => `#${item}`).join(" ")
+      video_code: mediaData.video_code || '',
+      title: mediaData.title || '',
+      description: mediaData.description || '',
+      hash_tags: mediaData.hash_tags
+        .map((item: string) => `#${item}`)
+        .join(' '),
     } as any;
     changeFormData(defaultFormData);
   }, [mediaData, changeFormData]);
@@ -58,30 +56,30 @@ const MediaUpdate: React.SFC<any> = () => {
   return (
     <div className="container-media-update">
       <Helmet>
-        <title>{_("Update the media")}</title>
-        <meta name="description" content={_("Update the media")} />
+        <title>{_('Update the media')}</title>
+        <meta name="description" content={_('Update the media')} />
       </Helmet>
-      <Header name={_("Update the media")} fixed={true} />
+      <Header name={_('Update the media')} fixed={true} />
       <div className="media-update">
         {(mediaLoading || loading) && <Loading />}
         {formData.media_type && formData.media_type === MEDIA_TYPE_VIDEO && (
           <FormInput
-            label={`${_("Video embed code")}*:`}
+            label={`${_('Video embed code')}*:`}
             type="text-break"
             name="video_code"
-            placeholder={_("Copy and paste video embed code here")}
+            placeholder={_('Copy and paste video embed code here')}
             errors={formErrors.video_code}
             value={formData.video_code}
             onChange={(target: any) =>
               changeFormData({
                 ...formData,
-                video_code: target.target.value
+                video_code: target.target.value,
               })
             }
           />
         )}
         <FormInput
-          label={`${_("Title")}:`}
+          label={`${_('Title')}:`}
           type="text-break"
           name="title"
           required={true}
@@ -90,12 +88,12 @@ const MediaUpdate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              title: target.target.value
+              title: target.target.value,
             });
           }}
         />
         <FormRichEditor
-          label={`${_("Description")}:`}
+          label={`${_('Description')}:`}
           name="description"
           required={true}
           value={formData.description}
@@ -103,12 +101,12 @@ const MediaUpdate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              description: target.value
+              description: target.value,
             })
           }
         />
         <FormInput
-          label={`${_("Hash tags")}:`}
+          label={`${_('Hash tags')}:`}
           type="text-break"
           name="hash_tags"
           value={formData.hash_tags}
@@ -116,7 +114,7 @@ const MediaUpdate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              hash_tags: target.target.value
+              hash_tags: target.target.value,
             })
           }
         />
@@ -128,12 +126,12 @@ const MediaUpdate: React.SFC<any> = () => {
               title: formData.title,
               description: formData.description,
               hash_tags: formData.hash_tags
-                .split("#")
+                .split('#')
                 .map((el: string) => el.trim())
-                .filter((el: string) => el.length > 0)
+                .filter((el: string) => el.length > 0),
             })
               .then((data: any) => {
-                handleSuccess(_("Created successfully."));
+                handleSuccess(_('Created successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

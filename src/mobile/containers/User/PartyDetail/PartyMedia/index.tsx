@@ -1,27 +1,27 @@
-import React from "react";
-import { useGet } from "restful-react";
-import { Button } from "react-bootstrap";
+import React from 'react';
+import { useGet } from 'restful-react';
+import { Button } from 'react-bootstrap';
 
-import { LinkContainer } from "react-router-bootstrap";
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Loading from "generic/components/Loading";
-import { Link } from "react-router-dom";
-import { CLIENT_URLS } from "desktop/routes/client";
-import { ROLE_MODERATOR } from "generic/constants";
-import ImageGallery from "generic/components/ImageGallery";
+import { LinkContainer } from 'react-router-bootstrap';
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Loading from 'generic/components/Loading';
+import { Link } from 'react-router-dom';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import { ROLE_MODERATOR } from 'generic/constants';
+import ImageGallery from 'generic/components/ImageGallery';
 
 const PartyMedia: React.SFC<any> = ({ party, user }) => {
   const { data: mediaData, loading: mediaLoading, refetch } = useGet({
-    path: SERVER_URLS.MEDIA.toPath({
-      getParams: {
+    path: SERVER_URLS.MEDIA.buildPath({
+      queryParams: {
         limit: 10,
         offset: 0,
         object_id: party.pk,
-        content_type: "events:party",
-        media_type: "photo"
-      }
-    })
+        content_type: 'events:party',
+        media_type: 'photo',
+      },
+    }),
   });
   const mediaItems = (mediaData || {}).results || [];
 
@@ -34,31 +34,31 @@ const PartyMedia: React.SFC<any> = ({ party, user }) => {
   return (
     <div className="party-media block">
       <h2>
-        {_("Media")} (
+        {_('Media')} (
         <Link
-          to={CLIENT_URLS.MEDIA.toPath({
-            getParams: {
+          to={CLIENT_URLS.MEDIA.buildPath({
+            queryParams: {
               objectId: party.pk,
-              contentType: "events:party"
-            }
+              contentType: 'events:party',
+            },
           })}
         >
-          {_("All")}
+          {_('All')}
         </Link>
         )
       </h2>
       {mediaLoading && <Loading />}
       {isModerator(party.club) && (
         <LinkContainer
-          to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_CREATE.toPath({
-            getParams: {
+          to={CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_CREATE.buildPath({
+            queryParams: {
               objectId: party.pk,
-              contentType: "events:party"
-            }
+              contentType: 'events:party',
+            },
           })}
         >
           <Button size="sm">
-            <i className="fa fa-plus" /> {_("Create a media")}
+            <i className="fa fa-plus" /> {_('Create a media')}
           </Button>
         </LinkContainer>
       )}
@@ -71,7 +71,7 @@ const PartyMedia: React.SFC<any> = ({ party, user }) => {
           refetch={refetch}
           size={100}
         />
-        <div style={{ clear: "both" }} />
+        <div style={{ clear: 'both' }} />
       </div>
     </div>
   );

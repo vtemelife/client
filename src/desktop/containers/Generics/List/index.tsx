@@ -1,12 +1,12 @@
-import React from "react";
-import { Row, Col, Card, Button, InputGroup, Form } from "react-bootstrap";
-import { RouteComponentProps, withRouter } from "react-router";
-import Get from "restful-react";
-import { LinkContainer } from "react-router-bootstrap";
-import queryString from "query-string";
+import React from 'react';
+import { Row, Col, Card, Button, InputGroup, Form } from 'react-bootstrap';
+import { RouteComponentProps, withRouter } from 'react-router';
+import Get from 'restful-react';
+import { LinkContainer } from 'react-router-bootstrap';
+import queryString from 'query-string';
 
-import Items from "./Items";
-import { _ } from "trans";
+import Items from './Items';
+import { _ } from 'trans';
 
 interface IProps extends RouteComponentProps {
   listClientPath: string;
@@ -29,7 +29,7 @@ interface IProps extends RouteComponentProps {
   itemsContainer?: any;
 
   size?: number;
-  defaultGetParams?: any;
+  defaultqueryParams?: any;
 
   generateListServerPath?: any;
   searchLabel?: string;
@@ -52,7 +52,7 @@ interface IState {
 class List extends React.Component<IProps, IState> {
   public state = {
     limit: 10,
-    offset: 0
+    offset: 0,
   };
 
   public paginate = (count: number) => {
@@ -64,23 +64,23 @@ class List extends React.Component<IProps, IState> {
   };
 
   public render() {
-    const getParams = { ...queryString.parse(this.props.location.search) };
-    getParams.limit = `${this.state.limit}`;
-    getParams.offset = `${this.state.offset}`;
+    const queryParams = { ...queryString.parse(this.props.location.search) };
+    queryParams.limit = `${this.state.limit}`;
+    queryParams.offset = `${this.state.offset}`;
     if (this.props.contentType) {
-      getParams.content_type = this.props.contentType;
+      queryParams.content_type = this.props.contentType;
     }
     if (this.props.objectId) {
-      getParams.object_id = this.props.objectId;
+      queryParams.object_id = this.props.objectId;
     }
     const listServerPath = this.generateListServerPath(
       this.props.listServerPath,
       {
-        getParams: this.props.defaultGetParams
-          ? { ...getParams, ...this.props.defaultGetParams }
-          : getParams,
-        location: this.props.location
-      }
+        queryParams: this.props.defaultqueryParams
+          ? { ...queryParams, ...this.props.defaultqueryParams }
+          : queryParams,
+        location: this.props.location,
+      },
     );
 
     const ItemsContainer = this.props.itemsContainer
@@ -89,7 +89,7 @@ class List extends React.Component<IProps, IState> {
     return (
       <Col
         lg={this.props.size ? this.props.size : 10}
-        className={`object-list-container ${this.props.className || ""}`}
+        className={`object-list-container ${this.props.className || ''}`}
       >
         <Row className="flex-column-reverse flex-lg-row">
           <Col lg={this.props.renderFilters ? 9 : 12}>
@@ -100,7 +100,7 @@ class List extends React.Component<IProps, IState> {
               <Card.Header>
                 <Card.Title className="object-header">
                   <div className="object-title">
-                    {this.props.renderTitle(getParams)}
+                    {this.props.renderTitle(queryParams)}
                   </div>
 
                   {!this.props.disableSearching && (
@@ -112,10 +112,10 @@ class List extends React.Component<IProps, IState> {
                       </InputGroup.Prepend>
                       <Form.Control
                         type="text-break"
-                        placeholder={_("Input smth and click Enter")}
+                        placeholder={_('Input smth and click Enter')}
                         aria-describedby="search"
                         required={true}
-                        defaultValue={String(getParams.search || "")}
+                        defaultValue={String(queryParams.search || '')}
                         onKeyPress={this.onClickEnterSearch}
                       />
                     </InputGroup>
@@ -128,10 +128,10 @@ class List extends React.Component<IProps, IState> {
                         variant="primary"
                         className="object-add"
                       >
-                        <i className="fa fa-plus" />{" "}
+                        <i className="fa fa-plus" />{' '}
                         {this.props.createBtnName
                           ? this.props.createBtnName
-                          : _("Create")}
+                          : _('Create')}
                       </Button>
                     </LinkContainer>
                   )}
@@ -147,7 +147,7 @@ class List extends React.Component<IProps, IState> {
                         error={error}
                         renderItem={this.props.renderItem}
                         renderNoItems={this.props.renderNoItems}
-                        getParams={getParams}
+                        queryParams={queryParams}
                         disableLoading={this.props.disableLoading}
                         reverse={this.props.reverse}
                         maxHeight={this.props.maxHeight}
@@ -168,7 +168,7 @@ class List extends React.Component<IProps, IState> {
           </Col>
           {this.props.renderFilters ? (
             <Col lg={3} className="right-filters">
-              {this.props.renderFilters(getParams, this.onChangeGetParams)}
+              {this.props.renderFilters(queryParams, this.onChangequeryParams)}
             </Col>
           ) : null}
         </Row>
@@ -177,38 +177,41 @@ class List extends React.Component<IProps, IState> {
   }
 
   private onClickEnterSearch = (e: any) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
     }
     const value = e.target.value;
-    if (e.key === "Enter") {
-      const getParams = queryString.parse(this.props.location.search);
+    if (e.key === 'Enter') {
+      const queryParams = queryString.parse(this.props.location.search);
       this.props.history.push({
         pathname: this.props.listClientPath,
         search: `?${queryString.stringify({
-          ...getParams,
-          [`${this.props.searchLabel || "search"}`]: value
-        })}`
+          ...queryParams,
+          [`${this.props.searchLabel || 'search'}`]: value,
+        })}`,
       });
     }
   };
 
-  private onChangeGetParams = (updatedGetParams: any) => {
-    const getParams = queryString.parse(this.props.location.search);
+  private onChangequeryParams = (updatedqueryParams: any) => {
+    const queryParams = queryString.parse(this.props.location.search);
     this.props.history.push({
       pathname: this.props.listClientPath,
-      search: `?${queryString.stringify({ ...getParams, ...updatedGetParams })}`
+      search: `?${queryString.stringify({
+        ...queryParams,
+        ...updatedqueryParams,
+      })}`,
     });
   };
 
   private generateListServerPath = (listServerPath: any, params: any) => {
     if (this.props.searchLabel) {
-      params.getParams.search = params.getParams[this.props.searchLabel];
+      params.queryParams.search = params.queryParams[this.props.searchLabel];
     }
     if (this.props.generateListServerPath) {
       return this.props.generateListServerPath(listServerPath, params);
     }
-    return listServerPath.buildPath(undefined, params);
+    return listServerPath.buildPath(params);
   };
 }
 

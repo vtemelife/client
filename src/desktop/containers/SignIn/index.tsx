@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
-import { useMutate } from "restful-react";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from 'react';
+import { useMutate } from 'restful-react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Row,
@@ -9,37 +9,37 @@ import {
   Card,
   Container,
   Carousel,
-  Alert
-} from "react-bootstrap";
-import { Helmet } from "react-helmet-async";
+  Alert,
+} from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 
-import { handleErrors } from "utils";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import FormInput from "generic/components/Form/FormInput";
-import FormSlug from "generic/components/Form/FormSlug";
-import FormErrors from "generic/components/Form/FormErrors";
+import { handleErrors } from 'utils';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import FormInput from 'generic/components/Form/FormInput';
+import FormSlug from 'generic/components/Form/FormSlug';
+import FormErrors from 'generic/components/Form/FormErrors';
 
-import { _ } from "trans";
+import { _ } from 'trans';
 
-import image1 from "generic/layout/images/sign-in/1.jpg";
-import image2 from "generic/layout/images/sign-in/2.jpg";
-import image3 from "generic/layout/images/sign-in/3.jpg";
-import image4 from "generic/layout/images/sign-in/4.jpg";
-import image5 from "generic/layout/images/sign-in/5.jpg";
-import image6 from "generic/layout/images/sign-in/6.jpg";
-import image7 from "generic/layout/images/sign-in/7.jpg";
-import image8 from "generic/layout/images/sign-in/8.jpg";
-import FormCheckBoxes from "generic/components/Form/FormCheckBoxes";
-import { SitePolicyModal } from "generic/containers/SitePolicy";
+import image1 from 'generic/layout/images/sign-in/1.jpg';
+import image2 from 'generic/layout/images/sign-in/2.jpg';
+import image3 from 'generic/layout/images/sign-in/3.jpg';
+import image4 from 'generic/layout/images/sign-in/4.jpg';
+import image5 from 'generic/layout/images/sign-in/5.jpg';
+import image6 from 'generic/layout/images/sign-in/6.jpg';
+import image7 from 'generic/layout/images/sign-in/7.jpg';
+import image8 from 'generic/layout/images/sign-in/8.jpg';
+import FormCheckBoxes from 'generic/components/Form/FormCheckBoxes';
+import { SitePolicyModal } from 'generic/containers/SitePolicy';
 
 const SignIn: React.SFC<any> = () => {
   const history = useHistory();
   const userAuth = useContext(AuthUserContext);
   const [formSignInData, changeSignInFormData] = useState({
-    username: "",
-    password: ""
+    username: '',
+    password: '',
   } as any);
   const [formSignInErrors, changeSignInFormErrors] = useState({} as any);
 
@@ -49,13 +49,13 @@ const SignIn: React.SFC<any> = () => {
   const [showPrivacy, changeShowPrivacy] = useState(false);
 
   const { mutate: signInAction } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.SIGN_IN.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.SIGN_IN.buildPath(),
   });
 
   const { mutate: signUpAction } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.SIGN_UP_STEP_1.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.SIGN_UP_STEP_1.buildPath(),
   });
 
   const images = [
@@ -66,24 +66,24 @@ const SignIn: React.SFC<any> = () => {
     image5,
     image6,
     image7,
-    image8
+    image8,
   ];
   return (
     <Container className="signin-container">
       <Helmet>
-        <title>{_("Sign In")}</title>
-        <meta name="description" content={_("Sign In")} />
+        <title>{_('Sign In')}</title>
+        <meta name="description" content={_('Sign In')} />
       </Helmet>
       <Row>
         {/* {(signInLoading || signUpLoading) && <Loading />} */}
         <Col lg={5}>
           <Card>
             <Card.Body>
-              <Alert variant="danger">{_("Age limit 18+")}</Alert>
-              <Card.Title>{_("Sign In")}</Card.Title>
+              <Alert variant="danger">{_('Age limit 18+')}</Alert>
+              <Card.Title>{_('Sign In')}</Card.Title>
               <FormErrors errors={formSignInErrors.non_field_errors} />
               <FormInput
-                label={`${_("Email or link to your profile")}*:`}
+                label={`${_('Email or link to your profile')}*:`}
                 type="text"
                 name="email_or_slug"
                 required={true}
@@ -92,12 +92,12 @@ const SignIn: React.SFC<any> = () => {
                 onChange={(target: any) =>
                   changeSignInFormData({
                     ...formSignInData,
-                    email_or_slug: target.target.value
+                    email_or_slug: target.target.value,
                   })
                 }
               />
               <FormInput
-                label={`${_("Password")}*:`}
+                label={`${_('Password')}*:`}
                 type="password"
                 name="password"
                 required={true}
@@ -106,7 +106,7 @@ const SignIn: React.SFC<any> = () => {
                 onChange={(target: any) =>
                   changeSignInFormData({
                     ...formSignInData,
-                    password: target.target.value
+                    password: target.target.value,
                   })
                 }
               />
@@ -114,7 +114,7 @@ const SignIn: React.SFC<any> = () => {
                 onClick={() => {
                   signInAction({
                     email_or_slug: formSignInData.email_or_slug,
-                    password: formSignInData.password
+                    password: formSignInData.password,
                   })
                     .then((data: any) => {
                       changeSignInFormErrors({});
@@ -122,8 +122,8 @@ const SignIn: React.SFC<any> = () => {
                       userAuth.refetchHeaderUser();
                       history.push({
                         pathname: CLIENT_URLS.USER.PROFILE.buildPath({
-                          userSlug: data.slug
-                        })
+                          userSlug: data.slug,
+                        }),
                       });
                     })
                     .catch((errors: any) => {
@@ -133,22 +133,22 @@ const SignIn: React.SFC<any> = () => {
                 }}
                 variant="primary"
               >
-                {_("Sign In")}
+                {_('Sign In')}
               </Button>
               <Link
                 to={CLIENT_URLS.AUTH.RESET_PASSWORD.buildPath()}
                 className="float-right"
               >
-                {_("Forgot your password?")}
+                {_('Forgot your password?')}
               </Link>
             </Card.Body>
           </Card>
           <Card>
             <Card.Body>
-              <Card.Title>{_("Sign Up")}</Card.Title>
+              <Card.Title>{_('Sign Up')}</Card.Title>
               <FormErrors errors={formSignUpErrors.non_field_errors} />
               <FormInput
-                label={`${_("Email")}*:`}
+                label={`${_('Email')}*:`}
                 type="email"
                 name="email"
                 required={true}
@@ -157,12 +157,12 @@ const SignIn: React.SFC<any> = () => {
                 onChange={(target: any) =>
                   changeSignUpFormData({
                     ...formSignUpData,
-                    email: target.target.value
+                    email: target.target.value,
                   })
                 }
               />
               <FormSlug
-                label={`${_("Create a link to your profile")}*:`}
+                label={`${_('Create a link to your profile')}*:`}
                 type="text-break"
                 name="slug"
                 required={true}
@@ -171,12 +171,12 @@ const SignIn: React.SFC<any> = () => {
                 onChange={(target: any) =>
                   changeSignUpFormData({
                     ...formSignUpData,
-                    slug: target.value
+                    slug: target.value,
                   })
                 }
               />
               <FormInput
-                label={`${_("Enter your nickname on the site here")}*:`}
+                label={`${_('Enter your nickname on the site here')}*:`}
                 type="text-break"
                 name="name"
                 required={true}
@@ -185,7 +185,7 @@ const SignIn: React.SFC<any> = () => {
                 onChange={(target: any) =>
                   changeSignUpFormData({
                     ...formSignUpData,
-                    name: target.target.value
+                    name: target.target.value,
                   })
                 }
               />
@@ -195,29 +195,29 @@ const SignIn: React.SFC<any> = () => {
                 className="policy-checkbox"
                 checkboxes={[
                   {
-                    value: "privacy",
+                    value: 'privacy',
                     display: (
                       <>
-                        {_("I agree with")}{" "}
+                        {_('I agree with')}{' '}
                         <span
                           className="policy"
-                          onClick={e => {
+                          onClick={(e) => {
                             e.preventDefault();
                             changeShowPrivacy(true);
                           }}
                         >
-                          {_("site private policy")}
+                          {_('site private policy')}
                         </span>
                       </>
-                    )
-                  }
+                    ),
+                  },
                 ]}
-                value={formSignUpData.privacy ? ["privacy"] : []}
+                value={formSignUpData.privacy ? ['privacy'] : []}
                 errors={formSignUpErrors.privacy}
                 onChange={(target: any) =>
                   changeSignUpFormData({
                     ...formSignUpData,
-                    privacy: target.target.checked
+                    privacy: target.target.checked,
                   })
                 }
               />
@@ -227,7 +227,7 @@ const SignIn: React.SFC<any> = () => {
                     email: formSignUpData.email,
                     slug: formSignUpData.slug,
                     name: formSignUpData.name,
-                    privacy: formSignUpData.privacy
+                    privacy: formSignUpData.privacy,
                   })
                     .then((data: any) => {
                       changeSignInFormErrors({});
@@ -235,8 +235,8 @@ const SignIn: React.SFC<any> = () => {
                       userAuth.refetchHeaderUser();
                       history.push({
                         pathname: CLIENT_URLS.AUTH.SIGN_UP_FINISH.buildPath({
-                          userPk: data.pk
-                        })
+                          userPk: data.pk,
+                        }),
                       });
                     })
                     .catch((errors: any) => {
@@ -246,7 +246,7 @@ const SignIn: React.SFC<any> = () => {
                 }}
                 variant="primary"
               >
-                {_("Continue registration")}
+                {_('Continue registration')}
               </Button>
             </Card.Body>
           </Card>
@@ -254,8 +254,8 @@ const SignIn: React.SFC<any> = () => {
         <Col lg={7} className="sign-in-carousel">
           <Card>
             <Card.Body>
-              <Card.Title>{_("VTeme")}</Card.Title>
-              <Card.Text>{_("Adult social network")}</Card.Text>
+              <Card.Title>{_('VTeme')}</Card.Title>
+              <Card.Text>{_('Adult social network')}</Card.Text>
               <Carousel className="sign-in-carousel">
                 {images.map((image, index) => (
                   <Carousel.Item key={index}>

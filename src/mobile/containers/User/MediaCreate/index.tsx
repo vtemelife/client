@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { useMutate } from "restful-react";
-import { useHistory, useLocation } from "react-router";
-import queryString from "query-string";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useMutate } from 'restful-react';
+import { useHistory, useLocation } from 'react-router';
+import queryString from 'query-string';
 
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Header from "mobile/containers/Header";
-import FormInput from "generic/components/Form/FormInput";
-import { Button } from "react-bootstrap";
-import Loading from "generic/components/Loading";
-import { handleSuccess, handleErrors } from "utils";
-import FormRichEditor from "generic/components/Form/FormRichEditor";
-import FormFilesUpload from "generic/components/Form/FormFilesUpload";
-import FormSelect from "generic/components/Form/FormSelect";
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Header from 'mobile/containers/Header';
+import FormInput from 'generic/components/Form/FormInput';
+import { Button } from 'react-bootstrap';
+import Loading from 'generic/components/Loading';
+import { handleSuccess, handleErrors } from 'utils';
+import FormRichEditor from 'generic/components/Form/FormRichEditor';
+import FormFilesUpload from 'generic/components/Form/FormFilesUpload';
+import FormSelect from 'generic/components/Form/FormSelect';
 import {
   MEDIA_TYPES,
   MEDIA_TYPE_PHOTO,
-  MEDIA_TYPE_VIDEO
-} from "generic/constants";
+  MEDIA_TYPE_VIDEO,
+} from 'generic/constants';
 
 const MediaCreate: React.SFC<any> = () => {
   const history = useHistory();
@@ -28,30 +28,30 @@ const MediaCreate: React.SFC<any> = () => {
   const defaultFormData = {
     media_type: MEDIA_TYPES[0],
     image: [],
-    video_code: "",
-    title: "",
-    description: "",
-    hash_tags: ""
+    video_code: '',
+    title: '',
+    description: '',
+    hash_tags: '',
   } as any;
   const [formData, changeFormData] = useState(defaultFormData);
   const [formErrors, changeFormErrors] = useState({} as any);
 
   const { mutate: submitForm, loading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.MEDIA_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.MEDIA_CREATE.buildPath(),
   });
 
   return (
     <div className="container-media-create">
       <Helmet>
-        <title>{_("Create a media")}</title>
-        <meta name="description" content={_("Create a media")} />
+        <title>{_('Create a media')}</title>
+        <meta name="description" content={_('Create a media')} />
       </Helmet>
-      <Header name={_("Create a media")} fixed={true} />
+      <Header name={_('Create a media')} fixed={true} />
       <div className="media-create">
         {loading && <Loading />}
         <FormSelect
-          label={`${_("Media type")}*:`}
+          label={`${_('Media type')}*:`}
           required={true}
           name="media_type"
           options={MEDIA_TYPES}
@@ -63,44 +63,44 @@ const MediaCreate: React.SFC<any> = () => {
               media_type: target.value,
               image: target.value === MEDIA_TYPE_PHOTO ? formData.image : [],
               video_code:
-                target.value === MEDIA_TYPE_VIDEO ? formData.video_code : ""
+                target.value === MEDIA_TYPE_VIDEO ? formData.video_code : '',
             });
           }}
         />
         {formData.media_type.value === MEDIA_TYPE_PHOTO && (
           <FormFilesUpload
-            label={`${_("Image")}*:`}
+            label={`${_('Image')}*:`}
             multiple={false}
             name="image"
-            description={_("Click here to choose your image")}
+            description={_('Click here to choose your image')}
             errors={formErrors.image}
             value={formData.image}
             onChange={(target: any) =>
               changeFormData({
                 ...formData,
-                image: target.value
+                image: target.value,
               })
             }
           />
         )}
         {formData.media_type.value === MEDIA_TYPE_VIDEO && (
           <FormInput
-            label={`${_("Video embed code")}*:`}
+            label={`${_('Video embed code')}*:`}
             type="text-break"
             name="video_code"
-            placeholder={_("Copy and paste video embed code here")}
+            placeholder={_('Copy and paste video embed code here')}
             errors={formErrors.video_code}
             value={formData.video_code}
             onChange={(target: any) =>
               changeFormData({
                 ...formData,
-                video_code: target.target.value
+                video_code: target.target.value,
               })
             }
           />
         )}
         <FormInput
-          label={`${_("Title")}:`}
+          label={`${_('Title')}:`}
           type="text-break"
           name="title"
           required={true}
@@ -109,12 +109,12 @@ const MediaCreate: React.SFC<any> = () => {
           onChange={(target: any) => {
             changeFormData({
               ...formData,
-              title: target.target.value
+              title: target.target.value,
             });
           }}
         />
         <FormRichEditor
-          label={`${_("Description")}:`}
+          label={`${_('Description')}:`}
           name="description"
           required={true}
           value={formData.description}
@@ -122,12 +122,12 @@ const MediaCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              description: target.value
+              description: target.value,
             })
           }
         />
         <FormInput
-          label={`${_("Hash tags")}:`}
+          label={`${_('Hash tags')}:`}
           type="text-break"
           name="hash_tags"
           value={formData.hash_tags}
@@ -135,7 +135,7 @@ const MediaCreate: React.SFC<any> = () => {
           onChange={(target: any) =>
             changeFormData({
               ...formData,
-              hash_tags: target.target.value
+              hash_tags: target.target.value,
             })
           }
         />
@@ -154,12 +154,12 @@ const MediaCreate: React.SFC<any> = () => {
               title: formData.title,
               description: formData.description,
               hash_tags: formData.hash_tags
-                .split("#")
+                .split('#')
                 .map((el: string) => el.trim())
-                .filter((el: string) => el.length > 0)
+                .filter((el: string) => el.length > 0),
             })
               .then((data: any) => {
-                handleSuccess(_("Created successfully."));
+                handleSuccess(_('Created successfully.'));
                 history.goBack();
               })
               .catch((errors: any) => {

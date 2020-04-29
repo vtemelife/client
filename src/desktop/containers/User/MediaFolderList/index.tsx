@@ -1,25 +1,25 @@
-import React from "react";
-import compose from "lodash/flowRight";
+import React from 'react';
+import compose from 'lodash/flowRight';
 import {
   Card,
   Nav,
   NavDropdown,
   Alert,
   ButtonGroup,
-  Button
-} from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
+  Button,
+} from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
 
-import BlockMediaFolders from "desktop/components/BlockMediaFolders";
+import BlockMediaFolders from 'desktop/components/BlockMediaFolders';
 import {
   PERMISSION_NO_USERS,
   PERMISSION_ONLY_FRIENDS,
-  PERMISSION_ALL_USERS
-} from "generic/constants";
-import { _ } from "trans";
-import { withAuthUser } from "generic/containers/Decorators";
-import { LinkContainer } from "react-router-bootstrap";
-import { CLIENT_URLS } from "desktop/routes/client";
+  PERMISSION_ALL_USERS,
+} from 'generic/constants';
+import { _ } from 'trans';
+import { withAuthUser } from 'generic/containers/Decorators';
+import { LinkContainer } from 'react-router-bootstrap';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
 interface IProps extends RouteComponentProps {
   match: any;
@@ -27,9 +27,9 @@ interface IProps extends RouteComponentProps {
 }
 
 class MediaFolderList extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
+  public renderTitle = (queryParams: any) => {
     let mediaType = null;
-    switch (getParams.show_media) {
+    switch (queryParams.show_media) {
       case PERMISSION_NO_USERS:
         mediaType = <i className="fa fa-eye-slash" />;
         break;
@@ -44,45 +44,45 @@ class MediaFolderList extends React.PureComponent<IProps> {
     }
     return (
       <>
-        {mediaType} {_("Media folders")}
+        {mediaType} {_('Media folders')}
       </>
     );
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     return (
       <Card>
         <Card.Body>
           <Card.Title>
-            <i className="fa fa-filter" /> {_("Filters")}
+            <i className="fa fa-filter" /> {_('Filters')}
           </Card.Title>
           <Nav className="flex-column">
             <Nav.Link
-              onClick={() => onChangeGetParams({ show_media: undefined })}
+              onClick={() => onChangequeryParams({ show_media: undefined })}
             >
-              <i className="fa fa-copy" /> {_("All folders")}
+              <i className="fa fa-copy" /> {_('All folders')}
             </Nav.Link>
             <NavDropdown.Divider />
             <Nav.Link
               onClick={() =>
-                onChangeGetParams({ show_media: PERMISSION_NO_USERS })
+                onChangequeryParams({ show_media: PERMISSION_NO_USERS })
               }
             >
-              <i className="fa fa-eye-slash" /> {_("No one has an access")}
+              <i className="fa fa-eye-slash" /> {_('No one has an access')}
             </Nav.Link>
             <Nav.Link
               onClick={() =>
-                onChangeGetParams({ show_media: PERMISSION_ONLY_FRIENDS })
+                onChangequeryParams({ show_media: PERMISSION_ONLY_FRIENDS })
               }
             >
-              <i className="fa fa-users" /> {_("Only for friends")}
+              <i className="fa fa-users" /> {_('Only for friends')}
             </Nav.Link>
             <Nav.Link
               onClick={() =>
-                onChangeGetParams({ show_media: PERMISSION_ALL_USERS })
+                onChangequeryParams({ show_media: PERMISSION_ALL_USERS })
               }
             >
-              <i className="fa fa-eye" /> {_("Everyone has an access")}
+              <i className="fa fa-eye" /> {_('Everyone has an access')}
             </Nav.Link>
           </Nav>
         </Card.Body>
@@ -101,7 +101,7 @@ class MediaFolderList extends React.PureComponent<IProps> {
               to={CLIENT_URLS.USER.MEDIA_FOLDER_CREATE.buildPath()}
             >
               <Button size="sm" variant="warning">
-                <i className="fa fa-plus" /> {_("Create a media folder")}
+                <i className="fa fa-plus" /> {_('Create a media folder')}
               </Button>
             </LinkContainer>
           </ButtonGroup>
@@ -125,7 +125,7 @@ class MediaFolderList extends React.PureComponent<IProps> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 export default compose(withAuth)(MediaFolderList);

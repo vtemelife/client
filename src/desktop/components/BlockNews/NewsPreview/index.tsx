@@ -1,16 +1,16 @@
-import React from "react";
-import { Media, Col } from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
-import { withRouter, Link } from "react-router-dom";
-import Moment from "react-moment";
+import React from 'react';
+import { Media, Col } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
+import { withRouter, Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
-import Image from "generic/components/Image";
-import { renderHtml } from "utils";
-import pictureSVG from "generic/layout/images/picture.svg";
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import Likes from "../../Likes";
+import Image from 'generic/components/Image';
+import { renderHtml } from 'utils';
+import pictureSVG from 'generic/layout/images/picture.svg';
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import Likes from '../../Likes';
 import {
   TYPE_SITE_NEWS,
   TYPE_MEDIA,
@@ -23,9 +23,9 @@ import {
   TYPE_GROUPS_ARTICLE,
   TYPE_CLUBS_MEDIA,
   TYPE_CLUBS_ARTICLE,
-  TYPE_CLUBS_EVENTS
-} from "generic/constants";
-import { getLocale } from "utils";
+  TYPE_CLUBS_EVENTS,
+} from 'generic/constants';
+import { getLocale } from 'utils';
 
 interface IProps extends RouteComponentProps {
   news: any;
@@ -36,7 +36,7 @@ class NewsPreview extends React.PureComponent<IProps> {
     switch (news.news_type.value) {
       case TYPE_FRIENDS_INFO:
         return CLIENT_URLS.USER.PROFILE.buildPath({
-          userSlug: this.props.news.slug
+          userSlug: this.props.news.slug,
         });
       case TYPE_ARTICLES:
       case TYPE_WHISPER:
@@ -44,23 +44,23 @@ class NewsPreview extends React.PureComponent<IProps> {
       case TYPE_CLUBS_ARTICLE:
       case TYPE_GROUPS_ARTICLE:
         return CLIENT_URLS.POSTS_DETAIL.buildPath({
-          postSlug: this.props.news.slug
+          postSlug: this.props.news.slug,
         });
       case TYPE_MEDIA:
       case TYPE_FRIENDS_MEDIA:
       case TYPE_CLUBS_MEDIA:
       case TYPE_GROUPS_MEDIA:
         return CLIENT_URLS.USER.MEDIA_FOLDER_DETAIL_MEDIA_DETAIL.buildPath({
-          mediaPk: this.props.news.object_id
+          mediaPk: this.props.news.object_id,
         });
       case TYPE_CLUBS_EVENTS:
         return CLIENT_URLS.USER.PARTY_DETAIL.buildPath({
-          partySlug: this.props.news.slug
+          partySlug: this.props.news.slug,
         });
       case TYPE_SITE_NEWS:
       default:
         return CLIENT_URLS.USER.NEWS_DETAIL.buildPath({
-          newsPk: this.props.news.pk
+          newsPk: this.props.news.pk,
         });
     }
   };
@@ -72,31 +72,23 @@ class NewsPreview extends React.PureComponent<IProps> {
       case TYPE_FRIENDS_ARTICLE:
       case TYPE_CLUBS_ARTICLE:
       case TYPE_GROUPS_ARTICLE:
-        return SERVER_URLS.POSTS_LIKE.toPath({
-          urlParams: {
-            postSlug: news.slug
-          }
+        return SERVER_URLS.POSTS_LIKE.buildPath({
+          postSlug: news.slug,
         });
       case TYPE_MEDIA:
       case TYPE_FRIENDS_MEDIA:
       case TYPE_CLUBS_MEDIA:
       case TYPE_GROUPS_MEDIA:
-        return SERVER_URLS.MEDIA_LIKE.toPath({
-          urlParams: {
-            mediaPk: news.object_id
-          }
+        return SERVER_URLS.MEDIA_LIKE.buildPath({
+          mediaPk: news.object_id,
         });
       case TYPE_CLUBS_EVENTS:
-        return SERVER_URLS.PARTY_LIKE.toPath({
-          urlParams: {
-            partySlug: news.slug
-          }
+        return SERVER_URLS.PARTY_LIKE.buildPath({
+          partySlug: news.slug,
         });
       case TYPE_SITE_NEWS:
-        return SERVER_URLS.NEWS_LIKE.toPath({
-          urlParams: {
-            newsPk: news.pk
-          }
+        return SERVER_URLS.NEWS_LIKE.buildPath({
+          newsPk: news.pk,
         });
       case TYPE_FRIENDS_INFO:
       default:
@@ -109,52 +101,52 @@ class NewsPreview extends React.PureComponent<IProps> {
       case TYPE_ARTICLES:
         return (
           <>
-            {news.creator.name}{" "}
-            {_("has published an article in Articles header section")}
+            {news.creator.name}{' '}
+            {_('has published an article in Articles header section')}
           </>
         );
       case TYPE_WHISPER:
         return (
           <>
-            {news.creator.name}{" "}
-            {_("has published an article in Whisper header section")}
+            {news.creator.name}{' '}
+            {_('has published an article in Whisper header section')}
           </>
         );
       case TYPE_MEDIA:
         return (
           <>
-            {news.creator.name}{" "}
-            {_("has published a media in Media header section")}
+            {news.creator.name}{' '}
+            {_('has published a media in Media header section')}
           </>
         );
       case TYPE_FRIENDS_ARTICLE:
         return (
           <>
-            {news.creator.name} {_("has published a post")}
+            {news.creator.name} {_('has published a post')}
           </>
         );
       case TYPE_FRIENDS_MEDIA:
         return (
           <>
-            {news.creator.name} {_("has published a media")}
+            {news.creator.name} {_('has published a media')}
           </>
         );
       case TYPE_FRIENDS_INFO:
         return (
           <>
-            {news.creator.name} {_("has changed own profile")}
+            {news.creator.name} {_('has changed own profile')}
           </>
         );
       case TYPE_GROUPS_MEDIA:
-        return <>{_("New media in the group")}</>;
+        return <>{_('New media in the group')}</>;
       case TYPE_GROUPS_ARTICLE:
-        return <>{_("New post in the group")}</>;
+        return <>{_('New post in the group')}</>;
       case TYPE_CLUBS_MEDIA:
-        return <>{_("New media in the club")}</>;
+        return <>{_('New media in the club')}</>;
       case TYPE_CLUBS_ARTICLE:
-        return <>{_("New post in the club")}</>;
+        return <>{_('New post in the club')}</>;
       case TYPE_CLUBS_EVENTS:
-        return <>{_("New party in the club")}</>;
+        return <>{_('New party in the club')}</>;
       case TYPE_SITE_NEWS:
       default:
         return <Link to={this.getLink(news)}>{news.title}</Link>;
@@ -192,20 +184,20 @@ class NewsPreview extends React.PureComponent<IProps> {
             <div className="info">
               <Link
                 to={CLIENT_URLS.USER.PROFILE.buildPath({
-                  userSlug: news.creator.slug
+                  userSlug: news.creator.slug,
                 })}
               >
                 <i className="fa fa-user" /> {news.creator.name}
               </Link>
             </div>
             <div className="info">
-              <i className="fa fa-clock-o" /> {_("Date of publication")}:{" "}
+              <i className="fa fa-clock-o" /> {_('Date of publication')}:{' '}
               <Moment locale={locale} format="DD.MM.YYYY HH:mm">
                 {news.publish_date}
               </Moment>
             </div>
             <div className="info">
-              <i className="fa fa-sitemap" /> {_("Category")}:{" "}
+              <i className="fa fa-sitemap" /> {_('Category')}:{' '}
               {news.news_type.display}
             </div>
             <div className="title text-break">

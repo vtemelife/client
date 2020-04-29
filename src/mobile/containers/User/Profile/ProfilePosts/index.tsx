@@ -1,31 +1,31 @@
-import React from "react";
-import { useGet } from "restful-react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Link } from "react-router-dom";
-import { OverlayTrigger, Popover, ListGroup, Button } from "react-bootstrap";
+import React from 'react';
+import { useGet } from 'restful-react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+import { OverlayTrigger, Popover, ListGroup, Button } from 'react-bootstrap';
 
-import { ROLE_MODERATOR } from "generic/constants";
-import { _ } from "trans";
-import Image from "generic/components/Image";
-import { SERVER_URLS } from "routes/server";
-import Loading from "generic/components/Loading";
-import { CLIENT_URLS } from "desktop/routes/client";
-import DeleteItem from "mobile/components/DeleteItem";
-import ShowMore from "react-show-more";
-import { renderHtml } from "utils";
-import defaultSVG from "generic/layout/images/picture.svg";
-import Likes from "desktop/components/Likes";
+import { ROLE_MODERATOR } from 'generic/constants';
+import { _ } from 'trans';
+import Image from 'generic/components/Image';
+import { SERVER_URLS } from 'routes/server';
+import Loading from 'generic/components/Loading';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import DeleteItem from 'mobile/components/DeleteItem';
+import ShowMore from 'react-show-more';
+import { renderHtml } from 'utils';
+import defaultSVG from 'generic/layout/images/picture.svg';
+import Likes from 'desktop/components/Likes';
 
 const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
   const { data: postsData, loading: postsLoading, refetch } = useGet({
-    path: SERVER_URLS.POSTS.toPath({
-      getParams: {
+    path: SERVER_URLS.POSTS.buildPath({
+      queryParams: {
         limit: 10,
         offset: 0,
         object_id: profile.pk,
-        content_type: "users:user"
-      }
-    })
+        content_type: 'users:user',
+      },
+    }),
   });
   const postsItems = (postsData || {}).results || [];
 
@@ -36,31 +36,31 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
   return (
     <div className="profile-posts block">
       <h2>
-        {_("Posts")} (
+        {_('Posts')} (
         <Link
-          to={CLIENT_URLS.POSTS.toPath({
-            getParams: {
+          to={CLIENT_URLS.POSTS.buildPath({
+            queryParams: {
               objectId: profile.pk,
-              contentType: "users:user"
-            }
+              contentType: 'users:user',
+            },
           })}
         >
-          {_("All")}
+          {_('All')}
         </Link>
         )
       </h2>
       {postsLoading && <Loading />}
       {profile.pk === user.pk && postsItems.length === 0 && (
         <LinkContainer
-          to={CLIENT_URLS.USER.POST_CREATE.toPath({
-            getParams: {
+          to={CLIENT_URLS.USER.POST_CREATE.buildPath({
+            queryParams: {
               objectId: profile.pk,
-              contentType: "users:user"
-            }
+              contentType: 'users:user',
+            },
           })}
         >
           <Button size="sm">
-            <i className="fa fa-plus" /> {_("Create a post")}
+            <i className="fa fa-plus" /> {_('Create a post')}
           </Button>
         </LinkContainer>
       )}
@@ -74,7 +74,7 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
               <div className="site-post-avatar">
                 <Link
                   to={CLIENT_URLS.POSTS_DETAIL.buildPath({
-                    postSlug: item.slug
+                    postSlug: item.slug,
                   })}
                 >
                   <Image
@@ -92,7 +92,7 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
                 <div className="site-post-title-name">
                   <Link
                     to={CLIENT_URLS.POSTS_DETAIL.buildPath({
-                      postSlug: item.slug
+                      postSlug: item.slug,
                     })}
                   >
                     <>{item.title}</>
@@ -112,28 +112,24 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
                           <ListGroup variant="flush">
                             <ListGroup.Item>
                               <Link
-                                to={CLIENT_URLS.USER.POST_UPDATE.toPath({
-                                  urlParams: {
-                                    postSlug: item.slug
-                                  }
+                                to={CLIENT_URLS.USER.POST_UPDATE.buildPath({
+                                  postSlug: item.slug,
                                 })}
                               >
-                                <i className="fa fa-pencil" /> {_("Update")}
+                                <i className="fa fa-pencil" /> {_('Update')}
                               </Link>
                             </ListGroup.Item>
                             <ListGroup.Item>
                               <DeleteItem
                                 description={_(
-                                  "Are you sure you want to delete the post?"
+                                  'Are you sure you want to delete the post?',
                                 )}
                                 onSuccess={() => refetch()}
-                                path={SERVER_URLS.POSTS_DELETE.toPath({
-                                  urlParams: {
-                                    postSlug: item.slug
-                                  }
+                                path={SERVER_URLS.POSTS_DELETE.buildPath({
+                                  postSlug: item.slug,
                                 })}
                               >
-                                <i className="fa fa-trash" /> {_("Delete")}
+                                <i className="fa fa-trash" /> {_('Delete')}
                               </DeleteItem>
                             </ListGroup.Item>
                           </ListGroup>
@@ -152,8 +148,8 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
                   <ListGroup.Item>
                     <ShowMore
                       lines={10}
-                      more={_("Show more")}
-                      less={_("Show less")}
+                      more={_('Show more')}
+                      less={_('Show less')}
                       anchorClass=""
                     >
                       {renderHtml(item.description)}
@@ -164,7 +160,7 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
               <div className="site-post-footer">
                 <Likes
                   likePath={SERVER_URLS.POSTS_LIKE.buildPath({
-                    postSlug: item.slug
+                    postSlug: item.slug,
                   })}
                   item={item}
                 />
@@ -175,14 +171,14 @@ const ProfilePosts: React.SFC<any> = ({ profile, user }) => {
         {postsItems.length > 3 && (
           <div className="show-more">
             <Link
-              to={CLIENT_URLS.POSTS.toPath({
-                getParams: {
+              to={CLIENT_URLS.POSTS.buildPath({
+                queryParams: {
                   objectId: profile.pk,
-                  contentType: "users:user"
-                }
+                  contentType: 'users:user',
+                },
               })}
             >
-              {_("Show more")}
+              {_('Show more')}
             </Link>
           </div>
         )}

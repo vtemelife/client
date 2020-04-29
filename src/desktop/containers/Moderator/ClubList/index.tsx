@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Card,
   Media,
@@ -6,32 +6,32 @@ import {
   Col,
   Button,
   Nav,
-  ButtonGroup
-} from "react-bootstrap";
-import { RouteComponentProps } from "react-router";
-import { Link } from "react-router-dom";
+  ButtonGroup,
+} from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import Image from "generic/components/Image";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import pictureSVG from "generic/layout/images/picture.svg";
+import Image from 'generic/components/Image';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import pictureSVG from 'generic/layout/images/picture.svg';
 
-import List from "desktop/containers/Generics/List";
-import { CountersConsumer } from "generic/containers/ContextProviders/CountersService";
-import { renderHtml } from "utils";
-import FormSelect from "generic/components/Form/FormSelect";
+import List from 'desktop/containers/Generics/List';
+import { CountersConsumer } from 'generic/containers/ContextProviders/CountersService';
+import { renderHtml } from 'utils';
+import FormSelect from 'generic/components/Form/FormSelect';
 import {
   REQUESTS,
   REQUEST_APPROVED,
   REQUEST_NONE,
-  REQUEST_DECLINED
-} from "generic/constants";
-import { getDisplayValue } from "utils";
-import { Mutate } from "restful-react";
-import { confirmAlert } from "react-confirm-alert";
-import { toast } from "react-toastify";
-import handleErrors from "desktop/components/ResponseErrors/utils";
-import { _ } from "trans";
+  REQUEST_DECLINED,
+} from 'generic/constants';
+import { getDisplayValue } from 'utils';
+import { Mutate } from 'restful-react';
+import { confirmAlert } from 'react-confirm-alert';
+import { toast } from 'react-toastify';
+import handleErrors from 'desktop/components/ResponseErrors/utils';
+import { _ } from 'trans';
 
 interface IPropsWrapper extends RouteComponentProps {
   match: any;
@@ -42,17 +42,17 @@ interface IProps extends IPropsWrapper {
 }
 
 class ClubList extends React.PureComponent<IProps> {
-  public renderTitle = (getParams: any) => {
-    if (getParams.is_ban) {
-      return _("Clubs (ban)");
+  public renderTitle = (queryParams: any) => {
+    if (queryParams.is_ban) {
+      return _('Clubs (ban)');
     }
-    if (getParams.status) {
-      return `${_("Clubs")} (${getDisplayValue(getParams.status, REQUESTS)})`;
+    if (queryParams.status) {
+      return `${_('Clubs')} (${getDisplayValue(queryParams.status, REQUESTS)})`;
     }
-    return _("Clubs");
+    return _('Clubs');
   };
 
-  public renderItem = (item: any, getParams: any, refetch: any) => {
+  public renderItem = (item: any, queryParams: any, refetch: any) => {
     return (
       <Col lg={12} className="moderator-club-item-container">
         <Media>
@@ -77,16 +77,16 @@ class ClubList extends React.PureComponent<IProps> {
                 <Link
                   target="_blank"
                   to={CLIENT_URLS.USER.CLUB_DETAIL.buildPath({
-                    clubSlug: item.slug
+                    clubSlug: item.slug,
                   })}
                 >
                   <span className="text-break">{item.name}</span>
                 </Link>
                 <div className="text-break club-item-info">
-                  <i className="fa fa-map-marker-alt" />{" "}
-                  {item.city ? item.city.country.name : ""}
-                  {item.city ? ", " : ""}
-                  {item.city ? item.city.name : ""}
+                  <i className="fa fa-map-marker-alt" />{' '}
+                  {item.city ? item.city.country.name : ''}
+                  {item.city ? ', ' : ''}
+                  {item.city ? item.city.name : ''}
                 </div>
                 <br />
                 <div className="text-break club-item-info">
@@ -99,44 +99,44 @@ class ClubList extends React.PureComponent<IProps> {
                     <Mutate
                       verb="PATCH"
                       path={SERVER_URLS.MODERATION_CLUB_APPROVE.buildPath({
-                        clubPk: item.pk
+                        clubPk: item.pk,
                       })}
                     >
-                      {moderate => (
+                      {(moderate) => (
                         <Button
                           size="sm"
                           variant="warning"
                           onClick={() =>
                             confirmAlert({
-                              title: _("Are you sure?"),
+                              title: _('Are you sure?'),
                               message: _(
-                                "Are you sure you want to approve the club?"
+                                'Are you sure you want to approve the club?',
                               ),
                               buttons: [
                                 {
-                                  label: _("Yes"),
+                                  label: _('Yes'),
                                   onClick: () => {
                                     moderate({})
                                       .then((result: any) => {
-                                        toast.success(_("Successfully"));
+                                        toast.success(_('Successfully'));
                                         refetch();
                                       })
                                       .catch((errors: any) => {
                                         handleErrors(errors);
                                       });
-                                  }
+                                  },
                                 },
                                 {
-                                  label: _("No"),
+                                  label: _('No'),
                                   onClick: () => {
                                     return;
-                                  }
-                                }
-                              ]
+                                  },
+                                },
+                              ],
                             })
                           }
                         >
-                          <i className="fa fa-check" /> {_("Approve")}
+                          <i className="fa fa-check" /> {_('Approve')}
                         </Button>
                       )}
                     </Mutate>
@@ -145,44 +145,44 @@ class ClubList extends React.PureComponent<IProps> {
                     <Mutate
                       verb="PATCH"
                       path={SERVER_URLS.MODERATION_CLUB_DECLINE.buildPath({
-                        clubPk: item.pk
+                        clubPk: item.pk,
                       })}
                     >
-                      {moderate => (
+                      {(moderate) => (
                         <Button
                           size="sm"
                           variant="secondary"
                           onClick={() =>
                             confirmAlert({
-                              title: _("Are you sure?"),
+                              title: _('Are you sure?'),
                               message: _(
-                                "Are you sure you want to decline the club?"
+                                'Are you sure you want to decline the club?',
                               ),
                               buttons: [
                                 {
-                                  label: _("Yes"),
+                                  label: _('Yes'),
                                   onClick: () => {
                                     moderate({})
                                       .then((result: any) => {
-                                        toast.success(_("Successfully"));
+                                        toast.success(_('Successfully'));
                                         refetch();
                                       })
                                       .catch((errors: any) => {
                                         handleErrors(errors);
                                       });
-                                  }
+                                  },
                                 },
                                 {
-                                  label: _("No"),
+                                  label: _('No'),
                                   onClick: () => {
                                     return;
-                                  }
-                                }
-                              ]
+                                  },
+                                },
+                              ],
                             })
                           }
                         >
-                          <i className="fa fa-fa-times-circle" /> {_("Decline")}
+                          <i className="fa fa-fa-times-circle" /> {_('Decline')}
                         </Button>
                       )}
                     </Mutate>
@@ -191,44 +191,44 @@ class ClubList extends React.PureComponent<IProps> {
                     <Mutate
                       verb="PATCH"
                       path={SERVER_URLS.MODERATION_CLUB_TOGGLE_BAN.buildPath({
-                        clubPk: item.pk
+                        clubPk: item.pk,
                       })}
                     >
-                      {moderate => (
+                      {(moderate) => (
                         <Button
                           size="sm"
-                          variant={!item.is_ban ? "danger" : "success"}
+                          variant={!item.is_ban ? 'danger' : 'success'}
                           onClick={() =>
                             confirmAlert({
-                              title: _("Are you sure?"),
+                              title: _('Are you sure?'),
                               message: _(
-                                "Are you sure you want to ban the club?"
+                                'Are you sure you want to ban the club?',
                               ),
                               buttons: [
                                 {
-                                  label: _("Yes"),
+                                  label: _('Yes'),
                                   onClick: () => {
                                     moderate({})
                                       .then((result: any) => {
-                                        toast.success(_("Successfully"));
+                                        toast.success(_('Successfully'));
                                         refetch();
                                       })
                                       .catch((errors: any) => {
                                         handleErrors(errors);
                                       });
-                                  }
+                                  },
                                 },
                                 {
-                                  label: _("No"),
+                                  label: _('No'),
                                   onClick: () => {
                                     return;
-                                  }
-                                }
-                              ]
+                                  },
+                                },
+                              ],
                             })
                           }
                         >
-                          <i className="fa fa-ban" /> {_("ban")}
+                          <i className="fa fa-ban" /> {_('ban')}
                         </Button>
                       )}
                     </Mutate>
@@ -237,44 +237,44 @@ class ClubList extends React.PureComponent<IProps> {
                     <Mutate
                       verb="PATCH"
                       path={SERVER_URLS.MODERATION_CLUB_TOGGLE_BAN.buildPath({
-                        clubPk: item.pk
+                        clubPk: item.pk,
                       })}
                     >
-                      {moderate => (
+                      {(moderate) => (
                         <Button
                           size="sm"
                           variant="success"
                           onClick={() =>
                             confirmAlert({
-                              title: _("Are you sure?"),
+                              title: _('Are you sure?'),
                               message: _(
-                                "Are you sure you want to unban the club?"
+                                'Are you sure you want to unban the club?',
                               ),
                               buttons: [
                                 {
-                                  label: _("Yes"),
+                                  label: _('Yes'),
                                   onClick: () => {
                                     moderate({})
                                       .then((result: any) => {
-                                        toast.success(_("Successfully"));
+                                        toast.success(_('Successfully'));
                                         refetch();
                                       })
                                       .catch((errors: any) => {
                                         handleErrors(errors);
                                       });
-                                  }
+                                  },
                                 },
                                 {
-                                  label: _("No"),
+                                  label: _('No'),
                                   onClick: () => {
                                     return;
-                                  }
-                                }
-                              ]
+                                  },
+                                },
+                              ],
                             })
                           }
                         >
-                          <i className="fa fa-check" /> {_("Unban")}
+                          <i className="fa fa-check" /> {_('Unban')}
                         </Button>
                       )}
                     </Mutate>
@@ -289,24 +289,24 @@ class ClubList extends React.PureComponent<IProps> {
     );
   };
 
-  public renderFilters = (getParams: any, onChangeGetParams: any) => {
+  public renderFilters = (queryParams: any, onChangequeryParams: any) => {
     return (
       <>
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-list" /> {_("Type")}
+              <i className="fa fa-list" /> {_('Type')}
             </Card.Title>
             <Nav className="flex-column">
               <Nav.Link
                 onClick={() =>
-                  onChangeGetParams({ is_ban: undefined, status: undefined })
+                  onChangequeryParams({ is_ban: undefined, status: undefined })
                 }
               >
-                <i className="fa fa-list" /> {_("All")}
+                <i className="fa fa-list" /> {_('All')}
               </Nav.Link>
-              <Nav.Link onClick={() => onChangeGetParams({ is_ban: "true" })}>
-                <i className="fa fa-ban" /> {_("Banned")}
+              <Nav.Link onClick={() => onChangequeryParams({ is_ban: 'true' })}>
+                <i className="fa fa-ban" /> {_('Banned')}
               </Nav.Link>
             </Nav>
           </Card.Body>
@@ -314,27 +314,27 @@ class ClubList extends React.PureComponent<IProps> {
         <Card>
           <Card.Body>
             <Card.Title>
-              <i className="fa fa-filter" /> {_("Filters")}
+              <i className="fa fa-filter" /> {_('Filters')}
             </Card.Title>
             <FormSelect
-              label={_("Status")}
+              label={_('Status')}
               name="status"
               isClearable={true}
               options={REQUESTS}
               value={
-                getParams.status
+                queryParams.status
                   ? {
-                      value: getParams.status,
-                      display: getDisplayValue(getParams.status, REQUESTS)
+                      value: queryParams.status,
+                      display: getDisplayValue(queryParams.status, REQUESTS),
                     }
                   : {
                       value: REQUEST_NONE,
-                      display: getDisplayValue(REQUEST_NONE, REQUESTS)
+                      display: getDisplayValue(REQUEST_NONE, REQUESTS),
                     }
               }
               onChange={(target: any) =>
-                onChangeGetParams({
-                  status: target.value ? target.value.value : undefined
+                onChangequeryParams({
+                  status: target.value ? target.value.value : undefined,
                 })
               }
             />
@@ -357,9 +357,11 @@ class ClubList extends React.PureComponent<IProps> {
   }
 }
 
-const ClubListWrapper: React.FC<IPropsWrapper> = props => (
+const ClubListWrapper: React.FC<IPropsWrapper> = (props) => (
   <CountersConsumer>
-    {context => context && <ClubList {...props} counters={context.counters} />}
+    {(context) =>
+      context && <ClubList {...props} counters={context.counters} />
+    }
   </CountersConsumer>
 );
 

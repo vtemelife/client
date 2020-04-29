@@ -1,50 +1,50 @@
-import React, { useState, useContext } from "react";
-import { useParams, useHistory } from "react-router";
-import { Helmet } from "react-helmet-async";
-import { Button, Col, Row, Card, InputGroup, Form, Nav } from "react-bootstrap";
-import { useGet, useMutate } from "restful-react";
-import { debounce } from "throttle-debounce";
+import React, { useState, useContext } from 'react';
+import { useParams, useHistory } from 'react-router';
+import { Helmet } from 'react-helmet-async';
+import { Button, Col, Row, Card, InputGroup, Form, Nav } from 'react-bootstrap';
+import { useGet, useMutate } from 'restful-react';
+import { debounce } from 'throttle-debounce';
 
-import Loading from "generic/components/Loading";
-import FormMsgArea from "generic/components/Form/FormMsgArea";
-import { LinkContainer } from "react-router-bootstrap";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import { WebSocketContext } from "generic/containers/ContextProviders/WebSocketService";
+import Loading from 'generic/components/Loading';
+import FormMsgArea from 'generic/components/Form/FormMsgArea';
+import { LinkContainer } from 'react-router-bootstrap';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import { WebSocketContext } from 'generic/containers/ContextProviders/WebSocketService';
 
-import { _ } from "trans";
-import { CLIENT_URLS } from "mobile/routes/client";
-import { SERVER_URLS } from "routes/server";
-import { handleErrors } from "utils";
+import { _ } from 'trans';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import { SERVER_URLS } from 'routes/server';
+import { handleErrors } from 'utils';
 import {
   SERVICE_CHAT,
   MSG_TYPE_TYPING,
   MSG_TYPE_NEW_MESSAGE,
   SERVICE_NOTIFICATION,
-  MSG_TYPE_UPDATE_COUNTERS
-} from "generic/containers/ContextProviders/WebSocketService/constants";
-import useSubscribeWebSocket from "mobile/hooks/SubscribeWebSocket";
+  MSG_TYPE_UPDATE_COUNTERS,
+} from 'generic/containers/ContextProviders/WebSocketService/constants';
+import useSubscribeWebSocket from 'mobile/hooks/SubscribeWebSocket';
 
-import DeleteItem from "mobile/components/DeleteItem";
-import { ROLE_MODERATOR, TYPE_CHAT } from "generic/constants";
+import DeleteItem from 'mobile/components/DeleteItem';
+import { ROLE_MODERATOR, TYPE_CHAT } from 'generic/constants';
 
-import Participants from "desktop/components/Participants";
-import Typing from "generic/components/Typing";
-import PaginateList from "generic/components/PaginateList";
-import { scrollToBottom } from "generic/components/PaginateList/utils";
+import Participants from 'desktop/components/Participants';
+import Typing from 'generic/components/Typing';
+import PaginateList from 'generic/components/PaginateList';
+import { scrollToBottom } from 'generic/components/PaginateList/utils';
 
-import BanUsers from "./BanUsers";
-import Message from "./Message";
+import BanUsers from './BanUsers';
+import Message from './Message';
 
 const ChatDetail: React.SFC<any> = () => {
   const history = useHistory();
 
   const [formData, changeFormData] = useState({
-    message: "",
-    attachments: []
+    message: '',
+    attachments: [],
   } as any);
   const [formErrors, changeFormErrors] = useState({} as any);
 
-  const [search, changeSearch] = useState("");
+  const [search, changeSearch] = useState('');
   const [offset, changeOffset] = useState(0);
   const { chatPk } = useParams();
 
@@ -55,7 +55,7 @@ const ChatDetail: React.SFC<any> = () => {
   const webSocket = useContext(WebSocketContext) || {
     sendMessage: () => {
       return;
-    }
+    },
   };
   useSubscribeWebSocket(
     webSocket,
@@ -74,32 +74,28 @@ const ChatDetail: React.SFC<any> = () => {
       const message = webSocketData.data;
       changeNewMessages([...newMessages, ...[message]]);
       scrollToBottom();
-    }
+    },
   );
 
   const { data: chatData, loading: chatLoading } = useGet({
-    path: SERVER_URLS.CHAT_DETAIL.toPath({
-      urlParams: {
-        chatPk
-      }
-    })
+    path: SERVER_URLS.CHAT_DETAIL.buildPath({
+      chatPk,
+    }),
   });
-  const getParams = {
+  const queryParams = {
     chat: chatPk,
-    search
+    search,
   };
   const { data: messagesData, loading: messagesLoading } = useGet({
-    path: SERVER_URLS.MESSAGE_LIST.toPath({
-      getParams: { ...getParams, offset }
-    })
+    path: SERVER_URLS.MESSAGE_LIST.buildPath({
+      queryParams: { ...queryParams, offset },
+    }),
   });
   const { mutate: sendMessage, loading: sendMessageLoading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.MESSAGE_CREATE.toPath({
-      urlParams: {
-        chatPk
-      }
-    })
+    verb: 'POST',
+    path: SERVER_URLS.MESSAGE_CREATE.buildPath({
+      chatPk,
+    }),
   });
 
   const chat = chatData || { moderators: [], users: [] };
@@ -115,8 +111,8 @@ const ChatDetail: React.SFC<any> = () => {
   return (
     <Col lg={10} className="chat-detail-container">
       <Helmet>
-        <title>{chat.name || _("Chat")}</title>
-        <meta name="description" content={chat.name || _("Chat")} />
+        <title>{chat.name || _('Chat')}</title>
+        <meta name="description" content={chat.name || _('Chat')} />
       </Helmet>
       <Row className="flex-column-reverse flex-lg-row">
         <Col lg={9}>
@@ -125,7 +121,7 @@ const ChatDetail: React.SFC<any> = () => {
               <Row>
                 <Col lg={7}>
                   <Card.Title className="object-title">
-                    {chat.name || _("Chat")}
+                    {chat.name || _('Chat')}
                   </Card.Title>
                 </Col>
                 <Col lg={5}>
@@ -138,11 +134,11 @@ const ChatDetail: React.SFC<any> = () => {
                       </InputGroup.Prepend>
                       <Form.Control
                         type="text-break"
-                        placeholder={_("Input smth and click Enter")}
+                        placeholder={_('Input smth and click Enter')}
                         aria-describedby="search"
                         required={true}
                         onKeyPress={(e: any) => {
-                          if (e.key === "Enter") {
+                          if (e.key === 'Enter') {
                             changeSearch(e.target.value);
                           }
                         }}
@@ -162,7 +158,7 @@ const ChatDetail: React.SFC<any> = () => {
                   reverse={true}
                   objs={messagesServer}
                   loading={messagesLoading}
-                  getParamsHash={JSON.stringify(getParams)}
+                  queryParamsHash={JSON.stringify(queryParams)}
                 >
                   {(item: any) => <Message key={item.pk} item={item} />}
                 </PaginateList>
@@ -200,8 +196,8 @@ const ChatDetail: React.SFC<any> = () => {
                                 changeFormData({
                                   ...formData,
                                   attachments: formData.attachments.filter(
-                                    (a: any) => a.pk !== attachment.pk
-                                  )
+                                    (a: any) => a.pk !== attachment.pk,
+                                  ),
                                 })
                               }
                             >
@@ -210,7 +206,7 @@ const ChatDetail: React.SFC<any> = () => {
                           </Card.Footer>
                         </Card>
                       </Col>
-                    )
+                    ),
                   )}
                 </Row>
                 <FormMsgArea
@@ -228,20 +224,20 @@ const ChatDetail: React.SFC<any> = () => {
                           .filter((pk: string) => pk !== user.pk),
                         chat: chat.pk,
                         data: {
-                          user
-                        }
+                          user,
+                        },
                       });
                     })();
                     changeFormData({
                       ...formData,
-                      message: target.value
+                      message: target.value,
                     });
                   }}
                   errors={formErrors.message}
                   onChangeAttachments={(attachments: any) => {
                     changeFormData({
                       ...formData,
-                      attachments
+                      attachments,
                     });
                   }}
                   onSend={() => {
@@ -249,9 +245,9 @@ const ChatDetail: React.SFC<any> = () => {
                       chat: chatPk,
                       message: formData.message.replace(
                         /(?:\r\n|\r|\n)/g,
-                        "<br />"
+                        '<br />',
                       ),
-                      attachments: formData.attachments.map((a: any) => a.pk)
+                      attachments: formData.attachments.map((a: any) => a.pk),
                     })
                       .then((data: any) => {
                         const message = data;
@@ -263,7 +259,7 @@ const ChatDetail: React.SFC<any> = () => {
                             .map((u: any) => u.pk)
                             .filter((pk: string) => pk !== user.pk),
                           chat: chat.pk,
-                          data: message
+                          data: message,
                         });
                         webSocket.sendMessage({
                           service: SERVICE_NOTIFICATION,
@@ -272,12 +268,12 @@ const ChatDetail: React.SFC<any> = () => {
                           recipients: chat.users
                             .map((u: any) => u.pk)
                             .filter((pk: string) => pk !== user.pk),
-                          data: {}
+                          data: {},
                         });
                         changeNewMessages([...newMessages, ...[message]]);
                         changeFormData({
-                          message: "",
-                          attachments: []
+                          message: '',
+                          attachments: [],
                         } as any);
                         changeFormErrors({});
                         scrollToBottom();
@@ -295,52 +291,48 @@ const ChatDetail: React.SFC<any> = () => {
           <Card>
             <Card.Body>
               <Card.Title>
-                <i className="fa fa-cogs" /> {_("Actions")}
+                <i className="fa fa-cogs" /> {_('Actions')}
               </Card.Title>
               <Nav className="flex-column">
                 {chat.chat_type === TYPE_CHAT && isModerator(chat) && (
                   <>
                     <LinkContainer
                       to={CLIENT_URLS.USER.CHAT_UPDATE.buildPath({
-                        chatPk
+                        chatPk,
                       })}
                     >
                       <Nav.Link>
-                        <i className="fa fa-pencil" /> {_("Update")}
+                        <i className="fa fa-pencil" /> {_('Update')}
                       </Nav.Link>
                     </LinkContainer>
                     <DeleteItem
                       description={_(
-                        "Are you sure you want to delete the chat?"
+                        'Are you sure you want to delete the chat?',
                       )}
                       onSuccess={() => {
-                        history.push(CLIENT_URLS.USER.CHAT_LIST.toPath());
+                        history.push(CLIENT_URLS.USER.CHAT_LIST.buildPath());
                       }}
-                      path={SERVER_URLS.CHAT_DELETE.toPath({
-                        urlParams: {
-                          chatPk
-                        }
+                      path={SERVER_URLS.CHAT_DELETE.buildPath({
+                        chatPk,
                       })}
                     >
                       <Nav.Link className="text-error">
-                        <i className="fa fa-trash" /> {_("Delete")}
+                        <i className="fa fa-trash" /> {_('Delete')}
                       </Nav.Link>
                     </DeleteItem>
                   </>
                 )}
                 <DeleteItem
-                  description={_("Are you sure you want to leave the chat?")}
+                  description={_('Are you sure you want to leave the chat?')}
                   onSuccess={() => {
-                    history.push(CLIENT_URLS.USER.CHAT_LIST.toPath());
+                    history.push(CLIENT_URLS.USER.CHAT_LIST.buildPath());
                   }}
-                  path={SERVER_URLS.CHAT_LEAVE.toPath({
-                    urlParams: {
-                      chatPk
-                    }
+                  path={SERVER_URLS.CHAT_LEAVE.buildPath({
+                    chatPk,
                   })}
                 >
                   <Nav.Link className="text-error">
-                    <i className="fa fa-sign-out" /> {_("Leave the chat")}
+                    <i className="fa fa-sign-out" /> {_('Leave the chat')}
                   </Nav.Link>
                 </DeleteItem>
               </Nav>

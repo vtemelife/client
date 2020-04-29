@@ -1,60 +1,56 @@
-import React, { useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { useGet, useMutate } from "restful-react";
-import { useParams } from "react-router";
-import { ListGroup, Button, OverlayTrigger, Popover } from "react-bootstrap";
-import ShowMore from "react-show-more";
-import { confirmAlert } from "react-confirm-alert";
+import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { useGet, useMutate } from 'restful-react';
+import { useParams } from 'react-router';
+import { ListGroup, Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import ShowMore from 'react-show-more';
+import { confirmAlert } from 'react-confirm-alert';
 
-import { TYPE_OPEN, ROLE_MODERATOR, REQUEST_WAITING } from "generic/constants";
-import defaultSVG from "generic/layout/images/picture.svg";
-import { CLIENT_URLS } from "mobile/routes/client";
-import userSVG from "generic/layout/images/user.svg";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
-import Image from "generic/components/Image";
-import { _ } from "trans";
-import { SERVER_URLS } from "routes/server";
-import Header from "mobile/containers/Header";
-import Loading from "generic/components/Loading";
+import { TYPE_OPEN, ROLE_MODERATOR, REQUEST_WAITING } from 'generic/constants';
+import defaultSVG from 'generic/layout/images/picture.svg';
+import { CLIENT_URLS } from 'mobile/routes/client';
+import userSVG from 'generic/layout/images/user.svg';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
+import Image from 'generic/components/Image';
+import { _ } from 'trans';
+import { SERVER_URLS } from 'routes/server';
+import Header from 'mobile/containers/Header';
+import Loading from 'generic/components/Loading';
 
-import GroupMedia from "./GroupMedia";
-import GroupPosts from "./GroupPosts";
+import GroupMedia from './GroupMedia';
+import GroupPosts from './GroupPosts';
 
-import { renderHtml, handleSuccess, handleErrors } from "utils";
-import DeleteItem from "mobile/components/DeleteItem";
+import { renderHtml, handleSuccess, handleErrors } from 'utils';
+import DeleteItem from 'mobile/components/DeleteItem';
 
 const GroupDetail: React.SFC<any> = () => {
   const { groupSlug } = useParams();
   const userAuth = useContext(AuthUserContext);
   const user = userAuth.headerUser || {
-    pk: null
+    pk: null,
   };
 
   const { data: groupData, loading: groupLoading, refetch } = useGet({
-    path: SERVER_URLS.GROUP_DETAIL.toPath({
-      urlParams: {
-        groupSlug
-      }
-    })
+    path: SERVER_URLS.GROUP_DETAIL.buildPath({
+      groupSlug,
+    }),
   });
   const group = groupData || {
     pk: null,
-    name: ""
+    name: '',
   };
 
   const { mutate: join, loading: joinLoading } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.MEMBERSHIP_REQUESTS_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.MEMBERSHIP_REQUESTS_CREATE.buildPath(),
   });
 
   const { mutate: leave, loading: leaveLoading } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.GROUP_LEAVE.toPath({
-      urlParams: {
-        groupSlug
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.GROUP_LEAVE.buildPath({
+      groupSlug,
+    }),
   });
 
   if (groupLoading) {
@@ -85,18 +81,16 @@ const GroupDetail: React.SFC<any> = () => {
         <meta name="description" content={title} />
         <body className="body-mobile body-group" />
       </Helmet>
-      <Header name={" "} fixed={true}>
+      <Header name={' '} fixed={true}>
         {isModerator(group) && (
           <div>
             <Link
-              to={CLIENT_URLS.USER.GROUP_DETAIL_REQUESTS.toPath({
-                urlParams: {
-                  groupSlug: group.slug
-                },
-                getParams: {
+              to={CLIENT_URLS.USER.GROUP_DETAIL_REQUESTS.buildPath({
+                groupSlug: group.slug,
+                queryParams: {
                   status: REQUEST_WAITING,
-                  object_id: group.pk
-                }
+                  object_id: group.pk,
+                },
               })}
             >
               <i className="fa fa-bell" />
@@ -127,30 +121,26 @@ const GroupDetail: React.SFC<any> = () => {
                         <ListGroup variant="flush">
                           <ListGroup.Item>
                             <Link
-                              to={CLIENT_URLS.USER.GROUP_UPDATE.toPath({
-                                urlParams: {
-                                  groupSlug: group.slug
-                                }
+                              to={CLIENT_URLS.USER.GROUP_UPDATE.buildPath({
+                                groupSlug: group.slug,
                               })}
                             >
-                              <i className="fa fa-pencil" />{" "}
-                              {_("Update the group")}
+                              <i className="fa fa-pencil" />{' '}
+                              {_('Update the group')}
                             </Link>
                           </ListGroup.Item>
                           <ListGroup.Item>
                             <DeleteItem
                               description={_(
-                                "Are you sure you want to delete the group?"
+                                'Are you sure you want to delete the group?',
                               )}
                               onSuccess={() => refetch()}
-                              path={SERVER_URLS.GROUP_DELETE.toPath({
-                                urlParams: {
-                                  groupSlug: group.slug
-                                }
+                              path={SERVER_URLS.GROUP_DELETE.buildPath({
+                                groupSlug: group.slug,
                               })}
                             >
-                              <i className="fa fa-trash" />{" "}
-                              {_("Delete the group")}
+                              <i className="fa fa-trash" />{' '}
+                              {_('Delete the group')}
                             </DeleteItem>
                           </ListGroup.Item>
                         </ListGroup>
@@ -168,16 +158,16 @@ const GroupDetail: React.SFC<any> = () => {
               <i className="fa fa-users" />
             </div>
             <div className="participants-count">
-              {group.users.length} {_("Participants")}
+              {group.users.length} {_('Participants')}
             </div>
             <div className="participants-list">
               {isParticipantOrOpen(group) && (
                 <Link
-                  to={CLIENT_URLS.USER.PARTICIPANT_LIST.toPath({
-                    getParams: {
+                  to={CLIENT_URLS.USER.PARTICIPANT_LIST.buildPath({
+                    queryParams: {
                       objectId: group.pk,
-                      contentType: "groups:group"
-                    }
+                      contentType: 'groups:group',
+                    },
                   })}
                 >
                   {group.users.slice(0, 3).map((participant: any) => (
@@ -203,17 +193,17 @@ const GroupDetail: React.SFC<any> = () => {
               <i className="fa fa-users" />
             </div>
             <div className="participants-count">
-              {group.moderators.length} {_("Moderators")}
+              {group.moderators.length} {_('Moderators')}
             </div>
             <div className="participants-list">
               {isParticipantOrOpen(group) && (
                 <Link
-                  to={CLIENT_URLS.USER.PARTICIPANT_LIST.toPath({
-                    getParams: {
+                  to={CLIENT_URLS.USER.PARTICIPANT_LIST.buildPath({
+                    queryParams: {
                       objectId: group.pk,
-                      contentType: "groups:group",
-                      moderators: true
-                    }
+                      contentType: 'groups:group',
+                      moderators: true,
+                    },
                   })}
                 >
                   {group.moderators.slice(0, 3).map((participant: any) => (
@@ -242,8 +232,8 @@ const GroupDetail: React.SFC<any> = () => {
             <div className="about-text">
               <ShowMore
                 lines={3}
-                more={_("Show more")}
-                less={_("Show less")}
+                more={_('Show more')}
+                less={_('Show less')}
                 anchorClass=""
               >
                 {renderHtml(group.description)}
@@ -255,17 +245,15 @@ const GroupDetail: React.SFC<any> = () => {
               {hasRequest(group) ? (
                 <DeleteItem
                   description={_(
-                    "Are you sure you want to delete the request to join the group?"
+                    'Are you sure you want to delete the request to join the group?',
                   )}
                   onSuccess={() => refetch()}
-                  path={SERVER_URLS.MEMBERSHIP_REQUESTS_DELETE.toPath({
-                    urlParams: {
-                      membershipPk: group.request
-                    }
+                  path={SERVER_URLS.MEMBERSHIP_REQUESTS_DELETE.buildPath({
+                    membershipPk: group.request,
                   })}
                 >
                   <Button size="sm" className="float-right" variant="danger">
-                    <i className="fa fa-trash" /> {_("Drop your request")}
+                    <i className="fa fa-trash" /> {_('Drop your request')}
                   </Button>
                 </DeleteItem>
               ) : (
@@ -274,12 +262,12 @@ const GroupDetail: React.SFC<any> = () => {
                   className="float-right"
                   onClick={() => {
                     join({
-                      content_type: "groups:group",
-                      object_id: group.pk
+                      content_type: 'groups:group',
+                      object_id: group.pk,
                     })
                       .then((result: any) => {
                         handleSuccess(
-                          _("Your request has been sent successfully.")
+                          _('Your request has been sent successfully.'),
                         );
                         refetch();
                       })
@@ -288,7 +276,7 @@ const GroupDetail: React.SFC<any> = () => {
                       });
                   }}
                 >
-                  <i className="fa fa-handshake-o" /> {_("Join to this group")}
+                  <i className="fa fa-handshake-o" /> {_('Join to this group')}
                 </Button>
               )}
             </div>
@@ -301,46 +289,46 @@ const GroupDetail: React.SFC<any> = () => {
                 className="float-left"
                 onClick={() =>
                   confirmAlert({
-                    title: _("Are you sure?"),
-                    message: _("Are you sure you want to leave the group?"),
+                    title: _('Are you sure?'),
+                    message: _('Are you sure you want to leave the group?'),
                     buttons: [
                       {
-                        label: _("Yes"),
+                        label: _('Yes'),
                         onClick: () => {
                           leave({})
                             .then((result: any) => {
-                              handleSuccess(_("You has left the group."));
+                              handleSuccess(_('You has left the group.'));
                               refetch();
                             })
                             .catch((errors: any) => {
                               handleErrors(errors);
                             });
-                        }
+                        },
                       },
                       {
-                        label: _("No"),
+                        label: _('No'),
                         onClick: () => {
                           return;
-                        }
-                      }
-                    ]
+                        },
+                      },
+                    ],
                   })
                 }
               >
-                <i className="fa fa-sign-out" /> {_("Leave the group")}
+                <i className="fa fa-sign-out" /> {_('Leave the group')}
               </Button>
             </div>
           )}
         </div>
         <div className="group-info block">
-          <h2>{_("Group info")}</h2>
+          <h2>{_('Group info')}</h2>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <span className="item-title">{_("Type")}:</span>
+              <span className="item-title">{_('Type')}:</span>
               {group.group_type.display}
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="item-title">{_("Theme")}:</span>
+              <span className="item-title">{_('Theme')}:</span>
               {group.relationship_theme.display}
             </ListGroup.Item>
           </ListGroup>

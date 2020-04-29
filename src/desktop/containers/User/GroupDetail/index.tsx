@@ -1,25 +1,25 @@
-import React from "react";
-import compose from "lodash/flowRight";
-import { Row, Col, Card, Nav, Badge } from "react-bootstrap";
-import { RouteComponentProps } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import React from 'react';
+import compose from 'lodash/flowRight';
+import { Row, Col, Card, Nav, Badge } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import Image from "generic/components/Image";
-import { TYPE_CLOSE, REQUEST_WAITING, ROLE_MODERATOR } from "generic/constants";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import userSVG from "generic/layout/images/user.svg";
+import Image from 'generic/components/Image';
+import { TYPE_CLOSE, REQUEST_WAITING, ROLE_MODERATOR } from 'generic/constants';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import userSVG from 'generic/layout/images/user.svg';
 
-import BlockMedia from "desktop/components/BlockMedia";
-import Participants from "desktop/components/Participants";
-import BlockPosts from "desktop/components/BlockPosts";
-import ResponseErrors from "desktop/components/ResponseErrors";
-import Loading from "generic/components/Loading";
-import { renderHtml } from "utils";
-import { _ } from "trans";
-import { withAuthUser, withRestGet } from "generic/containers/Decorators";
-import GroupActions from "./GroupActions";
-import ShowMore from "react-show-more";
+import BlockMedia from 'desktop/components/BlockMedia';
+import Participants from 'desktop/components/Participants';
+import BlockPosts from 'desktop/components/BlockPosts';
+import ResponseErrors from 'desktop/components/ResponseErrors';
+import Loading from 'generic/components/Loading';
+import { renderHtml } from 'utils';
+import { _ } from 'trans';
+import { withAuthUser, withRestGet } from 'generic/containers/Decorators';
+import GroupActions from './GroupActions';
+import ShowMore from 'react-show-more';
 
 interface IProps extends RouteComponentProps {
   group: any;
@@ -33,7 +33,7 @@ interface IState {
 
 class Group extends React.PureComponent<IProps, IState> {
   public state = {
-    tab: "posts"
+    tab: 'posts',
   };
 
   public onDeleteSuccess = () => {
@@ -79,17 +79,17 @@ class Group extends React.PureComponent<IProps, IState> {
               <Col lg={6}>
                 <Card>
                   <Card.Body>
-                    <Card.Title>{_("Details")}</Card.Title>
+                    <Card.Title>{_('Details')}</Card.Title>
                     <p>
-                      <i className="fa fa-tag" /> {_("Theme")}:{" "}
+                      <i className="fa fa-tag" /> {_('Theme')}:{' '}
                       {group.relationship_theme.display}
                     </p>
                     <p>
-                      <i className="fa fa-sitemap" /> {_("Type")}:{" "}
+                      <i className="fa fa-sitemap" /> {_('Type')}:{' '}
                       {group.group_type.display}
                     </p>
                     <p>
-                      <i className="fa fa-users" /> {_("Participants")}:{" "}
+                      <i className="fa fa-users" /> {_('Participants')}:{' '}
                       {group.users.concat(group.moderators).length}
                     </p>
                   </Card.Body>
@@ -98,22 +98,20 @@ class Group extends React.PureComponent<IProps, IState> {
                   <Card>
                     <Card.Body>
                       <Card.Title>
-                        <i className="fa fa-cogs" /> {_("Actions")}
+                        <i className="fa fa-cogs" /> {_('Actions')}
                       </Card.Title>
                       <Nav className="flex-column">
                         <LinkContainer
-                          to={CLIENT_URLS.USER.GROUP_DETAIL_REQUESTS.buildPath(
-                            { groupSlug: group.slug },
-                            {
-                              getParams: {
-                                status: REQUEST_WAITING,
-                                object_id: group.pk
-                              }
-                            }
-                          )}
+                          to={CLIENT_URLS.USER.GROUP_DETAIL_REQUESTS.buildPath({
+                            groupSlug: group.slug,
+                            queryParams: {
+                              status: REQUEST_WAITING,
+                              object_id: group.pk,
+                            },
+                          })}
                         >
                           <Nav.Link>
-                            <i className="fa fa-list-ol" /> {_("Requests")}{" "}
+                            <i className="fa fa-list-ol" /> {_('Requests')}{' '}
                             {group.requests_count > 0 && (
                               <Badge variant="primary">
                                 {group.requests_count}
@@ -131,12 +129,12 @@ class Group extends React.PureComponent<IProps, IState> {
               <Col lg={12}>
                 <Card>
                   <Card.Body>
-                    <Card.Title>{_("Group")}</Card.Title>
+                    <Card.Title>{_('Group')}</Card.Title>
                     <Card.Text>
                       <ShowMore
                         lines={10}
-                        more={_("Show more")}
-                        less={_("Show less")}
+                        more={_('Show more')}
+                        less={_('Show less')}
                         anchorClass=""
                       >
                         {renderHtml(group.description)}
@@ -181,7 +179,7 @@ class Group extends React.PureComponent<IProps, IState> {
               <>
                 <Participants participants={group.users} />
                 <Participants
-                  title={_("Moderators")}
+                  title={_('Moderators')}
                   participants={group.moderators}
                 />
               </>
@@ -194,15 +192,15 @@ class Group extends React.PureComponent<IProps, IState> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 const withGroup = withRestGet({
-  propName: "group",
+  propName: 'group',
   path: (props: any) =>
     SERVER_URLS.GROUP_DETAIL.buildPath({
-      groupSlug: props.match.params.groupSlug
-    })
+      groupSlug: props.match.params.groupSlug,
+    }),
 });
 
 export default compose(withAuth, withGroup)(Group);

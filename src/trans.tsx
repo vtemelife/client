@@ -1,10 +1,10 @@
-import queryString from "query-string";
+import queryString from 'query-string';
 
-import ruJson from "./locale/ru.json";
-import { getLocale } from "utils";
+import ruJson from './locale/ru.json';
+import { getLocale } from 'utils';
 
 const messages = {
-  ru: ruJson
+  ru: ruJson,
 } as any;
 
 /**
@@ -12,10 +12,10 @@ const messages = {
  * @param {string}
  */
 export function _(str: string, values: any = {}) {
-  const getParams = { ...queryString.parse(window.location.search) };
-  const newLocale = getParams.locale as any;
-  if (newLocale && localStorage.getItem("locale") !== newLocale) {
-    localStorage.setItem("locale", newLocale);
+  const queryParams = { ...queryString.parse(window.location.search) };
+  const newLocale = queryParams.locale as any;
+  if (newLocale && localStorage.getItem('locale') !== newLocale) {
+    localStorage.setItem('locale', newLocale);
   }
 
   const locale = getLocale();

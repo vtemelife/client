@@ -1,29 +1,29 @@
-import React, { useState, useContext, useEffect } from "react";
-import Gallery from "react-grid-gallery";
-import { useHistory } from "react-router";
-import { useMutate } from "restful-react";
-import { StatesContext } from "generic/containers/ContextProviders/StatesService";
-import hideSVG from "generic/layout/images/hide.svg";
-import { AuthUserContext } from "generic/containers/ContextProviders/HeaderUserService";
+import React, { useState, useContext, useEffect } from 'react';
+import Gallery from 'react-grid-gallery';
+import { useHistory } from 'react-router';
+import { useMutate } from 'restful-react';
+import { StatesContext } from 'generic/containers/ContextProviders/StatesService';
+import hideSVG from 'generic/layout/images/hide.svg';
+import { AuthUserContext } from 'generic/containers/ContextProviders/HeaderUserService';
 
-import { ROLE_MODERATOR } from "generic/constants";
-import { SERVER_URLS } from "routes/server";
+import { ROLE_MODERATOR } from 'generic/constants';
+import { SERVER_URLS } from 'routes/server';
 
-import ImageViews from "./ImageViews";
-import ImageLikes from "./ImageLikes";
-import ImageComments from "./ImageComments";
-import ImageMenu from "./ImageMenu";
-import { CLIENT_URLS } from "desktop/routes/client";
+import ImageViews from './ImageViews';
+import ImageLikes from './ImageLikes';
+import ImageComments from './ImageComments';
+import ImageMenu from './ImageMenu';
+import { CLIENT_URLS } from 'desktop/routes/client';
 
 const ImageGallery: React.SFC<any> = ({
   mediaItems,
   refetch,
   size,
-  openMediaPk
+  openMediaPk,
 }) => {
   const history = useHistory();
   const states = useContext(StatesContext) || {
-    isDisplayImages: false
+    isDisplayImages: false,
   };
   const [images, changeImages] = useState([] as any);
   const isDisplayImages = states.isDisplayImages;
@@ -41,10 +41,10 @@ const ImageGallery: React.SFC<any> = ({
           thumbnailHeight: size ? size : 500,
           caption: (
             <span>
-              {item.title ? <>{item.title} - </> : ""}
+              {item.title ? <>{item.title} - </> : ''}
               <a
                 href={CLIENT_URLS.USER.PROFILE.buildPath({
-                  userSlug: item.creator.slug
+                  userSlug: item.creator.slug,
                 })}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -54,7 +54,7 @@ const ImageGallery: React.SFC<any> = ({
             </span>
           ),
           image: item,
-          pk: item.pk
+          pk: item.pk,
         };
       });
     };
@@ -67,38 +67,32 @@ const ImageGallery: React.SFC<any> = ({
     views: 0,
     likes: [],
     comments_count: 0,
-    pk: null
+    pk: null,
   };
   const [currentImage, changeCurrentImage] = useState(defaultImage);
 
   const { mutate: likeAction } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MEDIA_LIKE.toPath({
-      urlParams: {
-        mediaPk: currentImage.pk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MEDIA_LIKE.buildPath({
+      mediaPk: currentImage.pk,
+    }),
   });
   const { mutate: publicOnSite } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MEDIA_TO_MODERATE_MEDIA_SECTION.toPath({
-      urlParams: {
-        mediaPk: currentImage.pk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MEDIA_TO_MODERATE_MEDIA_SECTION.buildPath({
+      mediaPk: currentImage.pk,
+    }),
   });
   const { mutate: imageDelete } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.MEDIA_DELETE.toPath({
-      urlParams: {
-        mediaPk: currentImage.pk
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.MEDIA_DELETE.buildPath({
+      mediaPk: currentImage.pk,
+    }),
   });
 
   const { mutate: sendComment } = useMutate({
-    verb: "POST",
-    path: SERVER_URLS.COMMENT_CREATE.toPath()
+    verb: 'POST',
+    path: SERVER_URLS.COMMENT_CREATE.buildPath(),
   });
 
   const userAuth = useContext(AuthUserContext);
@@ -119,7 +113,7 @@ const ImageGallery: React.SFC<any> = ({
         }}
         lightboxWillOpen={() => {
           const timerId = setInterval(() => {
-            const lightBox = document.getElementById("lightboxBackdrop");
+            const lightBox = document.getElementById('lightboxBackdrop');
             if (lightBox) {
               lightBox.oncontextmenu = (e: any) => e.preventDefault();
               clearInterval(timerId);
@@ -156,7 +150,7 @@ const ImageGallery: React.SFC<any> = ({
                   imageDelete={imageDelete}
                   refetch={refetch}
                   history={history}
-                />
+                />,
               ]
             : [
                 <ImageViews key="views" currentImage={currentImage} />,
@@ -173,7 +167,7 @@ const ImageGallery: React.SFC<any> = ({
                   currentImagePk={currentImage.pk}
                   defaultCommentsCount={currentImage.comments_count}
                   sendComment={sendComment}
-                />
+                />,
               ]
         }
       />
@@ -181,7 +175,7 @@ const ImageGallery: React.SFC<any> = ({
   );
 };
 
-const ImageGalleryWrapper: React.SFC<any> = props => {
+const ImageGalleryWrapper: React.SFC<any> = (props) => {
   if (!props.mediaItems || props.mediaItems.length === 0) {
     return null;
   }

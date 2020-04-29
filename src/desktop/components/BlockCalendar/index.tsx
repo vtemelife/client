@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import moment from "moment";
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import moment from 'moment';
 
-import ResponseErrors from "../ResponseErrors";
-import Loading from "generic/components/Loading";
+import ResponseErrors from '../ResponseErrors';
+import Loading from 'generic/components/Loading';
 
 interface IProps {
   response: any;
@@ -13,7 +13,7 @@ interface IProps {
   error: any;
 
   renderItem: any;
-  getParams: any;
+  queryParams: any;
 
   scrollTop?: boolean;
   scrollBottom?: boolean;
@@ -27,9 +27,9 @@ class BlockCalendar extends React.Component<IProps> {
       {
         start: new Date(),
         end: new Date(),
-        title: "Some title"
-      }
-    ]
+        title: 'Some title',
+      },
+    ],
   };
 
   public render() {
@@ -46,7 +46,7 @@ class BlockCalendar extends React.Component<IProps> {
           events={this.state.events}
           defaultDate={new Date()}
           defaultView="month"
-          views={["month", "week"]}
+          views={['month', 'week']}
         />
       </div>
     );

@@ -1,39 +1,35 @@
-import React from "react";
-import { Button, OverlayTrigger, Popover } from "react-bootstrap";
+import React from 'react';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
-import { _ } from "trans";
-import { Link } from "react-router-dom";
-import { CLIENT_URLS } from "desktop/routes/client";
-import { LinkContainer } from "react-router-bootstrap";
-import { useMutate } from "restful-react";
-import { SERVER_URLS } from "routes/server";
-import Loading from "react-loading";
-import { handleSuccess, handleErrors } from "utils";
+import { _ } from 'trans';
+import { Link } from 'react-router-dom';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useMutate } from 'restful-react';
+import { SERVER_URLS } from 'routes/server';
+import Loading from 'react-loading';
+import { handleSuccess, handleErrors } from 'utils';
 
 const ProfileRealStatus: React.SFC<any> = ({ profile, user, refetch }) => {
   const { mutate: giveRealStatus, loading: giveRealStatusLoading } = useMutate({
-    verb: "PATCH",
-    path: SERVER_URLS.PROFILE_GIVE_REAL_STATUS.toPath({
-      urlParams: {
-        userSlug: profile.slug
-      }
-    })
+    verb: 'PATCH',
+    path: SERVER_URLS.PROFILE_GIVE_REAL_STATUS.buildPath({
+      userSlug: profile.slug,
+    }),
   });
   return (
     <span className="actions">
       {giveRealStatusLoading && <Loading />}
       {profile.is_real ? (
         <span>
-          <i className="fa fa-check green-color" /> {_("Yes")}
+          <i className="fa fa-check green-color" /> {_('Yes')}
           {profile.approver && (
             <span>
-              {" - "}
-              {_("received by user")}{" "}
+              {' - '}
+              {_('received by user')}{' '}
               <Link
-                to={CLIENT_URLS.USER.PROFILE.toPath({
-                  urlParams: {
-                    userSlug: profile.approver.slug
-                  }
+                to={CLIENT_URLS.USER.PROFILE.buildPath({
+                  userSlug: profile.approver.slug,
                 })}
               >
                 {profile.approver.name}
@@ -43,7 +39,7 @@ const ProfileRealStatus: React.SFC<any> = ({ profile, user, refetch }) => {
         </span>
       ) : (
         <span>
-          <i className="fa fa-times-circle red-color" /> {_("No")}
+          <i className="fa fa-times-circle red-color" /> {_('No')}
           {profile.pk === user.pk ? (
             <OverlayTrigger
               trigger="click"
@@ -51,17 +47,17 @@ const ProfileRealStatus: React.SFC<any> = ({ profile, user, refetch }) => {
               placement="left"
               overlay={
                 <Popover id="popover-basic">
-                  <Popover.Title as="h3">{_("Tip")}</Popover.Title>
+                  <Popover.Title as="h3">{_('Tip')}</Popover.Title>
                   <Popover.Content>
                     {_(
-                      "Write to support or ask a friend with real status to click on this button on your profile and approve."
+                      'Write to support or ask a friend with real status to click on this button on your profile and approve.',
                     )}
                     <hr />
                     <LinkContainer
                       to={CLIENT_URLS.USER.CHAT_WITH_MODERATORS_CREATE.buildPath()}
                     >
                       <Button size="sm" variant="danger">
-                        <i className="fa fa-comment" /> {_("Write to support")}
+                        <i className="fa fa-comment" /> {_('Write to support')}
                       </Button>
                     </LinkContainer>
                     <br />
@@ -71,7 +67,7 @@ const ProfileRealStatus: React.SFC<any> = ({ profile, user, refetch }) => {
               }
             >
               <Button size="sm" variant="primary" className="float-left">
-                <i className="fa fa-question" /> {_("Get a real status")}
+                <i className="fa fa-question" /> {_('Get a real status')}
               </Button>
             </OverlayTrigger>
           ) : (
@@ -82,7 +78,7 @@ const ProfileRealStatus: React.SFC<any> = ({ profile, user, refetch }) => {
                 giveRealStatus({})
                   .then((result: any) => {
                     handleSuccess(
-                      _("Your request has been sent to moderation.")
+                      _('Your request has been sent to moderation.'),
                     );
                     refetch();
                   })
@@ -91,7 +87,7 @@ const ProfileRealStatus: React.SFC<any> = ({ profile, user, refetch }) => {
                   });
               }}
             >
-              <i className="fa fa-check" /> {_("Give a real status")}
+              <i className="fa fa-check" /> {_('Give a real status')}
             </Button>
           )}
         </span>

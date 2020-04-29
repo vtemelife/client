@@ -1,31 +1,31 @@
-import React from "react";
-import compose from "lodash/flowRight";
-import { Row, Col, Card, Button, Alert, Nav, Badge } from "react-bootstrap";
-import { RouteComponentProps } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import React from 'react';
+import compose from 'lodash/flowRight';
+import { Row, Col, Card, Button, Alert, Nav, Badge } from 'react-bootstrap';
+import { RouteComponentProps } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import { getGeo } from "desktop/containers/User/Profile/utils";
-import Image from "generic/components/Image";
-import defaultSVG from "generic/layout/images/picture.svg";
+import { getGeo } from 'desktop/containers/User/Profile/utils';
+import Image from 'generic/components/Image';
+import defaultSVG from 'generic/layout/images/picture.svg';
 import {
   TYPE_CLOSE,
   REQUEST_APPROVED,
   REQUEST_WAITING,
-  ROLE_MODERATOR
-} from "generic/constants";
-import { SERVER_URLS } from "routes/server";
-import { CLIENT_URLS } from "desktop/routes/client";
-import BlockMap from "desktop/components/BlockMap";
-import BlockMedia from "desktop/components/BlockMedia";
-import Participants from "desktop/components/Participants";
-import BlockParties from "desktop/components/BlockParties";
-import Loading from "generic/components/Loading";
-import ResponseErrors from "desktop/components/ResponseErrors";
-import { renderHtml } from "utils";
-import { _ } from "trans";
-import { withAuthUser, withRestGet } from "generic/containers/Decorators";
-import ClubActions from "./ClubActions";
-import ShowMore from "react-show-more";
+  ROLE_MODERATOR,
+} from 'generic/constants';
+import { SERVER_URLS } from 'routes/server';
+import { CLIENT_URLS } from 'desktop/routes/client';
+import BlockMap from 'desktop/components/BlockMap';
+import BlockMedia from 'desktop/components/BlockMedia';
+import Participants from 'desktop/components/Participants';
+import BlockParties from 'desktop/components/BlockParties';
+import Loading from 'generic/components/Loading';
+import ResponseErrors from 'desktop/components/ResponseErrors';
+import { renderHtml } from 'utils';
+import { _ } from 'trans';
+import { withAuthUser, withRestGet } from 'generic/containers/Decorators';
+import ClubActions from './ClubActions';
+import ShowMore from 'react-show-more';
 
 interface IProps extends RouteComponentProps {
   club: any;
@@ -39,7 +39,7 @@ interface IState {
 
 class Club extends React.PureComponent<IProps, IState> {
   public state = {
-    tab: "parties"
+    tab: 'parties',
   };
 
   public onDeleteSuccess = () => {
@@ -71,7 +71,7 @@ class Club extends React.PureComponent<IProps, IState> {
           <Alert variant="danger">
             <div>
               {_(
-                "The club is on moderation. It is only visible to you and is not visible in the search results. Waiting for moderation."
+                'The club is on moderation. It is only visible to you and is not visible in the search results. Waiting for moderation.',
               )}
             </div>
             <hr />
@@ -79,7 +79,7 @@ class Club extends React.PureComponent<IProps, IState> {
               to={CLIENT_URLS.USER.CHAT_WITH_MODERATORS_CREATE.buildPath()}
             >
               <Button size="sm" variant="danger">
-                <i className="fa fa-comment" /> {_("Chat with support")}
+                <i className="fa fa-comment" /> {_('Chat with support')}
               </Button>
             </LinkContainer>
           </Alert>
@@ -103,21 +103,21 @@ class Club extends React.PureComponent<IProps, IState> {
               <Col lg={6}>
                 <Card>
                   <Card.Body>
-                    <Card.Title>{_("Details")}</Card.Title>
+                    <Card.Title>{_('Details')}</Card.Title>
                     <p>
-                      <i className="fa fa-tag" /> {_("Theme")}:{" "}
+                      <i className="fa fa-tag" /> {_('Theme')}:{' '}
                       {club.relationship_theme.display}
                     </p>
                     <p>
-                      <i className="fa fa-sitemap" /> {_("Type")}:{" "}
+                      <i className="fa fa-sitemap" /> {_('Type')}:{' '}
                       {club.club_type.display}
                     </p>
                     <p>
-                      <i className="fa fa-map-marker" /> {_("Geo")}{" "}
+                      <i className="fa fa-map-marker" /> {_('Geo')}{' '}
                       {getGeo(club)}
                     </p>
                     <p>
-                      <i className="fa fa-users" /> {_("Participants")}:{" "}
+                      <i className="fa fa-users" /> {_('Participants')}:{' '}
                       {club.users.length}
                     </p>
                   </Card.Body>
@@ -126,22 +126,20 @@ class Club extends React.PureComponent<IProps, IState> {
                   <Card>
                     <Card.Body>
                       <Card.Title>
-                        <i className="fa fa-cogs" /> {_("Actions")}
+                        <i className="fa fa-cogs" /> {_('Actions')}
                       </Card.Title>
                       <Nav className="flex-column">
                         <LinkContainer
-                          to={CLIENT_URLS.USER.CLUB_DETAIL_REQUESTS.buildPath(
-                            { clubSlug: club.slug },
-                            {
-                              getParams: {
-                                status: REQUEST_WAITING,
-                                object_id: club.pk
-                              }
-                            }
-                          )}
+                          to={CLIENT_URLS.USER.CLUB_DETAIL_REQUESTS.buildPath({
+                            clubSlug: club.slug,
+                            queryParams: {
+                              status: REQUEST_WAITING,
+                              object_id: club.pk,
+                            },
+                          })}
                         >
                           <Nav.Link>
-                            <i className="fa fa-list-ol" /> {_("Requests")}{" "}
+                            <i className="fa fa-list-ol" /> {_('Requests')}{' '}
                             {club.requests_count > 0 && (
                               <Badge variant="primary">
                                 {club.requests_count}
@@ -162,8 +160,8 @@ class Club extends React.PureComponent<IProps, IState> {
                     <Card.Title>{club.name}</Card.Title>
                     <ShowMore
                       lines={10}
-                      more={_("Show more")}
-                      less={_("Show less")}
+                      more={_('Show more')}
+                      less={_('Show less')}
                       anchorClass=""
                     >
                       {renderHtml(club.description)}
@@ -176,7 +174,7 @@ class Club extends React.PureComponent<IProps, IState> {
               <Col lg={12}>
                 <Card>
                   <Card.Body>
-                    <Card.Title>{_("Address")}</Card.Title>
+                    <Card.Title>{_('Address')}</Card.Title>
                     {renderHtml(club.address)}
                     {club.geo && <BlockMap geo={club.geo} />}
                   </Card.Body>
@@ -200,7 +198,7 @@ class Club extends React.PureComponent<IProps, IState> {
             {isClosed && !isUser ? null : (
               <Row>
                 <BlockParties
-                  renderTitle={() => _("Parties")}
+                  renderTitle={() => _('Parties')}
                   club={club.pk}
                   size={12}
                   isReadonly={!isModerator}
@@ -218,7 +216,7 @@ class Club extends React.PureComponent<IProps, IState> {
               <>
                 <Participants participants={club.users} />
                 <Participants
-                  title={_("Moderators")}
+                  title={_('Moderators')}
                   participants={club.moderators}
                 />
               </>
@@ -231,15 +229,15 @@ class Club extends React.PureComponent<IProps, IState> {
 }
 
 const withAuth = withAuthUser({
-  propName: "authUser"
+  propName: 'authUser',
 });
 
 const withClub = withRestGet({
-  propName: "club",
+  propName: 'club',
   path: (props: any) =>
     SERVER_URLS.CLUB_DETAIL.buildPath({
-      clubSlug: props.match.params.clubSlug
-    })
+      clubSlug: props.match.params.clubSlug,
+    }),
 });
 
 export default compose(withAuth, withClub)(Club);
