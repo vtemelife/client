@@ -1,6 +1,8 @@
 # Vteme react client
 
-## Clone repository and install dependencies
+## Clone repository
+
+Install git on your system https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ```
 git clone git@github.com:vtemelife/client.git
