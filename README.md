@@ -1,4 +1,14 @@
-# Vteme react client
+# Vteme client
+
+Dev stack:
+* react (create react app)
+* yarn
+* scss
+* bootstrap
+* typescript
+* react-restfull
+* sockjs
+* docker
 
 ## Clone repository
 
