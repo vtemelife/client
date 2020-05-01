@@ -21,17 +21,18 @@ git clone git@github.com:vtemelife/client.git
 cd client
 ```
 
-### Activate environment:
+### Run locally:
 
-Depends on your environment run the following
+## Activate environment:
+
+Depends on your environment (staging at default) run the following
 
 ```
-cp envsets/env.dev .env 
-(or envsets/env.prod ...) 
-source .env
+cp envsets/local_staging.env .local.env 
+source .local.env
 ```
 
-### Install project requirements:
+## Install project requirements:
 
 ```
 yarn install
@@ -53,4 +54,24 @@ make test
 
 ```
 NODE_ENV=test yarn run jest app/containers/Rest/tests/reducer.test.js
+```
+
+
+### Run using docker:
+
+Install docker on your system https://runnable.com/docker/getting-started/
+
+## Activate environment:
+
+Depends on your environment (staging at default) run the following
+
+```
+cp envsets/docker_staging.env .docker.env 
+```
+
+## Build and Run
+
+```
+docker-compose build
+docker-compose up
 ```
