@@ -1,8 +1,6 @@
 # Vteme react client
 
-## Setup environment and run project
-
-### Clone repository and install dependencies
+## Clone repository and install dependencies
 
 ```
 git clone git@github.com:vtemelife/client.git
