@@ -15,7 +15,7 @@ clean:
 	rm -rf node_modules
 
 build:
-	GENERATE_SOURCEMAP=false yarn run build
+	NODE_ENV=production GENERATE_SOURCEMAP=false yarn run build
 
 fix:
 	yarn run lint --fix

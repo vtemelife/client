@@ -1,8 +1,7 @@
-FROM nginx:1.15.10-alpine
-RUN apk update && apk --no-cache add bash
+FROM node:13.14.0-alpine
+RUN apk update && apk --no-cache add make bash
 
-COPY ./build /www
-COPY ./compose/nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./compose/ssl /etc/nginx/ssl
+RUN yarn install
+RUN npm rebuild node-sass
 
 WORKDIR /app/client
