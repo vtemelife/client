@@ -55,8 +55,8 @@ node --version
 Depends on your environment (staging at default) run the following
 
 ```
-cp envsets/local_staging.env .local.env 
-source .local.env
+cp envsets/local_staging.env .env 
+source .env
 ```
 
 ### Install project requirements:

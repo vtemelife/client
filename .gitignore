@@ -29,7 +29,7 @@
 *.swo
 
 # Virtual environments
-.local.env
+.env
 .docker.env
 env
 
