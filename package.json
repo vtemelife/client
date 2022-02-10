@@ -40,7 +40,7 @@
     "mime-types": "^2.1.22",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.25",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "path-to-regexp-es6": "^1.7.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.4.0",
